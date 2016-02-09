@@ -1,0 +1,36 @@
+﻿.drop-zone
+{
+    .border-radius(15px);
+    .box-sizing();
+    background: white;
+    border: 5px dashed #666;
+    cursor: pointer;
+    height: 200px;
+    margin: 10px 0;
+    position: relative;
+    width: 100%;
+
+    .no-file-upload-message
+    {
+        .transform(translateY(-50%));
+        left: 0;
+        margin: auto;
+        max-width: 50%;
+        pointer-events: none;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        top: 50%;
+    }
+
+    &.dz-started
+    {
+        background: none;
+        border: 0;
+
+        .no-file-upload-message
+        {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,90 @@
+﻿@import (reference) "_mixins.less";
+
+.carousel
+{
+    background: #666;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    &:hover
+    {
+        .carousel-next, .carousel-previous
+        {
+            opacity: 0.4;
+        }
+    }
+
+    .carousel-inner
+    {
+        .transition(left 0.3s ease);
+        height: 100%;
+        position: relative;
+        max-width: 100%;
+    }
+
+    .carousel-item
+    {
+        height: 100%;
+        max-width: 100%;
+        position: absolute;
+        top: 0;
+    }
+
+    .carousel-next, .carousel-previous
+    {
+        .border-radius(50%);
+        .transform(translateY(-50%));
+        .transition(all 0.2s ease);
+        background: white;
+        cursor: pointer;
+        height: 28px;
+        opacity: 0.2;
+        padding: 5px;
+        position: absolute;
+        top: 50%;
+        width: 28px;
+
+        &:hover
+        {
+            opacity: 0.6;
+        }
+
+        &.hidden
+        {
+            pointer-events: none;
+        }
+
+        & > i
+        {
+            .transform(translateY(-50%));
+            font-size: 28px;
+            left: 0;
+            position: absolute;
+            right: 0;
+            text-align: center;
+            top: 50%;
+        }
+    }
+
+    .carousel-next
+    {
+        right: 10px;
+
+        &.hidden
+        {
+            right: -48px;
+        }
+    }
+
+    .carousel-previous
+    {
+        left: 10px;
+
+        &.hidden
+        {
+            left: -48px;
+        }
+    }
+}

@@ -1,0 +1,352 @@
+﻿@import "_mixins.less";
+
+@navBackground: #434343;
+
+header
+{
+    .box-sizing();
+    .transition(all 300ms ease);
+
+    & + .page-content
+    {
+        .transition(padding 0.3s ease);
+        .transition-delay(0.3s);
+        height: 100%;
+
+        & > .page-header
+        {
+            .box-sizing();
+            .text-overflow();
+            .transition-delay(0.3s);
+
+            height: 48px;
+            left: 48px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+    }
+
+    &.always-open
+    {
+        & + .page-content
+        {
+            .box-sizing();
+            .transition-delay(0s);
+            padding-left: 240px;
+            width: 100%;
+        }
+
+        .menu-link
+        {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .login-button, .logged-in-button
+        {
+            width: 220px;
+        }
+    }
+
+    &.open, &.always-open
+    {
+        & + .page-content
+        {
+            & > .page-header
+            {
+                .transition-delay(0s);
+                left: 240px;
+            }
+        }
+        .menu-link
+        {
+            .transition-delay(0s);
+            left: 187px;
+            top: 10px;
+        }
+
+        .copy-right
+        {
+            display: block;
+        }
+
+        nav
+        {
+            .transition-delay(0s);
+            height: 100%;
+            left: 0;
+            padding: 10px 0 50px;
+            pointer-events: all;
+            top: 0;
+            width: 240px;
+
+            & > .nav-content
+            {
+                .transition-delay(0.3s);
+                opacity: 1;
+            }
+        }
+    }
+
+    a.home-link
+    {
+        background: none;
+        display: inline-block;
+        font-size: 0;
+        width: 100%;
+        .transition(background 0.3s ease);
+
+        &:hover
+        {
+            background: rgba(255, 255, 255, 0.3);
+        }
+    }
+
+    .menu-link
+    {
+        .transition(~"left 0.3s ease, top 0.3s ease");
+        .transition-delay(0.3s);
+        background-color: @navBackground;
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABHSURBVFhH7dSxDQAgDAPBJJuw/1BsEkDIoqGOKPhr7NKVDd9z5TEW1RK+qG6hfIYBAHhCBgC4njAzu2qJiGiqG1fME+Ixswl49RAVQo7gFwAAAABJRU5ErkJggg==') /*/Images/Header/MenuIcon.png*/;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 32px;
+        cursor: pointer;
+        height: 48px;
+        opacity: 1;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 48px;
+        z-index: 1;
+
+        &:hover
+        {
+            span
+            {
+                background-color: rgba(255, 255, 255, 0.3);
+            }
+        }
+
+        span
+        {
+            .transition(background 0.2s ease);
+            display: inline-block;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    nav
+    {
+        .box-sizing();
+        .transition(all 0.3s ease);
+        .transition-delay(0.3s);
+        background: @navBackground;
+        color: white;
+        height: 48px;
+        left: 0;
+        pointer-events: none;
+        position: fixed;
+        top: 0;
+        width: 48px;
+        z-index: 1;
+
+        & > .nav-content
+        {
+            .box-sizing();
+            .transition(opacity 0.3s ease);
+            .transition-delay(0s);
+            height: 100%;
+            opacity: 0;
+            padding: 60px 0 20px;
+            position: relative;
+            width: 100%;
+        }
+
+        .copy-right
+        {
+            .box-sizing();
+            bottom: 0;
+            display: none;
+            height: 50px;
+            left: 0;
+            padding: 20px 20px 0;
+            position: absolute;
+            right: 0;
+        }
+    }
+
+    .login-button, .logged-in-button
+    {
+        .transition(~"background 0.2s ease, width 0.2s ease");
+        cursor: pointer;
+        display: inline-block;
+        height: 48px;
+        left: 10px;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        width: 177px;
+
+        &:hover
+        {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        & > span
+        {
+            color: white;
+            display: inline-block;
+            font-size: 1.3em;
+            position: absolute;
+
+            &.icon
+            {
+                font-size: 2em;
+                height: 48px;
+                left: 0;
+                line-height: 48px;
+                text-align: center;
+                width: 48px;
+            }
+
+            &.text
+            {
+                bottom: 0;
+                font-weight: 600;
+                height: 26px;
+                left: 0;
+                line-height: 26px;
+                margin: auto;
+                right: 0;
+                text-align: center;
+                top: 0;
+            }
+        }
+    }
+
+    .logged-in-button
+    {
+        & > span
+        {
+            &.text
+            {
+                opacity: 1;
+            }
+        }
+    }
+
+    ul#menu
+    {
+        font-size: 1.3em;
+        margin: 0 0 5px;
+        padding: 0;
+        text-align: left;
+        width: 100%;
+
+        li
+        {
+            display: inline-block;
+            line-height: 24px;
+            list-style: none;
+            opacity: 1;
+            padding: 0;
+            position: relative;
+            text-align: left;
+            width: 100%;
+
+            & > .nav-link
+            {
+                .transition(background 0.2s ease);
+                background: none;
+
+                &:hover
+                {
+                    background: rgba(255, 255, 255, 0.3);
+                }
+            }
+
+            .sub-nav-selector
+            {
+                .transition(background 0.2s ease);
+                background: none;
+                cursor: pointer;
+                display: inline-block;
+                float: right;
+                height: 40px;
+                line-height: 40px;
+                position: relative;
+                text-align: center;
+                width: 40px;
+
+                & + a
+                {
+                    margin-right: 40px;
+                }
+
+                &:hover, &.on
+                {
+                    background: rgba(255, 255, 255, 0.3);
+
+                    & > .sub-nav
+                    {
+                        .transform(rotate3d(0,1,0,0));
+
+                        & > ul
+                        {
+                            opacity: 1;
+                            pointer-events: all;
+                        }
+                    }
+                }
+            }
+
+            a, .fake-link
+            {
+                .box-sizing();
+                color: inherit;
+                display: block;
+                padding: 8px 15px;
+                text-decoration: none;
+            }
+
+            .sub-nav
+            {
+                .transform(rotate3d(0,1,0,90deg));
+                .transform-origin(0 50%);
+                .transition(all 0.3s ease);
+                left: 100%;
+                position: absolute;
+                top: 0;
+                width: 250px;
+
+                ul
+                {
+                    .transition(opacity 0.3s ease);
+                    background: @navBackground;
+                    margin-left: 10px;
+                    opacity: 0;
+                    pointer-events: none;
+
+                    &:before
+                    {
+                        .transform(rotateZ(45deg));
+                        content: '';
+                        background: @navBackground;
+                        display: block;
+                        height: 20px;
+                        left: 5px;
+                        position: absolute;
+                        top: 10px;
+                        width: 20px;
+                    }
+
+                    a
+                    {
+                    }
+                }
+            }
+        }
+    }
+}

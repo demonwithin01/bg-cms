@@ -1,0 +1,104 @@
+﻿@{
+    PageTitle = "Admin";
+}
+
+
+<div class="admin-home-nav-items">
+    <ul>
+        <li>
+            <div class="admin-link-title"><h3>Nav Menu</h3></div>
+            <div class="admin-link">
+                <a href="@Url.Action( "List", "Navigation", new { area="Admin" } )">
+                    <div>
+                        <span class="admin-link-icon"><i class="fa fa-edit"></i></span>
+                        <span class="admin-link-text">Manage</span>
+                    </div>
+                </a>
+            </div>
+            <div class="admin-link">
+                <a href="@Url.Action( "Edit", "Navigation", new { area="Admin" } )">
+                    <div>
+                        <span class="admin-link-icon"><i class="fa fa-plus"></i></span>
+                        <span class="admin-link-text">Add</span>
+                    </div>
+                </a>
+            </div>
+        </li>
+        <li>
+            <div class="admin-link-title"><h3>Pages</h3></div>
+            <div class="admin-link">
+                <a href="@Url.Action( "List", "Page", new { area="Admin" } )">
+                    <div>
+                        <span class="admin-link-icon"><i class="fa fa-edit"></i></span>
+                        <span class="admin-link-text">Manage</span>
+                    </div>
+                </a>
+            </div>
+            <div class="admin-link">
+                <a href="@Url.Action( "Create", "Page", new { area="Admin" } )">
+                    <div>
+                        <span class="admin-link-icon"><i class="fa fa-plus"></i></span>
+                        <span class="admin-link-text">Add</span>
+                    </div>
+                </a>
+            </div>
+        </li>
+        <li>
+            <div class="admin-link-title"><h3>Product Categories</h3></div>
+            <div class="admin-link">
+                <a href="@Url.Action( "List", "ProductCategory" , new { area="Admin" } )">
+                    <div>
+                        <span class="admin-link-icon"><i class="fa fa-edit"></i></span>
+                        <span class="admin-link-text">Manage</span>
+                    </div>
+                </a>
+            </div>
+            <div class="admin-link">
+                <a href="@Url.Action( "Create", "ProductCategory" , new { area="Admin" } )">
+                    <div>
+                        <span class="admin-link-icon"><i class="fa fa-plus"></i></span>
+                        <span class="admin-link-text">Add</span>
+                    </div>
+                </a>
+            </div>
+        </li>
+        <li>
+            <div class="admin-link-title"><h3>Products</h3></div>
+            <div class="admin-link">
+                <a href="@Url.Action( "List", "Product" , new { area="Admin" } )">
+                    <div>
+                        <span class="admin-link-icon"><i class="fa fa-edit"></i></span>
+                        <span class="admin-link-text">Manage</span>
+                    </div>
+                </a>
+            </div>
+            <div class="admin-link">
+                <a href="@Url.Action( "Create", "Product" , new { area="Admin" } )">
+                    <div>
+                        <span class="admin-link-icon"><i class="fa fa-plus"></i></span>
+                        <span class="admin-link-text">Add</span>
+                    </div>
+                </a>
+            </div>
+        </li>
+        <li>
+            <div class="admin-link-title"><h3>Uploads</h3></div>
+            <div class="admin-link">
+                <a href="@Url.Action( "List", "Uploads" , new { area="Admin" } )">
+                    <div>
+                        <span class="admin-link-icon"><i class="fa fa-edit"></i></span>
+                        <span class="admin-link-text">Manage</span>
+                    </div>
+                </a>
+            </div>
+            <div class="admin-link">
+                <a href="@Url.Action( "Create", "Uploads" , new { area="Admin" } )">
+                    <div>
+                        <span class="admin-link-icon"><i class="fa fa-plus"></i></span>
+                        <span class="admin-link-text">Add</span>
+                    </div>
+                </a>
+            </div>
+        </li>
+    </ul>
+</div>

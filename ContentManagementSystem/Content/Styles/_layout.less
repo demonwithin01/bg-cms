@@ -1,0 +1,183 @@
+﻿@import "_mixins.less";
+
+html, body
+{
+    min-width: 480px;
+}
+
+html
+{
+    margin: 0;
+    height: 100%;
+    padding: 0;
+    position: relative;
+}
+
+body
+{
+    color: #333;
+    font-size: .85em;
+    font-family: Verdana, Helvetica, Sans-Serif;
+    margin: 0;
+    height: 100%;
+    line-height: normal;
+    padding: 0;
+}
+
+p
+{
+    margin: @paragraph-margin;
+}
+
+blockquote
+{
+    .border-radius(3px);
+    background: #eee;
+    border: 2px solid #ddd;
+    display: inline-block;
+    padding: 20px;
+    
+    &:before
+    {
+        //content: '\201C';
+        display: inline;
+        vertical-align: super;
+    }
+
+    &:after
+    {
+        //content: '\201D';
+        display: inline;
+        vertical-align: sub;
+    }
+}
+
+ol, ul
+{
+    margin-left: 20px;
+
+    li
+    {
+        line-height: 20px;
+    }
+}
+
+ol
+{
+    list-style: inside decimal;
+    
+}
+
+ul
+{
+    list-style: inside disc;
+}
+
+#body
+{
+    .box-sizing();
+    .transition(padding 0.3s ease);
+    .transition-delay(0.3s);
+    background: rgba(255, 255, 255, 0.96);
+    clear: both;
+    margin: 0 auto;
+    min-height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+.page-header
+{
+    .transition(all 0.3s ease);
+    background: #f2f2f2;
+    border-bottom: 1px solid #434343;
+    font-size: 2em;
+    font-weight: bold;
+    left: 0;
+    line-height: 1em;
+    padding: @title-padding;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+
+    & ~ #body
+    {
+        padding-top: calc(~"@{title-padding} * 2 + 2em");
+    }
+
+    h1
+    {
+        .box-sizing();
+
+        font-size: inherit;
+        margin: 0 auto;
+        padding: 0 10px;
+    }
+}
+
+.content-wrapper
+{
+    padding: 20px;
+}
+
+.page-background
+{
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.page-content-wrapper .page-content, .page-header > h1
+{
+    width: 545px;
+}
+
+.page-content-wrapper
+{
+    text-align: center;
+
+    .page-content
+    {
+        display: inline-block;
+        text-align: left;
+
+        .page-inner-content
+        {
+            img
+            {
+                width: 100%;
+            }
+        }
+    }
+}
+
+
+@media only screen and (min-width: 1120px)
+{
+    .page-content-wrapper .page-content, .page-header > h1
+    {
+        width: 820px;
+    }
+}
+
+@media only screen and (min-width: 1450px)
+{
+    .page-content-wrapper .page-content, .page-header > h1
+    {
+        width: 1095px;
+    }
+}
+
+@media only screen and (min-width: 1680px)
+{
+    .page-content-wrapper .page-content, .page-header > h1
+    {
+        width: 1370px;
+    }
+}

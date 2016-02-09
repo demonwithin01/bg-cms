@@ -1,0 +1,82 @@
+﻿@import "_variables.less";
+@import "_mixins.less";
+
+.button
+{
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    font-size: @site-font-size;
+    outline: none;
+    padding: 8px 15px;
+    text-decoration: none;
+    width: auto;
+
+    .border-radius();
+    .transition(all 0.3s ease);
+
+    &:focus
+    {
+        border: 0;
+        outline: 0;
+    }
+
+    & + .button
+    {
+        margin-left: 10px;
+    }
+
+    &.primary
+    {
+        background: @button-primary-background-color;
+        color: white;
+
+        &:hover
+        {
+            background: lighten(@button-primary-background-color, 10%);
+        }
+    }
+    
+    &.secondary
+    {
+        background: @button-secondary-background-color;
+        color: white;
+
+        &:hover
+        {
+            background: lighten(@button-secondary-background-color, 10%);
+        }
+    }
+
+    &.tertiary
+    {
+        background: @button-tertiary-background-color;
+        color: white;
+
+        &:hover
+        {
+            background: lighten(@button-tertiary-background-color, 10%);
+        }
+    }
+
+    &.cancel
+    {
+        background: @button-cancel-background-color;
+        color: white;
+
+        &:hover
+        {
+            background: lighten(@button-cancel-background-color, 10%);
+        }
+    }
+}
+
+.button-group
+{
+    font-size: 0;
+}
+
+.table-button
+{
+
+}

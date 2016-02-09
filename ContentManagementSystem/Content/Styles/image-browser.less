@@ -1,0 +1,138 @@
+﻿@import "_mixins.less";
+
+body
+{
+    margin: 0;
+    min-height: 640px;
+    min-width: 1120px;
+    position: relative;
+}
+
+.body
+{
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.images-list-container
+{
+    background: #666;
+    display: inline-block;
+    float: left;
+    height: 100%;
+    margin-top: 40px;
+    width: 200px;
+
+    ul
+    {
+        padding: 10px 0;
+
+        li
+        {
+            cursor: pointer;
+            position: relative;
+
+            &:hover
+            {
+                background: #777;
+            }
+
+            &.highlighted
+            {
+                background: #999;
+            }
+
+            .image-selector
+            {
+                bottom: 0;
+                left: 0;
+                position: absolute;
+                top: 0;
+                width: 40px;
+
+                .checkbox
+                {
+                    bottom: 0;
+                    left: 0;
+                    margin: auto;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                }
+            }
+
+            .image-name
+            {
+                padding: 10px 10px 10px 40px;
+            }
+        }
+    }
+}
+
+.button-list
+{
+    background: #333;
+    left: 0;
+    min-height: 50px;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 0;
+
+    .button
+    {
+        .box-sizing();
+        height: 32px;
+        line-height: 32px;
+        margin: 9px 10px 0 0;
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+
+    p
+    {
+        color: white;
+        left: 0;
+        line-height: 50px;
+        padding-left: 10px;
+        position: absolute;
+        text-align: left;
+        top: 0;
+    }
+}
+
+.image-preview
+{
+    background: #999;
+    height: 100%;
+    margin-top: 40px;
+    margin-left: 200px;
+
+    .image-container
+    {
+        .box-sizing();
+        .transition(opacity 0.15s ease);
+        height: 100%;
+        opacity: 1;
+        padding: 40px;
+        position: relative;
+        text-align: center;
+
+        &.off
+        {
+            opacity: 0;
+        }
+
+        img
+        {
+            .transform(translateY(-50%));
+            max-height: 100%;
+            max-width: 100%;
+            position: relative;
+            top: 50%;
+        }
+    }
+}

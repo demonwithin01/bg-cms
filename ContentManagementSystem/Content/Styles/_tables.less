@@ -1,0 +1,78 @@
+﻿@tableHeaderBackgroundColor: #0A5995;
+@tableHeaderTextColor: white;
+@tableFooterBackgroundColor: @tableHeaderBackgroundColor;
+@tableFooterTextColor: @tableHeaderTextColor;
+@tableRowColor: fadeout(@tableHeaderBackgroundColor, 95);
+@tableAlternateRowColor: fadeout(@tableHeaderBackgroundColor, 80);
+@tableHeaderCellPadding: 10px;
+@tableCellPadding: 10px;
+
+table
+{
+    margin-bottom: 20px;
+    width: 100%;
+
+    thead
+    {
+        background: @tableHeaderBackgroundColor;
+        color: @tableHeaderTextColor;
+        tr
+        {
+        }
+    }
+
+    tbody
+    {
+        tr
+        {
+            &:nth-child(odd)
+            {
+                background: @tableRowColor;
+            }
+
+            &:nth-child(even)
+            {
+                background: @tableAlternateRowColor;
+            }
+
+            td
+            {
+
+            }
+        }
+    }
+
+    tfoot
+    {
+        background: @tableFooterBackgroundColor;
+        color: @tableFooterTextColor;
+    }
+
+    th
+    {
+        padding: @tableHeaderCellPadding;
+    }
+
+    td
+    {
+        padding: @tableCellPadding;
+    }
+
+    th, td
+    {
+        &.date-column
+        {
+            width: 220px;
+        }
+
+        &.date-with-name-column
+        {
+            width: 340px;
+        }
+
+        &.options-column
+        {
+            width: 180px;
+        }
+    }
+}

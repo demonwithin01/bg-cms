@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@PageTitle</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render( "~/Content/admincss" )
+        @Scripts.Render( "~/bundles/modernizr" )
+        @Scripts.Render( "~/bundles/jquery" )
+        @Scripts.Render( "~/bundles/jqueryval" )
+        @Scripts.Render( "~/bundles/siteadmin" )
+        @Scripts.Render( "~/bundles/site" )
+    </head>
+    <body>
+        <img class="page-background" src="/Images/Backgrounds/background.png" />
+        <header class="always-open">
+            <nav>
+                <div class="nav-content">
+                    @using ( Html.BeginForm( "LogOff", "Account", new { Area = "Home" } ) )
+                    {
+                        @Html.AntiForgeryToken()
+                        <span onclick="$(this).parent().submit();" class="logged-in-button">
+                            <span class="icon">
+                                    <i class="icon fa fa-sign-out"></i>
+                                </span>
+                            <span class="text">Logout</span>
+                        </span>
+                    }
+                    <ul id="menu" class="off">
+                        <li class="off">
+                            <div class="nav-link">
+                                <a href="/">Site Home</a>
+                            </div>
+                        </li>
+                        <li class="off">
+                            <div class="nav-link">
+                                <a href="@Url.Action( "Index", "Home", new { Area = "Admin" } )">Admin Home</a>
+                            </div>
+                        </li>
+                        <li class="off">
+                            <div class="nav-link">
+                                <div class="sub-nav-selector">
+                                    <i class="fa fa-angle-right"></i>
+                                    <div class="sub-nav">
+                                        <ul>
+                                            <li>
+                                                <div class="nav-link">
+                                                    <a href="@Url.Action( "List", "Navigation", new { Area = "Admin" } )">Edit nav items</a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="nav-link">
+                                                    <a href="@Url.Action( "Edit", "Navigation", new { Area = "Admin" } )">Add new nav item</a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a href="@Url.Action( "List", "Navigation", new { Area = "Admin" } )">Nav Items</a>
+                            </div>
+                        </li>
+                        <li class="off">
+                            <div class="nav-link">
+                                <div class="sub-nav-selector">
+                                    <i class="fa fa-angle-right"></i>
+                                    <div class="sub-nav">
+                                        <ul>
+                                            <li>
+                                                <div class="nav-link">
+                                                    <a href="@Url.Action( "List", "Page", new { Area = "Admin" } )">View pages</a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="nav-link">
+                                                    <a href="@Url.Action( "Create", "Page", new { Area = "Admin" } )">Add new page</a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a href="@Url.Action( "List", "Page", new { Area = "Admin" } )">Pages</a>
+                            </div>
+                        </li>
+                        <li class="off">
+                            <div class="nav-link">
+                                <div class="sub-nav-selector">
+                                    <i class="fa fa-angle-right"></i>
+                                    <div class="sub-nav">
+                                        <ul>
+                                            <li>
+                                                <div class="nav-link">
+                                                    <a href="@Url.Action( "List", "Product", new { Area = "Admin" } )">View products</a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="nav-link">
+                                                    <a href="@Url.Action( "Create", "Product", new { Area = "Admin" } )">Add new product</a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a href="@Url.Action( "List", "Product", new { Area = "Admin" } )">Products</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="copy-right text-center">
+                    <p>&copy; @DateTime.Now.Year - Stephen Barnes</p>
+                </div>
+            </nav>
+            <div class="menu-link">
+                <span></span>
+            </div>
+        </header>
+        <div class="page-content">
+            <div id="body" class="content-wrapper">
+                <section class="main-content clear-fix">
+                    @RenderBody()
+                </section>
+            </div>
+        </div>
+        @RenderSection("scripts", required: false)
+        <script>
+            var _site;
+
+            $(function ()
+            {
+                _site = new Site();
+            });
+        </script>
+    </body>
+</html>

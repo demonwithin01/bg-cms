@@ -1,0 +1,41 @@
+﻿@model ContentManagementSystem.Admin.Models.UploadsListModel
+@{
+    PageTitle = "Uploads";
+}
+
+<table>
+    <thead>
+        <tr>
+            <th class="text-left">Page Title</th>
+            <th class="text-left">Location</th>
+            <th class="text-left date-with-name-column">Last Updated</th>
+            <th class="text-right options-column">Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ( var upload in Model.Uploads )
+        { 
+            <tr>
+                <td class="text-left">
+                    @upload.Name
+                </td>
+                <td class="text-left">
+                    @upload.Location
+                </td>
+                <td class="text-left date-with-name-column">
+                    @upload.DateUpdated.ToString( "dddd dd/MM/yyyy hh:mm tt" )
+                </td>
+                <td class="text-right options-column">
+                    <a href="@Url.Action( "Edit", "Uploads", new { Area = "Admin", id = upload.UploadId } )" class="table-button">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4"></td>
+        </tr>
+    </tfoot>
+</table>
+
+<a href="@Url.Action( "Create", "Uploads", new { Area = "Admin" } )" class="button primary">Upload New File</a>

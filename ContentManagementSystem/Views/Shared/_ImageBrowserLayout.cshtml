@@ -1,0 +1,31 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en" style="height: 100%;">
+<head>
+    <title>Browse Images</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    @Scripts.Render( "~/bundles/image-upload-page" )
+    @Scripts.Render( "~/bundles/site" )
+    @Styles.Render( "~/Content/admincss" )
+    @Styles.Render( "~/Content/image-browser-css" )
+
+    @RenderSection( "head", required: false )
+
+</head>
+<body class="">
+
+    <div class="image-list">
+        @RenderBody()
+    </div>
+
+    @RenderSection( "scripts", required: false )
+
+</body>
+</html>

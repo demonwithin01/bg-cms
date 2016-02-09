@@ -1,0 +1,33 @@
+﻿@model ContentManagementSystem.Admin.Models.NavigationListModel
+@{
+    PageTitle = "Navigation Items";
+}
+
+<table>
+    <thead>
+        <tr>
+            <th>Navigation Title</th>
+            <th class="text-right options-column">Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ( var navItem in Model.NavItems )
+        {
+            <tr>
+                <td>
+                    @navItem.Title
+                </td>
+                <td class="text-right options-column">
+                    <a href="@Url.Action( "Edit", "Navigation", new { Area = "Admin", navItemId = navItem.DomainNavigationItemId } )">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3"></td>
+        </tr>
+    </tfoot>
+</table>
+
+<a href="@Url.Action( "Edit", "Navigation", new { Area = "Admin" } )" class="button primary">Add Nav Item</a>

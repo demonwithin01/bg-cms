@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+
+<h1>About</h1>
+
+<h2>About the website</h2>
+<article>
+    This website was built using a custom content management system. Most pages are dynamically stored within the database.
+</article>
+
+<div class="clear"></div>
+
+<h2>About the Developer</h2>
+<article>
+    <p>
+        Stephen Barnes
+    </p>
+
+    <p>
+        Developer based in Wollongong. 
+    </p>
+
+    <div>
+        Proficient in:
+        <ul>
+            <li>C#</li>
+            <li>ASP.NET / .NET</li>
+            <li>JavaScript</li>
+            <li>Html</li>
+            <li>CSS</li>
+            <li>C++</li>
+        </ul>
+    </div>
+</article>
+
+<aside>
+    <h3>Aside Title</h3>
+    <p>
+        Use this area to provide additional information.
+    </p>
+    <ul>
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("About", "About", "Home")</li>
+        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+    </ul>
+</aside>

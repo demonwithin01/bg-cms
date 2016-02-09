@@ -1,0 +1,115 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_ImageBrowserLayout.cshtml";
+}
+
+<div class="body">
+    <div class="images-list-container">
+        <ul>
+            <li data-id="2" data-image-location="/Content/Uploads/b9ec49c9-521c-42ee-8666-52e81f61f703/2015-10-07/Barnesy_Square.jpg">
+                <div class="image-selector">
+                    <div class="checkbox">
+                        <i class="fa fa-check"></i>
+                    </div>
+                </div>
+                <div class="image-name">
+                    Image #1
+                </div>
+            </li>
+            <li data-id="2" class="highlighted" data-image-location="/Content/Uploads/b9ec49c9-521c-42ee-8666-52e81f61f703/2015-10-07/Barnesy_Square.jpg">
+                <div class="image-selector">
+                    <div class="checkbox">
+                        <i class="fa fa-check"></i>
+                    </div>
+                </div>
+                <div class="image-name">
+                    Image #2
+                </div>
+            </li>
+            <li data-id="2" data-image-location="/Content/Uploads/b9ec49c9-521c-42ee-8666-52e81f61f703/2015-10-07/Barnesy_Square.jpg">
+                <div class="image-selector">
+                    <div class="checkbox">
+                        <i class="fa fa-check"></i>
+                    </div>
+                </div>
+                <div class="image-name">
+                    Image #3
+                </div>
+            </li>
+            <li data-id="2" data-image-location="/Content/Uploads/b9ec49c9-521c-42ee-8666-52e81f61f703/2015-10-07/Barnesy_Square.jpg">
+                <div class="image-selector">
+                    <div class="checkbox">
+                        <i class="fa fa-check"></i>
+                    </div>
+                </div>
+                <div class="image-name">
+                    Image #4
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="image-preview">
+        <div class="image-container off">
+            <img />
+        </div>
+    </div>
+    <div class="button-list">
+        <p><span>0</span> Image(s) Selected</p>
+        <div id="acceptImages" class="button primary">Accept</div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        var timeout = undefined;
+
+        $( function ()
+        {
+            $('.images-list-container li .image-name').on('click', handleImageNameClick);
+
+            $(document).on('click', '.checkbox', function ()
+            {
+                $(this).toggleClass('checked');
+
+                $('.button-list span').text($('.checkbox.checked').length);
+            });
+
+            $('#acceptImages').on('click', function ()
+            {
+                var images = new Array();
+
+                $('.images-list-container .checkbox.checked').each(function ()
+                {
+                    var $image = $(this).closest('li');
+
+                    images.push({ uploadId: $image.attr('data-id'), imageLocation: $image.attr('data-image-location') });
+                });
+
+                window.opener.IMAGEBROWSER.sendImages(images);
+            });
+        });
+
+        var handleImageNameClick = function ()
+        {
+            var $this = $(this).closest('li');
+
+            if ($this.hasClass('highlighted'))
+            {
+                return;
+            }
+
+            $this.addClass('highlighted').siblings().removeClass('highlighted');
+
+            clearTimeout(timeout);
+
+            var $imageContainer = $('.image-container').addClass('off');
+
+            setTimeout(function ()
+            {
+                $imageContainer.find('img').attr('src', $this.attr('data-image-location'));
+                $imageContainer.removeClass('off');
+            }, 150);
+        }
+    </script>
+}

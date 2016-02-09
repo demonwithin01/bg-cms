@@ -1,0 +1,56 @@
+﻿@model ContentManagementSystem.Models.Home.ContactModel
+
+@{
+    ViewBag.Title = "Contact";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>@ViewBag.Message</h2>
+</hgroup>
+
+<section class="contact">
+    @using ( Ajax.BeginForm( new AjaxOptions() { OnSuccess = "_site.contactForm.contactFormSubmitted" } ) )
+    {
+        <dl>
+            @Html.TextBoxFieldFor( m => m.FullName )
+            @Html.TextBoxFieldFor( m => m.Subject )
+            @Html.TextAreaFieldFor( m => m.Message )
+        </dl>
+        
+        <div class="button-wrapper">
+            <input class="button primary-button" type="submit" title="Submit" />
+        </div>
+    }
+    <h3>
+        <h3>Phone</h3>
+    </h3>
+    <p>
+        <span class="label">Main:</span>
+        <span>425.555.0100</span>
+    </p>
+    <p>
+        <span class="label">After Hours:</span>
+        <span>425.555.0199</span>
+    </p>
+</section>
+
+<section class="contact">
+    <h3>
+        <h3>Email</h3>
+    </h3>
+    <p>
+        <span class="label">Support:</span>
+        <span><a href="mailto:support@bgrade.com">support@bgrade.com</a></span>
+    </p>
+</section>
+
+<section class="contact">
+    <h3>
+        <h3>Address</h3>
+    </h3>
+    <p>
+        One Microsoft Way<br />
+        Redmond, WA 98052-6399
+    </p>
+</section>

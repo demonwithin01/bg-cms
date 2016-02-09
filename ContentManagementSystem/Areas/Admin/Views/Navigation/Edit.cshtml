@@ -1,0 +1,14 @@
+﻿@model ContentManagementSystem.Admin.Models.NavigationModel
+@{
+    PageTitle = ( Model.DomainNavigationItemId.HasValue ? "Edit" : "Add" ) + " Navigation Item";
+}
+
+<h2>@PageTitle</h2>
+
+@using ( Html.BeginForm() )
+{
+    @Html.HiddenFor( m => m.DomainNavigationItemId )
+    <dl>
+        @Html.TextBoxFieldFor( m => m.Title )
+    </dl> 
+}

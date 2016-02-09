@@ -1,0 +1,16 @@
+﻿@using ContentManagementSystem.Helpers;
+@model ContentManagementSystem.Admin.Models.ProductCategoryModel
+@{
+    PageTitle = ( Model.ProductCategoryId.HasValue ? "Edit" : "Add" ) + " Product Category";
+}
+
+<h2>@PageTitle</h2>
+
+@using ( Html.BeginForm() )
+{
+    @Html.HiddenFor( m => m.ProductCategoryId )
+    <dl>
+        @Html.TextBoxFieldFor( m => m.Name )
+    </dl>
+    <button>Submit</button>
+}

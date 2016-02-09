@@ -1,0 +1,127 @@
+﻿@import "_mixins.less";
+
+form
+{
+    margin: 10px 0;
+
+    dl
+    {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+
+        dt, dd
+        {
+            .box-sizing();
+            margin: 0;
+            padding: 0;
+
+            &.ck-editor
+            {
+                width: 100%;
+            }
+        }
+
+        dd
+        {
+            //padding-right: 20px;
+            position: relative;
+
+            & + dt
+            {
+                margin-top: 10px;
+            }
+
+            input, textarea, select
+            {
+                .box-sizing();
+                margin: 0;
+                width: 100%;
+            }
+
+            textarea
+            {
+                max-width: 100%;
+                min-height: 100px;
+                min-width: 100%;
+            }
+
+            .field-validation-error
+            {
+
+            }
+        }
+
+        dt
+        {
+            & + dd
+            {
+                margin-top: 4px;
+            }
+        }
+
+        & + dl
+        {
+            margin-top: 10px;
+        }
+    }
+}
+
+#contactForm
+{
+    padding: 15px;
+
+    dd
+    {
+        padding-right: 0;
+    }
+
+    dl
+    {
+        font-size: 14px;
+        width: 100%;
+    }
+
+    label
+    {
+        font-size: 1em;
+    }
+
+    .button
+    {
+        font-size: 14px;
+        width: 100%;
+    }
+}
+
+#contactFormWrapper
+{
+    .transition(height 0.3s ease);
+    height: 0px;
+    overflow: hidden;
+}
+
+.checkbox
+{
+    border: 1px solid #808080;
+    height: 20px;
+    width: 20px;
+
+    &.checked
+    {
+        i
+        {
+            display: block;
+        }
+    }
+
+    i
+    {
+        color: #38D738;
+        display: none;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+    }
+}

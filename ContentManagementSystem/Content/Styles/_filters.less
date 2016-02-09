@@ -1,0 +1,21 @@
+﻿
+.top-filters
+{
+    &:after
+    {
+        clear: both;
+        content: '';
+        display: block;
+    }
+
+    dl
+    {
+        float: left;
+        max-width: 200px;
+
+        & + dl
+        {
+            margin-left: 20px;
+        }
+    }
+}

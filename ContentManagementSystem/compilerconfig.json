@@ -1,0 +1,20 @@
+﻿[
+  {
+    "outputFile": "Content/Styles/admin.css",
+    "inputFile": "Content/Styles/admin.less",
+    "minify": {
+      "enabled": true
+    }
+  },
+  {
+    "outputFile": "Content/Styles/site.css",
+    "inputFile": "Content/Styles/site.less",
+    "minify": {
+      "enabled": true
+    }
+  },
+  {
+    "outputFile": "Content/Styles/image-browser.css",
+    "inputFile": "Content/Styles/image-browser.less"
+  }
+]
