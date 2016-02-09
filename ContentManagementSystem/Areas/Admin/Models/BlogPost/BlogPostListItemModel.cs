@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
 using ContentManagementSystem.Framework;
 using ContentManagementSystemDatabase;
 
 namespace ContentManagementSystem.Admin.Models
 {
-    public class PageModel
+    public class BlogPostListItemModel
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -22,15 +20,35 @@ namespace ContentManagementSystem.Admin.Models
 
         #region Constructors/Initialisation
 
-        public PageModel()
+        public BlogPostListItemModel( BlogPost blogPost )
         {
+            BlogPostContent blogPostContent = blogPost.BlogPostContent.OrderByDescending( s => s.UTCDateUpdated ).First();
 
-        }
+            BlogPostId = blogPost.BlogId;
+            Title = blogPostContent.Title;
 
-        public PageModel( Page page )
-        {
-            PageContent pageContent = page.PageContent.OrderByDescending( s => s.UTCDateUpdated ).First();
-            AutoMap.Map( pageContent, this );
+            LastEditedByName = blogPostContent.LastEditedByUser.UserName;
+            DateUpdated = blogPostContent.UTCDateUpdated.ToLocalTime();
+
+            bool isPublished = blogPost.BlogPostContent.Count( s => s.PublishStatus == PublishStatus.Published ) > 0;
+            bool hasDraft = blogPost.BlogPostContent.Count( s => s.PublishStatus == PublishStatus.Draft ) > 0;
+
+            if ( isPublished && hasDraft )
+            {
+                PageStatus = "Published / Draft Pending";
+            }
+            else if ( isPublished )
+            {
+                PageStatus = "Published";
+            }
+            else if ( hasDraft )
+            {
+                PageStatus = "Draft Pending";
+            }
+            else
+            {
+                PageStatus = "Not Published, No Draft";
+            }
         }
 
         #endregion
@@ -57,16 +75,15 @@ namespace ContentManagementSystem.Admin.Models
 
         #region Properties
 
-        public int? PageId { get; set; }
+        public int BlogPostId { get; set; }
 
-        [Display( Name = "Title" )]
         public string Title { get; set; }
 
-        [AllowHtml]
-        [Display( Name = "Blog Post" )]
-        public string Content { get; set; }
+        public DateTime DateUpdated { get; set; }
 
-        public bool Publish { get; set; }
+        public string PageStatus { get; set; }
+
+        public string LastEditedByName { get; set; }
 
         #endregion
 

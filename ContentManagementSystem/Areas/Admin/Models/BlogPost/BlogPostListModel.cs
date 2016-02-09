@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
-using ContentManagementSystem.Framework;
 using ContentManagementSystemDatabase;
 
 namespace ContentManagementSystem.Admin.Models
 {
-    public class PageModel
+    public class BlogPostListModel
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -22,15 +19,9 @@ namespace ContentManagementSystem.Admin.Models
 
         #region Constructors/Initialisation
 
-        public PageModel()
+        public BlogPostListModel( int domainId, ContentManagementDb db )
         {
-
-        }
-
-        public PageModel( Page page )
-        {
-            PageContent pageContent = page.PageContent.OrderByDescending( s => s.UTCDateUpdated ).First();
-            AutoMap.Map( pageContent, this );
+            this.BlogPosts = db.Blogs.Where( p => p.DomainId == domainId ).ToList().Select( p => new BlogPostListItemModel( p ) ).ToList();
         }
 
         #endregion
@@ -57,16 +48,7 @@ namespace ContentManagementSystem.Admin.Models
 
         #region Properties
 
-        public int? PageId { get; set; }
-
-        [Display( Name = "Title" )]
-        public string Title { get; set; }
-
-        [AllowHtml]
-        [Display( Name = "Blog Post" )]
-        public string Content { get; set; }
-
-        public bool Publish { get; set; }
+        public List<BlogPostListItemModel> BlogPosts { get; set; }
 
         #endregion
 

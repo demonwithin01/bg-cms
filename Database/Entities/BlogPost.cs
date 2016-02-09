@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace ContentManagementSystemDatabase
 {
     [Table( "Blog" )]
-    public class Blog : UTCEntityBase, IDomainRestricted
+    public class BlogPost : UTCEntityBase, IDomainRestricted
     {
         [Key, DatabaseGenerated( DatabaseGeneratedOption.Identity )]
         public int BlogId { get; set; }
@@ -17,6 +17,6 @@ namespace ContentManagementSystemDatabase
         public int CreatedByUserId { get; set; }
         public virtual UserProfile CreatedByUser { get; set; }
 
-        public virtual ICollection<BlogContent> BlogContent { get; set; }
+        public virtual ICollection<BlogPostContent> BlogPostContent { get; set; }
     }
 }

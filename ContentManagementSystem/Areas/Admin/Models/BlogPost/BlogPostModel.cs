@@ -27,10 +27,10 @@ namespace ContentManagementSystem.Admin.Models
 
         }
 
-        public BlogPostModel( Page page )
+        public BlogPostModel( BlogPost blog )
         {
-            PageContent pageContent = page.PageContent.OrderByDescending( s => s.UTCDateUpdated ).First();
-            AutoMap.Map( pageContent, this );
+            BlogPostContent blogContent = blog.BlogPostContent.OrderByDescending( s => s.UTCDateUpdated ).First();
+            AutoMap.Map( blogContent, this );
         }
 
         #endregion
@@ -57,7 +57,7 @@ namespace ContentManagementSystem.Admin.Models
 
         #region Properties
 
-        public int? PageId { get; set; }
+        public int? BlogPostId { get; set; }
 
         [Display( Name = "Page Title" )]
         public string Title { get; set; }

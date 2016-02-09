@@ -8,7 +8,7 @@ using ContentManagementSystemDatabase;
 
 namespace ContentManagementSystem.Admin.Managers
 {
-    public class BlogManager
+    public class BlogPostManager
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -27,22 +27,24 @@ namespace ContentManagementSystem.Admin.Managers
 
         #region Public Methods
 
-        public BlogPostModel GetBlogPostModel( int? pageId )
+        public BlogPostModel GetBlogPostModel( int? blogPostId )
         {
+            if ( blogPostId.HasValue == false ) return new BlogPostModel();
+
             ContentManagementDb db = new ContentManagementDb();
 
-            Page page = db.Pages.Find( pageId );
+            BlogPost blogPost = db.Blogs.Find( blogPostId );
 
-            if ( page == null ) return new BlogPostModel();
+            if ( blogPost == null ) return new BlogPostModel();
 
-            return new BlogPostModel( page );
+            return new BlogPostModel( blogPost );
         }
         
         public SaveResult SaveBlogPost( BlogPostModel model )
         {
             ContentManagementDb db = new ContentManagementDb();
 
-            Blog blog = db.Blogs.Find( model.PageId );
+            BlogPost blog = db.Blogs.Find( model.BlogPostId );
 
             if ( blog == null )
             {
@@ -62,7 +64,7 @@ namespace ContentManagementSystem.Admin.Managers
         {
             try
             {
-                Blog blog = new Blog();
+                BlogPost blog = new BlogPost();
                 blog.Initialise();
 
                 AutoMap.Map( model, blog );
@@ -70,10 +72,10 @@ namespace ContentManagementSystem.Admin.Managers
                 blog.CreatedByUserId = UserSession.Current.UserId;
                 blog.DomainId = UserSession.Current.DomainId;
 
-                BlogContent blogContent = new BlogContent();
+                BlogPostContent blogContent = new BlogPostContent();
 
                 AutoMap.Map( model, blogContent );
-                blog.BlogContent.Add( blogContent );
+                blog.BlogPostContent.Add( blogContent );
 
                 blogContent.Initialize();
 
@@ -93,7 +95,7 @@ namespace ContentManagementSystem.Admin.Managers
             }
         }
 
-        private SaveResult UpdateBlog( Blog blog, BlogPostModel model, ContentManagementDb db )
+        private SaveResult UpdateBlog( BlogPost blog, BlogPostModel model, ContentManagementDb db )
         {
             if ( UserSession.Current.IsAdministrator == false ) return SaveResult.AccessDenied;
 
@@ -101,12 +103,12 @@ namespace ContentManagementSystem.Admin.Managers
 
             try
             {
-                BlogContent pageContent = blog.BlogContent.FirstOrDefault( s => s.PublishStatus == PublishStatus.Draft );
+                BlogPostContent pageContent = blog.BlogPostContent.FirstOrDefault( s => s.PublishStatus == PublishStatus.Draft );
 
                 if ( pageContent == null )
                 {
-                    pageContent = new BlogContent();
-                    blog.BlogContent.Add( pageContent );
+                    pageContent = new BlogPostContent();
+                    blog.BlogPostContent.Add( pageContent );
                 }
 
                 AutoMap.Map( model, pageContent );
@@ -126,16 +128,16 @@ namespace ContentManagementSystem.Admin.Managers
             }
         }
 
-        private void SetPublishStatus( Blog page, BlogContent pageContent, bool publish )
+        private void SetPublishStatus( BlogPost page, BlogPostContent pageContent, bool publish )
         {
             if ( publish )
             {
-                page.BlogContent.Where( s => s.BlogContentId != pageContent.BlogContentId && ( s.PublishStatus == PublishStatus.Draft || s.PublishStatus == PublishStatus.Published ) ).ToList().ForEach( s => s.PublishStatus = PublishStatus.OutOfDate );
+                page.BlogPostContent.Where( s => s.BlogContentId != pageContent.BlogContentId && ( s.PublishStatus == PublishStatus.Draft || s.PublishStatus == PublishStatus.Published ) ).ToList().ForEach( s => s.PublishStatus = PublishStatus.OutOfDate );
                 pageContent.PublishStatus = PublishStatus.Published;
             }
             else
             {
-                page.BlogContent.Where( s => s.BlogContentId != pageContent.BlogContentId && s.PublishStatus == PublishStatus.Draft ).ToList().ForEach( s => s.PublishStatus = PublishStatus.Deleted );
+                page.BlogPostContent.Where( s => s.BlogContentId != pageContent.BlogContentId && s.PublishStatus == PublishStatus.Draft ).ToList().ForEach( s => s.PublishStatus = PublishStatus.Deleted );
                 pageContent.PublishStatus = PublishStatus.Draft;
             }
         }

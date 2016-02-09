@@ -22,7 +22,7 @@ namespace ContentManagementSystemDatabase
 
         /** Content **/
         public DbSet<Content> Content { get; set; }
-        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<BlogPost> Blogs { get; set; }
         public DbSet<Page> Pages { get; set; }
 
         public DbSet<Upload> Uploads { get; set; }

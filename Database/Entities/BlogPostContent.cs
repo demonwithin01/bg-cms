@@ -10,14 +10,14 @@ using System.Threading.Tasks;
 namespace ContentManagementSystemDatabase
 {
     [Table( "[BlogContent]" )]
-    public class BlogContent : UTCDateUpdatedBase
+    public class BlogPostContent : UTCDateUpdatedBase
     {
         [Key, DatabaseGenerated( DatabaseGeneratedOption.Identity )]
         public int BlogContentId { get; set; }
 
         [ForeignKey( "Blog" )]
         public int BlogId { get; set; }
-        public virtual Blog Blog { get; set; }
+        public virtual BlogPost Blog { get; set; }
 
         [MaxLength( 150 )]
         public string Title { get; set; }

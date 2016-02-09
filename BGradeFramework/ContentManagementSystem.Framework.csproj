@@ -143,7 +143,7 @@
     <None Include="gruntfile.js" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\ContentManagementSystem\Database\ContentManagementSystem.Database.csproj">
+    <ProjectReference Include="..\Database\ContentManagementSystem.Database.csproj">
       <Project>{3d1bb579-fa35-4a3d-ba17-f859e1db89dc}</Project>
       <Name>ContentManagementSystem.Database</Name>
     </ProjectReference>

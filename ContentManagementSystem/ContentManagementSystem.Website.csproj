@@ -211,23 +211,26 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ImageBrowserController.cs" />
     <Compile Include="Areas\Admin\Controllers\NavigationController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BlogPostController.cs" />
     <Compile Include="Areas\Admin\Controllers\PageController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\UploadsController.cs" />
     <Compile Include="Areas\Admin\Managers\NavigationManager.cs" />
-    <Compile Include="Areas\Admin\Managers\BlogManager.cs" />
+    <Compile Include="Areas\Admin\Managers\BlogPostManager.cs" />
     <Compile Include="Areas\Admin\Managers\PageManager.cs" />
     <Compile Include="Areas\Admin\Managers\ProductCategoryManager.cs" />
     <Compile Include="Areas\Admin\Managers\ProductManager.cs" />
     <Compile Include="Areas\Admin\Managers\UploadsManager.cs" />
+    <Compile Include="Areas\Admin\Models\BlogPost\BlogPostListItemModel.cs" />
+    <Compile Include="Areas\Admin\Models\BlogPost\BlogPostListModel.cs" />
     <Compile Include="Areas\Admin\Models\Navigation\ContentManagementDB.cs" />
     <Compile Include="Areas\Admin\Models\Navigation\NavigationListItemModel.cs" />
     <Compile Include="Areas\Admin\Models\Navigation\NavigationListModel.cs" />
     <Compile Include="Areas\Admin\Models\Navigation\NavigationModel.cs" />
     <Compile Include="Areas\Admin\Models\Page\PageListItemModel.cs" />
     <Compile Include="Areas\Admin\Models\Page\PageListModel.cs" />
-    <Compile Include="Areas\Admin\Models\Page\BlogPostModel.cs" />
+    <Compile Include="Areas\Admin\Models\BlogPost\BlogPostModel.cs" />
     <Compile Include="Areas\Admin\Models\Page\PageModel.cs" />
     <Compile Include="Areas\Admin\Models\ProductCategory\ProductCategoryModel.cs" />
     <Compile Include="Areas\Admin\Models\ProductCategory\ProductCategoriesListItemModel.cs" />
@@ -322,6 +325,8 @@
     <Content Include="Areas\Admin\Views\Uploads\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ImageBrowser\Select.cshtml" />
     <Content Include="Areas\Home\Views\Page\Templates\Standard.cshtml" />
+    <Content Include="Areas\Admin\Views\BlogPost\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\BlogPost\List.cshtml" />
     <None Include="compilerconfig.json" />
     <Content Include="Content\Styles\admin.css.map">
       <DependentUpon>admin.css</DependentUpon>
