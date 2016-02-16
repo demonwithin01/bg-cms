@@ -11,6 +11,11 @@
         attachEventHandlers();
 
         $( window ).resize();
+
+        setTimeout(function ()
+        {
+            $( '#body' ).addClass( 'on' );
+        }, 600 )
     }
 
     function attachEventHandlers()
@@ -27,7 +32,7 @@
         }
         else
         {
-            $( 'header' ).addClass( 'always-open' ).removeClass( 'open' );
+            $( 'header' ).addClass( 'always-open' ).removeClass( 'open' ).removeClass( 'changing' );
         }
 
         $( '#body' ).css( {
@@ -38,7 +43,18 @@
 
     function handleMenuLinkClick()
     {
-        $( this ).parent().toggleClass( 'open' );
+        var $parent = $( this ).parent();
+        $parent.toggleClass( 'open' );
+
+        if ( $parent.hasClass( 'open' ) == false )
+        {
+            $parent.addClass( 'changing' );
+
+            setTimeout( function ()
+            {
+                $parent.addClass( 'changing' );
+            }, 300 );
+        }
     }
 
     init();

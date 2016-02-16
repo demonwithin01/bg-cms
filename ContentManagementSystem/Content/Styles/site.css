@@ -1986,7 +1986,7 @@ header + .page-content {
   transition-delay: 0.3s;
   height: 100%;
 }
-header + .page-content > .page-header {
+header + .page-content > .page-header-wrapper > .page-header {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -2002,6 +2002,12 @@ header + .page-content > .page-header {
   overflow: hidden;
   white-space: nowrap;
 }
+header.always-open {
+  height: 64px;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
 header.always-open + .page-content {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -2010,8 +2016,15 @@ header.always-open + .page-content {
   -moz-transition-delay: 0s;
   -o-transition-delay: 0s;
   transition-delay: 0s;
-  padding-left: 240px;
   width: 100%;
+  z-index: 1;
+}
+header.always-open + .page-content > .page-header-wrapper > .page-header {
+  -webkit-transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  transition-delay: 0s;
+  left: 0;
 }
 header.always-open .menu-link {
   opacity: 0;
@@ -2019,18 +2032,179 @@ header.always-open .menu-link {
 }
 header.always-open .login-button,
 header.always-open .logged-in-button {
+  right: 10px;
+  top: 8px;
   width: 220px;
 }
-header.open + .page-content > .page-header,
-header.always-open + .page-content > .page-header {
+header.always-open a.home-link {
+  height: 100%;
+}
+header.always-open a.home-link img {
+  height: 100%;
+}
+header.always-open nav {
+  -webkit-transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  transition-delay: 0s;
+  height: 64px;
+  left: 0;
+  pointer-events: all;
+  top: 0;
+  width: 100%;
+}
+header.always-open nav > .nav-content {
+  -webkit-transition-delay: 0.3s;
+  -moz-transition-delay: 0.3s;
+  -o-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+  opacity: 1;
+}
+header.always-open ul#menu {
+  display: inline-block;
+  height: 100%;
+  vertical-align: top;
+}
+header.always-open ul#menu li {
+  float: left;
+  height: 100%;
+  vertical-align: top;
+}
+header.always-open ul#menu li > .nav-link {
+  height: 100%;
+}
+header.always-open ul#menu li > .nav-link a {
+  height: 100%;
+  line-height: 48px;
+}
+header.open ul#menu,
+header.changing ul#menu {
+  margin: 0 0 5px;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+}
+header.open ul#menu li,
+header.changing ul#menu li {
+  text-align: left;
+  width: 100%;
+}
+header.open ul#menu li .sub-nav-selector,
+header.changing ul#menu li .sub-nav-selector {
+  -webkit-transition: background 0.2s ease;
+  -moz-transition: background 0.2s ease;
+  -o-transition: background 0.2s ease;
+  transition: background 0.2s ease;
+  background: none;
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  height: 40px;
+  line-height: 40px;
+  position: relative;
+  text-align: center;
+  width: 40px;
+}
+header.open ul#menu li .sub-nav-selector + a,
+header.changing ul#menu li .sub-nav-selector + a {
+  margin-right: 40px;
+}
+header.open ul#menu li .sub-nav-selector:hover,
+header.changing ul#menu li .sub-nav-selector:hover,
+header.open ul#menu li .sub-nav-selector.on,
+header.changing ul#menu li .sub-nav-selector.on {
+  background: rgba(255, 255, 255, 0.3);
+}
+header.open ul#menu li .sub-nav-selector:hover > .sub-nav,
+header.changing ul#menu li .sub-nav-selector:hover > .sub-nav,
+header.open ul#menu li .sub-nav-selector.on > .sub-nav,
+header.changing ul#menu li .sub-nav-selector.on > .sub-nav {
+  -webkit-transform: rotate3d(0, 1, 0, 0);
+  -moz-transform: rotate3d(0, 1, 0, 0);
+  -ms-transform: rotate3d(0, 1, 0, 0);
+  -o-transform: rotate3d(0, 1, 0, 0);
+  transform: rotate3d(0, 1, 0, 0);
+}
+header.open ul#menu li .sub-nav-selector:hover > .sub-nav > ul,
+header.changing ul#menu li .sub-nav-selector:hover > .sub-nav > ul,
+header.open ul#menu li .sub-nav-selector.on > .sub-nav > ul,
+header.changing ul#menu li .sub-nav-selector.on > .sub-nav > ul {
+  opacity: 1;
+  pointer-events: all;
+}
+header.open ul#menu li a,
+header.changing ul#menu li a,
+header.open ul#menu li .fake-link,
+header.changing ul#menu li .fake-link {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  color: inherit;
+  display: block;
+  padding: 8px 15px;
+  text-decoration: none;
+}
+header.open ul#menu li .sub-nav,
+header.changing ul#menu li .sub-nav {
+  -webkit-transform: rotate3d(0, 1, 0, 90deg);
+  -moz-transform: rotate3d(0, 1, 0, 90deg);
+  -ms-transform: rotate3d(0, 1, 0, 90deg);
+  -o-transform: rotate3d(0, 1, 0, 90deg);
+  transform: rotate3d(0, 1, 0, 90deg);
+  -webkit-transform-origin: 0 50%;
+  -moz-transform-origin: 0 50%;
+  -ms-transform-origin: 0 50%;
+  -o-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  left: 100%;
+  position: absolute;
+  top: 0;
+  width: 250px;
+}
+header.open ul#menu li .sub-nav ul,
+header.changing ul#menu li .sub-nav ul {
+  -webkit-transition: opacity 0.3s ease;
+  -moz-transition: opacity 0.3s ease;
+  -o-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+  background: #434343;
+  margin-left: 10px;
+  opacity: 0;
+  pointer-events: none;
+}
+header.open ul#menu li .sub-nav ul:before,
+header.changing ul#menu li .sub-nav ul:before {
+  -webkit-transform: rotateZ(45deg);
+  -moz-transform: rotateZ(45deg);
+  -ms-transform: rotateZ(45deg);
+  -o-transform: rotateZ(45deg);
+  transform: rotateZ(45deg);
+  content: '';
+  background: #434343;
+  display: block;
+  height: 20px;
+  left: 5px;
+  position: absolute;
+  top: 10px;
+  width: 20px;
+}
+header.open + .page-content > .page-header-wrapper > .page-header {
   -webkit-transition-delay: 0s;
   -moz-transition-delay: 0s;
   -o-transition-delay: 0s;
   transition-delay: 0s;
   left: 240px;
 }
-header.open .menu-link,
-header.always-open .menu-link {
+header.open .login-button,
+header.open .logged-in-button {
+  left: 10px;
+  top: 0;
+}
+header.open .menu-link {
   -webkit-transition-delay: 0s;
   -moz-transition-delay: 0s;
   -o-transition-delay: 0s;
@@ -2038,12 +2212,16 @@ header.always-open .menu-link {
   left: 187px;
   top: 10px;
 }
-header.open .copy-right,
-header.always-open .copy-right {
+header.open .copy-right {
   display: block;
 }
-header.open nav,
-header.always-open nav {
+header.open a.home-link {
+  width: 100%;
+}
+header.open a.home-link img {
+  width: 100%;
+}
+header.open nav {
   -webkit-transition-delay: 0s;
   -moz-transition-delay: 0s;
   -o-transition-delay: 0s;
@@ -2055,19 +2233,18 @@ header.always-open nav {
   top: 0;
   width: 240px;
 }
-header.open nav > .nav-content,
-header.always-open nav > .nav-content {
+header.open nav > .nav-content {
   -webkit-transition-delay: 0.3s;
   -moz-transition-delay: 0.3s;
   -o-transition-delay: 0.3s;
   transition-delay: 0.3s;
   opacity: 1;
+  padding: 60px 0 20px;
 }
 header a.home-link {
   background: none;
   display: inline-block;
   font-size: 0;
-  width: 100%;
   -webkit-transition: background 0.3s ease;
   -moz-transition: background 0.3s ease;
   -o-transition: background 0.3s ease;
@@ -2147,7 +2324,6 @@ header nav > .nav-content {
   transition-delay: 0s;
   height: 100%;
   opacity: 0;
-  padding: 60px 0 20px;
   position: relative;
   width: 100%;
 }
@@ -2172,10 +2348,8 @@ header .logged-in-button {
   cursor: pointer;
   display: inline-block;
   height: 48px;
-  left: 10px;
   overflow: hidden;
   position: absolute;
-  top: 0;
   width: 177px;
 }
 header .login-button:hover,
@@ -2213,13 +2387,6 @@ header .logged-in-button > span.text {
 header .logged-in-button > span.text {
   opacity: 1;
 }
-header ul#menu {
-  font-size: 1.3em;
-  margin: 0 0 5px;
-  padding: 0;
-  text-align: left;
-  width: 100%;
-}
 header ul#menu li {
   display: inline-block;
   line-height: 24px;
@@ -2227,8 +2394,6 @@ header ul#menu li {
   opacity: 1;
   padding: 0;
   position: relative;
-  text-align: left;
-  width: 100%;
 }
 header ul#menu li > .nav-link {
   -webkit-transition: background 0.2s ease;
@@ -2236,6 +2401,7 @@ header ul#menu li > .nav-link {
   -o-transition: background 0.2s ease;
   transition: background 0.2s ease;
   background: none;
+  font-size: 16px;
 }
 header ul#menu li > .nav-link:hover {
   background: rgba(255, 255, 255, 0.3);
@@ -2402,6 +2568,20 @@ ul {
   position: relative;
   width: 100%;
 }
+#body.on .main-content {
+  opacity: 1;
+}
+#body .main-content {
+  -webkit-transition: opacity 0.3s ease;
+  -moz-transition: opacity 0.3s ease;
+  -o-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+.page-header-wrapper {
+  position: relative;
+  width: 100%;
+}
 .page-header {
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
@@ -2429,9 +2609,6 @@ ul {
   font-size: inherit;
   margin: 0 auto;
   padding: 0 10px;
-}
-.content-wrapper {
-  padding: 20px;
 }
 .page-background {
   bottom: 0;

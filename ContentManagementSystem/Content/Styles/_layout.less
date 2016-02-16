@@ -84,6 +84,26 @@ ul
     min-height: 100%;
     position: relative;
     width: 100%;
+
+    &.on
+    {
+        .main-content
+        {
+            opacity: 1;
+        }
+    }
+
+    .main-content
+    {
+        .transition(opacity 0.3s ease);
+        opacity: 0;
+    }
+}
+
+.page-header-wrapper
+{
+    position: relative;
+    width: 100%;
 }
 
 .page-header
@@ -114,11 +134,6 @@ ul
         margin: 0 auto;
         padding: 0 10px;
     }
-}
-
-.content-wrapper
-{
-    padding: 20px;
 }
 
 .page-background

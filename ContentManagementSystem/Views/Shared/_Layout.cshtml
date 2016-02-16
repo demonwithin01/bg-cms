@@ -68,12 +68,11 @@
                                 <a href="@Url.Action( "Index", "Products", new { Area = "Shop" } )">Shop</a>
                             </div>
                         </li>*@
-                        @*<li class="off"><a href="@Url.Action( "About", "Home", new { Area = "Home" } )">About</a></li>*@
-                        <li class="off">
+                        @*<li class="off">
                             <div class="nav-link">
                                 <div class="fake-link" onclick="_site.contactForm.toggleForm();">Contact</div>
-                                @*<a href="javascript:void(0);" onclick="_site.contactForm.toggleForm();">Contact</a>*@
-                                @*@Html.ActionLink("Contact", "Contact", "Home")*@
+                                @*<a href="javascript:void(0);" onclick="_site.contactForm.toggleForm();">Contact</a>
+                                @*Html.ActionLink("Contact", "Contact", "Home")
                             </div>
                             <div id="contactFormWrapper">
                                 @using ( Ajax.BeginForm( "Contact", "Home", new AjaxOptions() { OnSuccess = "_site.contactForm.contactFormSubmitted" }, new { id = "contactForm" } ) )
@@ -98,7 +97,7 @@
                                     </div>
                                 }
                             </div>
-                        </li>
+                        </li>*@
                     </ul>
                 </div>
                 <div class="copy-right content-wrapper text-center">
@@ -113,8 +112,10 @@
             @RenderSection( "overlays", false )
             @if ( string.IsNullOrEmpty( PageTitle ) == false )
             {
-                <div class="page-header">
-                    <h1>@PageTitle</h1>
+                <div class="page-header-wrapper">
+                    <div class="page-header">
+                        <h1>@PageTitle</h1>
+                    </div>
                 </div>
             }
             <div id="body" class="content-wrapper">

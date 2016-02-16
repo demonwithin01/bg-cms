@@ -1,6 +1,7 @@
 ﻿@import "_mixins.less";
 
 @navBackground: #434343;
+@navFontSize: 16px;
 
 header
 {
@@ -13,7 +14,7 @@ header
         .transition-delay(0.3s);
         height: 100%;
 
-        & > .page-header
+        & > .page-header-wrapper > .page-header
         {
             .box-sizing();
             .text-overflow();
@@ -28,12 +29,23 @@ header
 
     &.always-open
     {
+        height: 64px;
+        position: relative;
+        width: 100%;
+        z-index: 2;
+
         & + .page-content
         {
             .box-sizing();
             .transition-delay(0s);
-            padding-left: 240px;
             width: 100%;
+            z-index: 1;
+
+            & > .page-header-wrapper > .page-header
+            {
+                .transition-delay(0s);
+                left: 0;
+            }
         }
 
         .menu-link
@@ -44,20 +56,179 @@ header
 
         .login-button, .logged-in-button
         {
+            right: 10px;
+            top: 8px;
             width: 220px;
+        }
+        
+        a.home-link
+        {
+            height: 100%;
+
+            img
+            {
+                height: 100%;
+            }
+        }
+
+        nav
+        {
+            .transition-delay(0s);
+            
+            height: 64px;
+            left: 0;
+            pointer-events: all;
+            top: 0;
+            width: 100%;
+
+            & > .nav-content
+            {
+                .transition-delay(0.3s);
+                opacity: 1;
+            }
+        }
+        
+        ul#menu
+        {
+            display: inline-block;
+            height: 100%;
+            vertical-align: top;
+
+            li
+            {
+                float: left;
+                height: 100%;
+                vertical-align: top;
+
+                & > .nav-link
+                {
+                    height: 100%;
+
+                    a
+                    {
+                        height: 100%;
+                        line-height: 48px;
+                    }
+                }
+            }
         }
     }
 
-    &.open, &.always-open
+    &.open, &.changing
+    {
+        ul#menu
+        {
+            margin: 0 0 5px;
+            padding: 0;
+            text-align: left;
+            width: 100%;
+
+            li
+            {
+                text-align: left;
+                width: 100%;
+                
+                .sub-nav-selector
+                {
+                    .transition(background 0.2s ease);
+                    background: none;
+                    cursor: pointer;
+                    display: inline-block;
+                    float: right;
+                    height: 40px;
+                    line-height: 40px;
+                    position: relative;
+                    text-align: center;
+                    width: 40px;
+
+                    & + a
+                    {
+                        margin-right: 40px;
+                    }
+
+                    &:hover, &.on
+                    {
+                        background: rgba(255, 255, 255, 0.3);
+
+                        & > .sub-nav
+                        {
+                            .transform(rotate3d(0,1,0,0));
+
+                            & > ul
+                            {
+                                opacity: 1;
+                                pointer-events: all;
+                            }
+                        }
+                    }
+                }
+
+                a, .fake-link
+                {
+                    .box-sizing();
+                    color: inherit;
+                    display: block;
+                    padding: 8px 15px;
+                    text-decoration: none;
+                }
+
+                .sub-nav
+                {
+                    .transform(rotate3d(0,1,0,90deg));
+                    .transform-origin(0 50%);
+                    .transition(all 0.3s ease);
+                    left: 100%;
+                    position: absolute;
+                    top: 0;
+                    width: 250px;
+
+                    ul
+                    {
+                        .transition(opacity 0.3s ease);
+                        background: @navBackground;
+                        margin-left: 10px;
+                        opacity: 0;
+                        pointer-events: none;
+
+                        &:before
+                        {
+                            .transform(rotateZ(45deg));
+                            content: '';
+                            background: @navBackground;
+                            display: block;
+                            height: 20px;
+                            left: 5px;
+                            position: absolute;
+                            top: 10px;
+                            width: 20px;
+                        }
+
+                        a
+                        {
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.open
     {
         & + .page-content
         {
-            & > .page-header
+            & > .page-header-wrapper > .page-header
             {
                 .transition-delay(0s);
                 left: 240px;
             }
         }
+
+        .login-button, .logged-in-button
+        {
+            left: 10px;
+            top: 0;
+        }
+
         .menu-link
         {
             .transition-delay(0s);
@@ -68,6 +239,16 @@ header
         .copy-right
         {
             display: block;
+        }
+        
+        a.home-link
+        {
+            width: 100%;
+
+            img
+            {
+                width: 100%;
+            }
         }
 
         nav
@@ -84,6 +265,7 @@ header
             {
                 .transition-delay(0.3s);
                 opacity: 1;
+                padding: 60px 0 20px;
             }
         }
     }
@@ -93,7 +275,6 @@ header
         background: none;
         display: inline-block;
         font-size: 0;
-        width: 100%;
         .transition(background 0.3s ease);
 
         &:hover
@@ -159,7 +340,6 @@ header
             .transition-delay(0s);
             height: 100%;
             opacity: 0;
-            padding: 60px 0 20px;
             position: relative;
             width: 100%;
         }
@@ -183,10 +363,8 @@ header
         cursor: pointer;
         display: inline-block;
         height: 48px;
-        left: 10px;
         overflow: hidden;
         position: absolute;
-        top: 0;
         width: 177px;
 
         &:hover
@@ -239,12 +417,6 @@ header
 
     ul#menu
     {
-        font-size: 1.3em;
-        margin: 0 0 5px;
-        padding: 0;
-        text-align: left;
-        width: 100%;
-
         li
         {
             display: inline-block;
@@ -253,13 +425,12 @@ header
             opacity: 1;
             padding: 0;
             position: relative;
-            text-align: left;
-            width: 100%;
 
             & > .nav-link
             {
                 .transition(background 0.2s ease);
                 background: none;
+                font-size: @navFontSize;
 
                 &:hover
                 {
