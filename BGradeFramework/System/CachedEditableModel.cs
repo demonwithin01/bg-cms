@@ -1,0 +1,61 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ContentManagementSystem.Framework
+{
+    public class CachedEditableModel
+    {
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+
+        #region Class Members
+
+        #endregion
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+
+        #region Constructors/Initialisation
+
+        #endregion
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+
+        #region Public Methods
+
+        #endregion
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+
+        #region Static Methods
+
+        #endregion
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+
+        #region Private Methods
+
+        #endregion
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+
+        #region Properties
+
+        public string ModelName { get; set; }
+
+        public string AssemblyQualifiedName { get; set; }
+
+        public Type ModelType { get; set; }
+
+        public string DisplayLocation { get; set; }
+
+        public string EditorLocation { get; set; }
+
+        #endregion
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+
+    }
+}

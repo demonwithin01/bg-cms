@@ -104,10 +104,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\Authorization.cs" />
+    <Compile Include="Attributes\DisplayLocation.cs" />
+    <Compile Include="Attributes\EditorLocation.cs" />
     <Compile Include="BaseClasses\BaseController.cs" />
     <Compile Include="BaseClasses\PageModel.cs" />
     <Compile Include="ClassRegions.cs" />
     <Compile Include="ControllerRegions.cs" />
+    <Compile Include="Extensions\CachedEditableModelsExtensions.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\PropertyExtension.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
@@ -117,10 +120,13 @@
     <Compile Include="HtmlExtensions\PasswordFieldFor.cs" />
     <Compile Include="HtmlExtensions\TextBoxFieldFor.cs" />
     <Compile Include="ManagerRegions.cs" />
+    <Compile Include="Models\HomePage\Ribbon.cs" />
     <Compile Include="Settings\ContentLocation.cs" />
     <Compile Include="Settings\Settings.cs" />
     <Compile Include="Attributes\AjaxOnly.cs" />
     <Compile Include="System\AutoMap.cs" />
+    <Compile Include="System\CachedEditableModel.cs" />
+    <Compile Include="System\CMSCache.cs" />
     <Compile Include="System\LessTransform.cs" />
     <Compile Include="System\SaveResult.cs" />
     <Compile Include="System\SaveResultState.cs" />
