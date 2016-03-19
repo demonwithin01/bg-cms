@@ -120,7 +120,10 @@
     <Compile Include="HtmlExtensions\PasswordFieldFor.cs" />
     <Compile Include="HtmlExtensions\TextBoxFieldFor.cs" />
     <Compile Include="ManagerRegions.cs" />
+    <Compile Include="Models\HomePageModel.cs" />
+    <Compile Include="BaseClasses\HomePageTemplate.cs" />
     <Compile Include="Models\HomePage\Ribbon.cs" />
+    <Compile Include="Models\HomePage\Ribbon\RibbonItem.cs" />
     <Compile Include="Settings\ContentLocation.cs" />
     <Compile Include="Settings\Settings.cs" />
     <Compile Include="Attributes\AjaxOnly.cs" />

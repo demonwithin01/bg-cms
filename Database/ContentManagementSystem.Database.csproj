@@ -65,10 +65,12 @@
     <Compile Include="Contexts\AdministrationContext.cs" />
     <Compile Include="Contexts\ContentManagementContextBase.cs" />
     <Compile Include="Contexts\ProductsContext.cs" />
+    <Compile Include="Contexts\QueryOnlyDatabase.cs" />
     <Compile Include="Entities\Application.cs" />
     <Compile Include="Entities\BlogPost.cs" />
     <Compile Include="Entities\Content.cs" />
     <Compile Include="Entities\Domain.cs" />
+    <Compile Include="Entities\DomainHomePage.cs" />
     <Compile Include="Entities\DomainNavigationItem.cs" />
     <Compile Include="Entities\Page.cs" />
     <Compile Include="Entities\BlogPostContent.cs" />
@@ -88,6 +90,7 @@
     <Compile Include="Enumerations\PublishStatus.cs" />
     <Compile Include="Extensions\AutoMap.cs" />
     <Compile Include="Extensions\DatabaseExtensions.cs" />
+    <Compile Include="Managers\Query.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

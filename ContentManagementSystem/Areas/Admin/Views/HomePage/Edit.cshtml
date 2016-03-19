@@ -1,0 +1,21 @@
+﻿@using ContentManagementSystem.Helpers;
+@model ContentManagementSystem.Admin.Models.HomePageModel
+@{
+    PageTitle = "Edit Home Page";
+    SelectListGenerator generator = new SelectListGenerator();
+}
+
+<h2>@PageTitle</h2>
+
+@using ( Html.BeginForm() )
+{
+    <dl>
+        @Html.DropDownListFieldFor( m => m.HomePageTemplate, generator.HomePageTemplates( Model.HomePageTemplate ) )
+
+        
+    </dl> 
+
+    <div id="page-template">
+        @Html.Partial( Model.HomePageTemplateModel.EditorLocation, Model.HomePageTemplateModel )
+    </div>
+}

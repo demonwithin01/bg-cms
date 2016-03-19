@@ -28,7 +28,7 @@ namespace ContentManagementSystem.Framework
 
         public static void Load()
         {
-            LoadEditableModels( "ContentManagementSystem.Framework.Models.HomePage", HomePages );
+            HomePages = LoadEditableModels( "ContentManagementSystem.Framework.Models.HomePage" );
         }
 
         #endregion
@@ -41,12 +41,11 @@ namespace ContentManagementSystem.Framework
         /// Loads all editable models into memory for the specified namespace.
         /// </summary>
         /// <param name="@namespace">The namespace to load the models from</param>
-        /// <param name="list">The list to load the models into</param>
-        private static void LoadEditableModels( string @namespace, Dictionary<string, CachedEditableModel> list )
+        private static Dictionary<string, CachedEditableModel> LoadEditableModels( string @namespace )
         {
             List<Type> types = Assembly.GetAssembly( typeof( CMSCache ) ).GetTypes().Where( s => s.Namespace == @namespace ).ToList();
 
-            list = new Dictionary<string, CachedEditableModel>();
+            Dictionary<string, CachedEditableModel> list = new Dictionary<string, CachedEditableModel>();
 
             foreach ( Type type in types )
             {
@@ -64,11 +63,14 @@ namespace ContentManagementSystem.Framework
                     EditorLocation = editorAttribute.Location,
                     ModelName = type.Name,
                     AssemblyQualifiedName = type.AssemblyQualifiedName,
-                    ModelType = type
+                    ModelType = type,
+                    FriendlyName = type.Name
                 };
 
                 list.Add( model.ModelName, model );
             }
+
+            return list;
         }
 
         #endregion

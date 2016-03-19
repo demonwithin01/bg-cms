@@ -2030,12 +2030,6 @@ header.always-open .menu-link {
   opacity: 0;
   pointer-events: none;
 }
-header.always-open .login-button,
-header.always-open .logged-in-button {
-  right: 10px;
-  top: 8px;
-  width: 220px;
-}
 header.always-open a.home-link {
   height: 100%;
 }
@@ -2063,6 +2057,7 @@ header.always-open nav > .nav-content {
 header.always-open ul#menu {
   display: inline-block;
   height: 100%;
+  margin-left: 0;
   vertical-align: top;
 }
 header.always-open ul#menu li {
@@ -2076,6 +2071,54 @@ header.always-open ul#menu li > .nav-link {
 header.always-open ul#menu li > .nav-link a {
   height: 100%;
   line-height: 48px;
+}
+header.always-open ul#menu li .sub-nav {
+  -webkit-transform: rotate3d(1, 0, 0, 90deg);
+  -moz-transform: rotate3d(1, 0, 0, 90deg);
+  -ms-transform: rotate3d(1, 0, 0, 90deg);
+  -o-transform: rotate3d(1, 0, 0, 90deg);
+  transform: rotate3d(1, 0, 0, 90deg);
+  -webkit-transform-origin: 50% 0 0;
+  -moz-transform-origin: 50% 0 0;
+  -ms-transform-origin: 50% 0 0;
+  -o-transform-origin: 50% 0 0;
+  transform-origin: 50% 0 0;
+  left: auto;
+  right: 0;
+  top: 100%;
+}
+header.always-open ul#menu li .sub-nav ul:before {
+  left: auto;
+  right: 5px;
+  top: 4px;
+}
+header.always-open ul#menu li .sub-nav ul li {
+  background: #434343;
+  width: 100%;
+}
+header.always-open ul#menu li .sub-nav-selector {
+  height: 100%;
+  line-height: 64px;
+  width: 30px;
+}
+header.always-open ul#menu li .sub-nav-selector:hover > .sub-nav {
+  -webkit-transform: rotate3d(1, 0, 0, 0deg);
+  -moz-transform: rotate3d(1, 0, 0, 0deg);
+  -ms-transform: rotate3d(1, 0, 0, 0deg);
+  -o-transform: rotate3d(1, 0, 0, 0deg);
+  transform: rotate3d(1, 0, 0, 0deg);
+}
+header.always-open ul#menu li .sub-nav-selector + a {
+  padding-right: 0;
+}
+header.always-open ul#menu li .sub-nav-selector .fa-angle-right {
+  -webkit-transform: rotateZ(90deg);
+  -moz-transform: rotateZ(90deg);
+  -ms-transform: rotateZ(90deg);
+  -o-transform: rotateZ(90deg);
+  transform: rotateZ(90deg);
+  left: 2px;
+  position: relative;
 }
 header.open ul#menu,
 header.changing ul#menu {
@@ -2327,6 +2370,10 @@ header nav > .nav-content {
   position: relative;
   width: 100%;
 }
+header nav > .nav-content > form {
+  margin: 0;
+  padding: 0;
+}
 header nav .copy-right {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -2347,10 +2394,12 @@ header .logged-in-button {
   transition: background 0.2s ease, width 0.2s ease;
   cursor: pointer;
   display: inline-block;
-  height: 48px;
+  height: 100%;
   overflow: hidden;
   position: absolute;
-  width: 177px;
+  right: 0;
+  text-align: right;
+  top: 0;
 }
 header .login-button:hover,
 header .logged-in-button:hover {
@@ -2361,28 +2410,43 @@ header .logged-in-button > span {
   color: white;
   display: inline-block;
   font-size: 1.3em;
-  position: absolute;
 }
 header .login-button > span.icon,
 header .logged-in-button > span.icon {
   font-size: 2em;
-  height: 48px;
+  height: 100%;
   left: 0;
-  line-height: 48px;
+  position: absolute;
   text-align: center;
+  top: 0;
   width: 48px;
+}
+header .login-button > span.icon .fa,
+header .logged-in-button > span.icon .fa {
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  line-height: 48px;
+  position: relative;
+  top: 50%;
 }
 header .login-button > span.text,
 header .logged-in-button > span.text {
-  bottom: 0;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
   font-weight: 600;
   height: 26px;
-  left: 0;
   line-height: 26px;
   margin: auto;
-  right: 0;
+  padding: 0 15px 0 45px;
+  position: relative;
   text-align: center;
-  top: 0;
+  top: 50%;
 }
 header .logged-in-button > span.text {
   opacity: 1;
@@ -3027,6 +3091,79 @@ table td.options-column {
 }
 .top-filters dl + dl {
   margin-left: 20px;
+}
+.ribbon-item {
+  min-height: 80px;
+  padding: 20px;
+}
+.ribbon-item.editable {
+  position: relative;
+}
+.ribbon-item.editable .ribbon-item-tools {
+  display: none;
+}
+.ribbon-item.editable .remove-ribbon-item {
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  background: rgba(255, 255, 255, 0.6);
+  border-bottom: 1px solid rgba(51, 51, 51, 0.6);
+  border-left: 1px solid rgba(51, 51, 51, 0.6);
+  border-bottom-left-radius: 10%;
+  cursor: pointer;
+  height: 39px;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 39px;
+}
+.ribbon-item.editable .remove-ribbon-item .fa {
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  color: rgba(51, 51, 51, 0.6);
+  font-size: 32px;
+  line-height: 39px;
+}
+.ribbon-item.editable .remove-ribbon-item:hover {
+  background: #ffffff;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #333333;
+}
+.ribbon-item.editable .remove-ribbon-item:hover .fa {
+  color: #333333;
+}
+.ribbon-item.editable .ribbon-item-color-picker {
+  bottom: 5px;
+  position: absolute;
+  right: 0;
+}
+.ribbon-item.editable .ribbon-item-template {
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+.ribbon-item.editable .ui-resizable-handle {
+  background: rgba(255, 255, 255, 0.6);
+  border-top: 1px solid rgba(51, 51, 51, 0.6);
+  bottom: 0;
+  display: none !important;
+  height: 4px;
+}
+.ribbon-item.editable .ui-resizable-handle:hover {
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  background: #ffffff;
+  border-top-color: #333333;
+}
+.ribbon-item.editable:hover .ribbon-item-tools,
+.ribbon-item.editable:hover .ui-resizable-handle {
+  display: block !important;
 }
 .fake-link {
   cursor: pointer;

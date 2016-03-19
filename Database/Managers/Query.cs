@@ -1,18 +1,24 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ContentManagementSystem.Framework
+namespace ContentManagementSystemDatabase
 {
-    public class CachedEditableModel
+    public static class Query
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Class Members
 
+        /// <summary>
+        /// A reference to the query only database instance.
+        /// </summary>
+        private static QueryOnlyDatabase _database = new QueryOnlyDatabase();
+        
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -25,11 +31,14 @@ namespace ContentManagementSystem.Framework
 
         #region Public Methods
 
-        #endregion
-
-        /* ---------------------------------------------------------------------------------------------------------- */
-
-        #region Static Methods
+        /// <summary>
+        /// Gets the home page entity for the specified domain.
+        /// </summary>
+        /// <param name="domainId">The domain to get the home page for</param>
+        public static DomainHomePage DomainHomePage( int domainId )
+        {
+            return _database.DomainHomePages.Find( domainId );
+        }
 
         #endregion
 
@@ -42,18 +51,6 @@ namespace ContentManagementSystem.Framework
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Properties
-
-        public string ModelName { get; set; }
-
-        public string FriendlyName { get; set; }
-
-        public string AssemblyQualifiedName { get; set; }
-
-        public Type ModelType { get; set; }
-
-        public string DisplayLocation { get; set; }
-
-        public string EditorLocation { get; set; }
 
         #endregion
 

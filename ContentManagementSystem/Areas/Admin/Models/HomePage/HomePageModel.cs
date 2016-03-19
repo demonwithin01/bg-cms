@@ -1,12 +1,13 @@
-﻿using System;
+﻿using ContentManagementSystem.Framework;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace ContentManagementSystem.Framework
+namespace ContentManagementSystem.Admin.Models
 {
-    public class CachedEditableModel
+    public class HomePageModel
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -29,12 +30,6 @@ namespace ContentManagementSystem.Framework
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
-        #region Static Methods
-
-        #endregion
-
-        /* ---------------------------------------------------------------------------------------------------------- */
-
         #region Private Methods
 
         #endregion
@@ -43,17 +38,10 @@ namespace ContentManagementSystem.Framework
 
         #region Properties
 
-        public string ModelName { get; set; }
+        [Display( Name = "Template" ), Required( ErrorMessage = "Please select a home page template" )]
+        public string HomePageTemplate { get; set; }
 
-        public string FriendlyName { get; set; }
-
-        public string AssemblyQualifiedName { get; set; }
-
-        public Type ModelType { get; set; }
-
-        public string DisplayLocation { get; set; }
-
-        public string EditorLocation { get; set; }
+        public HomePageTemplate HomePageTemplateModel { get; set; }
 
         #endregion
 

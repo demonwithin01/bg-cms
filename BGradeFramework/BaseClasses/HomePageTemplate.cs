@@ -1,4 +1,5 @@
-﻿using System;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ContentManagementSystem.Framework
 {
-    public class CachedEditableModel
+    public class HomePageTemplate
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -29,12 +30,6 @@ namespace ContentManagementSystem.Framework
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
-        #region Static Methods
-
-        #endregion
-
-        /* ---------------------------------------------------------------------------------------------------------- */
-
         #region Private Methods
 
         #endregion
@@ -43,17 +38,11 @@ namespace ContentManagementSystem.Framework
 
         #region Properties
 
-        public string ModelName { get; set; }
-
-        public string FriendlyName { get; set; }
-
-        public string AssemblyQualifiedName { get; set; }
-
-        public Type ModelType { get; set; }
-
-        public string DisplayLocation { get; set; }
-
+        [JsonIgnore]
         public string EditorLocation { get; set; }
+
+        [JsonIgnore]
+        public string DisplayLocation { get; set; }
 
         #endregion
 

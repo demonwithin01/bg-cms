@@ -23,6 +23,13 @@ namespace ContentManagementSystem.Helpers
 
         #region Public Methods
 
+        public SelectList HomePageTemplates( string selected )
+        {
+            IEnumerable<CachedEditableModel> cachedModels = CMSCache.HomePages.Select( s => s.Value );
+
+            return new SelectList( cachedModels, "ModelName", "FriendlyName", selected );
+        }
+
         public SelectList ProductCategories( int? selected, bool canAddNew = false )
         {
             List<ProductCategory> productCategories = ProductRepository.ProductCategories.WhereActive().Where( s => s.DomainId == UserSession.Current.DomainId ).ToList();

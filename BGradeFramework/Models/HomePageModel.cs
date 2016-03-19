@@ -1,12 +1,12 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ContentManagementSystem.Framework
+namespace ContentManagementSystem.Framework.Models
 {
-    public class CachedEditableModel
+    public class HomePageModel
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -29,12 +29,6 @@ namespace ContentManagementSystem.Framework
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
-        #region Static Methods
-
-        #endregion
-
-        /* ---------------------------------------------------------------------------------------------------------- */
-
         #region Private Methods
 
         #endregion
@@ -43,17 +37,7 @@ namespace ContentManagementSystem.Framework
 
         #region Properties
 
-        public string ModelName { get; set; }
-
-        public string FriendlyName { get; set; }
-
-        public string AssemblyQualifiedName { get; set; }
-
-        public Type ModelType { get; set; }
-
-        public string DisplayLocation { get; set; }
-
-        public string EditorLocation { get; set; }
+        public HomePageTemplate HomePage { get; set; }
 
         #endregion
 

@@ -1,0 +1,94 @@
+﻿.ribbon-item
+{
+    min-height: 80px;
+    padding: 20px;
+
+    &.editable
+    {
+        @ribbon-font-color: rgba(51, 51, 51, 0.6);
+        @ribbon-font-color-hover: rgba(51, 51, 51, 1);
+        @ribbon-background-color: rgba(255, 255, 255, 0.6);
+        @ribbon-background-color-hover: rgba(255, 255, 255, 1);
+
+        position: relative;
+
+        .ribbon-item-tools
+        {
+            display: none;
+        }
+
+        .remove-ribbon-item
+        {
+            .transition(all @animation-time-hover ease);
+            background: @ribbon-background-color;
+            border-bottom: 1px solid @ribbon-font-color;
+            border-left: 1px solid @ribbon-font-color;
+            border-bottom-left-radius: 10%;
+            cursor: pointer;
+            height: 39px;
+            position: absolute;
+            right: 0;
+            text-align: center;
+            top: 0;
+            width: 39px;
+
+            .fa
+            {
+                .transition(all @animation-time-hover ease);
+                color: @ribbon-font-color;
+                font-size: 32px;
+                line-height: 39px;
+            }
+
+            &:hover
+            {
+                background: @ribbon-background-color-hover;
+                border-bottom: 1px solid @ribbon-font-color-hover;
+                border-left: 1px solid @ribbon-font-color-hover;
+
+                .fa
+                {
+                    color: @ribbon-font-color-hover;
+                }
+            }
+        }
+
+        .ribbon-item-color-picker
+        {
+            bottom: 5px;
+            position: absolute;
+            right: 0;
+        }
+
+        .ribbon-item-template
+        {
+            left: 0;
+            position: absolute;
+            top: 0;
+        }
+
+        .ui-resizable-handle
+        {
+            background: @ribbon-background-color;
+            border-top: 1px solid @ribbon-font-color;
+            bottom: 0;
+            display: none !important;
+            height: 4px;
+
+            &:hover
+            {
+                .transition(all @animation-time-hover ease);
+                background: @ribbon-background-color-hover;
+                border-top-color: @ribbon-font-color-hover;
+            }
+        }
+
+        &:hover
+        {
+            .ribbon-item-tools, .ui-resizable-handle
+            {
+                display: block !important;
+            }
+        }
+    }
+}

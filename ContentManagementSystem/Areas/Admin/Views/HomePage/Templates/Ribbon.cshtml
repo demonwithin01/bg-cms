@@ -1,0 +1,126 @@
+﻿@using ContentManagementSystem.Framework.Models.HomePage;
+@model Ribbon
+
+@helper RenderRibbonItem( RibbonItem ribbonItem, string index )
+{
+string idIndex = "Items_" + index + "__";
+string nameIndex = "Items[" + index + "].";
+string backgroundColor = ribbonItem.Background ?? "transparent";
+
+    <div class="ribbon-item editable" style="background-color: @backgroundColor;">
+        <div class="ribbon-item-tools">
+            <input type="hidden" id="@( idIndex + "Height" )" name="@( nameIndex + "Height" )" />
+            <div class="ribbon-item-template ui-front">
+                <select id="gaf" name="fs">
+                    <option>One Column</option>
+                    <option>Two Columns</option>
+                    <option>Three Columns</option>
+                </select>
+            </div>
+            <div class="remove-ribbon-item">
+                <i class="fa fa-close"></i>
+            </div>
+            <div class="ribbon-item-color-picker">
+                <input id="@( idIndex + "Background" )" name="@( nameIndex + "Background" )" type="color" value="@backgroundColor" />
+            </div>
+            <div class="adjust-height"></div>
+        </div>
+    </div>
+}
+
+<div id="ribbon-items">
+    @for ( int i = 0 ; i < Model.Items.Count ; i++ )
+    {
+        @RenderRibbonItem( Model.Items[ i ], i.ToString() )
+    }
+</div>
+
+@Html.Button( "Add Item", "add-ribbon-item" )
+
+<div id="ribbon-item-template" style="display: none;">
+    @RenderRibbonItem( new RibbonItem(), "template" )
+</div>
+
+<script>
+
+    var currentIndex = @Model.Items.Count;
+
+    function addRibbonItem()
+    {
+        var $clone = $( '#ribbon-item-template' ).children().clone();
+
+        $clone.find('input, select').each(function ()
+        {
+            var $this = $(this);
+            $this.attr('name', $this.attr('name').replace(/\[+[a-z]+\]/g, '[' + currentIndex + ']'));
+            $this.attr('id', $this.attr('id').replace(/_+[a-z]+_/g, '_' + currentIndex + '_'));
+
+            $this.removeAttr('disabled');
+        });
+
+        $clone.find('select').selectmenu().on('mousein', function (e)
+        {
+            console.log(e);
+        }).next().css('width', 'auto');
+
+        $clone.find('label').each(function ()
+        {
+            var $this = $(this);
+            $this.attr('for', $this.attr('for').replace(/_+[a-z]+_/g, '_' + currentIndex + '_'));
+        });
+
+        $clone.find('[type="color"]').spectrum({
+            color: 'transparent',
+            preferredFormat: 'hex',
+            showInput: true,
+            allowEmpty: true,
+            showPalette: true,
+            showInitial: true,
+            palette: [
+                ['black', 'white', 'blue', 'red'],
+                ['green', 'orange']
+            ],
+            move: function (color)
+            {
+                $clone.css('background-color', color ? color.toHexString() : 'transparent');
+            }
+        });
+
+        $clone.resizable({
+            handles: 's'
+        });
+
+        $clone.children().on('mouseout', function (e)
+        {
+            e.stopPropagation();
+        });
+
+        $clone.on('mouseout', function (e)
+        {
+            var $related = $(e.relatedTarget);
+            
+            if ( !$related.is($clone) && $related.closest('.ribbon-item').is($clone) )
+            {
+                return;
+            }
+            $clone.find('select').selectmenu('close');
+        });
+
+        ++currentIndex;
+
+        $('#ribbon-items').append($clone);
+    }
+
+    $( function ()
+    {
+        $( '#ribbon-item-template' ).find('input, select').attr('disabled', 'disabled');
+
+        $( '#add-ribbon-item' ).on( 'click', addRibbonItem );
+
+        $(document).on('click', '.remove-ribbon-item', function ()
+        {
+            $(this).closest('.ribbon-item').remove();
+        });
+    } );
+
+</script>

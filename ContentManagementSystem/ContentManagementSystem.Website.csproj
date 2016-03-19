@@ -217,6 +217,7 @@
     <Compile Include="Areas\Admin\Controllers\ProductCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\UploadsController.cs" />
+    <Compile Include="Areas\Admin\Managers\HomePageManager.cs" />
     <Compile Include="Areas\Admin\Managers\NavigationManager.cs" />
     <Compile Include="Areas\Admin\Managers\BlogPostManager.cs" />
     <Compile Include="Areas\Admin\Managers\PageManager.cs" />
@@ -225,7 +226,7 @@
     <Compile Include="Areas\Admin\Managers\UploadsManager.cs" />
     <Compile Include="Areas\Admin\Models\BlogPost\BlogPostListItemModel.cs" />
     <Compile Include="Areas\Admin\Models\BlogPost\BlogPostListModel.cs" />
-    <Compile Include="Areas\Admin\Models\Navigation\ContentManagementDB.cs" />
+    <Compile Include="Areas\Admin\Models\HomePage\HomePageModel.cs" />
     <Compile Include="Areas\Admin\Models\Navigation\NavigationListItemModel.cs" />
     <Compile Include="Areas\Admin\Models\Navigation\NavigationListModel.cs" />
     <Compile Include="Areas\Admin\Models\Navigation\NavigationModel.cs" />
@@ -267,6 +268,7 @@
     <Compile Include="Areas\Home\Models\Page\IndexModel.cs" />
     <Compile Include="Areas\Home\Models\Shared\TableModel.cs" />
     <Compile Include="Helpers\SelectListGenerator.cs" />
+    <Compile Include="Managers\HomePageManager.cs" />
     <Compile Include="Managers\UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -286,6 +288,7 @@
     <Content Include="Content\Styles\image-browser.min.css">
       <DependentUpon>image-browser.css</DependentUpon>
     </Content>
+    <Content Include="Content\Styles\Plugins\spectrum.css" />
     <Content Include="Content\Styles\_forms.less" />
     <Content Include="Content\Styles\_buttons.less" />
     <Content Include="Areas\Home\Views\Web.config" />
@@ -328,6 +331,8 @@
     <Content Include="Areas\Home\Views\Page\Templates\Standard.cshtml" />
     <Content Include="Areas\Admin\Views\BlogPost\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\BlogPost\List.cshtml" />
+    <Content Include="Areas\Admin\Views\HomePage\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\HomePage\Templates\Ribbon.cshtml" />
     <None Include="compilerconfig.json" />
     <Content Include="Content\Styles\admin.css.map">
       <DependentUpon>admin.css</DependentUpon>
@@ -434,6 +439,7 @@
     </Content>
     <Content Include="Content\Styles\_admin-layout.less" />
     <Content Include="Content\Styles\_carousel.less" />
+    <Content Include="Content\Styles\_ribbon.less" />
     <None Include="Scripts\Frameworks\jquery-1.8.2.intellisense.js" />
     <Content Include="Images\Backgrounds\background.png" />
     <Content Include="Images\Header\Login.png" />
@@ -835,6 +841,7 @@
     <Content Include="Scripts\Plugins\ckeditor\styles.js" />
     <Content Include="Scripts\Plugins\dropzone.js" />
     <Content Include="Scripts\Plugins\jquery.mCustomScrollbar.js" />
+    <Content Include="Scripts\Plugins\spectrum.js" />
     <Content Include="Scripts\site.animations.js" />
     <Content Include="Scripts\site.contact.js" />
     <Content Include="Scripts\site.image-browser.js" />

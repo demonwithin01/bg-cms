@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace ContentManagementSystem.Framework.Models.HomePage
 {
-    public class Ribbon
+    [DisplayLocation( "~/Areas/Admin/Views/HomePage/Templates/Ribbon.cshtml" )]
+    [EditorLocation( "~/Areas/Admin/Views/HomePage/Templates/Ribbon.cshtml" )]
+    public class Ribbon : HomePageTemplate
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -18,6 +20,11 @@ namespace ContentManagementSystem.Framework.Models.HomePage
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Constructors/Initialisation
+
+        public Ribbon()
+        {
+            Items = new List<RibbonItem>();
+        }
 
         #endregion
 
@@ -42,6 +49,8 @@ namespace ContentManagementSystem.Framework.Models.HomePage
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Properties
+
+        public List<RibbonItem> Items { get; set; }
 
         #endregion
 

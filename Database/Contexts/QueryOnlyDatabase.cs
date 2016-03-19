@@ -1,12 +1,13 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ContentManagementSystem.Framework
+namespace ContentManagementSystemDatabase
 {
-    public class CachedEditableModel
+    public class QueryOnlyDatabase : DbContext
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -19,17 +20,17 @@ namespace ContentManagementSystem.Framework
 
         #region Constructors/Initialisation
 
+        public QueryOnlyDatabase()
+            : base( "ContentManagementSystem" )
+        {
+            base.Configuration.AutoDetectChangesEnabled = false;
+        }
+
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Public Methods
-
-        #endregion
-
-        /* ---------------------------------------------------------------------------------------------------------- */
-
-        #region Static Methods
 
         #endregion
 
@@ -43,17 +44,7 @@ namespace ContentManagementSystem.Framework
 
         #region Properties
 
-        public string ModelName { get; set; }
-
-        public string FriendlyName { get; set; }
-
-        public string AssemblyQualifiedName { get; set; }
-
-        public Type ModelType { get; set; }
-
-        public string DisplayLocation { get; set; }
-
-        public string EditorLocation { get; set; }
+        public DbSet<DomainHomePage> DomainHomePages { get; set; }
 
         #endregion
 

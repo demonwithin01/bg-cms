@@ -1,12 +1,14 @@
-﻿using System;
+﻿using ContentManagementSystem.Framework;
+using ContentManagementSystemDatabase;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace ContentManagementSystem.Framework
+namespace ContentManagementSystem.Managers
 {
-    public class CachedEditableModel
+    public class HomePageManager
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -25,11 +27,28 @@ namespace ContentManagementSystem.Framework
 
         #region Public Methods
 
-        #endregion
+        public HomePageTemplate RetrieveHomePage()
+        {
+            string name;
 
-        /* ---------------------------------------------------------------------------------------------------------- */
+            return RetrieveHomePage( out name );
+        }
 
-        #region Static Methods
+        public HomePageTemplate RetrieveHomePage( out string name )
+        {
+            DomainHomePage entity = Query.DomainHomePage( UserSession.Current.DomainId );
+
+            name = entity.ModelType;
+
+            CachedEditableModel cachedModel = CMSCache.HomePages[ entity.ModelType ];
+
+            HomePageTemplate homePage = JsonConvert.DeserializeObject( entity.HomePage, cachedModel.ModelType ) as HomePageTemplate;
+
+            homePage.DisplayLocation = cachedModel.DisplayLocation;
+            homePage.EditorLocation = cachedModel.EditorLocation;
+
+            return homePage;
+        }
 
         #endregion
 
@@ -42,18 +61,6 @@ namespace ContentManagementSystem.Framework
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Properties
-
-        public string ModelName { get; set; }
-
-        public string FriendlyName { get; set; }
-
-        public string AssemblyQualifiedName { get; set; }
-
-        public Type ModelType { get; set; }
-
-        public string DisplayLocation { get; set; }
-
-        public string EditorLocation { get; set; }
 
         #endregion
 

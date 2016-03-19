@@ -18,6 +18,7 @@ namespace ContentManagementSystemDatabase
 
         /** Domains **/
         public DbSet<Domain> Domains { get; set; }
+        public DbSet<DomainHomePage> DomainHomePages { get; set; }
         public DbSet<DomainNavigationItem> DomainNavigationItems { get; set; }
 
         /** Content **/

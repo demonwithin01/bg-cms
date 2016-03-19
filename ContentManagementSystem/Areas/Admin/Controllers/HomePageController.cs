@@ -13,7 +13,7 @@ using ContentManagementSystemDatabase;
 namespace ContentManagementSystem.Admin.Controllers
 {
     [Authorization( new Role.Data[] { Role.Data.Administrator } )]
-    public class HomePageController : AdminContentManagementController<NavigationManager>
+    public class HomePageController : AdminContentManagementController<HomePageManager>
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -32,15 +32,15 @@ namespace ContentManagementSystem.Admin.Controllers
 
         #region Page Actions
             
-        public ViewResult Edit( int? navItemId )
+        public ViewResult Edit()
         {
-            return View( base.Manager.GetNavigationModel( navItemId ) );
+            return View( base.Manager.GetHomePageModel() );
         }
 
         [HttpPost]
-        public ActionResult Edit( NavigationModel model )
+        public ActionResult Edit( HomePageModel model )
         {
-            SaveResult result = base.Manager.SaveNavigationItem( model );
+            SaveResult result = base.Manager.SaveHomePageModel( model );
 
             if ( result.State == SaveResultState.Success )
             {

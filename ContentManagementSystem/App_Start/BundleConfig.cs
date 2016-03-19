@@ -19,9 +19,10 @@ namespace ContentManagementSystem
                         "~/Scripts/Frameworks/jquery.validate*" ) );
 
             bundles.Add( new ScriptBundle( "~/bundles/siteadmin" ).Include(
-                        "~/Scripts/Plugins/ckeditor/ckeditor.js"
+                        "~/Scripts/Plugins/ckeditor/ckeditor.js",
                         //"~/Scripts/Plugins/ckeditor/styles.js",
                         //"~/Scripts/Plugins/ckeditor/config.js"
+                        "~/Scripts/Plugins/spectrum.js"
                         ) );
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
@@ -66,10 +67,12 @@ namespace ContentManagementSystem
 #if !DEBUG
             bundles.Add( new StyleBundle( "~/Content/admincss" ).Include( 
                 "~/Content/Styles/_reset.min.css",
+                "~/Content/Styles/Plugins/spectrum.css",
                 "~/Content/Styles/admin.min.css" ) );
 #else
             bundles.Add( new StyleBundle( "~/Content/admincss" ).Include(
                 "~/Content/Styles/_reset.min.css",
+                "~/Content/Styles/Plugins/spectrum.css",
                 "~/Content/Styles/admin.css" ) );
 #endif
 
