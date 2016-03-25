@@ -440,6 +440,7 @@
     <Content Include="Content\Styles\_admin-layout.less" />
     <Content Include="Content\Styles\_carousel.less" />
     <Content Include="Content\Styles\_ribbon.less" />
+    <Content Include="Content\Styles\_bgmodal.less" />
     <None Include="Scripts\Frameworks\jquery-1.8.2.intellisense.js" />
     <Content Include="Images\Backgrounds\background.png" />
     <Content Include="Images\Header\Login.png" />
@@ -447,6 +448,7 @@
     <Content Include="Images\Header\MenuIcon.png" />
     <Content Include="Images\Plugins\mCSB_buttons.png" />
     <Content Include="Scripts\bg.carousel.js" />
+    <Content Include="Scripts\bg.modal.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Frameworks\jquery-1.8.2.js" />

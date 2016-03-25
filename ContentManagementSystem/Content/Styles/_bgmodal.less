@@ -1,0 +1,24 @@
+﻿@import (reference) "_mixins.less";
+
+.bg-modal-backdrop
+{
+    display: none;
+    background: rgba(0, 0, 0, 0.6);
+    
+    .absolute();
+}
+
+.bg-modal
+{
+    .absolute();
+    .border-radius(3px);
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    margin: auto;
+}
+
+.modal-content
+{
+    max-width: 880px;
+    padding: @site-grid-spacing;
+}

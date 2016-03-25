@@ -125,7 +125,19 @@ header
                         li
                         {
                             background: @navBackground;
+                            height: 44px;
                             width: 100%;
+
+                            &:last-child
+                            {
+                                border-bottom-left-radius: 2px;
+                                border-bottom-right-radius: 2px;
+                            }
+
+                            & > .nav-link a
+                            {
+                                line-height: 24px;
+                            }
                         }
                     }
                 }

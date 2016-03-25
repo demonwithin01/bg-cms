@@ -2011,7 +2011,15 @@ header.always-open ul#menu li .sub-nav ul:before {
 }
 header.always-open ul#menu li .sub-nav ul li {
   background: #434343;
+  height: 44px;
   width: 100%;
+}
+header.always-open ul#menu li .sub-nav ul li:last-child {
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+header.always-open ul#menu li .sub-nav ul li > .nav-link a {
+  line-height: 24px;
 }
 header.always-open ul#menu li .sub-nav-selector {
   height: 100%;
@@ -2615,6 +2623,30 @@ ul {
 .page-content-wrapper .page-content .page-inner-content img {
   width: 100%;
 }
+.margin-top {
+  margin-top: 15px;
+}
+.margin-right {
+  margin-right: 15px;
+}
+.margin-bottom {
+  margin-bottom: 15px;
+}
+.margin-left {
+  margin-left: 15px;
+}
+.padding-top {
+  padding-top: 15px;
+}
+.padding-right {
+  padding-right: 15px;
+}
+.padding-bottom {
+  padding-bottom: 15px;
+}
+.padding-left {
+  padding-left: 15px;
+}
 @media only screen and (min-width: 1120px) {
   .page-content-wrapper .page-content,
   .page-header > h1 {
@@ -2827,6 +2859,12 @@ table td.options-column {
   min-height: 80px;
   padding: 20px;
 }
+.ribbon-item .b-grid {
+  height: 100%;
+}
+.ribbon-item .b-grid > div {
+  height: 100%;
+}
 .ribbon-item.editable {
   position: relative;
 }
@@ -2892,6 +2930,10 @@ table td.options-column {
   background: #ffffff;
   border-top-color: #333333;
 }
+.ribbon-item.editable:hover .b-grid > div {
+  border: 1px dashed black;
+  cursor: pointer;
+}
 .ribbon-item.editable:hover .ribbon-item-tools,
 .ribbon-item.editable:hover .ui-resizable-handle {
   display: block !important;
@@ -2932,6 +2974,32 @@ table td.options-column {
 }
 .drop-zone.dz-started .no-file-upload-message {
   display: none;
+}
+.bg-modal-backdrop {
+  display: none;
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+.bg-modal {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  margin: auto;
+}
+.modal-content {
+  max-width: 880px;
+  padding: 15px;
 }
 .admin-home-nav-items > ul:after {
   clear: both;

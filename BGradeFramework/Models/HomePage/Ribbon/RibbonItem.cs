@@ -41,6 +41,8 @@ namespace ContentManagementSystem.Framework.Models.HomePage
 
         public string Layout { get; set; }
 
+        public int Height { get; set; }
+
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */

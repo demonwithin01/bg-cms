@@ -31,6 +31,7 @@ namespace ContentManagementSystem
                         "~/Scripts/Frameworks/modernizr-*" ) );
 
             bundles.Add( new ScriptBundle( "~/bundles/site" ).Include(
+                        "~/Scripts/bg.modal.js",
                         "~/Scripts/site.contact.js",        
                         "~/Scripts/site.notification.js",
                         "~/Scripts/site.animations.js",

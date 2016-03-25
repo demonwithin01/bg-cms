@@ -6,10 +6,21 @@
 string idIndex = "Items_" + index + "__";
 string nameIndex = "Items[" + index + "].";
 string backgroundColor = ribbonItem.Background ?? "transparent";
+int height = ribbonItem.Height;
 
-    <div class="ribbon-item editable" style="background-color: @backgroundColor;">
+if ( height < 60 )
+{
+        height = 60;
+}
+
+    <div class="ribbon-item editable" style="background-color: @backgroundColor; height: @(height)px;">
+        <div class="b-grid">
+            <div class="editable b-width-1-1">
+
+            </div>
+        </div>
         <div class="ribbon-item-tools">
-            <input type="hidden" id="@( idIndex + "Height" )" name="@( nameIndex + "Height" )" />
+            <input type="hidden" id="@( idIndex + "Height" )" name="@( nameIndex + "Height" )" value="@height" />
             <div class="ribbon-item-template ui-front">
                 <select id="gaf" name="fs">
                     <option>One Column</option>
@@ -41,9 +52,20 @@ string backgroundColor = ribbonItem.Background ?? "transparent";
     @RenderRibbonItem( new RibbonItem(), "template" )
 </div>
 
+<div id="columnPopup" style="display: none;">
+    <div class="modal-content">
+        <textarea id="columnContent"></textarea>
+        <div class="button-list text-right margin-top">
+            @Html.Button( "Cancel", "cancelColumnContent" )
+            @Html.Button( "Accept", "acceptColumnContent" )
+        </div>
+    </div>
+</div>
+
 <script>
 
     var currentIndex = @Model.Items.Count;
+    var currentGrid = undefined;
 
     function addRibbonItem()
     {
@@ -58,7 +80,12 @@ string backgroundColor = ribbonItem.Background ?? "transparent";
             $this.removeAttr('disabled');
         });
 
-        $clone.find('select').selectmenu().on('mousein', function (e)
+        $clone.find('select').selectmenu({
+            change: function ()
+            {
+                configureForColumns($clone, $(this).val());
+            }
+        }).on('mousein', function (e)
         {
             console.log(e);
         }).next().css('width', 'auto');
@@ -81,6 +108,10 @@ string backgroundColor = ribbonItem.Background ?? "transparent";
                 ['green', 'orange']
             ],
             move: function (color)
+            {
+                $clone.css('background-color', color ? color.toHexString() : 'transparent');
+            },
+            hide: function (color)
             {
                 $clone.css('background-color', color ? color.toHexString() : 'transparent');
             }
@@ -111,6 +142,58 @@ string backgroundColor = ribbonItem.Background ?? "transparent";
         $('#ribbon-items').append($clone);
     }
 
+    function configureForColumns($ribbon, value)
+    {
+        var html = new Array();
+        var columnWidths = new Array();
+        var $grid = $ribbon.children('.b-grid');
+
+        $grid.children().each(function ()
+        {
+            html.push($(this).html());
+        });
+
+        $grid.empty();
+        
+        switch (value)
+        {
+            case 'One Column':
+                columnWidths.push('1-1');
+                break;
+            case 'Two Columns':
+                columnWidths.push('1-2');
+                columnWidths.push('1-2');
+                break;
+            case 'Three Columns':
+                columnWidths.push('1-3');
+                columnWidths.push('1-3');
+                columnWidths.push('1-3');
+                break;
+        }
+
+        for ( var i = 0; i < columnWidths.length; i++ )
+        {
+            var $div = $('<div class="editable b-width-' + columnWidths[i] + '"></div>');
+
+            if ( i < html.length )
+                $div.html(html[i]);
+
+            $grid.append($div);
+        }
+    }
+        
+    function acceptModalChanges()
+    {
+        console.log($('#columnContent').val());
+        currentGrid.html($('#columnContent').val());
+        $('#columnPopup').bgmodal('close');
+    }
+
+    function cancelModalChanges()
+    {
+        $('#columnPopup').bgmodal('close');
+    }
+
     $( function ()
     {
         $( '#ribbon-item-template' ).find('input, select').attr('disabled', 'disabled');
@@ -120,6 +203,23 @@ string backgroundColor = ribbonItem.Background ?? "transparent";
         $(document).on('click', '.remove-ribbon-item', function ()
         {
             $(this).closest('.ribbon-item').remove();
+        });
+
+        $(document).on('click', '.ribbon-item > .b-grid .editable', function ()
+        {
+            currentGrid = $(this);
+            $('#columnContent').val(currentGrid.html());
+            $('#columnPopup').bgmodal('open');
+        });
+
+        CKEDITOR.replace('columnContent');
+
+        $('#cancelColumnContent').on('click', cancelModalChanges);
+        $('#acceptColumnContent').on('click', acceptModalChanges);
+
+        $('#columnPopup').bgmodal(
+        {
+            autoOpen: false
         });
     } );
 
