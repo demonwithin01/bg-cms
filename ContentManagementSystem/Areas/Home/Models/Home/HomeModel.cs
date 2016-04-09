@@ -1,12 +1,13 @@
+﻿using ContentManagementSystem.Framework;
+using ContentManagementSystemDatabase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace ContentManagementSystem.Framework.Models.HomePage
+namespace ContentManagementSystem.Models.Home
 {
-    public class RibbonItem
+    public class HomeModel
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -18,13 +19,7 @@ namespace ContentManagementSystem.Framework.Models.HomePage
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Constructors/Initialisation
-
-        public RibbonItem()
-        {
-            Columns = new List<RibbonItemContent>();
-            Layout = RibbonColumns.OneColumn;
-        }
-
+            
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -43,13 +38,7 @@ namespace ContentManagementSystem.Framework.Models.HomePage
 
         #region Properties
 
-        public string Background { get; set; }
-
-        public RibbonColumns Layout { get; set; }
-
-        public int Height { get; set; }
-
-        public List<RibbonItemContent> Columns { get; set; }
+        public HomePageTemplate HomePageTemplateModel { get; set; }
 
         #endregion
 

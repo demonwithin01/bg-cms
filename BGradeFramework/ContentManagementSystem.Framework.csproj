@@ -114,6 +114,7 @@
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\PropertyExtension.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Helpers\CreateSelectList.cs" />
     <Compile Include="HtmlExtensions\Button.cs" />
     <Compile Include="HtmlExtensions\TextAreaFieldFor.cs" />
     <Compile Include="HtmlExtensions\DropDownListFieldFor.cs" />
@@ -123,7 +124,9 @@
     <Compile Include="Models\HomePageModel.cs" />
     <Compile Include="BaseClasses\HomePageTemplate.cs" />
     <Compile Include="Models\HomePage\Ribbon.cs" />
+    <Compile Include="Models\HomePage\Ribbon\RibbonColumns.cs" />
     <Compile Include="Models\HomePage\Ribbon\RibbonItem.cs" />
+    <Compile Include="Models\HomePage\Ribbon\RibbonItemContent.cs" />
     <Compile Include="Settings\ContentLocation.cs" />
     <Compile Include="Settings\Settings.cs" />
     <Compile Include="Attributes\AjaxOnly.cs" />
@@ -160,9 +163,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Helpers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

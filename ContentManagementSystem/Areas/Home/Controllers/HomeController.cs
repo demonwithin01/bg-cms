@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using ContentManagementSystem.Framework.BaseClasses;
 using ContentManagementSystem.Models.Home;
+using ContentManagementSystem.Framework;
+using ContentManagementSystem.Managers;
 
 namespace ContentManagementSystem.Home.Controllers
 {
@@ -32,9 +34,12 @@ namespace ContentManagementSystem.Home.Controllers
         /// </summary>
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+            HomeModel model = new HomeModel();
 
-            return View();
+            HomePageManager manager = new HomePageManager();
+            model.HomePageTemplateModel = manager.RetrieveHomePage();
+            
+            return View( model );
         }
 
         /// <summary>

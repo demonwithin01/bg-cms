@@ -1,0 +1,35 @@
+﻿@using ContentManagementSystem.Framework.Models.HomePage;
+@model Ribbon
+
+@{ 
+    UseFullWidth = true;
+}
+
+@helper RenderRibbonItem( RibbonItem ribbonItem )
+{
+string backgroundColor = ribbonItem.Background ?? "transparent";
+int height = ribbonItem.Height;
+
+if ( height < 60 )
+{
+    height = 60;
+}
+
+<div class="ribbon-item" style="background-color: @backgroundColor; height: @(height)px;">
+    <div class="b-grid">
+        @for ( int i = 0 ; i < ribbonItem.Columns.Count ; i++ )
+        {
+        <div class="b-width-1-@ribbonItem.Columns.Count">
+            @Html.Raw( ribbonItem.Columns[ i ].Html )
+        </div>
+        }
+    </div>
+</div>
+}
+
+<div id="ribbon-items">
+    @for ( int i = 0 ; i < Model.Items.Count ; i++ )
+    {
+    @RenderRibbonItem( Model.Items[ i ] )
+    }
+</div>

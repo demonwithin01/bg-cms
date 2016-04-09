@@ -9,6 +9,7 @@ using ContentManagementSystem.Admin.Managers;
 using ContentManagementSystem.Admin.Models;
 using ContentManagementSystem.BaseClasses;
 using ContentManagementSystemDatabase;
+using ContentManagementSystem.Framework.Models.HomePage;
 
 namespace ContentManagementSystem.Admin.Controllers
 {
@@ -40,11 +41,18 @@ namespace ContentManagementSystem.Admin.Controllers
         [HttpPost]
         public ActionResult Edit( HomePageModel model )
         {
-            SaveResult result = base.Manager.SaveHomePageModel( model );
-
-            if ( result.State == SaveResultState.Success )
+            CachedEditableModel cachedModel = CMSCache.HomePages[ model.HomePageTemplate ];
+            
+            model.HomePageTemplateModel = GetHomePageTemplate( model.HomePageTemplate );
+            
+            if ( model.HomePageTemplateModel != null )
             {
-                return RedirectToAction( "Index" );
+                SaveResult result = base.Manager.SaveHomePageModel( model );
+
+                if ( result.State == SaveResultState.Success )
+                {
+                    return RedirectToAction( "Index", "Home" );
+                }
             }
 
             return View( model );
@@ -73,6 +81,23 @@ namespace ContentManagementSystem.Admin.Controllers
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Private Methods
+
+        private HomePageTemplate GetHomePageTemplate( string template )
+        {
+            switch( template )
+            {
+                case "Ribbon":
+                {
+                    var model = new Ribbon();
+                    UpdateModel( model );
+
+                    return model;
+                }
+            }
+
+
+            return null;
+        }
 
         #endregion
 

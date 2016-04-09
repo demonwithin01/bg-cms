@@ -71,6 +71,20 @@ namespace ContentManagementSystem.Framework.BaseClasses
             }
         }
 
+        public bool UseFullWidth
+        {
+            get
+            {
+                if ( TempData.ContainsKey( "UseFullWidth" ) ) return (bool)TempData[ "UseFullWidth" ];
+
+                return false;
+            }
+            set
+            {
+                TempData[ "UseFullWidth" ] = value;
+            }
+        }
+
         public UserProfile UserProfile
         {
             get

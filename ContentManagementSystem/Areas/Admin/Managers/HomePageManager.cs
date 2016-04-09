@@ -5,6 +5,7 @@ using System.Web;
 using ContentManagementSystem.Framework;
 using ContentManagementSystem.Admin.Models;
 using ContentManagementSystemDatabase;
+using Newtonsoft.Json;
 
 namespace ContentManagementSystem.Admin.Managers
 {
@@ -42,16 +43,23 @@ namespace ContentManagementSystem.Admin.Managers
 
         public SaveResult SaveHomePageModel( HomePageModel model )
         {
-            ContentManagementDb db = new ContentManagementDb();
+            try
+            {
+                ContentManagementDb db = new ContentManagementDb();
 
-            return SaveResult.Fail;
+                DomainHomePage homePage = db.DomainHomePages.Find( UserSession.Current.DomainId );
 
-            //if ( navItem == null )
-            //{
-            //    return CreateNavItem( model, db );
-            //}
+                homePage.ModelType = model.HomePageTemplate;
+                homePage.HomePage = JsonConvert.SerializeObject( model.HomePageTemplateModel );
 
-            //return UpdateNavItem( navItem, model, db );
+                db.SaveChanges();
+
+                return SaveResult.Success;
+            }
+            catch
+            {
+                return SaveResult.Fail;
+            }
         }
 
         #endregion

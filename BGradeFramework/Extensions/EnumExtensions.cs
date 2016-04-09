@@ -21,8 +21,8 @@ namespace ContentManagementSystem.Framework
         {
 
             Type type = source.GetType();
-
-            object[] properties = type.GetCustomAttributes( false );
+            
+            object[] properties = type.GetMember( source.ToString() )[0].GetCustomAttributes( false );
 
             foreach ( object property in properties )
             {
@@ -36,6 +36,16 @@ namespace ContentManagementSystem.Framework
 
             return null;
 
+        }
+
+        public static string GetDescription<TEnum>( this TEnum source ) where TEnum : struct, IConvertible
+        {
+            if ( source is Enum )
+            {
+                return GetDescription( source as Enum );
+            }
+
+            return null;
         }
 
     }

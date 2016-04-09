@@ -10,46 +10,50 @@ int height = ribbonItem.Height;
 
 if ( height < 60 )
 {
-        height = 60;
+    height = 60;
 }
 
-    <div class="ribbon-item editable" style="background-color: @backgroundColor; height: @(height)px;">
-        <div class="b-grid">
-            <div class="editable b-width-1-1">
-
-            </div>
+<div class="ribbon-item editable" data-index="@index" style="background-color: @backgroundColor; height: @(height)px;">
+    <div class="b-grid">
+        @for ( int i = 0 ; i < ribbonItem.Columns.Count ; i++ )
+        {
+        <div class="editable b-width-1-@ribbonItem.Columns.Count">
+            @Html.Raw( ribbonItem.Columns[ i ].Html )
         </div>
-        <div class="ribbon-item-tools">
-            <input type="hidden" id="@( idIndex + "Height" )" name="@( nameIndex + "Height" )" value="@height" />
-            <div class="ribbon-item-template ui-front">
-                <select id="gaf" name="fs">
-                    <option>One Column</option>
-                    <option>Two Columns</option>
-                    <option>Three Columns</option>
-                </select>
-            </div>
-            <div class="remove-ribbon-item">
-                <i class="fa fa-close"></i>
-            </div>
-            <div class="ribbon-item-color-picker">
-                <input id="@( idIndex + "Background" )" name="@( nameIndex + "Background" )" type="color" value="@backgroundColor" />
-            </div>
-            <div class="adjust-height"></div>
-        </div>
+        <textarea style="display: none;" id="@( idIndex + "Columns_" + i + "__Html" )" name="@( nameIndex + "Columns[" + i + "].Html" )"></textarea>
+        }
     </div>
+    <div class="ribbon-item-tools">
+        <input type="hidden" id="@( idIndex + "Height" )" name="@( nameIndex + "Height" )" value="@height" />
+        <div class="ribbon-item-template ui-front">
+            @Html.DropDownList( nameIndex + "Layout", CreateSelectList.FromEnum<RibbonColumns>( ribbonItem.Layout ), new { id = idIndex + "Layout" } )
+        </div>
+        <div class="remove-ribbon-item">
+            <i class="fa fa-close"></i>
+        </div>
+        <div class="ribbon-item-color-picker">
+            <input id="@( idIndex + "Background" )" name="@( nameIndex + "Background" )" type="color" value="@backgroundColor" />
+        </div>
+        <div class="adjust-height"></div>
+    </div>
+</div>
 }
 
 <div id="ribbon-items">
     @for ( int i = 0 ; i < Model.Items.Count ; i++ )
     {
-        @RenderRibbonItem( Model.Items[ i ], i.ToString() )
+    @RenderRibbonItem( Model.Items[ i ], i.ToString() )
     }
 </div>
 
 @Html.Button( "Add Item", "add-ribbon-item" )
 
 <div id="ribbon-item-template" style="display: none;">
-    @RenderRibbonItem( new RibbonItem(), "template" )
+    @{
+        RibbonItem template = new RibbonItem();
+        template.Columns.Add( new RibbonItemContent() );
+    }
+    @RenderRibbonItem( template, "template" )
 </div>
 
 <div id="columnPopup" style="display: none;">
@@ -66,12 +70,11 @@ if ( height < 60 )
 
     var currentIndex = @Model.Items.Count;
     var currentGrid = undefined;
+    var ckeditor = undefined;
 
-    function addRibbonItem()
+    function attachEvents( $ribbon )
     {
-        var $clone = $( '#ribbon-item-template' ).children().clone();
-
-        $clone.find('input, select').each(function ()
+        $ribbon.find('input, select').each(function ()
         {
             var $this = $(this);
             $this.attr('name', $this.attr('name').replace(/\[+[a-z]+\]/g, '[' + currentIndex + ']'));
@@ -80,23 +83,23 @@ if ( height < 60 )
             $this.removeAttr('disabled');
         });
 
-        $clone.find('select').selectmenu({
+        $ribbon.find('select').selectmenu({
             change: function ()
             {
-                configureForColumns($clone, $(this).val());
+                configureForColumns($ribbon, $(this).val());
             }
         }).on('mousein', function (e)
         {
             console.log(e);
         }).next().css('width', 'auto');
 
-        $clone.find('label').each(function ()
+        $ribbon.find('label').each(function ()
         {
             var $this = $(this);
             $this.attr('for', $this.attr('for').replace(/_+[a-z]+_/g, '_' + currentIndex + '_'));
         });
 
-        $clone.find('[type="color"]').spectrum({
+        $ribbon.find('[type="color"]').spectrum({
             color: 'transparent',
             preferredFormat: 'hex',
             showInput: true,
@@ -109,33 +112,42 @@ if ( height < 60 )
             ],
             move: function (color)
             {
-                $clone.css('background-color', color ? color.toHexString() : 'transparent');
+                $ribbon.css('background-color', color ? color.toHexString() : 'transparent');
             },
             hide: function (color)
             {
-                $clone.css('background-color', color ? color.toHexString() : 'transparent');
+                $ribbon.css('background-color', color ? color.toHexString() : 'transparent');
             }
         });
 
-        $clone.resizable({
+        $ribbon.resizable({
             handles: 's'
         });
 
-        $clone.children().on('mouseout', function (e)
+        $ribbon.children().on('mouseout', function (e)
         {
             e.stopPropagation();
         });
 
-        $clone.on('mouseout', function (e)
+        $ribbon.on('mouseout', function (e)
         {
             var $related = $(e.relatedTarget);
-            
-            if ( !$related.is($clone) && $related.closest('.ribbon-item').is($clone) )
+
+            if ( !$related.is($ribbon) && $related.closest('.ribbon-item').is($ribbon) )
             {
                 return;
             }
-            $clone.find('select').selectmenu('close');
+            $ribbon.find('select').selectmenu('close');
         });
+    }
+
+    function addRibbonItem()
+    {
+        var $clone = $( '#ribbon-item-template' ).children().clone();
+
+        $clone.attr('data-index', currentIndex);
+
+        attachEvents( $clone );
 
         ++currentIndex;
 
@@ -154,7 +166,7 @@ if ( height < 60 )
         });
 
         $grid.empty();
-        
+
         switch (value)
         {
             case 'One Column':
@@ -171,21 +183,29 @@ if ( height < 60 )
                 break;
         }
 
+        var index = $ribbon.attr('data-index');
+
         for ( var i = 0; i < columnWidths.length; i++ )
         {
             var $div = $('<div class="editable b-width-' + columnWidths[i] + '"></div>');
+            var $input = $('<textarea style="display: none;" id="Items_' + index + '__Columns_' + i + '__Html" name="Items[' + index + '].Columns[' + i + '].Html"></textarea>');
 
             if ( i < html.length )
-                $div.html(html[i]);
+            {
+                $div.html( html[i] );
+                $input.val( html[i] );
+            }
 
             $grid.append($div);
+            $grid.append($input);
         }
     }
-        
+
     function acceptModalChanges()
     {
-        console.log($('#columnContent').val());
-        currentGrid.html($('#columnContent').val());
+        var html = ckeditor.getData();
+        currentGrid.html(html);
+        currentGrid.next().val(html);
         $('#columnPopup').bgmodal('close');
     }
 
@@ -208,11 +228,12 @@ if ( height < 60 )
         $(document).on('click', '.ribbon-item > .b-grid .editable', function ()
         {
             currentGrid = $(this);
-            $('#columnContent').val(currentGrid.html());
+            ckeditor.setData(currentGrid.html());
             $('#columnPopup').bgmodal('open');
         });
 
         CKEDITOR.replace('columnContent');
+        ckeditor = CKEDITOR.instances['columnContent'];
 
         $('#cancelColumnContent').on('click', cancelModalChanges);
         $('#acceptColumnContent').on('click', acceptModalChanges);
@@ -220,6 +241,11 @@ if ( height < 60 )
         $('#columnPopup').bgmodal(
         {
             autoOpen: false
+        });
+
+        $('#ribbon-items > .ribbon-item').each(function ()
+        {
+            attachEvents( $(this));
         });
     } );
 

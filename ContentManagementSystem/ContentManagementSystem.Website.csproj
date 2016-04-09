@@ -246,6 +246,7 @@
     <Compile Include="Areas\Admin\Models\Uploads\UploadsListModel.cs" />
     <Compile Include="Areas\Home\Controllers\SiteContentController.cs" />
     <Compile Include="Areas\Home\HomeAreaRegistration.cs" />
+    <Compile Include="Areas\Home\Models\Home\HomeModel.cs" />
     <Compile Include="Areas\Pages\Controllers\ContentController.cs" />
     <Compile Include="Areas\Pages\PagesAreaRegistration.cs" />
     <Compile Include="Areas\Shop\Controllers\ProductsController.cs" />
@@ -333,6 +334,7 @@
     <Content Include="Areas\Admin\Views\BlogPost\List.cshtml" />
     <Content Include="Areas\Admin\Views\HomePage\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\HomePage\Templates\Ribbon.cshtml" />
+    <Content Include="Areas\Home\Views\Home\HomePageTemplates\Ribbon.cshtml" />
     <None Include="compilerconfig.json" />
     <Content Include="Content\Styles\admin.css.map">
       <DependentUpon>admin.css</DependentUpon>
@@ -949,7 +951,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>6157</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:62659/</IISUrl>
+          <IISUrl>http://dev.bgradesoftware.com:62659/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

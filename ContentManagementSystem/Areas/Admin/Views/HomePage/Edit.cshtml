@@ -9,10 +9,11 @@
 
 @using ( Html.BeginForm() )
 {
+    <div class="button-list text-right">
+        @Html.SubmitButton( "Save" )
+    </div>
     <dl>
         @Html.DropDownListFieldFor( m => m.HomePageTemplate, generator.HomePageTemplates( Model.HomePageTemplate ) )
-
-        
     </dl> 
 
     <div id="page-template">

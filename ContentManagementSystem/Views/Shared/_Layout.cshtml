@@ -121,9 +121,16 @@
             <div id="body" class="content-wrapper">
                 <section class="main-content clear-fix">
                     <div class="page-content-wrapper">
+                        @if ( UseFullWidth )
+                        {
+                            @RenderBody()
+                        }
+                        else
+                        {
                         <div class="page-content">
                             @RenderBody()
                         </div>
+                        }
                     </div>
                 </section>
             </div>

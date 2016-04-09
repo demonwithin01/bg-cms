@@ -1,5 +1,7 @@
-﻿@{
+﻿@model ContentManagementSystem.Models.Home.HomeModel
+
+@{
     PageTitle = "";
 }
 
-<div class="page-height"></div>
+@Html.Partial( Model.HomePageTemplateModel.DisplayLocation, Model.HomePageTemplateModel )
