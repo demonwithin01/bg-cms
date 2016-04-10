@@ -61,6 +61,8 @@
     <Compile Include="BaseClasses\IDomainRestricted.cs" />
     <Compile Include="BaseClasses\INamedBase.cs" />
     <Compile Include="BaseClasses\UTCDateUpdatedBase.cs" />
+    <Compile Include="Configuration\CMSConfiguration.cs" />
+    <Compile Include="Configuration\CMSFormatter.cs" />
     <Compile Include="ContentManagementDb.cs" />
     <Compile Include="Contexts\AdministrationContext.cs" />
     <Compile Include="Contexts\ContentManagementContextBase.cs" />

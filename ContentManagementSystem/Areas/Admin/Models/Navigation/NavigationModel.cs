@@ -62,10 +62,7 @@ namespace ContentManagementSystem.Admin.Models
 
         [Display( Name = "Title:" )]
         public string Title { get; set; }
-
-        [Display( Name = "Is Login Required?" )]
-        public bool LoginRequired { get; set; }
-
+        
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */

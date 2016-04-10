@@ -430,7 +430,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\Styles\_adminNavigation.less" />
+    <Content Include="Content\Styles\Admin\_navigation.less" />
     <Content Include="Content\Styles\_products.less" />
     <Content Include="Content\Styles\_filters.less" />
     <Content Include="Content\Styles\_dropzone.less" />
@@ -439,7 +439,7 @@
     <Content Include="Content\Styles\site.css.map">
       <DependentUpon>site.css</DependentUpon>
     </Content>
-    <Content Include="Content\Styles\_admin-layout.less" />
+    <Content Include="Content\Styles\Admin\_layout.less" />
     <Content Include="Content\Styles\_carousel.less" />
     <Content Include="Content\Styles\_ribbon.less" />
     <Content Include="Content\Styles\_bgmodal.less" />

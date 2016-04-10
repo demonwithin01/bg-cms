@@ -17,12 +17,12 @@ namespace ContentManagementSystemDatabase
 
         public int DomainId { get; set; }
 
+        [ForeignKey( "Page" )]
         public int PageId { get; set; }
+        public virtual Page Page { get; set; }
 
         public string Title { get; set; }
 
         public int Ordinal { get; set; }
-
-        public bool LoginRequired { get; set; }
     }
 }

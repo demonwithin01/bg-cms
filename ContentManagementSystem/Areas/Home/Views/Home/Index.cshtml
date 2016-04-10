@@ -1,7 +1,7 @@
 ﻿@model ContentManagementSystem.Models.Home.HomeModel
 
 @{
-    PageTitle = "";
+    PageTitle = Model.Title;
 }
 
 @Html.Partial( Model.HomePageTemplateModel.DisplayLocation, Model.HomePageTemplateModel )

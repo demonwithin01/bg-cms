@@ -15,7 +15,10 @@ html
 
 body
 {
+    .flex-direction(column);
+
     color: #333;
+    display: flex;
     font-size: .85em;
     font-family: Verdana, Helvetica, Sans-Serif;
     margin: 0;
@@ -80,6 +83,7 @@ ul
     .transition-delay(0.3s);
     background: rgba(255, 255, 255, 0.96);
     clear: both;
+    display: flexbox;
     margin: 0 auto;
     min-height: 100%;
     position: relative;
@@ -170,6 +174,21 @@ ul
             }
         }
     }
+}
+
+.block
+{
+    display: block;
+}
+
+.inline
+{
+    display: inline;
+}
+
+.inline-block
+{
+    display: inline-block;
 }
 
 .margin-top

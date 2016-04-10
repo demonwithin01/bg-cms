@@ -55,6 +55,8 @@ namespace ContentManagementSystemDatabase
         [DatabaseGenerated( DatabaseGeneratedOption.Identity )]
         public Guid UploadFolder { get; set; }
 
+        public string Name { get; set; }
+
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */

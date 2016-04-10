@@ -1,11 +1,8 @@
-﻿using System;
+﻿using ContentManagementSystemDatabase;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web;
-using System.Web.Security;
-using ContentManagementSystemDatabase;
 
 namespace ContentManagementSystem.Framework
 {
@@ -40,7 +37,7 @@ namespace ContentManagementSystem.Framework
             {
                 if ( domain != null )
                 {
-                    this.Initialise( domain );
+                    Initialise( domain );
                 }
 
                 return;
@@ -52,7 +49,7 @@ namespace ContentManagementSystem.Framework
             {
                 if ( domain != null )
                 {
-                    this.Initialise( domain, user );
+                    Initialise( domain, user );
                 }
             }
         }
@@ -61,18 +58,19 @@ namespace ContentManagementSystem.Framework
         {
             Domain domain = Domain.FindMatchedDomain( context.Request.Url );
 
-            this.Initialise( domain, user );
+            Initialise( domain, user );
         }
 
         private void Initialise( Domain domain, UserProfile user = null )
         {
-            this.DomainId = domain.DomainId;
+            DomainId = domain.DomainId;
+            SiteName = domain.Name;
 
             if ( user != null )
             {
-                this.UserId = user.UserId;
+                UserId = user.UserId;
 
-                this.IsAdministrator = user.IsAdministrator;
+                IsAdministrator = user.IsAdministrator;
             }
         }
 
@@ -90,11 +88,22 @@ namespace ContentManagementSystem.Framework
 
             if ( domain == null ) return new List<DomainNavigationItem>();
 
-            IQueryable<DomainNavigationItem> menuItems = db.DomainNavigationItems.Where( d => d.DomainId == DomainId ).WhereActive();
-            
+            IQueryable<DomainNavigationItem> menuItems;
+
+            if ( IsLoggedIn )
+            {
+                menuItems = db.DomainNavigationItems;
+            }
+            else
+            {
+                menuItems = db.DomainNavigationItems.Include( s => s.Page );
+            }
+
+            menuItems = menuItems.Where( d => d.DomainId == DomainId ).WhereActive();
+
             if ( this.IsLoggedIn == false )
             {
-                menuItems = menuItems.Where( m => m.LoginRequired == false );
+                menuItems = menuItems.Where( m => m.Page.RequiresLogin == false );
             }
             
             return menuItems.OrderBy( d => d.Ordinal ).ToList();
@@ -141,24 +150,17 @@ namespace ContentManagementSystem.Framework
 
         #region Properties
         
-        public int DomainId
-        {
-            get; private set;
-        }
+        public int DomainId { get; private set; }
 
-        public int UserId
-        {
-            get; private set;
-        }
+        public int UserId { get; private set; }
 
         public bool IsLoggedIn { get { return ( this.UserId > 0 ); } }
 
         public bool IsValidUrl { get { return ( this.DomainId > 0 ); } }
 
-        public bool IsAdministrator
-        {
-            get; private set;
-        }
+        public string SiteName { get; private set; }
+
+        public bool IsAdministrator { get; private set; }
         
         #endregion
 

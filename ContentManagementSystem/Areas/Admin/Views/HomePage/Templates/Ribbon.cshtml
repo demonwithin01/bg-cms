@@ -46,7 +46,7 @@ if ( height < 60 )
     }
 </div>
 
-@Html.Button( "Add Item", "add-ribbon-item" )
+@Html.Button( "Add Item", ButtonType.Secondary, "add-ribbon-item" )
 
 <div id="ribbon-item-template" style="display: none;">
     @{
@@ -60,8 +60,8 @@ if ( height < 60 )
     <div class="modal-content">
         <textarea id="columnContent"></textarea>
         <div class="button-list text-right margin-top">
-            @Html.Button( "Cancel", "cancelColumnContent" )
-            @Html.Button( "Accept", "acceptColumnContent" )
+            @Html.Button( "Cancel", ButtonType.Cancel, "cancelColumnContent" )
+            @Html.Button( "Accept", ButtonType.Primary, "acceptColumnContent" )
         </div>
     </div>
 </div>

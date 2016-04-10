@@ -110,7 +110,7 @@
         </header>
         <div class="page-content">
             @RenderSection( "overlays", false )
-            @if ( string.IsNullOrEmpty( PageTitle ) == false )
+            @if ( string.IsNullOrEmpty( PageTitle ) == false && HideTitle == false )
             {
                 <div class="page-header-wrapper">
                     <div class="page-header">

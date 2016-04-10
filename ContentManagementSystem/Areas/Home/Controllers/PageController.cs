@@ -45,7 +45,7 @@ namespace ContentManagementSystem.Home.Controllers
                 pageContent = page.PageContent.FirstOrDefault( (Func<PageContent, bool>)(s => s.PublishStatus == PublishStatus.Published) );
             }
 
-            if ( pageContent == null )
+            if ( pageContent == null || ( page.RequiresLogin && Request.IsAuthenticated == false ) )
             {
                 throw new HttpException( 404, "The page requested could not be found" );
             }

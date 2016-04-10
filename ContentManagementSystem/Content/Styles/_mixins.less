@@ -32,6 +32,13 @@
     box-sizing: @boxSizing;
 }
 
+.flex-direction(@arg)
+{
+    -webkit-flex-direction: @arg;
+    -ms-flex-direction: @arg;
+    flex-direction: @arg;
+}
+
 .text-overflow(@arg: ellipsis)
 {
     -ms-text-overflow: @arg;

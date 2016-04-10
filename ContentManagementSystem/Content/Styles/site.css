@@ -1985,6 +1985,7 @@ header + .page-content {
   -o-transition-delay: 0.3s;
   transition-delay: 0.3s;
   height: 100%;
+  overflow: auto;
 }
 header + .page-content > .page-header-wrapper > .page-header {
   -webkit-box-sizing: border-box;
@@ -2579,7 +2580,11 @@ html {
   position: relative;
 }
 body {
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   color: #333;
+  display: flex;
   font-size: .85em;
   font-family: Verdana, Helvetica, Sans-Serif;
   margin: 0;
@@ -2635,6 +2640,7 @@ ul {
   transition-delay: 0.3s;
   background: rgba(255, 255, 255, 0.96);
   clear: both;
+  display: flexbox;
   margin: 0 auto;
   min-height: 100%;
   position: relative;
@@ -2705,6 +2711,15 @@ ul {
 }
 .page-content-wrapper .page-content .page-inner-content img {
   width: 100%;
+}
+.block {
+  display: block;
+}
+.inline {
+  display: inline;
+}
+.inline-block {
+  display: inline-block;
 }
 .margin-top {
   margin-top: 15px;
@@ -3369,31 +3384,6 @@ div.clear {
   display: inline;
   list-style: none;
 }
-/* menu
-----------------------------------------------------------*/
-/* page elements
-----------------------------------------------------------*/
-/* featured */
-.featured {
-  background-color: #fff;
-}
-.featured .content-wrapper {
-  background-color: #7ac0da;
-  background-image: -ms-linear-gradient(left, #7ac0da 0%, #a4d4e6 100%);
-  background-image: -o-linear-gradient(left, #7ac0da 0%, #a4d4e6 100%);
-  background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #7ac0da), color-stop(1, #a4d4e6));
-  background-image: -webkit-linear-gradient(left, #7ac0da 0%, #a4d4e6 100%);
-  background-image: linear-gradient(left, #7ac0da 0%, #a4d4e6 100%);
-  color: #3e5667;
-  padding: 20px 40px 30px 40px;
-}
-.featured hgroup.title h1,
-.featured hgroup.title h2 {
-  color: #fff;
-}
-.featured p {
-  font-size: 1.1em;
-}
 /* page titles */
 hgroup.title {
   margin-bottom: 10px;
@@ -3434,7 +3424,6 @@ aside ul li {
 }
 /* login page */
 #loginForm {
-  border-right: solid 2px #c8c8c8;
   float: left;
   width: 55%;
 }
@@ -3596,59 +3585,75 @@ input[type="checkbox"].input-validation-error {
 }
 /* tables
 ----------------------------------------------------------*/
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  margin-top: 0.75em;
-  border: 0 none;
+/*table
+{
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-top: 0.75em;
+    border: 0 none;
 }
-th {
-  font-size: 1.2em;
-  text-align: left;
-  border: none 0px;
-  padding-left: 0;
+
+th
+{
+    font-size: 1.2em;
+    text-align: left;
+    border: none 0px;
+    padding-left: 0;
+
+    a
+    {
+        display: block;
+        position: relative;
+
+
+        &:link, &:visited, &:active, &:hover
+        {
+            color: #333;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 0;
+        }
+
+        &:hover
+        {
+            color: #000;
+        }
+    }
+
+    th.asc a, th.desc a
+    {
+        margin-right: .75em;
+        &:after
+        {
+            display: block;
+            position: absolute;
+            right: 0em;
+            top: 0;
+            font-size: 0.75em;
+        }
+    }
+
+    th.asc a:after
+    {
+        content: '▲';
+    }
+
+    th.desc a:after
+    {
+        content: '▼';
+    }
 }
-th a {
-  display: block;
-  position: relative;
+
+td
+{
+    padding: 0.25em 2em 0.25em 0em;
+    border: 0 none;
 }
-th a:link,
-th a:visited,
-th a:active,
-th a:hover {
-  color: #333;
-  font-weight: 600;
-  text-decoration: none;
-  padding: 0;
-}
-th a:hover {
-  color: #000;
-}
-th th.asc a,
-th th.desc a {
-  margin-right: .75em;
-}
-th th.asc a:after,
-th th.desc a:after {
-  display: block;
-  position: absolute;
-  right: 0em;
-  top: 0;
-  font-size: 0.75em;
-}
-th th.asc a:after {
-  content: '▲';
-}
-th th.desc a:after {
-  content: '▼';
-}
-td {
-  padding: 0.25em 2em 0.25em 0em;
-  border: 0 none;
-}
-tr.pager td {
-  padding: 0 0.25em 0 0;
-}
+
+tr.pager td
+{
+    padding: 0 0.25em 0 0;
+}*/
 /********************
 *   Mobile Styles   *
 ********************/

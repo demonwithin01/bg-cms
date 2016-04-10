@@ -40,6 +40,8 @@ namespace ContentManagementSystem.Models.Home
 
         public HomePageTemplate HomePageTemplateModel { get; set; }
 
+        public string Title { get; set; }
+
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */

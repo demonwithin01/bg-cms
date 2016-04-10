@@ -16,6 +16,8 @@ namespace ContentManagementSystemDatabase
         [ForeignKey( "CreatedByUser" )]
         public int CreatedByUserId { get; set; }
         public virtual UserProfile CreatedByUser { get; set; }
+
+        public bool RequiresLogin { get; set; }
         
         public virtual ICollection<PageContent> PageContent { get; set; }
     }

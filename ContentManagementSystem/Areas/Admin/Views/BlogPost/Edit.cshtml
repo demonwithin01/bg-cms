@@ -13,8 +13,8 @@
         @Html.TextBoxFieldFor( m => m.Title )
         @Html.TextAreaFieldFor( m => m.Content )
     </dl>
-    @Html.Button( "Save as Draft", "saveDraft" )
-    @Html.Button( "Save & Publish", "savePublish" )
+    @Html.Button( "Save as Draft", ButtonType.Secondary, "saveDraft" )
+    @Html.Button( "Save & Publish", ButtonType.Primary, "savePublish" )
 }
 
 @section scripts

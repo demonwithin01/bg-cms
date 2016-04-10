@@ -59,9 +59,7 @@ namespace ContentManagementSystem.Admin.Models
         public int Ordinal { get; set; }
 
         public string Title { get; set; }
-
-        public bool LoginRequired { get; set; }
-
+        
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */

@@ -1902,6 +1902,7 @@ header + .page-content {
   -o-transition-delay: 0.3s;
   transition-delay: 0.3s;
   height: 100%;
+  overflow: auto;
 }
 header + .page-content > .page-header-wrapper > .page-header {
   -webkit-box-sizing: border-box;
@@ -2496,7 +2497,11 @@ html {
   position: relative;
 }
 body {
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   color: #333;
+  display: flex;
   font-size: .85em;
   font-family: Verdana, Helvetica, Sans-Serif;
   margin: 0;
@@ -2552,6 +2557,7 @@ ul {
   transition-delay: 0.3s;
   background: rgba(255, 255, 255, 0.96);
   clear: both;
+  display: flexbox;
   margin: 0 auto;
   min-height: 100%;
   position: relative;
@@ -2622,6 +2628,15 @@ ul {
 }
 .page-content-wrapper .page-content .page-inner-content img {
   width: 100%;
+}
+.block {
+  display: block;
+}
+.inline {
+  display: inline;
+}
+.inline-block {
+  display: inline-block;
 }
 .margin-top {
   margin-top: 15px;

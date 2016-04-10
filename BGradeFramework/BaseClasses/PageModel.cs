@@ -71,6 +71,20 @@ namespace ContentManagementSystem.Framework.BaseClasses
             }
         }
 
+        public bool HideTitle
+        {
+            get
+            {
+                if ( TempData.ContainsKey( "HideTitle" ) ) return (bool)TempData[ "HideTitle" ];
+
+                return false;
+            }
+            set
+            {
+                TempData[ "HideTitle" ] = value;
+            }
+        }
+
         public bool UseFullWidth
         {
             get

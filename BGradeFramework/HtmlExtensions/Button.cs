@@ -10,17 +10,17 @@ namespace ContentManagementSystem.Framework.HtmlExtensions
 {
     public static class ButtonExtension
     {
-        public static MvcHtmlString Button<TModel>( this HtmlHelper<TModel> helper, string text, string id = null, string classes = null )
+        public static MvcHtmlString Button<TModel>( this HtmlHelper<TModel> helper, string text, ButtonType type, string id = null, string classes = null )
         {
-            return RenderButton( text, "button", id, classes );
+            return RenderButton( text, type, "button", id, classes );
         }
 
         public static MvcHtmlString SubmitButton<TModel>( this HtmlHelper<TModel> helper, string text, string id = null, string classes = null )
         {
-            return RenderButton( text, "submit", id, classes );
+            return RenderButton( text, ButtonType.Primary, "submit", id, classes );
         }
 
-        private static MvcHtmlString RenderButton( string text, string type, string id, string classes)
+        private static MvcHtmlString RenderButton( string text, ButtonType buttonType, string type, string id, string classes)
         {
             string button = "<button";
 
@@ -29,10 +29,9 @@ namespace ContentManagementSystem.Framework.HtmlExtensions
                 button += " id=\"" + id + "\"";
             }
 
-            if ( string.IsNullOrEmpty( classes ) == false )
-            {
-                button += " classes=\"" + classes + "\"";
-            }
+            classes = ( "button " + buttonType.GetDescription() + " " + ( classes ?? "" ) ).Trim();
+
+            button += " class=\"" + classes + "\"";
 
             button += " type=\"" + type + "\">" + text + " </button>";
             
