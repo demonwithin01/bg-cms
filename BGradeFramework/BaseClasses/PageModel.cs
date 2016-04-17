@@ -21,6 +21,8 @@ namespace ContentManagementSystem.Framework.BaseClasses
 
         private UserProfile _userProfile;
 
+        private string hideSocialButtons = "HideSocialButtons";
+
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -82,6 +84,20 @@ namespace ContentManagementSystem.Framework.BaseClasses
             set
             {
                 TempData[ "HideTitle" ] = value;
+            }
+        }
+
+        public bool HideSocialButtons
+        {
+            get
+            {
+                if ( TempData.ContainsKey( hideSocialButtons ) ) return (bool)TempData[ hideSocialButtons ];
+
+                return false;
+            }
+            set
+            {
+                TempData[ hideSocialButtons ] = value;
             }
         }
 

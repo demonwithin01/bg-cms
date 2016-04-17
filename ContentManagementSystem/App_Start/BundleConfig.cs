@@ -31,6 +31,7 @@ namespace ContentManagementSystem
                         "~/Scripts/Frameworks/modernizr-*" ) );
 
             bundles.Add( new ScriptBundle( "~/bundles/site" ).Include(
+                        "~/Scripts/Plugins/jssocials.min.js",
                         "~/Scripts/bg.modal.js",
                         "~/Scripts/site.contact.js",        
                         "~/Scripts/site.notification.js",
@@ -62,6 +63,8 @@ namespace ContentManagementSystem
 #else
             bundles.Add( new StyleBundle( "~/Content/css" ).Include( 
                 "~/Content/Styles/_reset.min.css",
+                "~/Content/Styles/Plugins/jssocials.css",
+                "~/Content/Styles/Plugins/jssocials-theme-flat.css",
                 "~/Content/Styles/site.css" ) );
 #endif
 

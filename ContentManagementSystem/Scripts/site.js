@@ -8,6 +8,10 @@
 
     function init()
     {
+        $( '#social' ).jsSocials( {
+            shares: ['facebook', 'twitter', 'googleplus', 'linkedin', 'pinterest', 'stumbleupon', 'whatsapp']
+        } );
+
         attachEventHandlers();
 
         $( window ).resize();
@@ -22,6 +26,7 @@
     {
         $( window ).on( 'resize', handleResize );
         $( '.menu-link' ).on( 'click', handleMenuLinkClick );
+        $( 'header + .page-content' ).on( 'scroll', handleScroll );
     }
 
     function handleResize()
@@ -55,6 +60,12 @@
                 $parent.addClass( 'changing' );
             }, 300 );
         }
+    }
+
+    function handleScroll(e)
+    {
+        console.log( e );
+        $( '#social' ).css( 'top', e.target.offsetTop + 'px' );
     }
 
     init();

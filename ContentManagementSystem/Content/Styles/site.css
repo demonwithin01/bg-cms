@@ -2027,6 +2027,14 @@ header.always-open + .page-content > .page-header-wrapper > .page-header {
   transition-delay: 0s;
   left: 0;
 }
+header.always-open .login-button,
+header.always-open .logged-in-button {
+  height: 100%;
+  left: auto;
+  right: 0;
+  text-align: right;
+  top: 0;
+}
 header.always-open .menu-link {
   opacity: 0;
   pointer-events: none;
@@ -2054,6 +2062,7 @@ header.always-open nav > .nav-content {
   -o-transition-delay: 0.3s;
   transition-delay: 0.3s;
   opacity: 1;
+  padding: 0;
 }
 header.always-open ul#menu {
   display: inline-block;
@@ -2251,11 +2260,6 @@ header.open + .page-content > .page-header-wrapper > .page-header {
   transition-delay: 0s;
   left: 240px;
 }
-header.open .login-button,
-header.open .logged-in-button {
-  left: 10px;
-  top: 0;
-}
 header.open .menu-link {
   -webkit-transition-delay: 0s;
   -moz-transition-delay: 0s;
@@ -2291,7 +2295,6 @@ header.open nav > .nav-content {
   -o-transition-delay: 0.3s;
   transition-delay: 0.3s;
   opacity: 1;
-  padding: 60px 0 20px;
 }
 header a.home-link {
   background: none;
@@ -2376,6 +2379,7 @@ header nav > .nav-content {
   transition-delay: 0s;
   height: 100%;
   opacity: 0;
+  padding: 60px 0 20px;
   position: relative;
   width: 100%;
 }
@@ -2403,11 +2407,12 @@ header .logged-in-button {
   transition: background 0.2s ease, width 0.2s ease;
   cursor: pointer;
   display: inline-block;
-  height: 100%;
+  height: 48px;
+  left: 10px;
   overflow: hidden;
   position: absolute;
-  right: 0;
-  text-align: right;
+  right: 58px;
+  text-align: center;
   top: 0;
 }
 header .login-button:hover,
@@ -3247,6 +3252,37 @@ table td.options-column {
 .modal-content {
   max-width: 880px;
   padding: 15px;
+}
+@media only screen and (min-width: 768px) {
+  .page-content-wrapper > .page-content {
+    position: relative;
+  }
+  .page-content-wrapper > .page-content > .page-content {
+    display: block;
+    margin-right: 120px;
+    width: auto;
+  }
+  .page-content-wrapper > .page-content > #social {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 120px;
+  }
+  .page-content-wrapper > .page-content > #social .jssocials-shares {
+    width: 100%;
+  }
+  .page-content-wrapper > .page-content > #social .jssocials-share {
+    display: block;
+  }
+  .page-content-wrapper > .page-content > #social .jssocials-share:first-child {
+    margin-left: 0.3em;
+  }
+  .page-content-wrapper > .page-content > #social .jssocials-share:last-child {
+    margin-right: 0.3em;
+  }
+  .page-content-wrapper > .page-content > #social .jssocials-share-link {
+    display: block;
+  }
 }
 .fake-link {
   cursor: pointer;

@@ -289,6 +289,11 @@
     <Content Include="Content\Styles\image-browser.min.css">
       <DependentUpon>image-browser.css</DependentUpon>
     </Content>
+    <Content Include="Content\Styles\Plugins\jssocials-theme-classic.css" />
+    <Content Include="Content\Styles\Plugins\jssocials-theme-flat.css" />
+    <Content Include="Content\Styles\Plugins\jssocials-theme-minima.css" />
+    <Content Include="Content\Styles\Plugins\jssocials-theme-plain.css" />
+    <Content Include="Content\Styles\Plugins\jssocials.css" />
     <Content Include="Content\Styles\Plugins\spectrum.css" />
     <Content Include="Content\Styles\_forms.less" />
     <Content Include="Content\Styles\_buttons.less" />
@@ -443,6 +448,7 @@
     <Content Include="Content\Styles\_carousel.less" />
     <Content Include="Content\Styles\_ribbon.less" />
     <Content Include="Content\Styles\_bgmodal.less" />
+    <Content Include="Content\Styles\_social.less" />
     <None Include="Scripts\Frameworks\jquery-1.8.2.intellisense.js" />
     <Content Include="Images\Backgrounds\background.png" />
     <Content Include="Images\Header\Login.png" />
@@ -845,6 +851,7 @@
     <Content Include="Scripts\Plugins\ckeditor\styles.js" />
     <Content Include="Scripts\Plugins\dropzone.js" />
     <Content Include="Scripts\Plugins\jquery.mCustomScrollbar.js" />
+    <Content Include="Scripts\Plugins\jssocials.min.js" />
     <Content Include="Scripts\Plugins\spectrum.js" />
     <Content Include="Scripts\site.animations.js" />
     <Content Include="Scripts\site.contact.js" />
