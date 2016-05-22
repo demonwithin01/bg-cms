@@ -25,7 +25,7 @@ namespace ContentManagementSystem.Areas.Shop.Controllers
             {
                 Product product = base.Database.Products.Find( productId );
 
-                if ( product.DomainId == UserSession.Current.DomainId )
+                if ( product.DomainId == UserCookie.Current.DomainId )
                 {
                     ProductDetailsModel model = new ProductDetailsModel( product );
                 }

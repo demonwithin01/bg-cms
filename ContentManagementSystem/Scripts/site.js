@@ -64,8 +64,7 @@
 
     function handleScroll(e)
     {
-        console.log( e );
-        $( '#social' ).css( 'top', e.target.offsetTop + 'px' );
+        $( '#social' ).css( 'top', ( e.target.scrollTop + 60 ) + 'px' );
     }
 
     init();

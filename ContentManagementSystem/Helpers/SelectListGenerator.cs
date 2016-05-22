@@ -32,7 +32,7 @@ namespace ContentManagementSystem.Helpers
 
         public SelectList ProductCategories( int? selected, bool canAddNew = false )
         {
-            List<ProductCategory> productCategories = ProductRepository.ProductCategories.WhereActive().Where( s => s.DomainId == UserSession.Current.DomainId ).ToList();
+            List<ProductCategory> productCategories = ProductRepository.ProductCategories.WhereActive().Where( s => s.DomainId == UserCookie.Current.DomainId ).ToList();
 
             productCategories = productCategories.OrderBy( p => p.Name ).ToList();
 
@@ -43,7 +43,7 @@ namespace ContentManagementSystem.Helpers
 
         public SelectList ProductCategories( int? selected, string optionalText )
         {
-            List<ProductCategory> productCategories = ProductRepository.ProductCategories.WhereActive().Where( s => s.DomainId == UserSession.Current.DomainId ).ToList();
+            List<ProductCategory> productCategories = ProductRepository.ProductCategories.WhereActive().Where( s => s.DomainId == UserCookie.Current.DomainId ).ToList();
 
             productCategories = productCategories.OrderBy( p => p.Name ).ToList();
 

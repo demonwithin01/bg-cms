@@ -44,6 +44,11 @@ namespace ContentManagementSystem.Framework.BaseClasses
 
         #region Public Methods
 
+        public void UpdateObjectModel<TModel>( TModel model ) where TModel : class
+        {
+            UpdateModel( model );
+        }
+
         /// <summary>
         /// Turns a validation result into a json result to be returned to the webpage.
         /// </summary>
@@ -91,7 +96,7 @@ namespace ContentManagementSystem.Framework.BaseClasses
 
         protected override void OnActionExecuting( ActionExecutingContext filterContext )
         {
-            if ( UserSession.Current.IsValidUrl == false )
+            if ( UserCookie.Current.IsValidUrl == false )
             {
 
             }

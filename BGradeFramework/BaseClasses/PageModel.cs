@@ -65,7 +65,7 @@ namespace ContentManagementSystem.Framework.BaseClasses
                 object pageTitle = TempData[ "PageTitle" ];
                 if ( pageTitle != null ) return pageTitle.ToString();
 
-                return "Need to add site name";
+                return UserCookie.Current.SiteName;
             }
             set
             {

@@ -36,7 +36,7 @@ namespace ContentManagementSystem.Managers
 
         public HomePageTemplate RetrieveHomePage( out string name )
         {
-            DomainHomePage entity = Query.DomainHomePage( UserSession.Current.DomainId );
+            DomainHomePage entity = Query.DomainHomePage( UserCookie.Current.DomainId );
 
             name = entity.ModelType;
 

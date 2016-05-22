@@ -38,7 +38,7 @@ namespace ContentManagementSystem.Home.Controllers
 
             HomePageManager manager = new HomePageManager();
             model.HomePageTemplateModel = manager.RetrieveHomePage();
-            model.Title = UserSession.Current.CurrentDomain().Name;
+            model.Title = UserCookie.Current.SiteName;
             
             return View( model );
         }

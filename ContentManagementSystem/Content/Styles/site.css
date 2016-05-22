@@ -2005,6 +2005,7 @@ header + .page-content > .page-header-wrapper > .page-header {
 }
 header.always-open {
   height: 64px;
+  min-height: 64px;
   position: relative;
   width: 100%;
   z-index: 2;
@@ -3147,6 +3148,7 @@ table td.options-column {
 .ribbon-item {
   min-height: 80px;
   padding: 20px;
+  text-align: left;
 }
 .ribbon-item .b-grid {
   height: 100%;
@@ -3248,6 +3250,7 @@ table td.options-column {
   background: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   margin: auto;
+  z-index: 99999;
 }
 .modal-content {
   max-width: 880px;
@@ -3265,8 +3268,16 @@ table td.options-column {
   .page-content-wrapper > .page-content > #social {
     position: absolute;
     right: 0;
-    top: 0;
+    top: 60px;
     width: 120px;
+    -webkit-transition: top 0.4s ease;
+    -moz-transition: top 0.4s ease;
+    -o-transition: top 0.4s ease;
+    transition: top 0.4s ease;
+    -webkit-transition-delay: 0.6s;
+    -moz-transition-delay: 0.6s;
+    -o-transition-delay: 0.6s;
+    transition-delay: 0.6s;
   }
   .page-content-wrapper > .page-content > #social .jssocials-shares {
     width: 100%;

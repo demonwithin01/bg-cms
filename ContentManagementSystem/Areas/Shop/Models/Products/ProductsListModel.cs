@@ -25,7 +25,7 @@ namespace ContentManagementSystem.Shop.Models
         {
             ProductsContext productsRepository = new ProductsContext();
 
-            this.Products = productsRepository.Products.WhereActive().Where( s => s.DomainId == UserSession.Current.DomainId ).ToList().Select( s => new ProductsListItemModel( s ) ).ToList();
+            this.Products = productsRepository.Products.WhereActive().Where( s => s.DomainId == UserCookie.Current.DomainId ).ToList().Select( s => new ProductsListItemModel( s ) ).ToList();
         }
 
         #endregion

@@ -13,12 +13,7 @@ namespace ContentManagementSystemDatabase
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Class Members
-
-        /// <summary>
-        /// A reference to the query only database instance.
-        /// </summary>
-        private static QueryOnlyDatabase _database = new QueryOnlyDatabase();
-        
+            
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -37,7 +32,7 @@ namespace ContentManagementSystemDatabase
         /// <param name="domainId">The domain to get the home page for</param>
         public static DomainHomePage DomainHomePage( int domainId )
         {
-            return _database.DomainHomePages.Find( domainId );
+            return new QueryOnlyDatabase().DomainHomePages.Find( domainId );
         }
 
         #endregion

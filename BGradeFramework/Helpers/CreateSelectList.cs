@@ -30,6 +30,7 @@ namespace ContentManagementSystem.Framework
         {
             Array values = Enum.GetValues( typeof( TEnum ) );
             List<SelectListItem> selectList = new List<SelectListItem>();
+            int selectedValue = Convert.ToInt32( selected );
 
             foreach ( var value in values )
             {
@@ -37,7 +38,8 @@ namespace ContentManagementSystem.Framework
                 selectList.Add( new SelectListItem()
                 {
                     Text = ( (Enum)value ).GetDescription(),
-                    Value = ( (int)value ).ToString()
+                    Value = ( (int)value ).ToString(),
+                    Selected = (int)value == selectedValue
                 } );
 
             }

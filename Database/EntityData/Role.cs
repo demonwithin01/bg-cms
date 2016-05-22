@@ -10,7 +10,9 @@ namespace ContentManagementSystemDatabase
     {
         public enum Data
         {
-            Administrator = 1
+            Administrator = 1,
+
+            GeneralUser = 2
         }
     }
 }

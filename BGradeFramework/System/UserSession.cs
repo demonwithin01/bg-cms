@@ -54,23 +54,21 @@ namespace ContentManagementSystem.Framework
             }
         }
 
-        private UserSession( UserProfile user, HttpContextBase context )
+        private UserSession( UserProfile user, Domain domain )
         {
-            Domain domain = Domain.FindMatchedDomain( context.Request.Url );
-
             Initialise( domain, user );
         }
 
         private void Initialise( Domain domain, UserProfile user = null )
         {
             DomainId = domain.DomainId;
-            SiteName = domain.Name;
 
             if ( user != null )
             {
                 UserId = user.UserId;
 
                 IsAdministrator = user.IsAdministrator;
+                Role = (Role.Data)( user.RoleId );
             }
         }
 
@@ -79,59 +77,23 @@ namespace ContentManagementSystem.Framework
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Public Methods
-
-        public List<DomainNavigationItem> GetMenuItems( ContentManagementDb db = null )
-        {
-            db = db ?? new ContentManagementDb();
-
-            Domain domain = CurrentDomain( db );
-
-            if ( domain == null ) return new List<DomainNavigationItem>();
-
-            IQueryable<DomainNavigationItem> menuItems;
-
-            if ( IsLoggedIn )
-            {
-                menuItems = db.DomainNavigationItems;
-            }
-            else
-            {
-                menuItems = db.DomainNavigationItems.Include( s => s.Page );
-            }
-
-            menuItems = menuItems.Where( d => d.DomainId == DomainId ).WhereActive();
-
-            if ( this.IsLoggedIn == false )
-            {
-                menuItems = menuItems.Where( m => m.Page.RequiresLogin == false );
-            }
             
-            return menuItems.OrderBy( d => d.Ordinal ).ToList();
-        }
-
         public Domain CurrentDomain( ContentManagementDb db = null )
         {
             db = db ?? new ContentManagementDb();
 
             return db.Domains.Find( DomainId );
         }
-
-        public UserProfile CurrentUser( ContentManagementDb db = null )
-        {
-            db = db ?? new ContentManagementDb();
-
-            return db.Users.Find( UserId );
-        }
-
+        
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Static Methods
 
-        public static UserSession CreateInstance( UserProfile user, HttpContextBase context )
+        public static UserSession CreateInstance( UserProfile user, Domain domain )
         {
-            UserSession userSession = new UserSession( user , context);
+            UserSession userSession = new UserSession( user, domain );
 
             Current = userSession;
 
@@ -157,8 +119,8 @@ namespace ContentManagementSystem.Framework
         public bool IsLoggedIn { get { return ( this.UserId > 0 ); } }
 
         public bool IsValidUrl { get { return ( this.DomainId > 0 ); } }
-
-        public string SiteName { get; private set; }
+        
+        public Role.Data Role { get; private set; }
 
         public bool IsAdministrator { get; private set; }
         

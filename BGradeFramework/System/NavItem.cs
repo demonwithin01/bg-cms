@@ -1,22 +1,24 @@
-﻿using System;
+﻿using ContentManagementSystemDatabase;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using ContentManagementSystemDatabase;
 
 namespace ContentManagementSystem.Framework
 {
-    public class AuthorizationAttribute : AuthorizeAttribute
+    public class NavItem
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
-        #region Class Members
+        #region Static Class Members
 
-        private Role.Data[] _authorizedRoles;
+        #endregion
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+
+        #region Class Members
 
         #endregion
 
@@ -24,14 +26,15 @@ namespace ContentManagementSystem.Framework
 
         #region Constructors/Initialisation
 
-        public AuthorizationAttribute()
+        public NavItem()
         {
-            this._authorizedRoles = null;
+
         }
 
-        public AuthorizationAttribute( Role.Data[] authorizedRoles )
+        public NavItem( DomainNavigationItem navItem )
         {
-            this._authorizedRoles = authorizedRoles;
+            PageId = navItem.PageId;
+            Title = navItem.Title;
         }
 
         #endregion
@@ -44,23 +47,7 @@ namespace ContentManagementSystem.Framework
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
-        #region Protected Methods
-
-        protected override bool AuthorizeCore( HttpContextBase httpContext )
-        {
-            if ( UserCookie.Current.IsLoggedIn == false ) return false;
-
-            if ( this._authorizedRoles == null ) return true;
-
-            bool authorized = this._authorizedRoles.Contains( UserCookie.Current.Role );
-
-            if ( UserCookie.Current.Role == Role.Data.Administrator && UserSession.Current.Role != Role.Data.Administrator )
-            {
-                return false;
-            }
-
-            return authorized;
-        }
+        #region Static Methods
 
         #endregion
 
@@ -73,6 +60,16 @@ namespace ContentManagementSystem.Framework
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Properties
+
+        public int PageId { get; set; }
+
+        public string Title { get; set; }
+        
+        #endregion
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+
+        #region Static Properties
 
         #endregion
 

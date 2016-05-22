@@ -43,7 +43,7 @@ namespace ContentManagementSystem.Admin.Controllers
         {
             CachedEditableModel cachedModel = CMSCache.HomePages[ model.HomePageTemplate ];
             
-            model.HomePageTemplateModel = GetHomePageTemplate( model.HomePageTemplate );
+            model.HomePageTemplateModel = cachedModel.GetHomePageModel( this );
             
             if ( model.HomePageTemplateModel != null )
             {
@@ -81,24 +81,7 @@ namespace ContentManagementSystem.Admin.Controllers
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Private Methods
-
-        private HomePageTemplate GetHomePageTemplate( string template )
-        {
-            switch( template )
-            {
-                case "Ribbon":
-                {
-                    var model = new Ribbon();
-                    UpdateModel( model );
-
-                    return model;
-                }
-            }
-
-
-            return null;
-        }
-
+            
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */

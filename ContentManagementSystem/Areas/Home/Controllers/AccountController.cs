@@ -43,7 +43,7 @@ namespace ContentManagementSystem.Home.Controllers
                 ContentManagementDb db = new ContentManagementDb();
 
                 UserProfile user = db.Users.FirstOrDefault( u => u.UserId == userId );
-                UserSession.CreateInstance( user, HttpContext );
+                UserCookie.CreateInstance( user, HttpContext );
 
                 return RedirectToLocal( returnUrl );
             }
@@ -61,7 +61,7 @@ namespace ContentManagementSystem.Home.Controllers
         public ActionResult LogOff()
         {
             WebSecurity.Logout();
-            UserSession.CreateInstance( null, HttpContext );
+            UserCookie.CreateInstance( null, HttpContext );
 
             return RedirectToAction( "Index", "Home" );
         }

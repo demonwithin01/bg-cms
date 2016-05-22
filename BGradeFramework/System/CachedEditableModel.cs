@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ContentManagementSystem.Framework.BaseClasses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,15 @@ namespace ContentManagementSystem.Framework
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Public Methods
+
+        public HomePageTemplate GetHomePageModel( BaseController controller )
+        {
+            dynamic model = Activator.CreateInstance( ModelType );
+
+            controller.UpdateObjectModel( model );
+
+            return ( model as HomePageTemplate );
+        }
 
         #endregion
 

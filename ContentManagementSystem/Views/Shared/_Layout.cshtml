@@ -16,7 +16,7 @@
         <header class="always-open">
             <nav>
                 <div class="nav-content">
-                    @if ( UserSession.Current.IsLoggedIn )
+                    @if ( UserCookie.Current.IsLoggedIn )
                     {
                         using ( Html.BeginForm( "LogOff", "Account", new { Area = "Home" } ) )
                         {
@@ -42,7 +42,7 @@
                         <img src="/Images/Header/Logo.png" />
                     </a>
                     <ul id="menu" class="off">
-                        @if ( UserSession.Current.IsLoggedIn && UserSession.Current.IsAdministrator )
+                        @if ( UserCookie.Current.IsLoggedIn && UserCookie.Current.IsAdministrator )
                         { 
                             <li class="off">
                                 <div class="nav-link">
@@ -55,11 +55,11 @@
                                 <a href="/">Home</a>
                             </div>
                         </li>
-                        @foreach ( var menuItem in UserSession.Current.GetMenuItems() )
+                        @foreach ( var navItem in UserCookie.Current.NavItems )
                         { 
                             <li class="off">
                                 <div class="nav-link">
-                                    <a href="@Url.Action( "Index", "Page", new { Area = "Home", pageId = menuItem.PageId } )">@menuItem.Title</a>
+                                    <a href="@Url.Action( "Index", "Page", new { Area = "Home", pageId = navItem.PageId } )">@navItem.Title</a>
                                 </div>
                             </li>
                         }
@@ -119,7 +119,7 @@
                 </div>
             }
             <div id="body" class="content-wrapper">
-                <section class="main-content clear-fix">
+                <section class="main-content">
                     <div class="page-content-wrapper">
                         @if ( UseFullWidth )
                         {
