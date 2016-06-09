@@ -33,11 +33,13 @@ namespace ContentManagementSystem.Framework
 
         public UserCookie()
         {
-
+            NavItems = new List<NavItem>();
         }
 
         private UserCookie( HttpContext context )
         {
+            NavItems = new List<NavItem>();
+
             ContentManagementDb db = new ContentManagementDb();
 
             Domain domain = Domain.FindMatchedDomain( context.Request.Url, db );
@@ -67,6 +69,8 @@ namespace ContentManagementSystem.Framework
 
         private UserCookie( UserProfile user, HttpContextBase context )
         {
+            NavItems = new List<NavItem>();
+
             ContentManagementDb db = new ContentManagementDb();
 
             Domain domain = Domain.FindMatchedDomain( context.Request.Url, db );

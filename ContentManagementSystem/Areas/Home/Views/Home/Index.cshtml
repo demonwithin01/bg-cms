@@ -4,4 +4,4 @@
     PageTitle = Model.Title;
 }
 
-@Html.Partial( Model.HomePageTemplateModel.DisplayLocation, Model.HomePageTemplateModel )
+@Html.Partial( Model.HomePageTemplateModel.DisplayLocation ?? "HomePageTemplates/Ribbon", Model.HomePageTemplateModel )

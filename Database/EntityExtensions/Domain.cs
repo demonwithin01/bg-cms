@@ -43,6 +43,11 @@ namespace ContentManagementSystemDatabase
         {
             string url = uri.Authority.ToLower();
 
+            if ( url.StartsWith( "www." ) )
+            {
+                url = url.Substring( "www.".Length );
+            }
+
             db = db ?? new ContentManagementDb();
 
             return db.Domains.FirstOrDefault( d => d.DomainUrl.ToLower() == url );

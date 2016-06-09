@@ -38,6 +38,12 @@ namespace ContentManagementSystem.Managers
         {
             DomainHomePage entity = Query.DomainHomePage( UserCookie.Current.DomainId );
 
+            if ( entity == null )
+            {
+                name = "Ribbon";
+                return new Framework.Models.HomePage.Ribbon();
+            }
+
             name = entity.ModelType;
 
             CachedEditableModel cachedModel = CMSCache.HomePages[ entity.ModelType ];
