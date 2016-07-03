@@ -79,3 +79,43 @@
     -o-transform-origin: @arg;
     transform-origin: @arg;
 }
+
+.generate-padding( @padding )
+{
+    .padding-@{padding}
+    {
+        padding: ~"@{padding}px";
+    }
+
+    .padding-@{padding}-top
+    {
+        padding-top: ~"@{padding}px";
+    }
+
+    .padding-@{padding}-right
+    {
+        padding-right: ~"@{padding}px";
+    }
+
+    .padding-@{padding}-bottom
+    {
+        padding-bottom: ~"@{padding}px";
+    }
+
+    .padding-@{padding}-left
+    {
+        padding-left: ~"@{padding}px";
+    }
+    
+    .padding-@{padding}-hor
+    {
+        padding-left: ~"@{padding}px";
+        padding-right: ~"@{padding}px";
+    }
+    
+    .padding-@{padding}-vert
+    {
+        padding-bottom: ~"@{padding}px";
+        padding-top: ~"@{padding}px";
+    }
+}

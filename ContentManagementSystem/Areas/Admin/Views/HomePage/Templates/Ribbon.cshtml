@@ -6,14 +6,14 @@
 string idIndex = "Items_" + index + "__";
 string nameIndex = "Items[" + index + "].";
 string backgroundColor = ribbonItem.Background ?? "transparent";
-int height = ribbonItem.Height;
+string height = ribbonItem.Height;
 
-if ( height < 60 )
+if ( string.IsNullOrEmpty( height ) )
 {
-    height = 60;
+    height = "60px";
 }
 
-<div class="ribbon-item editable" data-index="@index" style="background-color: @backgroundColor; height: @(height)px;">
+<div class="ribbon-item editable" data-index="@index" style="background-color: @backgroundColor; height: @height;">
     <div class="b-grid">
         @for ( int i = 0 ; i < ribbonItem.Columns.Count ; i++ )
         {
@@ -34,7 +34,11 @@ if ( height < 60 )
             <i class="fa fa-close"></i>
         </div>
         <div class="ribbon-item-color-picker">
-            <input id="@( idIndex + "Background" )" name="@( nameIndex + "Background" )" type="color" value="@backgroundColor" />
+            <input id="@( idIndex + "Background" )" name="@( nameIndex + "Background" )" type="hidden" value="@backgroundColor" />
+            <input type="color" />
+        </div>
+        <div class="ribbon-item-height">
+            Height: <span>@height</span>
         </div>
         <div class="adjust-height"></div>
     </div>
@@ -79,8 +83,18 @@ if ( height < 60 )
         $ribbon.find('input, select').each(function ()
         {
             var $this = $(this);
-            $this.attr('name', $this.attr('name').replace(/\[+[a-z]+\]/g, '[' + currentIndex + ']'));
-            $this.attr('id', $this.attr('id').replace(/_+[a-z]+_/g, '_' + currentIndex + '_'));
+            var name = $this.attr('name');
+            var id = $this.attr('id');
+
+            if ( name )
+            {
+                $this.attr('name', name.replace(/\[+[a-z]+\]/g, '[' + currentIndex + ']'));
+            }
+
+            if ( id )
+            {
+                $this.attr('id', id.replace(/_+[a-z]+_/g, '_' + currentIndex + '_'));
+            }
 
             $this.removeAttr('disabled');
         });
@@ -101,24 +115,35 @@ if ( height < 60 )
             $this.attr('for', $this.attr('for').replace(/_+[a-z]+_/g, '_' + currentIndex + '_'));
         });
 
+        $ribbon.find('.ribbon-item-height').on('click', function ()
+        {
+            $ribbon.find( '.ribbon-item-tools > input' ).val( 'auto' );
+            $ribbon.css({height: 'auto'});
+
+            $(this).children('span').text('auto');
+        });
+
         $ribbon.find('[type="color"]').spectrum({
             color: 'transparent',
-            preferredFormat: 'hex',
             showInput: true,
             allowEmpty: true,
             showPalette: true,
             showInitial: true,
+            showAlpha: true,
             palette: [
                 ['black', 'white', 'blue', 'red'],
                 ['green', 'orange']
             ],
             move: function (color)
             {
-                $ribbon.css('background-color', color ? color.toHexString() : 'transparent');
+                $ribbon.css('background-color', convertColor(color));
             },
             hide: function (color)
             {
-                $ribbon.css('background-color', color ? color.toHexString() : 'transparent');
+                console.log(color);
+                var value = convertColor(color);
+                $ribbon.css('background-color', value);
+                console.log($ribbon.find('[type="color"]').prev('input').val(value).val());
             }
         });
 
@@ -128,6 +153,8 @@ if ( height < 60 )
             {
                 var height = parseInt( $ribbon.css('height').replace('px', '') );
                 $ribbon.find( '.ribbon-item-tools > input' ).val( height );
+
+                $ribbon.find('.ribbon-item-height > span').text(height + 'px');
             }
         });
 
@@ -146,6 +173,17 @@ if ( height < 60 )
             }
             $ribbon.find('select').selectmenu('close');
         });
+    }
+
+    function convertColor( color )
+    {
+        if ( color )
+        {
+            var value = color.toRgb();
+            return 'rgba(' + value.r + ',' + value.g + ',' + value.b + ',' + value.a + ')';
+        }
+
+        return 'rgba(0, 0, 0, 0)';
     }
 
     function addRibbonItem()
@@ -173,8 +211,6 @@ if ( height < 60 )
         });
 
         $grid.empty();
-
-        console.log(value);
 
         switch (value)
         {

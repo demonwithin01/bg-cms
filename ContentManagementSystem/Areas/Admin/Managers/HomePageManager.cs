@@ -49,6 +49,12 @@ namespace ContentManagementSystem.Admin.Managers
 
                 DomainHomePage homePage = db.DomainHomePages.Find( UserSession.Current.DomainId );
 
+                if ( homePage == null )
+                {
+                    homePage = db.DomainHomePages.CreateAdd();
+                    homePage.DomainId = UserSession.Current.DomainId;
+                }
+
                 homePage.ModelType = model.HomePageTemplate;
                 homePage.HomePage = JsonConvert.SerializeObject( model.HomePageTemplateModel );
 

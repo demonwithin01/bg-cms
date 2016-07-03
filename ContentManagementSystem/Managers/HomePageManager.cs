@@ -38,10 +38,16 @@ namespace ContentManagementSystem.Managers
         {
             DomainHomePage entity = Query.DomainHomePage( UserCookie.Current.DomainId );
 
+            bool newNeeded = false;
+
             if ( entity == null )
             {
-                name = "Ribbon";
-                return new Framework.Models.HomePage.Ribbon();
+                newNeeded = true;
+                entity = new DomainHomePage()
+                {
+                    ModelType = "Ribbon",
+                    HomePage = ""
+                };
             }
 
             name = entity.ModelType;
@@ -49,6 +55,11 @@ namespace ContentManagementSystem.Managers
             CachedEditableModel cachedModel = CMSCache.HomePages[ entity.ModelType ];
 
             HomePageTemplate homePage = JsonConvert.DeserializeObject( entity.HomePage, cachedModel.ModelType ) as HomePageTemplate;
+
+            if ( newNeeded )
+            {
+                homePage = new Framework.Models.HomePage.Ribbon();
+            }
 
             homePage.DisplayLocation = cachedModel.DisplayLocation;
             homePage.EditorLocation = cachedModel.EditorLocation;

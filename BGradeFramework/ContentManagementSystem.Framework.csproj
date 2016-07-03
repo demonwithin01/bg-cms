@@ -113,6 +113,7 @@
     <Compile Include="ControllerRegions.cs" />
     <Compile Include="Enums\ButtonType.cs" />
     <Compile Include="Extensions\CachedEditableModelsExtensions.cs" />
+    <Compile Include="Extensions\DbSetExtensions.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\PropertyExtension.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />

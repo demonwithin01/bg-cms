@@ -15,7 +15,7 @@
             </a>
         </div>
         <div class="admin-link">
-            <a href="@Url.Action( "Edit", controller, new { area="Admin" } )">
+            <a href="@Url.Action( "Create", controller, new { area="Admin" } )">
                 <div>
                     <span class="admin-link-icon"><i class="fa fa-plus"></i></span>
                     <span class="admin-link-text">Add</span>
@@ -41,8 +41,8 @@
         @RenderStandardAdminTiles( "Nav Menu", "Navigation" )
         @RenderStandardAdminTiles( "Pages", "Page" )
         @RenderStandardAdminTiles( "Blog Posts", "BlogPost" )
-        @RenderStandardAdminTiles( "Product Categories", "ProductCategory" )
-        @RenderStandardAdminTiles( "Products", "Product" )
+        @*@RenderStandardAdminTiles( "Product Categories", "ProductCategory" )
+        @RenderStandardAdminTiles( "Products", "Product" )*@
         @RenderStandardAdminTiles( "Uploads", "Uploads" )
     </ul>
 </div>

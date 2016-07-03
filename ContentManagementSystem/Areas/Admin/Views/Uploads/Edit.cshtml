@@ -5,7 +5,7 @@
 
 <h2>@PageTitle</h2>
 
-@using ( Html.BeginForm() )
+@using ( Html.BeginForm( "Edit", "Uploads" ) )
 {
     @Html.HiddenFor( m => m.UploadId )
     <dl>

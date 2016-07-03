@@ -1799,6 +1799,248 @@
 .fa-medium:before {
   content: "\f23a";
 }
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+img {
+  max-width: 100%;
+}
+/** START: Padding **/
+.padding-page {
+  padding: 20px;
+}
+.padding-page-top {
+  padding-top: 20px;
+}
+.padding-page-right {
+  padding-right: 20px;
+}
+.padding-page-bottom {
+  padding-bottom: 20px;
+}
+.padding-page-left {
+  padding-left: 20px;
+}
+.padding-page-hor {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.padding-page-vert {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+.padding-5 {
+  padding: 5px;
+}
+.padding-5-top {
+  padding-top: 5px;
+}
+.padding-5-right {
+  padding-right: 5px;
+}
+.padding-5-bottom {
+  padding-bottom: 5px;
+}
+.padding-5-left {
+  padding-left: 5px;
+}
+.padding-5-hor {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.padding-5-vert {
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+.padding-10 {
+  padding: 10px;
+}
+.padding-10-top {
+  padding-top: 10px;
+}
+.padding-10-right {
+  padding-right: 10px;
+}
+.padding-10-bottom {
+  padding-bottom: 10px;
+}
+.padding-10-left {
+  padding-left: 10px;
+}
+.padding-10-hor {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.padding-10-vert {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.padding-15 {
+  padding: 15px;
+}
+.padding-15-top {
+  padding-top: 15px;
+}
+.padding-15-right {
+  padding-right: 15px;
+}
+.padding-15-bottom {
+  padding-bottom: 15px;
+}
+.padding-15-left {
+  padding-left: 15px;
+}
+.padding-15-hor {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.padding-15-vert {
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+.padding-20 {
+  padding: 20px;
+}
+.padding-20-top {
+  padding-top: 20px;
+}
+.padding-20-right {
+  padding-right: 20px;
+}
+.padding-20-bottom {
+  padding-bottom: 20px;
+}
+.padding-20-left {
+  padding-left: 20px;
+}
+.padding-20-hor {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.padding-20-vert {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+/** END: Padding **/
 .text-left {
   text-align: left;
 }
@@ -2561,7 +2803,8 @@ ul {
   -moz-transition-delay: 0.3s;
   -o-transition-delay: 0.3s;
   transition-delay: 0.3s;
-  background: rgba(255, 255, 255, 0.96);
+  background: #c1fff9;
+  color: #444;
   clear: both;
   display: flexbox;
   margin: 0 auto;
@@ -2887,6 +3130,9 @@ table td.options-column {
 .ribbon-item .b-grid > div {
   height: 100%;
 }
+.ribbon-item .no-padding {
+  margin: -35px;
+}
 .ribbon-item.editable {
   position: relative;
 }
@@ -2936,6 +3182,14 @@ table td.options-column {
   left: 0;
   position: absolute;
   top: 0;
+}
+.ribbon-item.editable .ribbon-item-height {
+  background: rgba(255, 255, 255, 0.5);
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  padding: 5px;
+  position: absolute;
 }
 .ribbon-item.editable .ui-resizable-handle {
   background: rgba(255, 255, 255, 0.6);
@@ -3018,7 +3272,7 @@ table td.options-column {
   background: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   margin: auto;
-  z-index: 99999;
+  z-index: 9999;
 }
 .modal-content {
   max-width: 880px;
@@ -3077,7 +3331,7 @@ table td.options-column {
   border-left: 2px solid #e2e2e2;
 }
 .admin-home-nav-items > ul > li div.admin-link:hover {
-  background: #eeeeee;
+  background: rgba(255, 255, 255, 0.3);
 }
 .admin-home-nav-items > ul > li div.admin-link.single {
   border-left: 0;
@@ -3122,6 +3376,9 @@ table td.options-column {
 }
 .admin .main-content {
   padding: 20px;
+}
+.admin .main-content > .counter-padding {
+  margin: -20px;
 }
 #uploadImages > li {
   margin: 0 10px 10px 0;

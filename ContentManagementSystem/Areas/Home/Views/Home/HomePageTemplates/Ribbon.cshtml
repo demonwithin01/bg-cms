@@ -9,14 +9,14 @@
 @helper RenderRibbonItem( RibbonItem ribbonItem )
 {
 string backgroundColor = ribbonItem.Background ?? "transparent";
-int height = ribbonItem.Height;
+string height = ribbonItem.Height;
 
-if ( height < 60 )
+if ( string.IsNullOrEmpty( height ) )
 {
-    height = 60;
+    height = "60px";
 }
 
-<div class="ribbon-item" style="background-color: @backgroundColor; height: @(height)px;">
+<div class="ribbon-item" style="background-color: @backgroundColor; height: @height;">
     <div class="b-grid">
         @for ( int i = 0 ; i < ribbonItem.Columns.Count ; i++ )
         {

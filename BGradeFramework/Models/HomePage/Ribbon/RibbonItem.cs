@@ -47,7 +47,7 @@ namespace ContentManagementSystem.Framework.Models.HomePage
 
         public RibbonColumns Layout { get; set; }
 
-        public int Height { get; set; }
+        public string Height { get; set; }
 
         public List<RibbonItemContent> Columns { get; set; }
 

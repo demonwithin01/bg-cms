@@ -62,8 +62,9 @@ namespace ContentManagementSystem.Admin.Managers
         {
             try
             {
-                Page page = new Page();
+                Page page = db.Pages.CreateAdd();
                 page.Initialise();
+                page.PageContent = new List<PageContent>();
 
                 AutoMap.Map( model, page );
 
@@ -80,9 +81,7 @@ namespace ContentManagementSystem.Admin.Managers
                 pageContent.LastEditedByUserId = page.CreatedByUserId;
 
                 SetPublishStatus( page, pageContent, model.Publish );
-
-                db.Pages.Add( page );
-
+                
                 db.SaveChanges();
 
                 return SaveResult.Success;

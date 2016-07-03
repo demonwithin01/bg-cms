@@ -40,6 +40,37 @@ namespace ContentManagementSystem.Framework.BaseClasses
                
         }
 
+        /// <summary>
+        /// Evalulates a condition and returns whether or not to render the specified html.
+        /// </summary>
+        /// <param name="condition">The condition to be evaluated</param>
+        /// <param name="html">The html to be rendered</param>
+        public IHtmlString If( bool condition, string html )
+        {
+            if ( condition )
+            {
+                return Html.Raw( html );
+            }
+
+            return Html.Raw( "" );
+        }
+
+        /// <summary>
+        /// Evalulates a condition and returns whether or not to render the specified html or the alternate html.
+        /// </summary>
+        /// <param name="condition">The condition to be evaluated</param>
+        /// <param name="html">The html to be rendered</param>
+        /// <param name="alternateHtml">The alternate html to be rendered</param>
+        public IHtmlString If( bool condition, string html, string alternateHtml )
+        {
+            if ( condition )
+            {
+                return Html.Raw( html );
+            }
+
+            return Html.Raw( alternateHtml );
+        }
+
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */

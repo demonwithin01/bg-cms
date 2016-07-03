@@ -5,7 +5,7 @@
 
 <h2>@PageTitle</h2>
 
-@using ( Html.BeginForm() )
+@using ( Html.BeginForm( "Edit", "Page" ) )
 {
     @Html.HiddenFor( m => m.PageId )
     @Html.HiddenFor( m => m.Publish )

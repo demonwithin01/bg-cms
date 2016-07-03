@@ -37,6 +37,11 @@ namespace ContentManagementSystem.Admin.Controllers
             return View( new NavigationListModel( UserSession.Current.DomainId, base.Database ) );
         }
 
+        public ActionResult Create()
+        {
+            return View( "Edit", base.Manager.GetNavigationModel( null ) );
+        }
+
         public ViewResult Edit( int? navItemId )
         {
             return View( base.Manager.GetNavigationModel( navItemId ) );

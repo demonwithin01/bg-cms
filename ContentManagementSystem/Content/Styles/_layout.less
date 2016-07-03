@@ -1,4 +1,4 @@
-﻿@import "_mixins.less";
+﻿@import (reference) "_shared/_common.less";
 
 html, body
 {
@@ -81,7 +81,8 @@ ul
     .box-sizing();
     .transition(padding 0.3s ease);
     .transition-delay(0.3s);
-    background: rgba(255, 255, 255, 0.96);
+    background: @site-background-color;
+    color: @site-font-color;
     clear: both;
     display: flexbox;
     margin: 0 auto;

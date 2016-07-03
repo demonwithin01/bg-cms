@@ -64,8 +64,10 @@ namespace ContentManagementSystem.Admin.Managers
         {
             try
             {
-                BlogPost blog = new BlogPost();
+                BlogPost blog = db.Blogs.CreateAdd();
                 blog.Initialise();
+
+                blog.BlogPostContent = new List<BlogPostContent>();
 
                 AutoMap.Map( model, blog );
 
@@ -82,9 +84,7 @@ namespace ContentManagementSystem.Admin.Managers
                 blogContent.LastEditedByUserId = blog.CreatedByUserId;
 
                 SetPublishStatus( blog, blogContent, model.Publish );
-
-                db.Blogs.Add( blog );
-
+                
                 db.SaveChanges();
 
                 return SaveResult.Success;

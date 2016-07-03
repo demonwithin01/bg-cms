@@ -61,8 +61,7 @@ namespace ContentManagementSystem
                 "~/Content/Styles/_reset.min.css",
                 "~/Content/Styles/site.min.css" ) );
 #else
-            bundles.Add( new StyleBundle( "~/Content/css" ).Include( 
-                "~/Content/Styles/_reset.min.css",
+            bundles.Add( new StyleBundle( "~/Content/css" ).Include(
                 "~/Content/Styles/Plugins/jssocials.css",
                 "~/Content/Styles/Plugins/jssocials-theme-flat.css",
                 "~/Content/Styles/site.css" ) );
