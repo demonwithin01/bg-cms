@@ -108,6 +108,7 @@
     <Compile Include="Attributes\DisplayLocation.cs" />
     <Compile Include="Attributes\EditorLocation.cs" />
     <Compile Include="BaseClasses\BaseController.cs" />
+    <Compile Include="BaseClasses\PageTemplate.cs" />
     <Compile Include="BaseClasses\PageModel.cs" />
     <Compile Include="ClassRegions.cs" />
     <Compile Include="ControllerRegions.cs" />
@@ -130,6 +131,7 @@
     <Compile Include="Models\HomePage\Ribbon\RibbonColumns.cs" />
     <Compile Include="Models\HomePage\Ribbon\RibbonItem.cs" />
     <Compile Include="Models\HomePage\Ribbon\RibbonItemContent.cs" />
+    <Compile Include="Models\Page\Default.cs" />
     <Compile Include="Settings\ContentLocation.cs" />
     <Compile Include="Settings\Settings.cs" />
     <Compile Include="Attributes\AjaxOnly.cs" />

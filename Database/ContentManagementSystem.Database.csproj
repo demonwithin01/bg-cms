@@ -79,7 +79,6 @@
     <Compile Include="Entities\Page.cs" />
     <Compile Include="Entities\BlogPostContent.cs" />
     <Compile Include="Entities\PageContent.cs" />
-    <Compile Include="Entities\PageTemplate.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\ProductCategory.cs" />
     <Compile Include="Entities\ProductImage.cs" />
@@ -100,6 +99,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="_Scripts\V0.1.2\01 PageContent.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

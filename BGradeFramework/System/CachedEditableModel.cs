@@ -35,6 +35,15 @@ namespace ContentManagementSystem.Framework
             return ( model as HomePageTemplate );
         }
 
+        public PageTemplate GetPageModel( BaseController controller )
+        {
+            dynamic model = Activator.CreateInstance( ModelType );
+
+            controller.UpdateObjectModel( model );
+
+            return ( model as PageTemplate );
+        }
+
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */

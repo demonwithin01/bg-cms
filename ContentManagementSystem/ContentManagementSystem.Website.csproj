@@ -270,6 +270,7 @@
     <Compile Include="Areas\Home\Models\Page\IndexModel.cs" />
     <Compile Include="Areas\Home\Models\Shared\TableModel.cs" />
     <Compile Include="Helpers\SelectListGenerator.cs" />
+    <Compile Include="Managers\PageManager.cs" />
     <Compile Include="Managers\HomePageManager.cs" />
     <Compile Include="Managers\UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -335,12 +336,13 @@
     <Content Include="Areas\Admin\Views\Uploads\List.cshtml" />
     <Content Include="Areas\Admin\Views\Uploads\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ImageBrowser\Select.cshtml" />
-    <Content Include="Areas\Home\Views\Page\Templates\Standard.cshtml" />
+    <Content Include="Areas\Home\Views\Page\Templates\Default.cshtml" />
     <Content Include="Areas\Admin\Views\BlogPost\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\BlogPost\List.cshtml" />
     <Content Include="Areas\Admin\Views\HomePage\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\HomePage\Templates\Ribbon.cshtml" />
     <Content Include="Areas\Home\Views\Home\HomePageTemplates\Ribbon.cshtml" />
+    <Content Include="Areas\Admin\Views\Page\Templates\Default.cshtml" />
     <None Include="compilerconfig.json" />
     <Content Include="Content\Styles\admin.css.map">
       <DependentUpon>admin.css</DependentUpon>

@@ -29,6 +29,7 @@ namespace ContentManagementSystem.Framework
         public static void Load()
         {
             HomePages = LoadEditableModels( "ContentManagementSystem.Framework.Models.HomePage" );
+            Pages = LoadEditableModels( "ContentManagementSystem.Framework.Models.Page" );
         }
 
         #endregion
@@ -83,6 +84,11 @@ namespace ContentManagementSystem.Framework
         /// Holds all the cached home page models.
         /// </summary>
         public static Dictionary<string, CachedEditableModel> HomePages { get; private set; }
+
+        /// <summary>
+        /// Holds all cached page models.
+        /// </summary>
+        public static Dictionary<string, CachedEditableModel> Pages { get; private set; }
 
         #endregion
 

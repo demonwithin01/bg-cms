@@ -9,12 +9,20 @@
 {
     @Html.HiddenFor( m => m.PageId )
     @Html.HiddenFor( m => m.Publish )
-    <dl>
-        @Html.TextBoxFieldFor( m => m.Title )
-        @Html.TextAreaFieldFor( m => m.Content )
-    </dl>
-    @Html.Button( "Save as Draft", ButtonType.Secondary, "saveDraft" )
-    @Html.Button( "Save & Publish", ButtonType.Primary, "savePublish" )
+    @Html.HiddenFor( m => m.ModelType )
+
+    <div>
+        <div class="button-list text-right">
+            @Html.Button( "Save as Draft", ButtonType.Secondary, "saveDraft" )
+            @Html.Button( "Save & Publish", ButtonType.Primary, "savePublish" )
+        </div>
+        <dl>
+            @Html.TextBoxFieldFor( m => m.Title )
+        </dl>
+    </div>
+    <div id="page-template">
+        @Html.Partial( Model.PageTemplateModel.EditorLocation, Model.PageTemplateModel )
+    </div>
 }
 
 @section scripts
@@ -22,8 +30,6 @@
     <script>
         $(function ()
         {
-            CKEDITOR.replace('Content');
-
             $( '#saveDraft' ).on( 'click', function ()
             {
                 $( '#Publish' ).val( 'false' );

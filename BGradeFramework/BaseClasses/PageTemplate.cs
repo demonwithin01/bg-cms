@@ -1,14 +1,13 @@
-﻿using System;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using ContentManagementSystem.Framework;
-using ContentManagementSystemDatabase;
-using ContentManagementSystem.Managers;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace ContentManagementSystem.Models.Page
+namespace ContentManagementSystem.Framework
 {
-    public class IndexModel
+    public class PageTemplate
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -21,28 +20,11 @@ namespace ContentManagementSystem.Models.Page
 
         #region Constructors/Initialisation
 
-        public IndexModel()
-        {
-
-        }
-
-        public IndexModel( PageContent page, PageTemplate pageTemplate )
-        {
-            this.Title = page.Title;
-            this.PageTemplate = pageTemplate;
-        }
-
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Public Methods
-
-        #endregion
-
-        /* ---------------------------------------------------------------------------------------------------------- */
-
-        #region Static Methods
 
         #endregion
 
@@ -55,10 +37,12 @@ namespace ContentManagementSystem.Models.Page
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Properties
-
-        public string Title { get; set; }
         
-        public PageTemplate PageTemplate { get; set; }
+        [JsonIgnore]
+        public string EditorLocation { get; set; }
+
+        [JsonIgnore]
+        public string DisplayLocation { get; set; }
 
         #endregion
 

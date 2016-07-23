@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using ContentManagementSystem.Framework;
 using ContentManagementSystemDatabase;
+using ContentManagementSystem.Admin.Managers;
 
 namespace ContentManagementSystem.Admin.Models
 {
@@ -27,10 +28,16 @@ namespace ContentManagementSystem.Admin.Models
 
         }
 
-        public PageModel( Page page )
+        public PageModel( Page page, PageManager pageManager )
         {
             PageContent pageContent = page.PageContent.OrderByDescending( s => s.UTCDateUpdated ).First();
             AutoMap.Map( pageContent, this );
+
+            string modelType;
+
+            this.PageTemplateModel = pageManager.RetrievePage( pageContent, out modelType );
+
+            this.ModelType = modelType;
         }
 
         #endregion
@@ -59,14 +66,14 @@ namespace ContentManagementSystem.Admin.Models
 
         public int? PageId { get; set; }
 
+        public string ModelType { get; set; }
+
         [Display( Name = "Title" )]
         public string Title { get; set; }
-
-        [AllowHtml]
-        [Display( Name = "Blog Post" )]
-        public string Content { get; set; }
-
+        
         public bool Publish { get; set; }
+
+        public PageTemplate PageTemplateModel { get; set; }
 
         #endregion
 

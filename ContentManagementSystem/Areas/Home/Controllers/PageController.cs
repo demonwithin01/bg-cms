@@ -7,10 +7,11 @@ using ContentManagementSystem.Framework;
 using ContentManagementSystem.BaseClasses;
 using ContentManagementSystemDatabase;
 using ContentManagementSystem.Models.Page;
+using ContentManagementSystem.Managers;
 
 namespace ContentManagementSystem.Home.Controllers
 {
-    public class PageController : ContentManagementController
+    public class PageController : AdminContentManagementController<PageManager>
     {
         public ActionResult Index( int? pageId )
         {
@@ -50,7 +51,7 @@ namespace ContentManagementSystem.Home.Controllers
                 throw new HttpException( 404, "The page requested could not be found" );
             }
 
-            return View( new IndexModel( pageContent ) );
+            return View( new IndexModel( pageContent, base.Manager.RetrievePage( pageContent ) ) );
         }
 
     }

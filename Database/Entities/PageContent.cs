@@ -20,6 +20,9 @@ namespace ContentManagementSystemDatabase
         public virtual Page Page { get; set; }
 
         [MaxLength( 150 )]
+        public string ModelType { get; set; }
+
+        [MaxLength( 150 )]
         public string Title { get; set; }
 
         public string Content { get; set; }

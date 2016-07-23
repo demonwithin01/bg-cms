@@ -44,7 +44,7 @@ namespace ContentManagementSystem.Admin.Controllers
         [HttpPost]
         public ActionResult Create( PageModel model )
         {
-            SaveResult result = base.Manager.SavePage( model );
+            SaveResult result = UpdatePageModel( model );
 
             if ( result.State == SaveResultState.Success )
             {
@@ -62,7 +62,7 @@ namespace ContentManagementSystem.Admin.Controllers
         [HttpPost]
         public ActionResult Edit( PageModel model )
         {
-            SaveResult result = base.Manager.SavePage( model );
+            SaveResult result = UpdatePageModel( model );
 
             if ( result.State == SaveResultState.Success )
             {
@@ -95,6 +95,15 @@ namespace ContentManagementSystem.Admin.Controllers
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Private Methods
+
+        private SaveResult UpdatePageModel( PageModel model )
+        {
+            CachedEditableModel cachedModel = CMSCache.Pages[ model.ModelType ];
+
+            model.PageTemplateModel = cachedModel.GetPageModel( this );
+
+            return base.Manager.SavePage( model );
+        }
 
         #endregion
 

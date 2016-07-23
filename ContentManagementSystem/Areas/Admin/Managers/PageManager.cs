@@ -5,10 +5,11 @@ using System.Web;
 using ContentManagementSystem.Framework;
 using ContentManagementSystem.Admin.Models;
 using ContentManagementSystemDatabase;
+using Newtonsoft.Json;
 
 namespace ContentManagementSystem.Admin.Managers
 {
-    public class PageManager
+    public class PageManager : ContentManagementSystem.Managers.PageManager
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -33,9 +34,17 @@ namespace ContentManagementSystem.Admin.Managers
 
             Page page = db.Pages.Find( pageId );
 
-            if ( page == null ) return new PageModel();
+            if ( page == null )
+            {
+                PageModel model = new PageModel();
 
-            return new PageModel( page );
+                model.ModelType = "Default";
+                model.PageTemplateModel = new Framework.Models.Page.Default();
+
+                return model;
+            }
+
+            return new PageModel( page, this );
         }
         
         public SaveResult SavePage( PageModel model )
@@ -74,6 +83,9 @@ namespace ContentManagementSystem.Admin.Managers
                 PageContent pageContent = new PageContent();
 
                 AutoMap.Map( model, pageContent );
+
+                UpdateWithPageModel( pageContent, model );
+
                 page.PageContent.Add( pageContent );
 
                 pageContent.Initialize();
@@ -109,6 +121,9 @@ namespace ContentManagementSystem.Admin.Managers
                 }
 
                 AutoMap.Map( model, pageContent );
+
+                UpdateWithPageModel( pageContent, model );
+
                 page.UpdateTimeStamp();
                 pageContent.UpdateTimeStamp();
                 pageContent.LastEditedByUserId = UserSession.Current.UserId;
@@ -123,6 +138,13 @@ namespace ContentManagementSystem.Admin.Managers
             {
                 return SaveResult.Fail;
             }
+        }
+    
+        private void UpdateWithPageModel( PageContent pageContent, PageModel pageModel )
+        {
+            pageContent.ModelType = pageModel.ModelType;
+
+            pageContent.Content = JsonConvert.SerializeObject( pageModel.PageTemplateModel );
         }
 
         private void SetPublishStatus( Page page, PageContent pageContent, bool publish )
