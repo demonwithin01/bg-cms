@@ -2,12 +2,15 @@
 {
     & > ul
     {
+        @local-border-color: black;
+
         .clear();
 
         & > li
         {
             .border-radius(3px);
-            border: 2px solid #e2e2e2;
+            background: #e0e0e0;
+            border: 2px solid @local-border-color;
             display: inline-block;
             float: left;
             height: 146px;
@@ -21,7 +24,7 @@
             {
                 &.admin-link-title
                 {
-                    border-bottom: 2px solid #e2e2e2;
+                    border-bottom: 2px solid @local-border-color;
                     height: 44px;
                     line-height: 22px;
                     width: 100%;
@@ -46,7 +49,7 @@
 
                     &:last-child
                     {
-                        border-left: 2px solid #e2e2e2;
+                        border-left: 2px solid @local-border-color;
                     }
 
                     &:hover

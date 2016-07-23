@@ -3287,7 +3287,8 @@ table td.options-column {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  border: 2px solid #e2e2e2;
+  background: #e0e0e0;
+  border: 2px solid black;
   display: inline-block;
   float: left;
   height: 146px;
@@ -3301,7 +3302,7 @@ table td.options-column {
   display: block;
 }
 .admin-home-nav-items > ul > li div.admin-link-title {
-  border-bottom: 2px solid #e2e2e2;
+  border-bottom: 2px solid black;
   height: 44px;
   line-height: 22px;
   width: 100%;
@@ -3328,7 +3329,7 @@ table td.options-column {
   width: 100px;
 }
 .admin-home-nav-items > ul > li div.admin-link:last-child {
-  border-left: 2px solid #e2e2e2;
+  border-left: 2px solid black;
 }
 .admin-home-nav-items > ul > li div.admin-link:hover {
   background: rgba(255, 255, 255, 0.3);
