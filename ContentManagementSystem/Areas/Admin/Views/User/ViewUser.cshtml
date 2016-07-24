@@ -1,0 +1,25 @@
+﻿@model ContentManagementSystem.Admin.Models.UserModel
+@{
+    PageTitle = "User Details";
+}
+
+<h2>@PageTitle</h2>
+
+@using ( Html.BeginForm( "Edit", "Users" ) )
+{
+    @Html.HiddenFor( m => m.UserId )
+    <dl>
+        @Html.TextBoxFieldFor( m => m.UserName, new { @readonly = "readonly" } )
+        @Html.TextAreaFieldFor( m => m.EmailAddress, new { @readonly = "readonly" } )
+    </dl>
+}
+
+@section scripts
+{
+    <script>
+        $(function ()
+        {
+            
+        });
+    </script>
+}

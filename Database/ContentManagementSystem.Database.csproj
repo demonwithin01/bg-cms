@@ -83,14 +83,13 @@
     <Compile Include="Entities\ProductCategory.cs" />
     <Compile Include="Entities\ProductImage.cs" />
     <Compile Include="Entities\ProductTag.cs" />
-    <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\Upload.cs" />
     <Compile Include="Entities\UserProfile.cs" />
     <Compile Include="EntityData\Application.cs" />
-    <Compile Include="EntityData\Role.cs" />
     <Compile Include="EntityExtensions\Domain.cs" />
     <Compile Include="EntityExtensions\UserProfile.cs" />
     <Compile Include="Enumerations\PublishStatus.cs" />
+    <Compile Include="Enumerations\Role.cs" />
     <Compile Include="Extensions\AutoMap.cs" />
     <Compile Include="Extensions\DatabaseExtensions.cs" />
     <Compile Include="Managers\Query.cs" />

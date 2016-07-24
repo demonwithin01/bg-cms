@@ -2803,7 +2803,7 @@ ul {
   -moz-transition-delay: 0.3s;
   -o-transition-delay: 0.3s;
   transition-delay: 0.3s;
-  background: #c1fff9;
+  background: #e2e2e2;
   color: #444;
   clear: both;
   display: flexbox;
@@ -2969,6 +2969,10 @@ form dl dd textarea {
   max-width: 100%;
   min-height: 100px;
   min-width: 100%;
+}
+form dl dd.checkbox-field label {
+  display: inline-block;
+  margin-left: 5px;
 }
 form dl dt + dd {
   margin-top: 4px;
@@ -3287,7 +3291,7 @@ table td.options-column {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  background: #e0e0e0;
+  background: #e6e6e6;
   border: 2px solid black;
   display: inline-block;
   float: left;

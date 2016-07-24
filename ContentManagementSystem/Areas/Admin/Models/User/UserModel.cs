@@ -1,18 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ContentManagementSystem.Framework;
-using ContentManagementSystem.Admin.Managers;
-using ContentManagementSystem.Admin.Models;
-using ContentManagementSystem.BaseClasses;
 using ContentManagementSystemDatabase;
 
-namespace ContentManagementSystem.Admin.Controllers
+namespace ContentManagementSystem.Admin.Models
 {
-    [Authorization( new Role[] { Role.Administrator } )]
-    public class UploadsController : AdminContentManagementController<UploadsManager>
+    public class UserModel
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -25,45 +22,15 @@ namespace ContentManagementSystem.Admin.Controllers
 
         #region Constructors/Initialisation
 
-        #endregion
-
-        /* ---------------------------------------------------------------------------------------------------------- */
-
-        #region Page Actions
-        
-        public ActionResult List()
+        public UserModel()
         {
-            return View( new UploadsListModel( UserSession.Current.DomainId, base.Database ) );
+
         }
 
-        public ActionResult Create()
+        public UserModel( UserProfile user )
         {
-            return View( "Edit", base.Manager.GetUploadModel( null ) );
+            AutoMap.Map( user, this );
         }
-        
-        public ActionResult Edit( int id )
-        {
-            return View( base.Manager.GetUploadModel( id ) );
-        }
-
-        [HttpPost]
-        public ActionResult Edit( UploadModel model )
-        {
-            SaveResult result = base.Manager.SaveImage( model );
-
-            if ( result.State == SaveResultState.Success )
-            {
-                return RedirectToAction( "List" );
-            }
-
-            return View( model );
-        }
-
-        #endregion
-
-        /* ---------------------------------------------------------------------------------------------------------- */
-
-        #region Ajax Actions
 
         #endregion
 
@@ -88,6 +55,16 @@ namespace ContentManagementSystem.Admin.Controllers
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Properties
+
+        public int UserId { get; set; }
+
+        public string UserName { get; set; }
+
+        public string EmailAddress { get; set; }
+
+        public Role Role { get; set; }
+
+        public DateTime LastLogin { get; set; }
 
         #endregion
 

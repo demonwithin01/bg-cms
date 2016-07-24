@@ -68,6 +68,7 @@ namespace ContentManagementSystem.Home.Controllers
 
         //
         // GET: /Account/Register
+        [AllowAnonymous]
         public ActionResult Register()
         {
             return View();
@@ -77,18 +78,32 @@ namespace ContentManagementSystem.Home.Controllers
         // POST: /Account/Register
 
         [HttpPost]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Register( RegisterModel model )
+        public ActionResult Register( RegisterModel model, string returnUrl )
         {
             if ( ModelState.IsValid )
             {
                 // Attempt to register the user
                 try
                 {
-                    
-                    WebSecurity.CreateUserAndAccount( model.UserName, model.Password );
+                    object otherProperties = new
+                    {
+                        Role = Role.GeneralUser,
+                        EmailAddress = model.EmailAddress,
+                        DomainId = UserSession.Current.DomainId
+                    };
+
+                    WebSecurity.CreateUserAndAccount( model.UserName, model.Password, otherProperties );
                     WebSecurity.Login( model.UserName, model.Password );
-                    return RedirectToAction( "Index", "Home" );
+
+                    int userId = WebSecurity.GetUserId( model.UserName );
+                    ContentManagementDb db = new ContentManagementDb();
+
+                    UserProfile user = db.Users.FirstOrDefault( u => u.UserId == userId );
+                    UserCookie.CreateInstance( user, HttpContext );
+
+                    return RedirectToLocal( returnUrl );
                 }
                 catch ( MembershipCreateUserException e )
                 {

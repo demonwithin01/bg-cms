@@ -120,6 +120,7 @@
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Helpers\CreateSelectList.cs" />
     <Compile Include="HtmlExtensions\Button.cs" />
+    <Compile Include="HtmlExtensions\CheckboxFieldFor.cs" />
     <Compile Include="HtmlExtensions\TextAreaFieldFor.cs" />
     <Compile Include="HtmlExtensions\DropDownListFieldFor.cs" />
     <Compile Include="HtmlExtensions\PasswordFieldFor.cs" />

@@ -11,7 +11,7 @@ using ContentManagementSystemDatabase;
 
 namespace ContentManagementSystem.Admin.Controllers
 {
-    [Authorization( new Role.Data[] { Role.Data.Administrator } )]
+    [Authorization( new Role[] { Role.Administrator } )]
     public class ProductController : AdminContentManagementController<ProductManager>
     {
 

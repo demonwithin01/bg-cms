@@ -89,12 +89,12 @@ namespace ContentManagementSystem.Framework
             {
                 UserId = user.UserId;
 
-                Role = (Role.Data)( user.RoleId );
+                Role = user.Role;
                 IsAdministrator = user.IsAdministrator;
             }
             else
             {
-                Role = ContentManagementSystemDatabase.Role.Data.GeneralUser;
+                Role = ContentManagementSystemDatabase.Role.GeneralUser;
             }
 
             IQueryable<DomainNavigationItem> menuItems;
@@ -126,10 +126,15 @@ namespace ContentManagementSystem.Framework
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Public Methods
-
-        public bool CheckAdminAccess()
+            
+        public bool HasRole( Role role )
         {
-            return ( Role == ContentManagementSystemDatabase.Role.Data.Administrator && UserSession.Current.Role == ContentManagementSystemDatabase.Role.Data.Administrator );
+            if ( role == Role.GeneralUser )
+            {
+                return true;
+            }
+
+            return ( Role == role && UserSession.Current.Role == role );
         }
 
         #endregion
@@ -213,7 +218,7 @@ namespace ContentManagementSystem.Framework
         public string SiteName { get; private set; }
 
         [JsonProperty( "role" )]
-        public Role.Data Role { get; set; }
+        public Role Role { get; set; }
 
         [JsonProperty( "is-admin" )]
         public bool IsAdministrator { get; private set; }

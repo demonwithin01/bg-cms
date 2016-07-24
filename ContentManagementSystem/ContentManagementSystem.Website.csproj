@@ -218,12 +218,14 @@
     <Compile Include="Areas\Admin\Controllers\ProductCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\UploadsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Admin\Managers\HomePageManager.cs" />
     <Compile Include="Areas\Admin\Managers\NavigationManager.cs" />
     <Compile Include="Areas\Admin\Managers\BlogPostManager.cs" />
     <Compile Include="Areas\Admin\Managers\PageManager.cs" />
     <Compile Include="Areas\Admin\Managers\ProductCategoryManager.cs" />
     <Compile Include="Areas\Admin\Managers\ProductManager.cs" />
+    <Compile Include="Areas\Admin\Managers\UserManager.cs" />
     <Compile Include="Areas\Admin\Managers\UploadsManager.cs" />
     <Compile Include="Areas\Admin\Models\BlogPost\BlogPostListItemModel.cs" />
     <Compile Include="Areas\Admin\Models\BlogPost\BlogPostListModel.cs" />
@@ -245,6 +247,9 @@
     <Compile Include="Areas\Admin\Models\Uploads\UploadModel.cs" />
     <Compile Include="Areas\Admin\Models\Uploads\UploadsListItemModel.cs" />
     <Compile Include="Areas\Admin\Models\Uploads\UploadsListModel.cs" />
+    <Compile Include="Areas\Admin\Models\User\UserModel.cs" />
+    <Compile Include="Areas\Admin\Models\User\UsersListItemModel.cs" />
+    <Compile Include="Areas\Admin\Models\User\UsersListModel.cs" />
     <Compile Include="Areas\Home\Controllers\SiteContentController.cs" />
     <Compile Include="Areas\Home\HomeAreaRegistration.cs" />
     <Compile Include="Areas\Home\Models\Home\HomeModel.cs" />
@@ -343,6 +348,8 @@
     <Content Include="Areas\Admin\Views\HomePage\Templates\Ribbon.cshtml" />
     <Content Include="Areas\Home\Views\Home\HomePageTemplates\Ribbon.cshtml" />
     <Content Include="Areas\Admin\Views\Page\Templates\Default.cshtml" />
+    <Content Include="Areas\Admin\Views\User\List.cshtml" />
+    <Content Include="Areas\Admin\Views\User\ViewUser.cshtml" />
     <None Include="compilerconfig.json" />
     <Content Include="Content\Styles\admin.css.map">
       <DependentUpon>admin.css</DependentUpon>
@@ -354,6 +361,7 @@
     <Content Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </Content>
+    <Content Include="Content\Styles\Admin\_variables.less" />
     <None Include="Content\Styles\Plugins\jquery.mCustomScrollbar.less" />
     <Content Include="Content\Styles\Plugins\jquery.mCustomScrollbar.css">
       <DependentUpon>jquery.mCustomScrollbar.less</DependentUpon>

@@ -45,12 +45,9 @@ namespace ContentManagementSystem.Framework
 
             UserProfile user = db.Users.FirstOrDefault( u => u.UserName == context.User.Identity.Name );
             
-            if ( user != null )
+            if ( user != null && domain != null )
             {
-                if ( domain != null )
-                {
-                    Initialise( domain, user );
-                }
+                Initialise( domain, user );
             }
         }
 
@@ -68,7 +65,7 @@ namespace ContentManagementSystem.Framework
                 UserId = user.UserId;
 
                 IsAdministrator = user.IsAdministrator;
-                Role = (Role.Data)( user.RoleId );
+                Role = user.Role;
             }
         }
 
@@ -120,7 +117,7 @@ namespace ContentManagementSystem.Framework
 
         public bool IsValidUrl { get { return ( this.DomainId > 0 ); } }
         
-        public Role.Data Role { get; private set; }
+        public Role Role { get; private set; }
 
         public bool IsAdministrator { get; private set; }
         

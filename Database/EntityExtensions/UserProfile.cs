@@ -49,7 +49,7 @@ namespace ContentManagementSystemDatabase
         {
             get
             {
-                return ( RoleId == (int)Role.Data.Administrator );
+                return ( Role == Role.Administrator );
             }
         }
 
