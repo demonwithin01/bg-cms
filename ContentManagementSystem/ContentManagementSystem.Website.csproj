@@ -302,6 +302,12 @@
     <Content Include="Content\Styles\Plugins\jssocials-theme-plain.css" />
     <Content Include="Content\Styles\Plugins\jssocials.css" />
     <Content Include="Content\Styles\Plugins\spectrum.css" />
+    <Content Include="Content\Styles\themes\outofmars.css">
+      <DependentUpon>outofmars.less</DependentUpon>
+    </Content>
+    <Content Include="Content\Styles\themes\outofmars.min.css">
+      <DependentUpon>outofmars.css</DependentUpon>
+    </Content>
     <Content Include="Content\Styles\_forms.less" />
     <Content Include="Content\Styles\_buttons.less" />
     <Content Include="Areas\Home\Views\Web.config" />
@@ -358,9 +364,9 @@
     <Content Include="Content\Styles\image-browser.css.map">
       <DependentUpon>image-browser.css</DependentUpon>
     </Content>
-    <Content Include="compilerconfig.json.defaults">
+    <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
-    </Content>
+    </None>
     <Content Include="Content\Styles\Admin\_variables.less" />
     <None Include="Content\Styles\Plugins\jquery.mCustomScrollbar.less" />
     <Content Include="Content\Styles\Plugins\jquery.mCustomScrollbar.css">
@@ -463,6 +469,7 @@
     <Content Include="Content\Styles\_shared\_common.less" />
     <Content Include="Content\Styles\_shared\_mixins.functions.less" />
     <Content Include="Content\Styles\_shared\_reset.less" />
+    <Content Include="Content\Styles\themes\outofmars.less" />
     <None Include="Properties\PublishProfiles\Production.pubxml" />
     <None Include="Scripts\Frameworks\jquery-1.8.2.intellisense.js" />
     <Content Include="Images\Backgrounds\background.png" />

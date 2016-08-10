@@ -84,7 +84,8 @@ namespace ContentManagementSystem.Framework
         {
             DomainId = domain.DomainId;
             SiteName = domain.Name;
-            
+            Theme = domain.Theme;
+
             if ( user != null )
             {
                 UserId = user.UserId;
@@ -216,6 +217,9 @@ namespace ContentManagementSystem.Framework
 
         [JsonProperty( "site-name" )]
         public string SiteName { get; private set; }
+        
+        [JsonProperty( "theme" )]
+        public string Theme { get; private set; }
 
         [JsonProperty( "role" )]
         public Role Role { get; set; }

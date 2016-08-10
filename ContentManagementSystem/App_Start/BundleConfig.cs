@@ -60,14 +60,14 @@ namespace ContentManagementSystem
             bundles.Add( new StyleBundle( "~/Content/css" ).Include( 
                 "~/Content/Styles/_reset.min.css",
                 "~/Content/Styles/Plugins/jssocials.css",
-                "~/Content/Styles/Plugins/jssocials-theme-flat.css",
-                "~/Content/Styles/site.min.css" ) );
+                "~/Content/Styles/Plugins/jssocials-theme-flat.css" ) );
+                //"~/Content/Styles/site.min.css"
 #else
             bundles.Add( new StyleBundle( "~/Content/css" ).Include(
                 "~/Content/Styles/_reset.min.css",
                 "~/Content/Styles/Plugins/jssocials.css",
-                "~/Content/Styles/Plugins/jssocials-theme-flat.css",
-                "~/Content/Styles/site.css" ) );
+                "~/Content/Styles/Plugins/jssocials-theme-flat.css" ) );
+            //"~/Content/Styles/site.css" 
 #endif
 
 #if !DEBUG
