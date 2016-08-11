@@ -2934,7 +2934,7 @@ form {
 }
 form dl {
   display: inline-block;
-  margin: 0;
+  margin: 0 0 20px;
   padding: 0;
   width: 100%;
 }
@@ -2953,7 +2953,8 @@ form dl dd.ck-editor {
 form dl dd {
   position: relative;
 }
-form dl dd + dt {
+form dl dd + dt,
+form dl dd + dd {
   margin-top: 10px;
 }
 form dl dd input,

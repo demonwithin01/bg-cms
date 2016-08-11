@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using System.IO;
+using System.Web;
 using System.Web.Optimization;
 
 namespace ContentManagementSystem
@@ -37,7 +38,8 @@ namespace ContentManagementSystem
                         "~/Scripts/site.notification.js",
                         "~/Scripts/site.animations.js",
                         "~/Scripts/site.image-browser.js",
-                        "~/Scripts/site.js" ) );
+                        "~/Scripts/site.js",
+                        "~/Scripts/site.plugin.js" ) );
 
             //bundles.Add( new ScriptBundle( "~/bundles/siteadmin" ).Include(
             //            "~/Scripts/Plugins/dropzone.js" ) );
@@ -98,6 +100,19 @@ namespace ContentManagementSystem
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css" ) );
+
+
+
+            var themeDirectories = Directory.GetDirectories( HttpContext.Current.Server.MapPath( "~/scripts/themes/" ) );
+
+            foreach ( var themeDirectory in themeDirectories )
+            {
+                var directoryName = themeDirectory.Substring( Path.GetDirectoryName( themeDirectory ).Length + 1 );
+
+                bundles.Add( new ScriptBundle( "~/scripts/theme/" + directoryName )
+                    .Include( "~/scripts/themes/" + directoryName + "/_" + directoryName + ".js" )
+                    .IncludeDirectory( "~/scripts/themes/" + directoryName, "*.js" ) );
+            }
         }
     }
 }

@@ -4062,3 +4062,10 @@ tr.pager td
     width: auto;
   }
 }
+body {
+  overflow: auto;
+}
+header + .page-content {
+  height: auto;
+  overflow: visible;
+}
