@@ -2551,6 +2551,11 @@ header a.home-link {
 header a.home-link:hover {
   background: rgba(255, 255, 255, 0.3);
 }
+header h1,
+header h2,
+header h3 {
+  color: white;
+}
 header .menu-link {
   -webkit-transition: left 0.3s ease, top 0.3s ease;
   -moz-transition: left 0.3s ease, top 0.3s ease;
@@ -2664,7 +2669,6 @@ header .logged-in-button:hover {
 }
 header .login-button > span,
 header .logged-in-button > span {
-  color: white;
   display: inline-block;
   font-size: 1.3em;
 }

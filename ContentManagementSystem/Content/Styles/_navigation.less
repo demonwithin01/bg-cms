@@ -1,8 +1,5 @@
 ﻿@import (reference) "_shared/_common.less";
 
-@navBackground: #434343;
-@navFontSize: 16px;
-
 header
 {
     .box-sizing();
@@ -136,7 +133,7 @@ header
 
                         li
                         {
-                            background: @navBackground;
+                            background: @nav-background;
                             height: 44px;
                             width: 100%;
 
@@ -218,7 +215,7 @@ header
 
                     &:hover, &.on
                     {
-                        background: rgba(255, 255, 255, 0.3);
+                        background: @nav-item-hover-background;
 
                         & > .sub-nav
                         {
@@ -255,7 +252,7 @@ header
                     ul
                     {
                         .transition(opacity 0.3s ease);
-                        background: @navBackground;
+                        background: @nav-background;
                         margin-left: 10px;
                         opacity: 0;
                         pointer-events: none;
@@ -264,7 +261,7 @@ header
                         {
                             .transform(rotateZ(45deg));
                             content: '';
-                            background: @navBackground;
+                            background: @nav-background;
                             display: block;
                             height: 20px;
                             left: 5px;
@@ -347,15 +344,20 @@ header
 
         &:hover
         {
-            background: rgba(255, 255, 255, 0.3);
+            background: @nav-item-hover-background;
         }
+    }
+
+    h1, h2, h3
+    {
+        color: @nav-font-color;
     }
 
     .menu-link
     {
         .transition(~"left 0.3s ease, top 0.3s ease");
         .transition-delay(0.3s);
-        background-color: @navBackground;
+        background-color: @nav-background;
         background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABHSURBVFhH7dSxDQAgDAPBJJuw/1BsEkDIoqGOKPhr7NKVDd9z5TEW1RK+qG6hfIYBAHhCBgC4njAzu2qJiGiqG1fME+Ixswl49RAVQo7gFwAAAABJRU5ErkJggg==') /*/Images/Header/MenuIcon.png*/;
         background-position: center;
         background-repeat: no-repeat;
@@ -373,7 +375,7 @@ header
         {
             span
             {
-                background-color: rgba(255, 255, 255, 0.3);
+                background-color: @nav-item-hover-background;
             }
         }
 
@@ -391,8 +393,8 @@ header
         .box-sizing();
         .transition(all 0.3s ease);
         .transition-delay(0.3s);
-        background: @navBackground;
-        color: white;
+        background: @nav-background;
+        color: @nav-font-color;
         height: 48px;
         left: 0;
         pointer-events: none;
@@ -447,12 +449,11 @@ header
 
         &:hover
         {
-            background-color: rgba(255, 255, 255, 0.3);
+            background-color: @nav-item-hover-background;
         }
 
         & > span
         {
-            color: white;
             display: inline-block;
             font-size: 1.3em;
 
@@ -516,11 +517,11 @@ header
             {
                 .transition(background 0.2s ease);
                 background: none;
-                font-size: @navFontSize;
+                font-size: @nav-font-size;
 
                 &:hover
                 {
-                    background: rgba(255, 255, 255, 0.3);
+                    background: @nav-item-hover-background;
                 }
             }
 
@@ -544,7 +545,7 @@ header
 
                 &:hover, &.on
                 {
-                    background: rgba(255, 255, 255, 0.3);
+                    background: @nav-item-hover-background;
 
                     & > .sub-nav
                     {
@@ -581,7 +582,7 @@ header
                 ul
                 {
                     .transition(opacity 0.3s ease);
-                    background: @navBackground;
+                    background: @nav-background;
                     margin-left: 10px;
                     opacity: 0;
                     pointer-events: none;
@@ -590,7 +591,7 @@ header
                     {
                         .transform(rotateZ(45deg));
                         content: '';
-                        background: @navBackground;
+                        background: @nav-background;
                         display: block;
                         height: 20px;
                         left: 5px;

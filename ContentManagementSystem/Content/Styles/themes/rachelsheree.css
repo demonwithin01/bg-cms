@@ -2346,7 +2346,7 @@ header.always-open ul#menu li .sub-nav ul:before {
   top: 4px;
 }
 header.always-open ul#menu li .sub-nav ul li {
-  background: #434343;
+  background: #fffbbf;
   height: 44px;
   width: 100%;
 }
@@ -2417,7 +2417,7 @@ header.open ul#menu li .sub-nav-selector:hover,
 header.changing ul#menu li .sub-nav-selector:hover,
 header.open ul#menu li .sub-nav-selector.on,
 header.changing ul#menu li .sub-nav-selector.on {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(116, 25, 25, 0.2);
 }
 header.open ul#menu li .sub-nav-selector:hover > .sub-nav,
 header.changing ul#menu li .sub-nav-selector:hover > .sub-nav,
@@ -2475,7 +2475,7 @@ header.changing ul#menu li .sub-nav ul {
   -moz-transition: opacity 0.3s ease;
   -o-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
-  background: #434343;
+  background: #fffbbf;
   margin-left: 10px;
   opacity: 0;
   pointer-events: none;
@@ -2488,7 +2488,7 @@ header.changing ul#menu li .sub-nav ul:before {
   -o-transform: rotateZ(45deg);
   transform: rotateZ(45deg);
   content: '';
-  background: #434343;
+  background: #fffbbf;
   display: block;
   height: 20px;
   left: 5px;
@@ -2549,7 +2549,12 @@ header a.home-link {
   transition: background 0.3s ease;
 }
 header a.home-link:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(116, 25, 25, 0.2);
+}
+header h1,
+header h2,
+header h3 {
+  color: #741919;
 }
 header .menu-link {
   -webkit-transition: left 0.3s ease, top 0.3s ease;
@@ -2560,7 +2565,7 @@ header .menu-link {
   -moz-transition-delay: 0.3s;
   -o-transition-delay: 0.3s;
   transition-delay: 0.3s;
-  background-color: #434343;
+  background-color: #fffbbf;
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABHSURBVFhH7dSxDQAgDAPBJJuw/1BsEkDIoqGOKPhr7NKVDd9z5TEW1RK+qG6hfIYBAHhCBgC4njAzu2qJiGiqG1fME+Ixswl49RAVQo7gFwAAAABJRU5ErkJggg==') /*/Images/Header/MenuIcon.png*/;
   background-position: center;
   background-repeat: no-repeat;
@@ -2575,7 +2580,7 @@ header .menu-link {
   z-index: 1;
 }
 header .menu-link:hover span {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(116, 25, 25, 0.2);
 }
 header .menu-link span {
   -webkit-transition: background 0.2s ease;
@@ -2598,8 +2603,8 @@ header nav {
   -moz-transition-delay: 0.3s;
   -o-transition-delay: 0.3s;
   transition-delay: 0.3s;
-  background: #434343;
-  color: white;
+  background: #fffbbf;
+  color: #741919;
   height: 48px;
   left: 0;
   pointer-events: none;
@@ -2660,11 +2665,10 @@ header .logged-in-button {
 }
 header .login-button:hover,
 header .logged-in-button:hover {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(116, 25, 25, 0.2);
 }
 header .login-button > span,
 header .logged-in-button > span {
-  color: white;
   display: inline-block;
   font-size: 1.3em;
 }
@@ -2725,7 +2729,7 @@ header ul#menu li > .nav-link {
   font-size: 16px;
 }
 header ul#menu li > .nav-link:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(116, 25, 25, 0.2);
 }
 header ul#menu li .sub-nav-selector {
   -webkit-transition: background 0.2s ease;
@@ -2747,7 +2751,7 @@ header ul#menu li .sub-nav-selector + a {
 }
 header ul#menu li .sub-nav-selector:hover,
 header ul#menu li .sub-nav-selector.on {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(116, 25, 25, 0.2);
 }
 header ul#menu li .sub-nav-selector:hover > .sub-nav,
 header ul#menu li .sub-nav-selector.on > .sub-nav {
@@ -2797,7 +2801,7 @@ header ul#menu li .sub-nav ul {
   -moz-transition: opacity 0.3s ease;
   -o-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
-  background: #434343;
+  background: #fffbbf;
   margin-left: 10px;
   opacity: 0;
   pointer-events: none;
@@ -2809,7 +2813,7 @@ header ul#menu li .sub-nav ul:before {
   -o-transform: rotateZ(45deg);
   transform: rotateZ(45deg);
   content: '';
-  background: #434343;
+  background: #fffbbf;
   display: block;
   height: 20px;
   left: 5px;
@@ -4068,4 +4072,141 @@ body {
 header + .page-content {
   height: auto;
   overflow: visible;
+}
+header.always-open {
+  height: 244px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  -webkit-transition: height 0.3s ease;
+  -moz-transition: height 0.3s ease;
+  -o-transition: height 0.3s ease;
+  transition: height 0.3s ease;
+}
+header.always-open.mini {
+  height: 64px;
+}
+header.always-open.mini .home-link {
+  height: 64px;
+  width: 80px;
+}
+header.always-open.mini .blurb-container {
+  height: 64px;
+}
+header.always-open.mini .blurb-container .site-blurb {
+  opacity: 0;
+  pointer-events: none;
+}
+header.always-open.mini .nav-content {
+  left: 80px;
+}
+header.always-open.mini ul#menu li > .nav-link {
+  border-radius: 0;
+  margin: 0;
+}
+header.always-open.mini ul#menu li > .nav-link a {
+  line-height: 48px;
+}
+header.always-open + .page-content {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+header.always-open nav {
+  height: 100%;
+  position: static;
+}
+header.always-open nav > .nav-content {
+  bottom: 0;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  transition: all 0.3s ease 0s;
+  width: auto;
+}
+header.always-open a.home-link {
+  float: left;
+  height: 180px;
+  width: 225px;
+}
+header.always-open ul#menu {
+  padding: 0 9px;
+}
+header.always-open ul#menu li > .nav-link {
+  margin: 0;
+}
+header.always-open ul#menu li > .nav-link a {
+  line-height: 48px;
+}
+header.always-open .blurb-container {
+  clear: both;
+  display: inline-block;
+  height: 180px;
+  position: relative;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+header.always-open .blurb-container .site-blurb {
+  left: 240px;
+  opacity: 1;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: opacity 0.3s ease;
+}
+header a.home-link {
+  transition: all 0.3s ease;
+}
+header .login-button > span,
+header .logged-in-button > span {
+  font-size: 16px;
+}
+header .login-button > span.icon,
+header .logged-in-button > span.icon {
+  font-size: 18px;
+}
+header .login-button > span.text,
+header .logged-in-button > span.text {
+  font-weight: normal;
+  padding-left: 38px;
+}
+header .nav-content {
+  display: inline-block;
+  width: 100%;
+}
+@media only screen and (max-width: 960px) {
+  header.always-open.mini {
+    height: 40px;
+    min-height: 40px;
+  }
+  header.always-open.mini .blurb-container {
+    height: 40px;
+  }
+  header.always-open.mini .home-link {
+    height: 40px;
+    width: 50px;
+  }
+  header.always-open.mini .nav-content {
+    left: 50px;
+  }
+  header.always-open.mini ul#menu li > .nav-link {
+    font-size: 12px;
+  }
+  header.always-open.mini ul#menu li > .nav-link a {
+    line-height: 24px;
+    padding: 8px 10px;
+  }
+  header .login-button > span,
+  header .logged-in-button > span {
+    font-size: 12px;
+  }
+  header .login-button > span.icon,
+  header .logged-in-button > span.icon {
+    font-size: 14px;
+  }
+  nav img {
+    display: block;
+  }
 }

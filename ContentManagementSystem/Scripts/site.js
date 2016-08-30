@@ -24,6 +24,8 @@
         }, 600 );
 
         site.initialise( _this );
+
+        raiseEvent( 'onPageInitialise' );
     }
 
     function attachEventHandlers()
@@ -31,6 +33,11 @@
         $( window ).on( 'resize', handleResize );
         $( '.menu-link' ).on( 'click', handleMenuLinkClick );
         $( site.mainContentSelector ).on( 'scroll', handleScroll );
+        $( '.page-content' ).on( 'scroll', function () { console.log( 'hello world' ); } );
+        //$( document ).on( 'scroll',  function (e)
+        //{
+        //    console.log( 'scrolling' );
+        //} );
     }
 
     function handleResize()
@@ -61,9 +68,24 @@
 
     function handleScroll(e)
     {
-        $( '#social' ).css( 'top', ( e.target.scrollTop + 60 ) + 'px' );
+        var pos = { top: e.target.scrollTop, left: e.target.scrollLeft };
 
-        raiseEvent( 'onMainContentScroll', { top: e.target.scrollTop, left: e.target.scrollLeft } );
+        if ( e.target.scrollTop != undefined )
+        {
+            pos = { top: e.target.scrollTop, left: e.target.scrollLeft };
+        }
+        else if ( e.target.scrollingElement != $( 'body' ).get( 0 ) )
+        {
+            return;
+        }
+        else
+        {
+            pos = { top: e.target.scrollingElement.scrollTop, left: e.target.scrollingElement.scrollLeft };
+        }
+
+        $( '#social' ).css( 'top', ( pos.top + 60 ) + 'px' );
+        
+        raiseEvent( 'onMainContentScroll', pos );
     }
 
     function raiseEvent( event, args )
@@ -74,7 +96,14 @@
 
         for ( var plugin in _plugins )
         {
-            _plugins[plugin][event].call( _this, args );
+            var func = _plugins[plugin][event];
+
+            if ( func == undefined || typeof ( func ) !== 'function' )
+            {
+                continue;
+            }
+
+            func.call( _this, args );
         }
     }
 
@@ -88,6 +117,8 @@
         }
 
         _plugins[name] = new plugin( _this );
+
+        _plugins[name].initialise();
     }
 
     this.removePlugin = function ( name )

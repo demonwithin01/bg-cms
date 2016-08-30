@@ -12,5 +12,10 @@ site.plugin = function ()
         
     };
 
+    site.plugin.prototype.initialise = function ()
+    {
+
+    };
+
     return this;
 }

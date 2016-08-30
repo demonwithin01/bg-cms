@@ -890,6 +890,7 @@
     <Content Include="Scripts\site.plugin.js" />
     <Content Include="Scripts\themes\outofmars\navigation.js" />
     <Content Include="Scripts\themes\outofmars\_outofmars.js" />
+    <Content Include="Scripts\themes\rachelsheree\navigation.js" />
     <Content Include="Scripts\themes\rachelsheree\_rachelsheree.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

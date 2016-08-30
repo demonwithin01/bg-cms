@@ -3,6 +3,15 @@
 
 
     <nav>
+        <div class="blurb-container">
+            <a href="/" class="home-link">
+                <img src="/Images/Header/Logo.png" />
+            </a>
+            <div class="site-blurb">
+                <h1>RachelSheree</h1>
+                <p class="tag-line">No TV and no beer make Homer something something...</p>
+            </div>
+        </div>
         <div class="nav-content">
             @if ( UserCookie.Current.IsLoggedIn )
             {
@@ -26,9 +35,6 @@
                     <span class="text">Login</span>
                 </a>
             }
-            <a href="/" class="home-link">
-                <img src="/Images/Header/Logo.png" />
-            </a>
             <ul id="menu" class="off">
                 @if ( UserCookie.Current.IsLoggedIn && UserCookie.Current.IsAdministrator )
                 {

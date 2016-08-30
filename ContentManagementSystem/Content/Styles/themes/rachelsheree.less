@@ -1,5 +1,9 @@
 ﻿@import "../site.less";
 
+@nav-background: #fffbbf;
+@nav-font-color: #741919;
+@nav-item-hover-background: fade(#741919, 20%);
+
 body
 {
     overflow: auto;
@@ -9,4 +13,212 @@ header + .page-content
 {
     height: auto;
     overflow: visible;
+}
+
+header
+{
+    &.always-open
+    {
+        height: 244px;
+        left: 0;
+        position: absolute;
+        right: 0;
+
+        .transition(height @animation-time-standard ease);
+
+        &.mini
+        {
+            height: 64px;
+
+            .home-link
+            {
+                height: 64px;
+                width: 80px;
+            }
+
+            .blurb-container
+            {
+                height: 64px;
+                
+                .site-blurb
+                {
+                    opacity: 0;
+                    pointer-events: none;
+                }
+            }
+
+            .nav-content
+            {
+                left: 80px;
+            }
+
+            ul#menu
+            {
+                li > .nav-link
+                {
+                    border-radius: 0;
+                    margin: 0;
+
+                    a
+                    {
+                        line-height: 48px;
+                    }
+                }
+            }
+        }
+
+        & + .page-content
+        {
+            .transition(none);
+        }
+
+        nav
+        {
+            height: 100%;
+            position: static;
+
+            & > .nav-content
+            {
+                bottom: 0;
+                height: auto;
+                left: 0;
+                position: absolute;
+                right: 0;
+                transition: all @animation-time-standard ease 0s;
+                width: auto;
+            }
+        }
+
+        a.home-link
+        {
+            float: left;
+            height: 180px;
+            width: 225px;
+        }
+
+        ul#menu
+        {
+            padding: 0 9px;
+
+            li > .nav-link
+            {
+                margin: 0;
+
+                a
+                {
+                    line-height: 48px;
+                }
+            }
+        }
+
+        .blurb-container
+        {
+            clear: both;
+            display: inline-block;
+            height: 180px;
+            position: relative;
+            transition: all @animation-time-standard ease;
+            width: 100%;
+
+            .site-blurb
+            {
+                left: 240px;
+                opacity: 1;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                transition: opacity @animation-time-standard ease;
+            }
+        }
+    }
+
+    a.home-link
+    {
+        transition: all @animation-time-standard ease;
+    }
+
+    .login-button, .logged-in-button
+    {
+        & > span
+        {
+            font-size: @nav-font-size;
+
+            &.icon
+            {
+                font-size: @nav-font-size + 2px;
+            }
+
+            &.text
+            {
+                font-weight: normal;
+                padding-left: 38px;
+            }
+        }
+    }
+
+    .nav-content
+    {
+        display: inline-block;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 960px)
+{
+    header
+    {
+        &.always-open.mini
+        {
+            height: 40px;
+            min-height: 40px;
+
+            .blurb-container
+            {
+                height: 40px;
+            }
+
+            .home-link
+            {
+                height: 40px;
+                width: 50px;
+            }
+
+            .nav-content
+            {
+                left: 50px;
+            }
+
+            ul#menu li>.nav-link
+            {
+                font-size: 12px;
+
+                a
+                {
+                    line-height: 24px;
+                    padding: 8px 10px;
+                }
+            }
+        }
+
+        .login-button, .logged-in-button
+        {
+            & > span
+            {
+                font-size: 12px;
+
+                &.icon
+                {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    nav
+    {
+        img
+        {
+            display: block;
+        }
+    }
 }
