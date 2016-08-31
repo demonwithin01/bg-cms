@@ -32,5 +32,20 @@ namespace ContentManagementSystemDatabase
         /** Products **/
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
+
+
+        protected override void OnModelCreating( DbModelBuilder modelBuilder )
+        {
+            base.OnModelCreating( modelBuilder );
+
+            modelBuilder.Entity<DomainNavigationItem>()
+                        .HasMany( s => s.SubNavigationItems )
+                        .WithOptional( s => s.ParentDomainNavigationItem );
+
+            //modelBuilder.Entity<DomainNavigationItem>()
+            //            .HasOptional( s => s.ParentDomainNavigationItem )
+            //            .WithMany()
+            //            .HasForeignKey( s => s.ParentDomainNavigationItemId );
+        }
     }
 }

@@ -28,13 +28,15 @@ namespace ContentManagementSystem.Framework
 
         public NavItem()
         {
-
+            SubItems = new List<NavItem>();
         }
 
         public NavItem( DomainNavigationItem navItem )
         {
             PageId = navItem.PageId;
             Title = navItem.Title;
+
+            SubItems = navItem.SubNavigationItems.Select( s => new NavItem( s ) ).ToList();
         }
 
         #endregion
@@ -64,6 +66,8 @@ namespace ContentManagementSystem.Framework
         public int PageId { get; set; }
 
         public string Title { get; set; }
+
+        public List<NavItem> SubItems { get; set; }
         
         #endregion
 

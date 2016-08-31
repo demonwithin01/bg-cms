@@ -51,11 +51,12 @@
                 </li>
                 @foreach ( var navItem in UserCookie.Current.NavItems )
                 {
-                    <li class="off">
+                    @RenderNavItem( navItem )
+                    @*<li class="off">
                         <div class="nav-link">
                             <a href="@Url.Action( "Index", "Page", new { Area = "Home", pageId = navItem.PageId } )">@navItem.Title</a>
                         </div>
-                    </li>
+                    </li>*@
                 }
             </ul>
         </div>
@@ -67,3 +68,26 @@
         <span></span>
     </div>
 </header>
+
+@helper RenderNavItem( NavItem navItem )
+{
+    <li class="off">
+        <div class="nav-link">
+            @if ( navItem.SubItems.Count > 0 )
+            {
+            <div class="sub-nav-selector">
+                <i class="fa fa-angle-right"></i>
+                <div class="sub-nav">
+                    <ul>
+                        @foreach ( var subItem in navItem.SubItems )
+                        {
+                            @RenderNavItem( subItem )
+                        }
+                    </ul>
+                </div>
+            </div>
+            }
+            <a href="@Url.Action( "Index", "Page", new { Area = "Home", pageId = navItem.PageId } )">@navItem.Title</a>
+        </div>
+    </li>
+}

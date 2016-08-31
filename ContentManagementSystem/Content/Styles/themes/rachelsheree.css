@@ -4108,6 +4108,8 @@ header.always-open.mini ul#menu li > .nav-link a {
   line-height: 48px;
 }
 header.always-open + .page-content {
+  background: white;
+  min-height: 100%;
   -webkit-transition: none;
   -moz-transition: none;
   -o-transition: none;
@@ -4136,9 +4138,29 @@ header.always-open ul#menu {
 }
 header.always-open ul#menu li > .nav-link {
   margin: 0;
+  position: relative;
 }
 header.always-open ul#menu li > .nav-link a {
   line-height: 48px;
+}
+header.always-open ul#menu li .sub-nav {
+  left: 50%;
+  right: auto;
+  -webkit-transform: rotate3d(1, 0, 0, 90deg) translateX(-50%);
+  -moz-transform: rotate3d(1, 0, 0, 90deg) translateX(-50%);
+  -ms-transform: rotate3d(1, 0, 0, 90deg) translateX(-50%);
+  -o-transform: rotate3d(1, 0, 0, 90deg) translateX(-50%);
+  transform: rotate3d(1, 0, 0, 90deg) translateX(-50%);
+}
+header.always-open ul#menu li .sub-nav-selector {
+  position: static;
+}
+header.always-open ul#menu li .sub-nav-selector:hover > .sub-nav {
+  -webkit-transform: rotate3d(1, 0, 0, 0deg) translateX(-50%);
+  -moz-transform: rotate3d(1, 0, 0, 0deg) translateX(-50%);
+  -ms-transform: rotate3d(1, 0, 0, 0deg) translateX(-50%);
+  -o-transform: rotate3d(1, 0, 0, 0deg) translateX(-50%);
+  transform: rotate3d(1, 0, 0, 0deg) translateX(-50%);
 }
 header.always-open .blurb-container {
   clear: both;
@@ -4175,6 +4197,9 @@ header .logged-in-button > span.text {
 header .nav-content {
   display: inline-block;
   width: 100%;
+}
+#body {
+  background: white;
 }
 @media only screen and (max-width: 960px) {
   header.always-open.mini {

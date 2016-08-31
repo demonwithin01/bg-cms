@@ -109,7 +109,9 @@ namespace ContentManagementSystem.Framework
                 menuItems = db.DomainNavigationItems.Include( s => s.Page );
             }
 
-            menuItems = menuItems.Where( d => d.DomainId == DomainId ).WhereActive();
+            menuItems = menuItems.Include( s => s.SubNavigationItems )
+                                 .Where( d => d.DomainId == DomainId && d.ParentDomainNavigationItemId == null )
+                                 .WhereActive();
 
             if ( this.IsLoggedIn == false )
             {

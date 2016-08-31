@@ -18,7 +18,7 @@
         }
         else
         {
-            _headerHeight = 180;
+            _headerHeight = 244;
         }
 
         $( 'header' ).next( '.page-content' ).css( { 'padding-top': _headerHeight } );
@@ -38,7 +38,7 @@
         }
         else
         {
-            _headerHeight = 180;
+            _headerHeight = 244;
         }
 
         $( 'header' ).next( '.page-content' ).css( { 'padding-top': _headerHeight } );

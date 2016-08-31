@@ -67,7 +67,10 @@ namespace ContentManagementSystem.Admin.Managers
 
                 AutoMap.Map( model, navItem );
 
-                navItem.DomainId = UserSession.Current.DomainId;
+                int domainId = UserSession.Current.DomainId;
+                navItem.DomainId = domainId;
+
+                navItem.Ordinal = db.DomainNavigationItems.Where( s => s.DomainId == domainId && s.IsDeleted == false ).Select( s => s.Ordinal ).Max() + 1;
 
                 db.DomainNavigationItems.Add( navItem );
 

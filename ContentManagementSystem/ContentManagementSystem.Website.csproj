@@ -477,6 +477,7 @@
     <Content Include="Content\Styles\_shared\_reset.less" />
     <Content Include="Content\Styles\themes\outofmars.less" />
     <Content Include="Content\Styles\themes\rachelsheree.less" />
+    <Content Include="Content\Styles\_footer.less" />
     <None Include="Properties\PublishProfiles\Production.pubxml" />
     <None Include="Scripts\Frameworks\jquery-1.8.2.intellisense.js" />
     <Content Include="Images\Backgrounds\background.png" />
@@ -949,6 +950,8 @@
     <Content Include="Views\Shared\_ImageBrowserLayout.cshtml" />
     <Content Include="Views\Theme\outofmars\Header.cshtml" />
     <Content Include="Views\Theme\rachelsheree\Header.cshtml" />
+    <Content Include="Views\Theme\rachelsheree\Footer.cshtml" />
+    <Content Include="Views\Theme\outofmars\Footer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

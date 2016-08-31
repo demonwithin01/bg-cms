@@ -49,6 +49,7 @@
                     </div>
                 </section>
             </div>
+            @Html.Partial( "~/Views/Theme/" + UserCookie.Current.Theme + "/Footer.cshtml" )
         </div>
         @RenderSection("scripts", required: false)
         <script>

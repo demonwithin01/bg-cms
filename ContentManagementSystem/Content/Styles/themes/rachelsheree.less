@@ -69,6 +69,9 @@ header
 
         & + .page-content
         {
+            background: white;
+            min-height: 100%;
+
             .transition(none);
         }
 
@@ -100,13 +103,35 @@ header
         {
             padding: 0 9px;
 
-            li > .nav-link
+            li
             {
-                margin: 0;
-
-                a
+                & > .nav-link
                 {
-                    line-height: 48px;
+                    margin: 0;
+                    position: relative;
+
+                    a
+                    {
+                        line-height: 48px;
+                    }
+                }
+
+                .sub-nav
+                {
+                    left: 50%;
+                    right: auto;
+
+                    .transform(rotate3d(1,0,0,90deg) translateX(-50%));
+                }
+
+                .sub-nav-selector
+                {
+                    position: static;
+
+                    &:hover > .sub-nav
+                    {
+                        .transform(rotate3d(1,0,0,0deg) translateX(-50%));
+                    }
                 }
             }
         }
@@ -161,6 +186,11 @@ header
         display: inline-block;
         width: 100%;
     }
+}
+
+#body
+{
+    background: white;
 }
 
 @media only screen and (max-width: 960px)
