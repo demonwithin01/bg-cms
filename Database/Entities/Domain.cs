@@ -51,11 +51,11 @@ namespace ContentManagementSystemDatabase
         public int DomainId { get; set; }
 
         [ForeignKey( "BackgroundUpload" )]
-        public int BackgroundUploadId { get; set; }
+        public int? BackgroundUploadId { get; set; }
         public virtual Upload BackgroundUpload { get; set; }
 
         [ForeignKey( "LogoUpload" )]
-        public int LogoUploadId { get; set; }
+        public int? LogoUploadId { get; set; }
         public virtual Upload LogoUpload { get; set; }
 
         public string DomainUrl { get; set; }

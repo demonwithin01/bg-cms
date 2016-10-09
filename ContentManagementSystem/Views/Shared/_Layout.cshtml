@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    bool hasBackgroundImage = UserCookie.Current.BackgroundUrl != null;
+}
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -6,7 +9,7 @@
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <meta name="viewport" content="width=device-width" />
         @Styles.Render( "~/Content/css" )
-        <link rel="stylesheet" href="/content/styles/themes/@(UserCookie.Current.Theme).min.css" />
+        <link rel="stylesheet" href="@(ContentLocation.ThemesLocation)@(UserCookie.Current.Theme).min.css" />
         @*<link rel="stylesheet" href="/content/styles/themes/outofmars.min.css" />*@
         @Scripts.Render( "~/bundles/modernizr" )
         @Scripts.Render( "~/bundles/jquery" )
@@ -16,7 +19,10 @@
         @*@Scripts.Render( "~/scripts/theme/outofmars" )*@
     </head>
     <body>
+        @if ( hasBackgroundImage )
+        {
         <img class="page-background" src="@UserCookie.Current.BackgroundUrl" />
+        }
         @Html.Partial( "~/Views/Theme/" + UserCookie.Current.Theme + "/Header.cshtml" )
         @*@Html.Partial( "~/Views/Theme/outofmars/Header.cshtml" )*@
         <div class="page-content">
@@ -29,7 +35,7 @@
                     </div>
                 </div>
             }
-            <div id="body" class="content-wrapper">
+            <div id="body" class="content-wrapper @If( IsHomePage, "home-page-content" ) @If( hasBackgroundImage == false, "no-background-image" )">
                 <section class="main-content">
                     <div class="page-content-wrapper">
                         @if ( UseFullWidth )

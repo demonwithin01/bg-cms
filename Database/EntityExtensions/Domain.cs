@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,10 @@ namespace ContentManagementSystemDatabase
 
         #region Public Methods
 
+        /// <summary>
+        /// Determines if the provided entity can be accessed by this domain.
+        /// </summary>
+        /// <param name="toCheck">The item to check access for.</param>
         public bool CanAccess( IDomainRestricted toCheck )
         {
             return ( this.DomainId == toCheck.DomainId );
@@ -50,7 +55,7 @@ namespace ContentManagementSystemDatabase
 
             db = db ?? new ContentManagementDb();
 
-            return db.Domains.FirstOrDefault( d => d.DomainUrl.ToLower() == url );
+            return db.Domains.Include( s => s.BackgroundUpload ).Include( s => s.LogoUpload ).FirstOrDefault( d => d.DomainUrl.ToLower() == url );
         }
 
         #endregion

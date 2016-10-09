@@ -42,6 +42,8 @@ namespace ContentManagementSystem.Admin.Managers
 
             AutoMap.Map( model, domain );
 
+            domain.UpdateTimeStamp();
+
             db.SaveChanges();
 
             return SaveResult.Success;

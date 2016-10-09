@@ -42,10 +42,24 @@
 
     function handleResize()
     {
+        var paddingTop = parseInt( $( ".page-header" ).outerHeight() );
+        var paddingBottom = parseInt( $( "footer" ).outerHeight() );
+
+        if ( isNaN( paddingTop ) ) paddingTop = 0;
+        if ( isNaN( paddingBottom ) ) paddingBottom = 0;
+
         $( "#body" ).css( {
-            "padding-bottom": $( "footer" ).outerHeight(),
-            "padding-top": $( ".page-header" ).outerHeight(),
+            "padding-bottom": paddingBottom + "px",
+            "padding-top": paddingTop + "px",
         } );
+
+        var $pageContent = $( ".page-content" );
+
+        $pageContent.css( 'min-height', '0px' ).get( 0 ).offsetHeight;
+
+        var minHeight = ( parseInt( $( "#body" ).outerHeight() ) - paddingTop - paddingBottom );
+
+        $pageContent.css( "min-height", minHeight + 'px' );
 
         raiseEvent( "onWindowResize", { width: window.innerWidth, height: window.innerHeight } );
     }

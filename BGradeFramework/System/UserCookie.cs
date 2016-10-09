@@ -80,13 +80,31 @@ namespace ContentManagementSystem.Framework
             UserSession.CreateInstance( user, domain );
         }
 
+        private UserCookie( UserCookie cookie, Domain domain, ContentManagementDb db )
+        {
+            NavItems = new List<NavItem>();
+
+            UserProfile user = db.Users.FirstOrDefault( u => u.UserId == UserSession.Current.UserId );
+
+            Initialise( db, domain, user );
+        }
+
         private void Initialise( ContentManagementDb db, Domain domain, UserProfile user = null )
         {
             DomainId = domain.DomainId;
             SiteName = domain.Name;
             Theme = domain.Theme;
-            BackgroundUrl = domain.BackgroundUpload.PhysicalLocation;
-            LogoUrl = domain.BackgroundUpload.PhysicalLocation;
+            LastUpdated = domain.DateUpdated;
+
+            if ( domain.BackgroundUpload != null )
+            {
+                BackgroundUrl = domain.BackgroundUpload.PhysicalLocation;
+            }
+
+            if ( domain.LogoUpload != null )
+            {
+                LogoUrl = domain.LogoUpload.PhysicalLocation;
+            }
 
             if ( user != null )
             {
@@ -236,6 +254,9 @@ namespace ContentManagementSystem.Framework
         [JsonProperty( "nav-items" )]
         public List<NavItem> NavItems { get; private set; }
 
+        [JsonProperty( "last-updated" )]
+        public DateTime LastUpdated { get; private set; }
+
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -255,15 +276,23 @@ namespace ContentManagementSystem.Framework
             {
                 HttpContext context = HttpContext.Current;
                 HttpCookie cookie = context.Request.Cookies[ COOKIE_KEY ];
-                UserCookie userCookie;
+                UserCookie userCookie = null;
+                Domain domain;
+                ContentManagementDb db;
                 
                 if ( cookie != null )
                 {
                     userCookie = JsonConvert.DeserializeObject<UserCookie>( cookie.Value );
                 }
-                else
+
+                if ( userCookie == null )
                 {
                     userCookie = new UserCookie( context );
+                    SetCookie( userCookie );
+                }
+                else if ( userCookie.LastUpdated < (domain = ( db = new ContentManagementDb() ).Domains.Find( userCookie.DomainId )  ).DateUpdated )
+                {
+                    userCookie = new UserCookie( userCookie, domain, db );
                     SetCookie( userCookie );
                 }
                 

@@ -2185,6 +2185,8 @@ header.always-open + .page-content > .page-header-wrapper > .page-header {
   -moz-transition-delay: 0s;
   -o-transition-delay: 0s;
   transition-delay: 0s;
+  background: transparent;
+  border-bottom-color: transparent;
   left: 0;
 }
 header.always-open .login-button,
@@ -2807,7 +2809,6 @@ ul {
   -moz-transition-delay: 0.3s;
   -o-transition-delay: 0.3s;
   transition-delay: 0.3s;
-  background: #e2e2e2;
   color: #444;
   clear: both;
   display: flexbox;
@@ -2818,6 +2819,13 @@ ul {
 }
 #body.on .main-content {
   opacity: 1;
+}
+#body.home-page-content,
+#body.no-background-image {
+  background: #e2e2e2;
+}
+#body .page-content {
+  background: #e2e2e2;
 }
 #body .main-content {
   -webkit-transition: opacity 0.3s ease;
@@ -2835,13 +2843,12 @@ ul {
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  background: #f2f2f2;
+  background: #e2e2e2;
   border-bottom: 1px solid #434343;
   font-size: 2em;
   font-weight: bold;
   left: 0;
   line-height: 1em;
-  padding: 10px;
   position: absolute;
   right: 0;
   top: 0;
@@ -2854,9 +2861,10 @@ ul {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  background: #e2e2e2;
   font-size: inherit;
   margin: 0 auto;
-  padding: 0 10px;
+  padding: 10px 10px;
 }
 .page-background {
   bottom: 0;
@@ -2876,7 +2884,8 @@ ul {
   text-align: center;
 }
 .page-content-wrapper .page-content {
-  display: inline-block;
+  display: block;
+  margin: 0 auto;
   text-align: left;
 }
 .page-content-wrapper .page-content .page-inner-content img {

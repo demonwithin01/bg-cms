@@ -2,6 +2,7 @@
 
 @{
     PageTitle = Model.Title;
+    IsHomePage = true;
 }
 
 @Html.Partial( Model.HomePageTemplateModel.DisplayLocation ?? "HomePageTemplates/Ribbon", Model.HomePageTemplateModel )

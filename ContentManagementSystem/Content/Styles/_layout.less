@@ -81,7 +81,6 @@ ul
     .box-sizing();
     .transition(padding 0.3s ease);
     .transition-delay(0.3s);
-    background: @site-background-color;
     color: @site-font-color;
     clear: both;
     display: flexbox;
@@ -96,6 +95,17 @@ ul
         {
             opacity: 1;
         }
+    }
+
+    &.home-page-content,
+    &.no-background-image
+    {
+        background: @site-background-color;
+    }
+
+    .page-content
+    {
+        background: @site-background-color;
     }
 
     .main-content
@@ -114,13 +124,13 @@ ul
 .page-header
 {
     .transition(all 0.3s ease);
-    background: #f2f2f2;
-    border-bottom: 1px solid #434343;
+    background: @site-background-color;
+    border-bottom: 1px solid @nav-background;
     font-size: 2em;
     font-weight: bold;
     left: 0;
     line-height: 1em;
-    padding: @title-padding;
+    //padding: @title-padding;
     position: absolute;
     right: 0;
     top: 0;
@@ -135,9 +145,10 @@ ul
     {
         .box-sizing();
 
+        background: @site-background-color;
         font-size: inherit;
         margin: 0 auto;
-        padding: 0 10px;
+        padding: @title-padding 10px;
     }
 }
 
@@ -164,7 +175,8 @@ ul
 
     .page-content
     {
-        display: inline-block;
+        display: block;
+        margin: 0 auto;
         text-align: left;
 
         .page-inner-content

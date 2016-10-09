@@ -146,6 +146,20 @@ namespace ContentManagementSystem.Framework.BaseClasses
             }
         }
 
+        public bool IsHomePage
+        {
+            get
+            {
+                if ( TempData.ContainsKey( "IsHomePage" ) ) return (bool)TempData[ "IsHomePage" ];
+
+                return false;
+            }
+            set
+            {
+                TempData[ "IsHomePage" ] = value;
+            }
+        }
+
         public UserProfile UserProfile
         {
             get
