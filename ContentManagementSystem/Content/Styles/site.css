@@ -3411,6 +3411,12 @@ table td.options-column {
 .ribbon-item .no-padding {
   margin: -35px;
 }
+.ribbon-item.no-padding {
+  padding: 0;
+}
+.ribbon-item.no-padding [class*='b-width-'] {
+  padding: 0;
+}
 .ribbon-item.editable {
   position: relative;
 }

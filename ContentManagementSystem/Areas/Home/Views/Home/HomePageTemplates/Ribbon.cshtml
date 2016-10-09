@@ -16,7 +16,7 @@ if ( string.IsNullOrEmpty( height ) )
     height = "60px";
 }
 
-<div class="ribbon-item" style="background-color: @backgroundColor; height: @height;">
+<div class="ribbon-item @( ribbonItem.RemovePadding ? "no-padding" : "" )" style="background-color: @backgroundColor; height: @height;">
     <div class="b-grid">
         @for ( int i = 0 ; i < ribbonItem.Columns.Count ; i++ )
         {

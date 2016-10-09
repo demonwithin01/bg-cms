@@ -47,6 +47,8 @@ namespace ContentManagementSystem.Framework.Models.HomePage
 
         public RibbonColumns Layout { get; set; }
 
+        public bool RemovePadding { get; set; }
+
         public string Height { get; set; }
 
         public List<RibbonItemContent> Columns { get; set; }

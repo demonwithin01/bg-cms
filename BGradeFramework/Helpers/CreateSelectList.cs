@@ -47,6 +47,16 @@ namespace ContentManagementSystem.Framework
             return selectList;
         }
 
+        public static List<SelectListItem> ForBoolean( bool selected, string trueLabel = "Yes", string falseLabel = "No" )
+        {
+            List<SelectListItem> selectList = new List<SelectListItem>();
+
+            selectList.Add( new SelectListItem() { Value = "true", Text = trueLabel, Selected = ( selected == true ) } );
+            selectList.Add( new SelectListItem() { Value = "false", Text = falseLabel, Selected = ( selected == false ) } );
+
+            return selectList;
+        }
+
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */

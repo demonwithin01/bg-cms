@@ -13,7 +13,7 @@ if ( string.IsNullOrEmpty( height ) )
     height = "60px";
 }
 
-<div class="ribbon-item editable" data-index="@index" style="background-color: @backgroundColor; height: @height;">
+<div class="ribbon-item editable @( ribbonItem.RemovePadding ? "no-padding" : "" )" data-index="@index" style="background-color: @backgroundColor; height: @height;">
     <div class="b-grid">
         @for ( int i = 0 ; i < ribbonItem.Columns.Count ; i++ )
         {
@@ -28,7 +28,8 @@ if ( string.IsNullOrEmpty( height ) )
     <div class="ribbon-item-tools">
         <input type="hidden" id="@( idIndex + "Height" )" name="@( nameIndex + "Height" )" value="@height" />
         <div class="ribbon-item-template ui-front">
-            @Html.DropDownList( nameIndex + "Layout", CreateSelectList.FromEnum<RibbonColumns>( ribbonItem.Layout ), new { id = idIndex + "Layout" } )
+            @Html.DropDownList( nameIndex + "Layout", CreateSelectList.FromEnum<RibbonColumns>( ribbonItem.Layout ), new { id = idIndex + "Layout", @class = "column-layout" } )
+            @Html.DropDownList( nameIndex + "RemovePadding", CreateSelectList.ForBoolean( ribbonItem.RemovePadding ), new { id = idIndex + "RemovePadding", @class = "padding-option" } )
         </div>
         <div class="remove-ribbon-item">
             <i class="fa fa-close"></i>
@@ -80,7 +81,7 @@ if ( string.IsNullOrEmpty( height ) )
 
     function attachEvents( $ribbon )
     {
-        $ribbon.find('input, select').each(function ()
+        $ribbon.find('input, select, textarea').each(function ()
         {
             var $this = $(this);
             var name = $this.attr('name');
@@ -99,15 +100,23 @@ if ( string.IsNullOrEmpty( height ) )
             $this.removeAttr('disabled');
         });
 
-        $ribbon.find('select').selectmenu({
+        $ribbon.find('select.column-layout').selectmenu({
             change: function ()
             {
                 configureForColumns($ribbon, $(this).val());
             }
-        }).on('mousein', function (e)
-        {
-            console.log(e);
-        }).next().css('width', 'auto');
+        });
+
+        $ribbon.find('select.padding-option').selectmenu({
+            change: function ()
+            {
+                $ribbon.toggleClass('no-padding', $(this).val() == 'true');
+            }
+        })
+        
+        $ribbon.find('select').each(function () {
+            $(this).next().css('width', 'auto');
+        });
 
         $ribbon.find('label').each(function ()
         {
@@ -140,7 +149,6 @@ if ( string.IsNullOrEmpty( height ) )
             },
             hide: function (color)
             {
-                console.log(color);
                 var value = convertColor(color);
                 $ribbon.css('background-color', value);
                 console.log($ribbon.find('[type="color"]').prev('input').val(value).val());
