@@ -40,19 +40,25 @@
     </li>
 }
 
+@helper RenderEditAdminTile( string title, string controller )
+{
+    <li>
+        <div class="admin-link-title"><h3>@title</h3></div>
+        <div class="admin-link single">
+            <a href="@Url.Action( "Edit", controller, new { area="Admin" } )">
+                <div>
+                    <span class="admin-link-icon"><i class="fa fa-edit"></i></span>
+                    <span class="admin-link-text">Edit</span>
+                </div>
+            </a>
+        </div>
+    </li>
+}
+
 <div class="admin-home-nav-items">
     <ul>
-        <li>
-            <div class="admin-link-title"><h3>Home Page</h3></div>
-            <div class="admin-link single">
-                <a href="@Url.Action( "Edit", "HomePage", new { area="Admin" } )">
-                    <div>
-                        <span class="admin-link-icon"><i class="fa fa-edit"></i></span>
-                        <span class="admin-link-text">Edit</span>
-                    </div>
-                </a>
-            </div>
-        </li>
+        @RenderEditAdminTile( "Domain Settings", "Domain" )
+        @RenderEditAdminTile( "Home Page", "HomePage" )
         @RenderStandardAdminTiles( "Nav Menu", "Navigation" )
         @RenderStandardAdminTiles( "Pages", "Page" )
         @RenderStandardAdminTiles( "Blog Posts", "BlogPost" )

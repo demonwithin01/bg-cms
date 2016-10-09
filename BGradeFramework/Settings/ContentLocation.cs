@@ -9,5 +9,7 @@ namespace ContentManagementSystem.Framework
     public static class ContentLocation
     {
         public const string UploadFolder = "/Uploads/";
+
+        public const string ThemesLocation = "/Content/Styles/themes/";
     }
 }

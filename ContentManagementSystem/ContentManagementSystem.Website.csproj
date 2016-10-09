@@ -209,6 +209,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\DomainController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ImageBrowserController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomePageController.cs" />
@@ -219,6 +220,7 @@
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\UploadsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Areas\Admin\Managers\DomainManager.cs" />
     <Compile Include="Areas\Admin\Managers\HomePageManager.cs" />
     <Compile Include="Areas\Admin\Managers\NavigationManager.cs" />
     <Compile Include="Areas\Admin\Managers\BlogPostManager.cs" />
@@ -229,6 +231,7 @@
     <Compile Include="Areas\Admin\Managers\UploadsManager.cs" />
     <Compile Include="Areas\Admin\Models\BlogPost\BlogPostListItemModel.cs" />
     <Compile Include="Areas\Admin\Models\BlogPost\BlogPostListModel.cs" />
+    <Compile Include="Areas\Admin\Models\Domain\DomainModel.cs" />
     <Compile Include="Areas\Admin\Models\HomePage\HomePageModel.cs" />
     <Compile Include="Areas\Admin\Models\Navigation\NavigationListItemModel.cs" />
     <Compile Include="Areas\Admin\Models\Navigation\NavigationListModel.cs" />
@@ -367,6 +370,7 @@
     <Content Include="Areas\Admin\Views\Page\Templates\Shop.cshtml" />
     <Content Include="Areas\Admin\Views\Page\Templates\BlogList.cshtml" />
     <Content Include="Areas\Home\Views\Page\Templates\BlogList.cshtml" />
+    <Content Include="Areas\Admin\Views\Domain\Edit.cshtml" />
     <None Include="compilerconfig.json" />
     <Content Include="Content\Styles\admin.css.map">
       <DependentUpon>admin.css</DependentUpon>
