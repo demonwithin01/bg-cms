@@ -41,6 +41,11 @@ namespace ContentManagementSystem.Admin.Managers
                 model.ModelType = "Default";
                 model.PageTemplateModel = new Framework.Models.Page.Default();
 
+                CachedEditableModel cachedModel = CMSCache.Pages[ model.ModelType ];
+
+                model.PageTemplateModel.DisplayLocation = cachedModel.DisplayLocation;
+                model.PageTemplateModel.EditorLocation = cachedModel.EditorLocation;
+
                 return model;
             }
 

@@ -132,7 +132,9 @@
     <Compile Include="Models\HomePage\Ribbon\RibbonColumns.cs" />
     <Compile Include="Models\HomePage\Ribbon\RibbonItem.cs" />
     <Compile Include="Models\HomePage\Ribbon\RibbonItemContent.cs" />
+    <Compile Include="Models\Page\BlogList.cs" />
     <Compile Include="Models\Page\Default.cs" />
+    <Compile Include="Models\Page\Shop.cs" />
     <Compile Include="Settings\ContentLocation.cs" />
     <Compile Include="Settings\Settings.cs" />
     <Compile Include="Attributes\AjaxOnly.cs" />

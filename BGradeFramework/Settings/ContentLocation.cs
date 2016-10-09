@@ -8,6 +8,6 @@ namespace ContentManagementSystem.Framework
 {
     public static class ContentLocation
     {
-        public const string UploadFolder = "/Content/Uploads/";
+        public const string UploadFolder = "/Uploads/";
     }
 }

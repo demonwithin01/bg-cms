@@ -3492,6 +3492,9 @@ table td.options-column {
 .ribbon-item.editable:hover .ui-resizable-handle {
   display: block !important;
 }
+.page-footer {
+  padding: 20px;
+}
 .bg-modal-backdrop {
   display: none;
   background: rgba(0, 0, 0, 0.6);
@@ -4065,4 +4068,8 @@ tr.pager td
     float: none;
     width: auto;
   }
+}
+.login-button,
+.logged-in-button {
+  color: white;
 }

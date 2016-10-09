@@ -85,6 +85,8 @@ namespace ContentManagementSystem.Framework
             DomainId = domain.DomainId;
             SiteName = domain.Name;
             Theme = domain.Theme;
+            BackgroundUrl = domain.BackgroundUpload.PhysicalLocation;
+            LogoUrl = domain.BackgroundUpload.PhysicalLocation;
 
             if ( user != null )
             {
@@ -213,12 +215,14 @@ namespace ContentManagementSystem.Framework
         [JsonProperty( "user-id" )]
         public int UserId { get; private set; }
 
-        public bool IsLoggedIn { get { return ( this.UserId > 0 ); } }
-
-        public bool IsValidUrl { get { return ( this.DomainId > 0 ); } }
-
         [JsonProperty( "site-name" )]
         public string SiteName { get; private set; }
+
+        [JsonProperty( "background-url" )]
+        public string BackgroundUrl { get; private set; }
+
+        [JsonProperty( "logo-url" )]
+        public string LogoUrl { get; private set; }
         
         [JsonProperty( "theme" )]
         public string Theme { get; private set; }
@@ -237,6 +241,13 @@ namespace ContentManagementSystem.Framework
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Static Properties
+
+        [JsonIgnore]
+        public bool IsLoggedIn { get { return ( this.UserId > 0 ); } }
+
+        [JsonIgnore]
+        public bool IsValidUrl { get { return ( this.DomainId > 0 ); } }
+
 
         public static UserCookie Current
         {

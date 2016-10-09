@@ -362,6 +362,11 @@
     <Content Include="Areas\Admin\Views\Page\Templates\Default.cshtml" />
     <Content Include="Areas\Admin\Views\User\List.cshtml" />
     <Content Include="Areas\Admin\Views\User\ViewUser.cshtml" />
+    <Content Include="Areas\Admin\Views\PageComponents\ImageSlideshow.cshtml" />
+    <Content Include="Areas\Home\Views\Page\Templates\Shop.cshtml" />
+    <Content Include="Areas\Admin\Views\Page\Templates\Shop.cshtml" />
+    <Content Include="Areas\Admin\Views\Page\Templates\BlogList.cshtml" />
+    <Content Include="Areas\Home\Views\Page\Templates\BlogList.cshtml" />
     <None Include="compilerconfig.json" />
     <Content Include="Content\Styles\admin.css.map">
       <DependentUpon>admin.css</DependentUpon>

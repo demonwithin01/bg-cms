@@ -54,7 +54,7 @@ namespace ContentManagementSystem.Admin.Controllers
 
             if ( result.State == SaveResultState.Success )
             {
-                return RedirectToAction( "Index" );
+                return RedirectToAction( "List" );
             }
 
             return View( model );

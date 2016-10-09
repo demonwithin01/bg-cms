@@ -10,8 +10,8 @@
 
     function init()
     {
-        $( '#social' ).jsSocials( {
-            shares: ['facebook', 'twitter', 'googleplus', 'linkedin', 'pinterest', 'stumbleupon', 'whatsapp']
+        $( "#social" ).jsSocials( {
+            shares: ["facebook"]//, "twitter", "googleplus", "linkedin", "pinterest", "stumbleupon", "whatsapp"]
         } );
 
         attachEventHandlers();
@@ -20,48 +20,48 @@
 
         setTimeout( function ()
         {
-            $( '#body' ).addClass( 'on' );
+            $( "#body" ).addClass( "on" );
         }, 600 );
 
         site.initialise( _this );
 
-        raiseEvent( 'onPageInitialise' );
+        raiseEvent( "onPageInitialise" );
     }
 
     function attachEventHandlers()
     {
-        $( window ).on( 'resize', handleResize );
-        $( '.menu-link' ).on( 'click', handleMenuLinkClick );
-        $( site.mainContentSelector ).on( 'scroll', handleScroll );
-        $( '.page-content' ).on( 'scroll', function () { console.log( 'hello world' ); } );
-        //$( document ).on( 'scroll',  function (e)
+        $( window ).on( "resize", handleResize );
+        $( ".menu-link" ).on( "click", handleMenuLinkClick );
+        $( site.mainContentSelector ).on( "scroll", handleScroll );
+        $( ".page-content" ).on( "scroll", function () { console.log( "hello world" ); } );
+        //$( document ).on( "scroll",  function (e)
         //{
-        //    console.log( 'scrolling' );
+        //    console.log( "scrolling" );
         //} );
     }
 
     function handleResize()
     {
-        $( '#body' ).css( {
-            'padding-bottom': $( 'footer' ).outerHeight(),
-            'padding-top': $( '.page-header' ).outerHeight(),
+        $( "#body" ).css( {
+            "padding-bottom": $( "footer" ).outerHeight(),
+            "padding-top": $( ".page-header" ).outerHeight(),
         } );
 
-        raiseEvent( 'onWindowResize', { width: window.innerWidth, height: window.innerHeight } );
+        raiseEvent( "onWindowResize", { width: window.innerWidth, height: window.innerHeight } );
     }
 
     function handleMenuLinkClick()
     {
         var $parent = $( this ).parent();
-        $parent.toggleClass( 'open' );
+        $parent.toggleClass( "open" );
 
-        if ( $parent.hasClass( 'open' ) == false )
+        if ( $parent.hasClass( "open" ) == false )
         {
-            $parent.addClass( 'changing' );
+            $parent.addClass( "changing" );
 
             setTimeout( function ()
             {
-                $parent.removeClass( 'changing' );
+                $parent.removeClass( "changing" );
             }, 300 );
         }
     }
@@ -74,7 +74,7 @@
         {
             pos = { top: e.target.scrollTop, left: e.target.scrollLeft };
         }
-        else if ( e.target.scrollingElement != $( 'body' ).get( 0 ) )
+        else if ( e.target.scrollingElement != $( "body" ).get( 0 ) )
         {
             return;
         }
@@ -83,9 +83,9 @@
             pos = { top: e.target.scrollingElement.scrollTop, left: e.target.scrollingElement.scrollLeft };
         }
 
-        $( '#social' ).css( 'top', ( pos.top + 60 ) + 'px' );
+        $( "#social" ).css( "top", ( pos.top + 60 ) + "px" );
         
-        raiseEvent( 'onMainContentScroll', pos );
+        raiseEvent( "onMainContentScroll", pos );
     }
 
     function raiseEvent( event, args )
@@ -98,7 +98,7 @@
         {
             var func = _plugins[plugin][event];
 
-            if ( func == undefined || typeof ( func ) !== 'function' )
+            if ( func == undefined || typeof ( func ) !== "function" )
             {
                 continue;
             }
@@ -111,7 +111,7 @@
     {
         if ( _plugins[name] != undefined )
         {
-            console.error( 'Error: Plugin "' + name + '" already exists' );
+            console.error( "Error: Plugin \"" + name + "\" already exists" );
 
             return;
         }

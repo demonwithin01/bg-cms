@@ -30,6 +30,13 @@ namespace ContentManagementSystem.Helpers
             return new SelectList( cachedModels, "ModelName", "FriendlyName", selected );
         }
 
+        public SelectList PageTemplates( string selected )
+        {
+            IEnumerable<CachedEditableModel> cachedModels = CMSCache.Pages.Select( s => s.Value );
+
+            return new SelectList( cachedModels, "ModelName", "FriendlyName", selected );
+        }
+
         public SelectList ProductCategories( int? selected, bool canAddNew = false )
         {
             List<ProductCategory> productCategories = ProductRepository.ProductCategories.WhereActive().Where( s => s.DomainId == UserCookie.Current.DomainId ).ToList();
