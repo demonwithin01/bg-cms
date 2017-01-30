@@ -51,7 +51,10 @@ namespace ContentManagementSystem.Home.Controllers
                 throw new HttpException( 404, "The page requested could not be found" );
             }
 
-            return View( new IndexModel( pageContent, base.Manager.RetrievePage( pageContent ) ) );
+            PageTemplate pageTemplate = base.Manager.RetrievePage( pageContent );
+            pageTemplate.InitialiseForDisplay();
+
+            return View( new IndexModel( pageContent, pageTemplate ) );
         }
 
     }

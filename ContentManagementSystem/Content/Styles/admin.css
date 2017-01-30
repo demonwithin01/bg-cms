@@ -2742,6 +2742,7 @@ header ul#menu li .sub-nav ul:before {
 }
 html,
 body {
+  line-height: 14px;
   min-width: 480px;
 }
 html {
@@ -2809,7 +2810,7 @@ ul {
   -moz-transition-delay: 0.3s;
   -o-transition-delay: 0.3s;
   transition-delay: 0.3s;
-  color: #444;
+  color: #fff;
   clear: both;
   display: flexbox;
   margin: 0 auto;
@@ -3138,12 +3139,14 @@ table td.options-column {
   margin-left: 20px;
 }
 .ribbon-item {
+  line-height: 0;
   min-height: 80px;
   padding: 20px;
   text-align: left;
 }
 .ribbon-item .b-grid {
   height: 100%;
+  line-height: 14px;
 }
 .ribbon-item .b-grid > div {
   height: 100%;

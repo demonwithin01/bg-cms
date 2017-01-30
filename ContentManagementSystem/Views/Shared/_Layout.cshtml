@@ -17,6 +17,14 @@
         @Scripts.Render( "~/bundles/site" )
         @Scripts.Render( "~/scripts/theme/" + UserCookie.Current.Theme )
         @*@Scripts.Render( "~/scripts/theme/outofmars" )*@
+        <script>
+            var _site;
+
+            $(function ()
+            {
+                _site = new Site();
+            });
+        </script>
     </head>
     <body>
         @if ( hasBackgroundImage )
@@ -58,13 +66,5 @@
             @Html.Partial( "~/Views/Theme/" + UserCookie.Current.Theme + "/Footer.cshtml" )
         </div>
         @RenderSection("scripts", required: false)
-        <script>
-            var _site;
-
-            $(function ()
-            {
-                _site = new Site();
-            });
-        </script>
     </body>
 </html>

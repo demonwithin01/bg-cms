@@ -179,6 +179,7 @@ namespace ContentManagementSystem.Framework
         {
             string cookieValue = JsonConvert.SerializeObject( userCookie );
             HttpCookie cookie = new HttpCookie( COOKIE_KEY, cookieValue );
+            cookie.Expires = DateTime.UtcNow.AddDays( 1 );
 
             HttpContext context = HttpContext.Current;
 

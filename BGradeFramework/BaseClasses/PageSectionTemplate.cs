@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ContentManagementSystem.Framework
 {
-    public class PageTemplate
+    public class PageSectionTemplate
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -26,22 +25,6 @@ namespace ContentManagementSystem.Framework
 
         #region Public Methods
 
-        /// <summary>
-        /// Initiliases the model for editor purposes.
-        /// </summary>
-        public virtual void InitialiseForEditor()
-        {
-
-        }
-
-        /// <summary>
-        /// Initiliases the model for display purposes.
-        /// </summary>
-        public virtual void InitialiseForDisplay()
-        {
-
-        }
-
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -53,12 +36,6 @@ namespace ContentManagementSystem.Framework
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Properties
-        
-        [JsonIgnore]
-        public string EditorLocation { get; set; }
-
-        [JsonIgnore]
-        public string DisplayLocation { get; set; }
 
         #endregion
 

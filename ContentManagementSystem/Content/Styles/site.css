@@ -2825,6 +2825,7 @@ header ul#menu li .sub-nav ul:before {
 }
 html,
 body {
+  line-height: 14px;
   min-width: 480px;
 }
 html {
@@ -2892,7 +2893,7 @@ ul {
   -moz-transition-delay: 0.3s;
   -o-transition-delay: 0.3s;
   transition-delay: 0.3s;
-  color: #444;
+  color: #fff;
   clear: both;
   display: flexbox;
   margin: 0 auto;
@@ -2905,10 +2906,10 @@ ul {
 }
 #body.home-page-content,
 #body.no-background-image {
-  background: #c1fff9;
+  background: #2859a5;
 }
 #body .page-content {
-  background: #c1fff9;
+  background: #2859a5;
 }
 #body .main-content {
   -webkit-transition: opacity 0.3s ease;
@@ -2926,7 +2927,7 @@ ul {
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  background: #c1fff9;
+  background: #2859a5;
   border-bottom: 1px solid #434343;
   font-size: 2em;
   font-weight: bold;
@@ -2944,7 +2945,7 @@ ul {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  background: #c1fff9;
+  background: #2859a5;
   font-size: inherit;
   margin: 0 auto;
   padding: 10px 10px;
@@ -3407,12 +3408,14 @@ table td.options-column {
   margin-left: 20px;
 }
 .ribbon-item {
+  line-height: 0;
   min-height: 80px;
   padding: 20px;
   text-align: left;
 }
 .ribbon-item .b-grid {
   height: 100%;
+  line-height: 14px;
 }
 .ribbon-item .b-grid > div {
   height: 100%;

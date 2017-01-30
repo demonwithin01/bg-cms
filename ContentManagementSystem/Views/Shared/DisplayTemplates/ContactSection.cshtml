@@ -1,0 +1,15 @@
+﻿@model ContactSection
+
+<div class="b-grid">
+    @using ( Html.BeginForm( new { id = "contactForm" } ) )
+    {
+        <dl>
+            @Html.TextBoxFieldFor( m => m.Name )
+            @Html.TextBoxFieldFor( m => m.EmailAddress )
+            @Html.TextAreaFieldFor( m => m.Enquiry) 
+        </dl>
+        @Html.SubmitButton( "Submit" )
+    }
+</div>
+
+@Html.SectionInit( "new Site.Contact()" )

@@ -1,17 +1,15 @@
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ContentManagementSystemDatabase;
-using Newtonsoft.Json;
+using ContentManagementSystem.Framework.Models.Page.Sections;
 
 namespace ContentManagementSystem.Framework.Models.Page
 {
-    [EditorLocation( "~/Areas/Admin/Views/Page/Templates/BlogList.cshtml" )]
-    [DisplayLocation( "~/Areas/Home/Views/Page/Templates/BlogList.cshtml" )]
-    public class BlogList : PageTemplate
+    [EditorLocation( "~/Areas/Admin/Views/Page/Templates/Contact.cshtml" )]
+    [DisplayLocation( "~/Areas/Home/Views/Page/Templates/Contact.cshtml" )]
+    public class Contact : PageTemplate
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -24,9 +22,9 @@ namespace ContentManagementSystem.Framework.Models.Page
 
         #region Constructors/Initialisation
 
-        public BlogList()
+        public Contact()
         {
-            this.MaxNumberOfPosts = 5;
+            this.ContactSection = new ContactSection();
         }
 
         #endregion
@@ -34,17 +32,6 @@ namespace ContentManagementSystem.Framework.Models.Page
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Public Methods
-
-        public override void InitialiseForDisplay()
-        {
-            ContentManagementDb db = new ContentManagementDb();
-
-            this.BlogPosts = db.BlogPostContent.Include( s => s.Blog )
-                                               .Where( s => s.PublishStatus == PublishStatus.Published && s.Blog.DomainId == UserSession.Current.DomainId && s.Blog.IsDeleted == false )
-                                               .OrderByDescending( s => s.Blog.UTCDateCreated )
-                                               .Take( this.MaxNumberOfPosts )
-                                               .ToList();
-        }
 
         #endregion
 
@@ -58,10 +45,7 @@ namespace ContentManagementSystem.Framework.Models.Page
 
         #region Properties
 
-        public int MaxNumberOfPosts { get; set; }
-
-        [JsonIgnore]
-        public List<BlogPostContent> BlogPosts { get; set; }
+        public ContactSection ContactSection { get; set; }
 
         #endregion
 
