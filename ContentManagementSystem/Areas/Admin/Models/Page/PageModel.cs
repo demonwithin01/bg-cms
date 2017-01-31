@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using ContentManagementSystem.Framework;
 using ContentManagementSystemDatabase;
 using ContentManagementSystem.Admin.Managers;
+using System.ComponentModel;
 
 namespace ContentManagementSystem.Admin.Models
 {
@@ -66,9 +67,12 @@ namespace ContentManagementSystem.Admin.Models
 
         public int? PageId { get; set; }
 
+        [DisplayName( "Page Template" )]
+        [Required( ErrorMessage = "Please select a page template" )]
         public string ModelType { get; set; }
 
-        [Display( Name = "Title" )]
+        [DisplayName( "Title" )]
+        [Required( ErrorMessage = "Please enter in a title" )]
         public string Title { get; set; }
         
         public bool Publish { get; set; }

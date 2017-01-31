@@ -1,9 +1,8 @@
 ﻿@using ContentManagementSystem.Framework.Models.Page;
 @model BlogList
 
-@*@Html.TextAreaFieldFor( s => s.PageContent )*@
+@Html.DropDownListFieldFor( s => s.MaxNumberOfPosts, CreateSelectList.NumberList( 1, 10, Model.MaxNumberOfPosts ) )
 
-IMPORTANT: NOT YET SET UP!
 
 <script>
 

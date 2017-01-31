@@ -1,0 +1,33 @@
+﻿@import (reference) "_shared/_common.less";
+
+.blog-post
+{
+    padding: 30px;
+}
+
+.blog-list
+{
+
+    .blog-post
+    {
+        background: rgba( 255, 255, 255, 0.4 );
+        border-radius: 3px;
+        color: @site-font-color-dark;
+        margin: @padding-page / 2;
+        padding: @padding-page;
+
+        & > h2
+        {
+            margin: 0 -@padding-page @padding-page;
+            padding: 0 @padding-page;
+
+            & > span
+            {
+                background: linear-gradient(to right, @site-background-color 0%, @site-background-color 25%, fade(@site-background-color, 0) 85%);
+                display: block;
+                height: 2px;
+                margin: @padding-page / 2 -@padding-page 0;
+            }
+        }
+    }
+}

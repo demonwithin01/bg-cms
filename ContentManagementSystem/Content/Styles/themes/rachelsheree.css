@@ -3540,6 +3540,26 @@ table td.options-column {
   max-width: 880px;
   padding: 15px;
 }
+.blog-post {
+  padding: 30px;
+}
+.blog-list .blog-post {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 3px;
+  color: #000;
+  margin: 10px;
+  padding: 20px;
+}
+.blog-list .blog-post > h2 {
+  margin: 0 -20px 20px;
+  padding: 0 20px;
+}
+.blog-list .blog-post > h2 > span {
+  background: linear-gradient(to right, #2859a5 0%, #2859a5 25%, rgba(40, 89, 165, 0) 85%);
+  display: block;
+  height: 2px;
+  margin: 10px -20px 0;
+}
 @media only screen and (min-width: 768px) {
   .page-content-wrapper > .page-content {
     position: relative;

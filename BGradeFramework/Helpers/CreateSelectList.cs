@@ -26,6 +26,46 @@ namespace ContentManagementSystem.Framework
 
         #region Public Methods
 
+        /// <summary>
+        /// Generates a select list for a series of numbers.
+        /// </summary>
+        /// <param name="start">The initial number to start the loop from.</param>
+        /// <param name="end">The last number to end the list on.</param>
+        /// <param name="selected">The currently selected number.</param>
+        public static List<SelectListItem> NumberList( int start, int end, int? selected )
+        {
+            List<SelectListItem> selectList = new List<SelectListItem>();
+
+            bool reverse = false;
+
+            if ( start > end )
+            {
+                reverse = true;
+                int temp = start;
+                start = end;
+                end = temp;
+            }
+
+            for( int i = start ; i <= end ; i++ )
+            {
+                string value = i.ToString();
+
+                selectList.Add( new SelectListItem()
+                {
+                    Value = value,
+                    Text = value,
+                    Selected = ( i == selected )
+                } );
+            }
+
+            if ( reverse )
+            {
+                selectList.Reverse();
+            }
+
+            return selectList;
+        }
+
         public static List<SelectListItem> FromEnum<TEnum>( TEnum selected ) where TEnum : struct, IConvertible
         {
             Array values = Enum.GetValues( typeof( TEnum ) );
