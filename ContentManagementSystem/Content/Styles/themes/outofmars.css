@@ -2209,6 +2209,7 @@ img {
   left: -48px;
 }
 header {
+  z-index: 2;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -2241,9 +2242,12 @@ header + .page-content > .page-header-wrapper > .page-header {
   -o-transition-delay: 0.3s;
   transition-delay: 0.3s;
   height: 48px;
-  left: 48px;
+  left: 0;
   overflow: hidden;
   white-space: nowrap;
+}
+header + .page-content > .page-header-wrapper > .page-header h1 {
+  padding-left: 58px;
 }
 header.always-open {
   height: 64px;
@@ -2503,7 +2507,6 @@ header.open + .page-content > .page-header-wrapper > .page-header {
   -moz-transition-delay: 0s;
   -o-transition-delay: 0s;
   transition-delay: 0s;
-  left: 240px;
 }
 header.open .menu-link {
   -webkit-transition-delay: 0s;
@@ -2823,6 +2826,11 @@ header ul#menu li .sub-nav ul:before {
   top: 10px;
   width: 20px;
 }
+@media only screen and (min-width: 641px) {
+  header + .page-content > .page-header-wrapper > .page-header h1 {
+    padding-left: 15px;
+  }
+}
 html,
 body {
   line-height: 14px;
@@ -2893,7 +2901,7 @@ ul {
   -moz-transition-delay: 0.3s;
   -o-transition-delay: 0.3s;
   transition-delay: 0.3s;
-  color: #fff;
+  color: #222;
   clear: both;
   display: flexbox;
   margin: 0 auto;
@@ -2906,10 +2914,10 @@ ul {
 }
 #body.home-page-content,
 #body.no-background-image {
-  background: #2859a5;
+  background: #eee;
 }
 #body .page-content {
-  background: #2859a5;
+  background: #eee;
 }
 #body .main-content {
   -webkit-transition: opacity 0.3s ease;
@@ -2927,8 +2935,6 @@ ul {
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  background: #2859a5;
-  border-bottom: 1px solid #434343;
   font-size: 2em;
   font-weight: bold;
   left: 0;
@@ -2945,8 +2951,9 @@ ul {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  background: #2859a5;
+  background: #eee;
   font-size: inherit;
+  height: 100%;
   margin: 0 auto;
   padding: 10px 10px;
 }
@@ -2964,6 +2971,12 @@ ul {
 .page-header > h1 {
   width: 545px;
 }
+.page-content-wrapper > .page-content,
+.page-header > h1 {
+  border-left: 1px solid #222;
+  border-right: 1px solid #222;
+  box-sizing: border-box;
+}
 .page-content-wrapper {
   text-align: center;
 }
@@ -2971,6 +2984,9 @@ ul {
   display: block;
   margin: 0 auto;
   text-align: left;
+}
+.page-content-wrapper .page-content .page-content {
+  width: 100%;
 }
 .page-content-wrapper .page-content .page-inner-content img {
   width: 100%;
@@ -3540,40 +3556,48 @@ table td.options-column {
   max-width: 880px;
   padding: 15px;
 }
-.blog-post {
-  padding: 30px;
+.blog-list {
+  padding: 0 10px;
 }
 .blog-list .blog-post {
-  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid #2859a5;
   border-radius: 3px;
-  color: #000;
-  margin: 10px;
+  color: #222;
+  padding: 0;
+}
+.blog-list .blog-post .blog-header {
+  background: #2859a5;
+  color: #eee;
   padding: 20px;
 }
-.blog-list .blog-post > h2 {
-  margin: 0 -20px 20px;
-  padding: 0 20px;
+.blog-list .blog-post .blog-header h2 {
+  color: inherit;
 }
-.blog-list .blog-post > h2 > span {
-  background: linear-gradient(to right, #2859a5 0%, #2859a5 25%, rgba(40, 89, 165, 0) 85%);
-  display: block;
-  height: 2px;
-  margin: 10px -20px 0;
+.blog-list .blog-post .blog-content {
+  padding: 20px;
+}
+.blog-list .blog-post .blog-publish-info {
+  bottom: 5px;
+  color: #85a9e1;
+  font-size: 0.8em;
+  font-style: italic;
+  position: relative;
+  right: -5px;
 }
 @media only screen and (min-width: 768px) {
   .page-content-wrapper > .page-content {
     position: relative;
   }
-  .page-content-wrapper > .page-content > .page-content {
-    display: block;
-    margin-right: 120px;
-    width: auto;
-  }
   .page-content-wrapper > .page-content > #social {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px;
     position: absolute;
-    right: 0;
+    right: 10px;
     top: 60px;
-    width: 120px;
+    width: 100px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     -webkit-transition: top 0.4s ease;
     -moz-transition: top 0.4s ease;
     -o-transition: top 0.4s ease;
@@ -3582,6 +3606,11 @@ table td.options-column {
     -moz-transition-delay: 0.6s;
     -o-transition-delay: 0.6s;
     transition-delay: 0.6s;
+  }
+  .page-content-wrapper > .page-content > #social + .page-content {
+    display: block;
+    margin-right: 120px;
+    width: auto;
   }
   .page-content-wrapper > .page-content > #social .jssocials-shares {
     width: 100%;
@@ -3633,7 +3662,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #000;
+  color: #222;
   margin-bottom: 0;
   padding-bottom: 0;
 }

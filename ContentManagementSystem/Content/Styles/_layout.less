@@ -125,8 +125,7 @@ ul
 .page-header
 {
     .transition(all 0.3s ease);
-    background: @site-background-color;
-    border-bottom: 1px solid @nav-background;
+    //border-bottom: 1px solid @nav-background;
     font-size: 2em;
     font-weight: bold;
     left: 0;
@@ -148,6 +147,7 @@ ul
 
         background: @site-background-color;
         font-size: inherit;
+        height: 100%;
         margin: 0 auto;
         padding: @title-padding 10px;
     }
@@ -170,6 +170,14 @@ ul
     width: 545px;
 }
 
+.page-content-wrapper > .page-content,
+.page-header > h1
+{
+    border-left: 1px solid @site-background-frame-color;
+    border-right: 1px solid @site-background-frame-color;
+    box-sizing: border-box;
+}
+
 .page-content-wrapper
 {
     text-align: center;
@@ -179,6 +187,11 @@ ul
         display: block;
         margin: 0 auto;
         text-align: left;
+
+        .page-content
+        {
+            width: 100%;
+        }
 
         .page-inner-content
         {

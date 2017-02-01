@@ -58,26 +58,37 @@
 
         function handleResize()
         {
-            var paddingTop = parseInt( $( ".page-header" ).outerHeight() );
+            raiseEvent( "onWindowResize", { width: window.innerWidth, height: window.innerHeight } );
+
+            var navHeight = 0;
+            var headerHeight = parseInt( $( ".page-header" ).outerHeight() );
             var paddingBottom = parseInt( $( "footer" ).outerHeight() );
 
-            if ( isNaN( paddingTop ) ) paddingTop = 0;
+            if ( $( "header" ).hasClass( "always-open" ) )
+            {
+                navHeight = 64;
+            }
+
+            if ( isNaN( navHeight ) ) navHeight = 0;
             if ( isNaN( paddingBottom ) ) paddingBottom = 0;
 
             $( "#body" ).css( {
                 "padding-bottom": paddingBottom + "px",
-                "padding-top": paddingTop + "px",
+                "padding-top": headerHeight + "px",
             } );
 
-            var $pageContent = $( ".page-content" );
+            $( ".page-content" ).css( 'min-height', '0px' ).get( 0 ).offsetHeight;
 
-            $pageContent.css( 'min-height', '0px' ).get( 0 ).offsetHeight;
+            var bodyHeight = parseInt( $( "#body" ).outerHeight() );
 
-            var minHeight = ( parseInt( $( "#body" ).outerHeight() ) - paddingTop - paddingBottom );
+            var minHeight = bodyHeight - navHeight - paddingBottom;
 
-            $pageContent.css( "min-height", minHeight + 'px' );
+            $( "body > .page-content" ).css( "min-height", minHeight + "px" );
 
-            raiseEvent( "onWindowResize", { width: window.innerWidth, height: window.innerHeight } );
+            if ( isNaN( headerHeight ) ) headerHeight = 0;
+
+            $( "#body .page-content" ).css( "min-height", ( bodyHeight - headerHeight ) + "px" );
+
         }
 
         function handleMenuLinkClick()

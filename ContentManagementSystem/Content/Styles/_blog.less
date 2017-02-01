@@ -2,32 +2,45 @@
 
 .blog-post
 {
-    padding: 30px;
+    //padding: 30px;
 }
 
 .blog-list
 {
+    padding: 0 @padding-page / 2;
 
     .blog-post
     {
-        background: rgba( 255, 255, 255, 0.4 );
+        border: 1px solid @site-feature-color;
         border-radius: 3px;
-        color: @site-font-color-dark;
-        margin: @padding-page / 2;
-        padding: @padding-page;
+        color: @site-font-color;
+        padding: 0;
 
-        & > h2
+        .blog-header
         {
-            margin: 0 -@padding-page @padding-page;
-            padding: 0 @padding-page;
+            background: @site-feature-color;
+            color: @site-feature-font-color;
+            padding: @padding-page;
 
-            & > span
+            h2
             {
-                background: linear-gradient(to right, @site-background-color 0%, @site-background-color 25%, fade(@site-background-color, 0) 85%);
-                display: block;
-                height: 2px;
-                margin: @padding-page / 2 -@padding-page 0;
+                color: inherit;
             }
+        }
+
+        .blog-content
+        {
+            padding: @padding-page;
+        }
+
+        .blog-publish-info
+        {
+            bottom: 5px;
+            color: @site-feature-font-color-faded;
+            font-size: 0.8em;
+            font-style: italic;
+            position: relative;
+            right: -5px;
         }
     }
 }

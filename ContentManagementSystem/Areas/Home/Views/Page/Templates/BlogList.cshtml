@@ -7,19 +7,23 @@
 <div class="b-grid blog-list">
     @for ( int i = 0 ; i < Model.BlogPosts.Count ; i++ )
     {
+        DateTime publishedServerTime = Model.BlogPosts[ i ].UTCDateUpdated.ToLocalTime();
+
         <div class="b-width-1-1">
             <div class="blog-post">
-                <h2>
-                    @Model.BlogPosts[ i ].Title
-                    <span></span>
-                </h2>
+                <div class="blog-header">
+                    <h2>
+                        @Model.BlogPosts[ i ].Title
+                    </h2>
+                    <span class="float-right blog-publish-info">
+                        Published on <span class="blog-published-date">@publishedServerTime.ToString( "dd/MM/yyyy" )</span> at <span class="blog-published-time">@publishedServerTime.ToString( "hh:mmtt" )</span> by <span class="blog-published-by">@Model.BlogPosts[ i ].LastEditedByUser.UserName</span>
+                    </span>
+                </div>
                 <div class="blog-content">
                     @Html.Raw( Model.BlogPosts[ i ].Content )
                 </div>
                 <div class="blog-footer clear-fix">
-                    <span class="float-right">
-                        Published <span class="blog-published-datetime">@Model.BlogPosts[ i ].UTCDateUpdated.ToLocalTime().ToString( "dd/MM/yyyy hh:mmtt" )</span> by <span class="blog-published-by">@Model.BlogPosts[ i ].LastEditedByUser.UserName</span>
-                    </span>
+                    
                 </div>
             </div>
         </div>

@@ -1,24 +1,28 @@
-﻿
+﻿@import (reference) "_shared/_common.less";
+
 @media only screen and (min-width: 768px)
 {
     .page-content-wrapper > .page-content
     {
         position: relative;
 
-        & > .page-content
-        {
-            display: block;
-            margin-right: 120px;
-            width: auto;
-        }
-
         & > #social
         {
+            & + .page-content
+            {
+                display: block;
+                margin-right: 120px;
+                width: auto;
+            }
+
+            background: rgba( 255, 255, 255, 0.2 );
+            padding: 5px;
             position: absolute;
-            right: 0;
+            right: 10px;
             top: 60px;
-            width: 120px;
+            width: 100px;
             
+            .box-sizing();
             .transition(top 0.4s ease);
             .transition-delay(0.6s);
 
