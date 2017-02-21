@@ -29,6 +29,12 @@ namespace ContentManagementSystem.Areas.Home
                 namespaces: new string[] { "ContentManagementSystem.Home.Controllers" }
             );
 
+            context.MapRouteLowercase(
+                name: "BlogPost",
+                url: "post/{blogPostId}",
+                defaults: new { area = "Home", controller = "BlogPost", action = "Index" },
+                namespaces: new string[] { "ContentManagementSystem.Home.Controllers" } );
+
             //routes.MapRoute(
             //    name: "Default",
             //    url: "{controller}/{action}/{id}",

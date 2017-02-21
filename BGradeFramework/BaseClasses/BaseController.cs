@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Script.Serialization;
 using ContentManagementSystem.Framework;
+using ContentManagementSystemDatabase;
 
 namespace ContentManagementSystem.Framework.BaseClasses
 {
@@ -19,6 +20,8 @@ namespace ContentManagementSystem.Framework.BaseClasses
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Class Members
+
+        private ContentManagementDb _db;
 
         #endregion
 
@@ -188,6 +191,20 @@ namespace ContentManagementSystem.Framework.BaseClasses
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Private Methods
+
+        #endregion
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+
+        #region Properties
+
+        public ContentManagementDb Database
+        {
+            get
+            {
+                return ( this._db ?? ( this._db = new ContentManagementDb() ) );
+            }
+        }
 
         #endregion
 

@@ -68,6 +68,20 @@
             background: lighten(@button-cancel-background-color, 10%);
         }
     }
+
+    &.text
+    {
+        border-bottom: 1px solid transparent;
+        color: @site-feature-color;
+        padding: 0;
+
+        .transition(all 0.1s ease);
+
+        &:hover
+        {
+            border-bottom-color: @site-feature-color;
+        }
+    }
 }
 
 .button-group

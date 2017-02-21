@@ -58,7 +58,13 @@
 
         function handleResize()
         {
-            raiseEvent( "onWindowResize", { width: window.innerWidth, height: window.innerHeight } );
+            var dimensions = { width: window.innerWidth, height: window.innerHeight };
+            raiseEvent( "onWindowResize", dimensions );
+
+            for ( var i = 0; i < _this._pageSections.length; i++ )
+            {
+                _this._pageSections[i].onResize( dimensions );
+            }
 
             var navHeight = 0;
             var headerHeight = parseInt( $( ".page-header" ).outerHeight() );

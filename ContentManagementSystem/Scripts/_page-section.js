@@ -3,6 +3,9 @@ var Site;
     var PageSection = (function () {
         function PageSection() {
         }
+        PageSection.prototype.onResize = function (dim) {
+        };
+        ;
         return PageSection;
     }());
     Site.PageSection = PageSection;

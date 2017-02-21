@@ -25,9 +25,9 @@
                     <span class="text">Login</span>
                 </a>
             }
-            <a href="/" class="home-link">
+            @*<a href="/" class="home-link">
                 <img src="@UserCookie.Current.LogoUrl" />
-            </a>
+            </a>*@
             <ul id="menu" class="off">
                 @if ( UserCookie.Current.IsLoggedIn && UserCookie.Current.IsAdministrator )
                 {

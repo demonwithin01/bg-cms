@@ -11,36 +11,105 @@
 
     .blog-post
     {
-        border: 1px solid @site-feature-color;
-        border-radius: 3px;
         color: @site-font-color;
         padding: 0;
 
         .blog-header
         {
-            background: @site-feature-color;
+            background: @site-feature-background-color;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
             color: @site-feature-font-color;
-            padding: @padding-page;
+            filter: drop-shadow(0px 2px 6px rgba(0,0,0,.5));
+            padding: @padding-page 30px;
+            position: relative;
+            z-index: 2;
 
             h2
             {
                 color: inherit;
+                text-shadow: 2px 2px rgba(0,0,0,0.25);
+            }
+
+            &:before,
+            &:after
+            {
+                content: '';
+                border-bottom: 10px solid transparent;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-top: 10px solid @site-feature-color;
+                bottom: -20px;
+                display: block;
+                height: 0;
+                position: absolute;
+                width: 0;
+            }
+
+            &:before
+            {
+                border-right: 0;
+                left: 0;
+            }
+
+            &:after
+            {
+                border-left: 0;
+                right: 0;
             }
         }
 
         .blog-content
         {
-            padding: @padding-page;
+            padding: 0 10px 10px;
+            z-index: 1;
+
+            .blog-inner-content
+            {
+                background: @site-background-color;
+                border: 1px solid @site-feature-color;
+                border-bottom-left-radius: 3px;
+                border-bottom-right-radius: 3px;
+                box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.2);
+                padding: @padding-page;
+                position: relative;
+
+                &:before,
+                &:after
+                {
+                    content: '';
+                    border-radius: 50%;
+                    bottom: 0;
+                    display: block;
+                    pointer-events: none;
+                    position: absolute;
+                    right: 0;
+                }
+
+                &:before
+                {
+                    .size(30%, 30%);
+                }
+
+                &:after
+                {
+                    .size(20%, 20%);
+                }
+            }
+
+            .read-more
+            {
+                margin-top: 15px;
+            }
         }
 
         .blog-publish-info
         {
-            bottom: 5px;
             color: @site-feature-font-color-faded;
             font-size: 0.8em;
             font-style: italic;
             position: relative;
-            right: -5px;
+            right: -10px;
         }
     }
 }

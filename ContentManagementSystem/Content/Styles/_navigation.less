@@ -2,7 +2,7 @@
 
 header
 {
-    z-index: 2;
+    z-index: 3;
 
     .box-sizing();
     .transition(all 300ms ease);
@@ -12,7 +12,6 @@ header
         .transition(padding 0.3s ease);
         .transition-delay(0.3s);
         height: 100%;
-        overflow: auto;
 
         & > .page-header-wrapper > .page-header
         {
@@ -40,6 +39,54 @@ header
         width: 100%;
         z-index: 2;
 
+        &.scrolled
+        {
+            height: 40px;
+            min-height: 40px;
+
+            .login-button,
+            .logged-in-button
+            {
+                & > span
+                {
+                    font-size: 14px;
+
+                    &.icon
+                    {
+                        font-size: 1.5em;
+                    }
+                }
+            }
+
+            nav
+            {
+                /*border-bottom: 1px solid @site-background-frame-color;
+                color: @site-background-color;*/
+                height: 40px;
+
+                &:before
+                {
+                    opacity: 1;
+                }
+            }
+
+            ul#menu li > .nav-link
+            {
+                font-size: 14px;
+
+                &:hover
+                {
+                    //background: fade( @site-feature-color, 20% );
+                }
+
+                a
+                {
+                    line-height: 24px;
+                }
+            }
+
+        }
+
         & + .page-content
         {
             .box-sizing();
@@ -58,6 +105,7 @@ header
         
         .login-button, .logged-in-button
         {
+            color: inherit;
             height: 100%;
             left: auto;
             right: 0;
@@ -84,12 +132,31 @@ header
         nav
         {
             .transition-delay(0s);
-            
+
+            /*background: transparent;*/
+            background: @site-feature-background-color;
+            border-bottom: 1px solid @site-background-frame-color;
+            color: @site-background-color;
             height: 64px;
             left: 0;
             pointer-events: all;
             top: 0;
             width: 100%;
+            z-index: 0;
+
+            /*&:before
+            {
+                .transition(opacity 0.3s ease);
+                content: '';
+                background: linear-gradient(to right, @site-feature-color 0%, lighten(@site-feature-color, 5%) 100%);
+                bottom: 0;
+                display: block;
+                left: 0;
+                opacity: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
+            }*/
 
             & > .nav-content
             {
@@ -118,8 +185,11 @@ header
 
                     a
                     {
+                        .transition(all 300ms ease);
+
                         height: 100%;
                         line-height: 48px;
+                        text-shadow: 1px 1px black;
                     }
                 }
 
@@ -155,6 +225,7 @@ header
                             & > .nav-link a
                             {
                                 line-height: 24px;
+                                text-shadow: 1px 1px black;
                             }
                         }
                     }
@@ -446,6 +517,7 @@ header
     .login-button, .logged-in-button
     {
         .transition(~"background 0.2s ease, width 0.2s ease");
+        color: inherit;
         cursor: pointer;
         display: inline-block;
         height: 48px;
@@ -454,6 +526,7 @@ header
         position: absolute;
         right: 58px;
         text-align: center;
+        text-shadow: 1px 1px black;
         top: 0;
 
         &:hover
@@ -622,6 +695,6 @@ header
 {
     header + .page-content > .page-header-wrapper > .page-header h1
     {
-        padding-left: 15px;
+        padding: 10px 50px;
     }
 }

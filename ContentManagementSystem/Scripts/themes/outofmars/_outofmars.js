@@ -1,7 +1,8 @@
 ﻿var outofmars = outofmars || {};
 
-site.mainContentSelector = 'body > .page-content';
+site.mainContentSelector = document;
 site.initialise = function ( site )
 {
     site.addPlugin( 'navigation', outofmars.navigation );
+    site.addPlugin( "PageBackground", outofmars.PageBackground );
 };

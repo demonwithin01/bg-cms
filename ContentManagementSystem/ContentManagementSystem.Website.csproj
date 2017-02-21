@@ -255,8 +255,10 @@
     <Compile Include="Areas\Admin\Models\User\UserModel.cs" />
     <Compile Include="Areas\Admin\Models\User\UsersListItemModel.cs" />
     <Compile Include="Areas\Admin\Models\User\UsersListModel.cs" />
+    <Compile Include="Areas\Home\Controllers\BlogPostController.cs" />
     <Compile Include="Areas\Home\Controllers\SiteContentController.cs" />
     <Compile Include="Areas\Home\HomeAreaRegistration.cs" />
+    <Compile Include="Areas\Home\Models\BlogPostModel.cs" />
     <Compile Include="Areas\Home\Models\Home\HomeModel.cs" />
     <Compile Include="Areas\Pages\Controllers\ContentController.cs" />
     <Compile Include="Areas\Pages\PagesAreaRegistration.cs" />
@@ -377,6 +379,7 @@
     <Content Include="Areas\Admin\Views\Domain\Edit.cshtml" />
     <Content Include="Areas\Home\Views\Page\Templates\Contact.cshtml" />
     <Content Include="Areas\Admin\Views\Page\Templates\Contact.cshtml" />
+    <Content Include="Areas\Home\Views\BlogPost\Index.cshtml" />
     <None Include="compilerconfig.json" />
     <Content Include="Content\Styles\admin.css.map">
       <DependentUpon>admin.css</DependentUpon>
@@ -403,6 +406,7 @@
       <DependentUpon>site.css</DependentUpon>
     </Content>
     <Content Include="Content\Styles\_reset.min.css" />
+    <Content Include="Content\themes\amysticalway\Logo.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -524,6 +528,9 @@
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\PageSections\site.contact.js">
       <DependentUpon>site.contact.ts</DependentUpon>
+    </Content>
+    <Content Include="Scripts\themes\outofmars\PageBackground.js">
+      <DependentUpon>PageBackground.ts</DependentUpon>
     </Content>
     <Content Include="Scripts\_page-section.js">
       <DependentUpon>_page-section.ts</DependentUpon>
@@ -1007,7 +1014,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Scripts\PageSections\site.blogs.ts" />
     <TypeScriptCompile Include="Scripts\PageSections\site.contact.ts" />
+    <TypeScriptCompile Include="Scripts\themes\outofmars\PageBackground.ts" />
     <TypeScriptCompile Include="Scripts\_page-section.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
   </ItemGroup>
