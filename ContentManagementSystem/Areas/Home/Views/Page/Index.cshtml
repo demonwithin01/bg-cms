@@ -4,7 +4,7 @@
     PageTitle = Model.Title;
 }
 <div class="page-content">
-    <div class="page-inner-content">
+    <div class="page-inner-content @If( Model.PageTemplate.HideBackgroundColor, "no-background" )">
         @Html.Partial( Model.PageTemplate.DisplayLocation, Model.PageTemplate )
         @*<div class="b-grid">
             <div class="b-width-1-1">

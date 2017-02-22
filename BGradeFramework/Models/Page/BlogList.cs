@@ -26,6 +26,8 @@ namespace ContentManagementSystem.Framework.Models.Page
 
         public BlogList()
         {
+            base.HideBackgroundColor = true;
+
             this.MaxNumberOfPosts = 5;
         }
 

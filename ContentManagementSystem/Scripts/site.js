@@ -66,34 +66,34 @@
                 _this._pageSections[i].onResize( dimensions );
             }
 
-            var navHeight = 0;
-            var headerHeight = parseInt( $( ".page-header" ).outerHeight() );
-            var paddingBottom = parseInt( $( "footer" ).outerHeight() );
+            //var navHeight = 0;
+            //var headerHeight = parseInt( $( ".page-header" ).outerHeight() );
+            //var paddingBottom = parseInt( $( "footer" ).outerHeight() );
 
-            if ( $( "header" ).hasClass( "always-open" ) )
-            {
-                navHeight = 64;
-            }
+            //if ( $( "header" ).hasClass( "always-open" ) )
+            //{
+            //    navHeight = 64;
+            //}
 
-            if ( isNaN( navHeight ) ) navHeight = 0;
-            if ( isNaN( paddingBottom ) ) paddingBottom = 0;
+            //if ( isNaN( navHeight ) ) navHeight = 0;
+            //if ( isNaN( paddingBottom ) ) paddingBottom = 0;
 
-            $( "#body" ).css( {
-                "padding-bottom": paddingBottom + "px",
-                "padding-top": headerHeight + "px",
-            } );
+            //$( "#body" ).css( {
+            //    "padding-bottom": paddingBottom + "px",
+            //    "padding-top": headerHeight + "px",
+            //} );
 
-            $( ".page-content" ).css( 'min-height', '0px' ).get( 0 ).offsetHeight;
+            //$( ".page-content" ).css( 'min-height', '0px' ).get( 0 ).offsetHeight;
 
-            var bodyHeight = parseInt( $( "#body" ).outerHeight() );
+            //var bodyHeight = parseInt( $( "#body" ).outerHeight() );
 
-            var minHeight = bodyHeight - navHeight - paddingBottom;
+            //var minHeight = bodyHeight - navHeight - paddingBottom;
 
-            $( "body > .page-content" ).css( "min-height", minHeight + "px" );
+            //$( "body > .page-content" ).css( "min-height", minHeight + "px" );
 
-            if ( isNaN( headerHeight ) ) headerHeight = 0;
+            //if ( isNaN( headerHeight ) ) headerHeight = 0;
 
-            $( "#body .page-content" ).css( "min-height", ( bodyHeight - headerHeight ) + "px" );
+            //$( "#body .page-content" ).css( "min-height", ( bodyHeight - headerHeight ) + "px" );
 
         }
 

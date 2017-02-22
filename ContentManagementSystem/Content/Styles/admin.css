@@ -2875,7 +2875,6 @@ ul {
   clear: both;
   display: flexbox;
   margin: 0 auto;
-  min-height: 100%;
   position: relative;
   width: 100%;
   /*&.no-background-image
@@ -2909,11 +2908,7 @@ ul {
   transition: all 0.3s ease;
   font-size: 2em;
   font-weight: bold;
-  left: 0;
   line-height: 1em;
-  position: absolute;
-  right: 0;
-  top: 0;
   z-index: 1;
 }
 .page-header ~ #body {
@@ -2968,6 +2963,20 @@ ul {
 }
 .page-content-wrapper .page-content .page-content {
   width: 100%;
+}
+.page-content-wrapper .page-content .page-inner-content {
+  background: #e2e2e2;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  margin-top: 20px;
+}
+.page-content-wrapper .page-content .page-inner-content.no-background {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  margin-top: 20px;
 }
 .page-content-wrapper .page-content .page-inner-content img {
   width: 100%;

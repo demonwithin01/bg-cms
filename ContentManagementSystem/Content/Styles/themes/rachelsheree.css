@@ -2958,7 +2958,6 @@ ul {
   clear: both;
   display: flexbox;
   margin: 0 auto;
-  min-height: 100%;
   position: relative;
   width: 100%;
   /*&.no-background-image
@@ -2992,11 +2991,7 @@ ul {
   transition: all 0.3s ease;
   font-size: 2em;
   font-weight: bold;
-  left: 0;
   line-height: 1em;
-  position: absolute;
-  right: 0;
-  top: 0;
   z-index: 1;
 }
 .page-header ~ #body {
@@ -3051,6 +3046,20 @@ ul {
 }
 .page-content-wrapper .page-content .page-content {
   width: 100%;
+}
+.page-content-wrapper .page-content .page-inner-content {
+  background: #eee;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  margin-top: 20px;
+}
+.page-content-wrapper .page-content .page-inner-content.no-background {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  margin-top: 20px;
 }
 .page-content-wrapper .page-content .page-inner-content img {
   width: 100%;
@@ -3717,12 +3726,8 @@ table td.options-column {
     position: relative;
   }
   .page-content-wrapper > .page-content > #social {
-    background: rgba(255, 255, 255, 0.2);
+    margin-top: 10px;
     padding: 5px;
-    position: absolute;
-    right: 10px;
-    top: 60px;
-    width: 100px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -3741,7 +3746,8 @@ table td.options-column {
     width: auto;
   }
   .page-content-wrapper > .page-content > #social .jssocials-shares {
-    width: 100%;
+    display: inline-block;
+    width: 100px;
   }
   .page-content-wrapper > .page-content > #social .jssocials-share {
     display: block;

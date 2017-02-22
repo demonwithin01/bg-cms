@@ -53,6 +53,9 @@ namespace ContentManagementSystem.Framework
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Properties
+
+        [JsonIgnore]
+        public bool HideBackgroundColor { get; set; }
         
         [JsonIgnore]
         public string EditorLocation { get; set; }
