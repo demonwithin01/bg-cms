@@ -1,0 +1,82 @@
+﻿@import "_shared/_common.less";
+
+.tiled-sub-navigation-container
+{
+    text-align: center;
+}
+
+.tiled-sub-navigation
+{
+    display: inline-block;
+    text-align: left;
+    position: relative;
+    width: 250px;
+
+    &:before
+    {
+        content: '';
+        display: block;
+        padding-top: 100%;
+    }
+
+    & > a
+    {
+        //background: @nav-background;
+        bottom: 10px;
+        left: 10px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+
+        &:hover
+        {
+            & > .background-image > div
+            {
+                clip-path: polygon(10% 0%,100% 10%,90% 100%,0% 90%);
+            }
+        }
+
+        & > .background-image
+        {
+            .absolute();
+            overflow: hidden;
+
+            & > div
+            {
+                .absolute();
+
+                background: url('/Content/themes/rachelsheree/trees.jpg');
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+                transition: all 0.2s ease;
+            }
+        }
+
+        & > .tile-text
+        {
+            .box-sizing();
+
+            left: 0;
+            padding: 0 10px;
+            position: absolute;
+            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+
+            & > span
+            {
+                background: fade(@nav-background, 75%);
+                border-radius: 5px;
+                color: @site-font-color;
+                display: inline-block;
+                font-size: 2em;
+                padding: 5px 10px;
+            }
+        }
+    }
+}

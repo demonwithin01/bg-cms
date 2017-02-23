@@ -2125,6 +2125,15 @@ img {
 .b-width-9-10 {
   width: 90%;
 }
+.b-push-1-8 {
+  margin-left: 12.5%;
+}
+.b-push-1-4 {
+  margin-left: 25%;
+}
+.b-push-1-2 {
+  margin-left: 50%;
+}
 .carousel {
   background: #666;
   height: 100%;
@@ -2326,9 +2335,9 @@ header.always-open nav {
   -o-transition-delay: 0s;
   transition-delay: 0s;
   /*background: transparent;*/
-  background: linear-gradient(to right, #2859a5 0%, #2d64ba 100%);
+  background: #434343;
   border-bottom: 1px solid #222;
-  color: #eee;
+  color: white;
   height: 64px;
   left: 0;
   pointer-events: all;
@@ -3609,7 +3618,16 @@ table td.options-column {
   display: block !important;
 }
 .page-footer {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: transparent;
+  bottom: 0;
+  left: 0;
   padding: 20px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
 }
 .bg-modal-backdrop {
   display: none;
@@ -3761,6 +3779,116 @@ table td.options-column {
   .page-content-wrapper > .page-content > #social .jssocials-share-link {
     display: block;
   }
+}
+.tiled-sub-navigation-container {
+  text-align: center;
+}
+.tiled-sub-navigation {
+  display: inline-block;
+  text-align: left;
+  position: relative;
+  width: 250px;
+}
+.tiled-sub-navigation:before {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
+.tiled-sub-navigation > a {
+  bottom: 10px;
+  left: 10px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.tiled-sub-navigation > a:hover > .background-image > div {
+  clip-path: polygon(10% 0%, 100% 10%, 90% 100%, 0% 90%);
+}
+.tiled-sub-navigation > a > .background-image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+}
+.tiled-sub-navigation > a > .background-image > div {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: url('/Content/themes/rachelsheree/trees.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  transition: all 0.2s ease;
+}
+.tiled-sub-navigation > a > .tile-text {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  left: 0;
+  padding: 0 10px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+.tiled-sub-navigation > a > .tile-text > span {
+  background: rgba(67, 67, 67, 0.75);
+  border-radius: 5px;
+  color: #222;
+  display: inline-block;
+  font-size: 2em;
+  padding: 5px 10px;
+}
+.gallery-tiles {
+  text-align: center;
+}
+.gallery-tile {
+  display: inline-block;
+  margin: 10px;
+  text-align: left;
+  width: 250px;
+}
+.gallery-tile a {
+  color: #222;
+  display: block;
+  text-decoration: none;
+  width: 100%;
+}
+.gallery-tile .gallery-tile-image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 3px;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+  display: block;
+  width: 100%;
+}
+.gallery-tile .gallery-tile-image:before {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
+.gallery-tile .gallery-tile-text {
+  padding: 5px 10px 10px;
+}
+.gallery-tile .gallery-tile-title {
+  font-size: 1.4em;
+  padding-bottom: 5px;
+}
+.gallery-tile .gallery-tile-details ul {
+  margin: 0;
+  padding: 0;
+}
+.gallery-tile .gallery-tile-details ul li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 .fake-link {
   cursor: pointer;

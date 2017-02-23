@@ -1,0 +1,24 @@
+﻿@model ContentManagementSystem.Framework.Models.Page.TileGallery
+
+<div class="gallery-tiles">
+    @for ( int i = 0; i < 4; i++ )
+    {
+        <div class="gallery-tile">
+            <a href="javascript:void(0);">
+                <div class="gallery-tile-image" style="background-image: url('/Content/themes/rachelsheree/trees.jpg');"></div>
+                <div class="gallery-tile-text">
+                    <div class="gallery-tile-title">
+                        Title
+                    </div>
+                    <div class="gallery-tile-details">
+                        <ul>
+                            <li>Size</li>
+                            <li>Materials 1</li>
+                            <li>Materials 2</li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+</div>

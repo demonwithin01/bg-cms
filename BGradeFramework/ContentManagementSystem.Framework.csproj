@@ -140,6 +140,8 @@
     <Compile Include="Models\Page\Default.cs" />
     <Compile Include="Models\Page\PageSection\ContactSection.cs" />
     <Compile Include="Models\Page\Shop.cs" />
+    <Compile Include="Models\Page\TiledSubNavigation.cs" />
+    <Compile Include="Models\Page\TileGallery.cs" />
     <Compile Include="Settings\ContentLocation.cs" />
     <Compile Include="Settings\Settings.cs" />
     <Compile Include="Attributes\AjaxOnly.cs" />

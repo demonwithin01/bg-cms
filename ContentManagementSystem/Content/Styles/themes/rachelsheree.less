@@ -1,8 +1,15 @@
 ﻿@import "../site.less";
 
 @nav-background: #fffbbf;
+@site-background-frame-color: @nav-font-color;
 @nav-font-color: #741919;
+@nav-text-shadow: none;
 @nav-item-hover-background: fade(#741919, 20%);
+
+@site-background-color: lighten(@nav-background, 5.5%);
+@site-font-color: @nav-font-color;
+
+@footer-background-color: @nav-background;
 
 body
 {
@@ -13,6 +20,18 @@ header + .page-content
 {
     height: auto;
     overflow: visible;
+}
+
+.page-header
+{
+    height: auto !important;
+
+    & > h1
+    {
+        color: @site-font-color;
+        font-size: 1.5em;
+        line-height: 1.7em;
+    }
 }
 
 header
@@ -69,7 +88,7 @@ header
 
         & + .page-content
         {
-            background: white;
+            background: @site-background-color;
             min-height: 100%;
 
             .transition(none);
@@ -96,6 +115,7 @@ header
         {
             float: left;
             height: 180px;
+            text-align: center;
             width: 225px;
         }
 
@@ -188,9 +208,9 @@ header
     }
 }
 
-#body
+#social
 {
-    background: white;
+    text-align: center;
 }
 
 @media only screen and (max-width: 960px)

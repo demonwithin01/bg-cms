@@ -380,6 +380,10 @@
     <Content Include="Areas\Home\Views\Page\Templates\Contact.cshtml" />
     <Content Include="Areas\Admin\Views\Page\Templates\Contact.cshtml" />
     <Content Include="Areas\Home\Views\BlogPost\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Page\Templates\TiledSubNavigation.cshtml" />
+    <Content Include="Areas\Home\Views\Page\Templates\TiledSubNavigation.cshtml" />
+    <Content Include="Areas\Home\Views\Page\Templates\TileGallery.cshtml" />
+    <Content Include="Areas\Admin\Views\Page\Templates\TileGallery.cshtml" />
     <None Include="compilerconfig.json" />
     <Content Include="Content\Styles\admin.css.map">
       <DependentUpon>admin.css</DependentUpon>
@@ -461,6 +465,8 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\themes\rachelsheree\trees.jpg" />
+    <Content Include="Content\themes\rachelsheree\Logo.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -498,6 +504,8 @@
     <Content Include="Content\Styles\themes\rachelsheree.less" />
     <Content Include="Content\Styles\_footer.less" />
     <Content Include="Content\Styles\_blog.less" />
+    <Content Include="Content\Styles\_tiled-sub-navigation.less" />
+    <Content Include="Content\Styles\_tile-gallery.less" />
     <None Include="Properties\PublishProfiles\Production.pubxml" />
     <None Include="Scripts\Frameworks\jquery-1.8.2.intellisense.js" />
     <Content Include="Images\Backgrounds\background.png" />

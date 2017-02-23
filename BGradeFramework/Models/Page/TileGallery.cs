@@ -1,20 +1,15 @@
-﻿using ContentManagementSystemDatabase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ContentManagementSystem.Framework
+namespace ContentManagementSystem.Framework.Models.Page
 {
-    public class NavItem
+    [EditorLocation( "~/Areas/Admin/Views/Page/Templates/TileGallery.cshtml" )]
+    [DisplayLocation( "~/Areas/Home/Views/Page/Templates/TileGallery.cshtml" )]
+    public class TileGallery : PageTemplate
     {
-
-        /* ---------------------------------------------------------------------------------------------------------- */
-
-        #region Static Class Members
-
-        #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
@@ -26,17 +21,9 @@ namespace ContentManagementSystem.Framework
 
         #region Constructors/Initialisation
 
-        public NavItem()
+        public TileGallery()
         {
-            SubItems = new List<NavItem>();
-        }
-
-        public NavItem( DomainNavigationItem navItem )
-        {
-            PageId = navItem.PageId;
-            Title = navItem.Title;
-
-            SubItems = navItem.SubNavigationItems.Where( s => s.IsDeleted == false ).Select( s => new NavItem( s ) ).ToList();
+            base.HideBackgroundColor = true;
         }
 
         #endregion
@@ -49,12 +36,6 @@ namespace ContentManagementSystem.Framework
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
-        #region Static Methods
-
-        #endregion
-
-        /* ---------------------------------------------------------------------------------------------------------- */
-
         #region Private Methods
 
         #endregion
@@ -62,18 +43,6 @@ namespace ContentManagementSystem.Framework
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Properties
-
-        public int PageId { get; set; }
-
-        public string Title { get; set; }
-
-        public List<NavItem> SubItems { get; set; }
-        
-        #endregion
-
-        /* ---------------------------------------------------------------------------------------------------------- */
-
-        #region Static Properties
 
         #endregion
 

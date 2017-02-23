@@ -2125,6 +2125,15 @@ img {
 .b-width-9-10 {
   width: 90%;
 }
+.b-push-1-8 {
+  margin-left: 12.5%;
+}
+.b-push-1-4 {
+  margin-left: 25%;
+}
+.b-push-1-2 {
+  margin-left: 50%;
+}
 .carousel {
   background: #666;
   height: 100%;
@@ -2326,9 +2335,9 @@ header.always-open nav {
   -o-transition-delay: 0s;
   transition-delay: 0s;
   /*background: transparent;*/
-  background: linear-gradient(to right, #2859a5 0%, #2d64ba 100%);
-  border-bottom: 1px solid #222;
-  color: #eee;
+  background: #fffbbf;
+  border-bottom: 1px solid #741919;
+  color: #741919;
   height: 64px;
   left: 0;
   pointer-events: all;
@@ -2378,7 +2387,7 @@ header.always-open ul#menu li > .nav-link a {
   transition: all 300ms ease;
   height: 100%;
   line-height: 48px;
-  text-shadow: 1px 1px black;
+  text-shadow: none;
 }
 header.always-open ul#menu li .sub-nav {
   -webkit-transform: rotate3d(1, 0, 0, 90deg);
@@ -2411,7 +2420,7 @@ header.always-open ul#menu li .sub-nav ul li:last-child {
 }
 header.always-open ul#menu li .sub-nav ul li > .nav-link a {
   line-height: 24px;
-  text-shadow: 1px 1px black;
+  text-shadow: none;
 }
 header.always-open ul#menu li .sub-nav-selector {
   height: 100%;
@@ -2717,7 +2726,7 @@ header .logged-in-button {
   position: absolute;
   right: 58px;
   text-align: center;
-  text-shadow: 1px 1px black;
+  text-shadow: none;
   top: 0;
 }
 header .login-button:hover,
@@ -2954,7 +2963,7 @@ ul {
   -moz-transition-delay: 0.3s;
   -o-transition-delay: 0.3s;
   transition-delay: 0.3s;
-  color: #222;
+  color: #741919;
   clear: both;
   display: flexbox;
   margin: 0 auto;
@@ -3020,8 +3029,8 @@ ul {
   width: 545px;
 }
 .page-header > h1 {
-  background: #eee;
-  color: #222;
+  background: #fffddb;
+  color: #741919;
   text-align: center;
 }
 /*.page-content-wrapper > .page-content,
@@ -3048,7 +3057,7 @@ ul {
   width: 100%;
 }
 .page-content-wrapper .page-content .page-inner-content {
-  background: #eee;
+  background: #fffddb;
   border: 1px solid #fff;
   border-radius: 3px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
@@ -3609,7 +3618,16 @@ table td.options-column {
   display: block !important;
 }
 .page-footer {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #fffbbf;
+  bottom: 0;
+  left: 0;
   padding: 20px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
 }
 .bg-modal-backdrop {
   display: none;
@@ -3642,7 +3660,7 @@ table td.options-column {
   padding: 0 10px;
 }
 .blog-list .blog-post {
-  color: #222;
+  color: #741919;
   padding: 0;
 }
 .blog-list .blog-post .blog-header {
@@ -3685,7 +3703,7 @@ table td.options-column {
   z-index: 1;
 }
 .blog-list .blog-post .blog-content .blog-inner-content {
-  background: #eee;
+  background: #fffddb;
   border: 1px solid #2859a5;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
@@ -3762,6 +3780,116 @@ table td.options-column {
     display: block;
   }
 }
+.tiled-sub-navigation-container {
+  text-align: center;
+}
+.tiled-sub-navigation {
+  display: inline-block;
+  text-align: left;
+  position: relative;
+  width: 250px;
+}
+.tiled-sub-navigation:before {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
+.tiled-sub-navigation > a {
+  bottom: 10px;
+  left: 10px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.tiled-sub-navigation > a:hover > .background-image > div {
+  clip-path: polygon(10% 0%, 100% 10%, 90% 100%, 0% 90%);
+}
+.tiled-sub-navigation > a > .background-image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+}
+.tiled-sub-navigation > a > .background-image > div {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: url('/Content/themes/rachelsheree/trees.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  transition: all 0.2s ease;
+}
+.tiled-sub-navigation > a > .tile-text {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  left: 0;
+  padding: 0 10px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+.tiled-sub-navigation > a > .tile-text > span {
+  background: rgba(255, 251, 191, 0.75);
+  border-radius: 5px;
+  color: #741919;
+  display: inline-block;
+  font-size: 2em;
+  padding: 5px 10px;
+}
+.gallery-tiles {
+  text-align: center;
+}
+.gallery-tile {
+  display: inline-block;
+  margin: 10px;
+  text-align: left;
+  width: 250px;
+}
+.gallery-tile a {
+  color: #741919;
+  display: block;
+  text-decoration: none;
+  width: 100%;
+}
+.gallery-tile .gallery-tile-image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 3px;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+  display: block;
+  width: 100%;
+}
+.gallery-tile .gallery-tile-image:before {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
+.gallery-tile .gallery-tile-text {
+  padding: 5px 10px 10px;
+}
+.gallery-tile .gallery-tile-title {
+  font-size: 1.4em;
+  padding-bottom: 5px;
+}
+.gallery-tile .gallery-tile-details ul {
+  margin: 0;
+  padding: 0;
+}
+.gallery-tile .gallery-tile-details ul li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 .fake-link {
   cursor: pointer;
 }
@@ -3796,7 +3924,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #222;
+  color: #741919;
   margin-bottom: 0;
   padding-bottom: 0;
 }
@@ -4277,6 +4405,14 @@ header + .page-content {
   height: auto;
   overflow: visible;
 }
+.page-header {
+  height: auto !important;
+}
+.page-header > h1 {
+  color: #741919;
+  font-size: 1.5em;
+  line-height: 1.7em;
+}
 header.always-open {
   height: 244px;
   left: 0;
@@ -4312,7 +4448,7 @@ header.always-open.mini ul#menu li > .nav-link a {
   line-height: 48px;
 }
 header.always-open + .page-content {
-  background: white;
+  background: #fffddb;
   min-height: 100%;
   -webkit-transition: none;
   -moz-transition: none;
@@ -4335,6 +4471,7 @@ header.always-open nav > .nav-content {
 header.always-open a.home-link {
   float: left;
   height: 180px;
+  text-align: center;
   width: 225px;
 }
 header.always-open ul#menu {
@@ -4402,8 +4539,8 @@ header .nav-content {
   display: inline-block;
   width: 100%;
 }
-#body {
-  background: white;
+#social {
+  text-align: center;
 }
 @media only screen and (max-width: 960px) {
   header.always-open.mini {
