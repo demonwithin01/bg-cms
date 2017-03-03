@@ -44,7 +44,7 @@ namespace ContentManagementSystem.Admin.Managers
         {
             ContentManagementDb db = new ContentManagementDb();
 
-            BlogPost blog = db.Blogs.Find( model.BlogPostId );
+            BlogPost blog = db.Blogs.Find( model.BlogId );
 
             if ( blog == null )
             {
@@ -134,11 +134,16 @@ namespace ContentManagementSystem.Admin.Managers
             {
                 page.BlogPostContent.Where( s => s.BlogContentId != pageContent.BlogContentId && ( s.PublishStatus == PublishStatus.Draft || s.PublishStatus == PublishStatus.Published ) ).ToList().ForEach( s => s.PublishStatus = PublishStatus.OutOfDate );
                 pageContent.PublishStatus = PublishStatus.Published;
+
+                pageContent.PublishedByUserId = pageContent.PublishedByUserId ?? UserSession.Current.UserId;
+                pageContent.PublishedUTCDate = pageContent.PublishedUTCDate ?? DateTime.UtcNow;
             }
             else
             {
                 page.BlogPostContent.Where( s => s.BlogContentId != pageContent.BlogContentId && s.PublishStatus == PublishStatus.Draft ).ToList().ForEach( s => s.PublishStatus = PublishStatus.Deleted );
                 pageContent.PublishStatus = PublishStatus.Draft;
+                pageContent.PublishedByUserId = null;
+                pageContent.PublishedUTCDate = null;
             }
         }
 

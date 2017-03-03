@@ -40,6 +40,34 @@ namespace ContentManagementSystem.Framework.BaseClasses
                
         }
 
+        public string SiteUrl()
+        {
+            string url = Request.Url.Scheme + "://" + Request.Url.Host;
+
+#if DEBUG
+            url += ":" + Request.Url.Port;
+#endif
+
+            return url;
+        }
+
+        public string PageUrl()
+        {
+            return SiteUrl() + Request.Url.AbsolutePath;
+        }
+
+        public string PageUrl( string queryString )
+        {
+            queryString = queryString ?? "";
+
+            if ( queryString.Length > 0 && queryString.StartsWith( "?" ) == false )
+            {
+                queryString = "?" + queryString;
+            }
+
+            return PageUrl() + queryString;
+        }
+
         /// <summary>
         /// Evalulates a condition and returns whether or not to render the specified html.
         /// </summary>
@@ -170,6 +198,14 @@ namespace ContentManagementSystem.Framework.BaseClasses
                 }
 
                 return _userProfile;
+            }
+        }
+
+        public UserSession UserSession
+        {
+            get
+            {
+                return UserSession.Current;
             }
         }
 

@@ -57,7 +57,7 @@ namespace ContentManagementSystem.Admin.Models
 
         #region Properties
 
-        public int? BlogPostId { get; set; }
+        public int? BlogId { get; set; }
 
         [Display( Name = "Page Title" )]
         public string Title { get; set; }

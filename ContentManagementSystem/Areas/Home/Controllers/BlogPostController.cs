@@ -26,7 +26,7 @@ namespace ContentManagementSystem.Home.Controllers
 
         public ActionResult Index( int blogPostId )
         {
-            BlogPostContent blogPost = base.Database.BlogPostContent.Include( s => s.Blog ).FirstOrDefault( s => s.BlogId == blogPostId );
+            BlogPostContent blogPost = base.Database.BlogPostContent.Include( s => s.Blog ).Include( s => s.PublishedByUser ).FirstOrDefault( s => s.BlogId == blogPostId );
 
             if ( blogPost == null || blogPost.Blog.IsDeleted || blogPost.Blog.DomainId != UserSession.Current.DomainId )
             {

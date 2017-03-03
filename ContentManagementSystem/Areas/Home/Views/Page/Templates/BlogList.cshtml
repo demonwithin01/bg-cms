@@ -4,56 +4,78 @@
     HideSocialButtons = true;
 }
 
-<div class="b-grid blog-list">
-    @for ( int j = 0 ; j < 2 ; j++ )
+@helper RenderPageNavigation()
+{
+    if ( Model.HasNextPage || Model.HasPreviousPage )
     {
-        for ( int i = 0 ; i < Model.BlogPosts.Count ; i++ )
+        <div class="padding-15-hor">
+            <div class="b-width-1-1 clear-fix">
+                @if ( Model.HasPreviousPage )
+                {
+                    <a href="@PageUrl( "page=" + ( Model.PageNumberIndex ) )" class="button secondary float-left">Previous Page</a>
+                }
+                @if ( Model.HasNextPage )
+                {
+                    <a href="@PageUrl( "page=" + ( Model.PageNumberIndex + 2 ) )" class="button secondary float-right">Next Page</a>
+                }
+            </div>
+        </div>
+    }
+}
+
+<div class="b-grid blog-list">
+    @RenderPageNavigation()
+    @for ( int i = 0 ; i < Model.BlogPosts.Count ; i++ )
+    {
+        DateTime publishedServerTime = Model.BlogPosts[ i ].PublishedUTCDate.Value.ToLocalTime();
+        string exerpt = Model.BlogPosts[ i ].Content;
+        int index = exerpt.IndexOf( "</p>" );
+        bool hasMore = false;
+        if ( index > -1 )
         {
-            DateTime publishedServerTime = Model.BlogPosts[ i ].UTCDateUpdated.ToLocalTime();
-            string exerpt = Model.BlogPosts[ i ].Content;
-            int index = exerpt.IndexOf( "</p>" );
-            bool hasMore = false;
+            index = exerpt.IndexOf( "</p>", index + 4 );
+
             if ( index > -1 )
             {
-                index = exerpt.IndexOf( "</p>", index + 4 );
-
-                if ( index > -1 )
-                {
-                    exerpt = exerpt.Remove( index + 4 );
-                    hasMore = exerpt.Length < Model.BlogPosts[ i ].Content.Length;
-                }
+                exerpt = exerpt.Remove( index + 4 );
+                hasMore = exerpt.Length < Model.BlogPosts[ i ].Content.Length;
             }
+        }
 
-            <div class="b-width-1-1">
-                <div class="blog-post">
-                    <div class="blog-header">
-                        <h2>
-                            @Model.BlogPosts[ i ].Title
-                        </h2>
-                        <span class="float-right blog-publish-info">
-                            Published on <span class="blog-published-date">@publishedServerTime.ToString( "dd/MM/yyyy" )</span> at <span class="blog-published-time">@publishedServerTime.ToString( "hh:mmtt" )</span> by <span class="blog-published-by">@Model.BlogPosts[ i ].LastEditedByUser.UserName</span>
-                        </span>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-inner-content">
-                            <div class="blog-post-exerpt">
-                                @Html.Raw( exerpt )
-                            </div>
-                            @if ( hasMore )
-                            {
-                                <div class="read-more">
-                                    <a href="@Url.Action( "Index", "BlogPost", new { Area = "Home", blogPostId = Model.BlogPosts[ i ].BlogId } ) " class="button text">Read more</a>
-                                </div>
-                            }
+        <div class="b-width-1-1">
+            <div class="blog-post">
+                <div class="blog-header">
+                    <h2>
+                        <a href="@Url.Action( "Index", "BlogPost", new { Area = "Home", blogPostId = Model.BlogPosts[ i ].BlogId } ) " class="">@Model.BlogPosts[ i ].Title</a>
+                    </h2>
+                    <span class="float-right blog-publish-info">
+                        Published on <span class="blog-published-date">@publishedServerTime.ToString( "dd/MM/yyyy" )</span> at <span class="blog-published-time">@publishedServerTime.ToString( "hh:mmtt" )</span> by <span class="blog-published-by">@Model.BlogPosts[ i ].PublishedByUser.UserName</span>
+                    </span>
+                    @if ( UserSession.IsAdministrator )
+                    {
+                        <a href="/admin/blogpost/edit/@Model.BlogPosts[ i ].BlogId" class="button text edit-blog-post">Edit</a>
+                    }
+                </div>
+                <div class="blog-content">
+                    <div class="blog-inner-content">
+                        <div class="blog-post-exerpt">
+                            @Html.Raw( exerpt )
                         </div>
-                    </div>
-                    <div class="blog-footer clear-fix">
-
+                        @if ( hasMore )
+                        {
+                            <div class="read-more">
+                                <a href="@Url.Action( "Index", "BlogPost", new { Area = "Home", blogPostId = Model.BlogPosts[ i ].BlogId } ) " class="button text">Read more</a>
+                            </div>
+                        }
                     </div>
                 </div>
+                <div class="blog-footer clear-fix">
+
+                </div>
             </div>
-        }
+        </div>
     }
+    @RenderPageNavigation()
 </div>
 
 <script>

@@ -2834,6 +2834,26 @@ body {
   overflow-y: scroll;
   padding: 0;
 }
+h1 a:link,
+h2 a:link,
+h3 a:link,
+h4 a:link,
+h5 a:link,
+h6 a:link,
+h1 a:visited,
+h2 a:visited,
+h3 a:visited,
+h4 a:visited,
+h5 a:visited,
+h6 a:visited,
+h1 a:active,
+h2 a:active,
+h3 a:active,
+h4 a:active,
+h5 a:active,
+h6 a:active {
+  color: inherit;
+}
 p {
   margin: 10px 0;
 }
@@ -3155,25 +3175,25 @@ form dl + dl {
   margin-left: 10px;
 }
 .button.primary {
-  background: #207ccb;
+  background: #2859a5;
   color: white;
 }
 .button.primary:hover {
-  background: #3e95e0;
+  background: #336fcd;
 }
 .button.secondary {
-  background: #207ccb;
+  background: #2d64ba;
   color: white;
 }
 .button.secondary:hover {
-  background: #3e95e0;
+  background: #477ed2;
 }
 .button.tertiary {
-  background: #207ccb;
+  background: #2859a5;
   color: white;
 }
 .button.tertiary:hover {
-  background: #3e95e0;
+  background: #336fcd;
 }
 .button.cancel {
   background: #bd2626;
@@ -3193,6 +3213,12 @@ form dl + dl {
 }
 .button.text:hover {
   border-bottom-color: #2859a5;
+}
+.button.text.on-background {
+  color: #eee;
+}
+.button.text.on-background:hover {
+  border-bottom-color: #eee;
 }
 .button-group {
   font-size: 0;

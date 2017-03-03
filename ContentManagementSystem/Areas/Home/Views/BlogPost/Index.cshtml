@@ -1,7 +1,43 @@
 ﻿@model ContentManagementSystem.Models.Page.BlogPostModel
 
+@{
+    DateTime publishedServerTime = Model.Content.PublishedUTCDate.Value.ToLocalTime();
+    HideSocialButtons = true;
+    PageTitle = Model.Content.Title;
+    HideTitle = true;
+}
+
 <div class="page-content">
-    <div class="page-inner-content">
+    <div class="page-inner-content no-background">
+        <div class="b-grid blog-list">
+            <div class="b-width-1-1">
+                <div class="blog-post">
+                    <div class="blog-header">
+                        <h2>
+                            @Model.Content.Title
+                        </h2>
+                        <span class="float-right blog-publish-info">
+                            Published on <span class="blog-published-date">@publishedServerTime.ToString( "dd/MM/yyyy" )</span> at <span class="blog-published-time">@publishedServerTime.ToString( "hh:mmtt" )</span> by <span class="blog-published-by">@Model.Content.PublishedByUser.UserName</span>
+                        </span>
+                        @if ( UserSession.IsAdministrator )
+                        {
+                            <a href="/admin/blogpost/edit/@Model.Content.BlogId" class="button text edit-blog-post">Edit</a>
+                        }
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-inner-content">
+                            <div class="blog-post-content">
+                                @Html.Raw( Model.Content.Content )
+                            </div>
+                            <div id="social"></div>
+                        </div>
+                    </div>
+                    <div class="blog-footer clear-fix">
+
+                    </div>
+                </div>
+            </div>
+        </div>
         @*@Html.Partial( Model.PageTemplate.DisplayLocation, Model.PageTemplate )*@
         @*<div class="b-grid">
                 <div class="b-width-1-1">

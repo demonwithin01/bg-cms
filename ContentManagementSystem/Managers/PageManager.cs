@@ -101,6 +101,7 @@ namespace ContentManagementSystem.Managers
             
             page.DisplayLocation = cachedModel.DisplayLocation;
             page.EditorLocation = cachedModel.EditorLocation;
+            page.Request = HttpContext.Current.Request;
 
             return page;
         }

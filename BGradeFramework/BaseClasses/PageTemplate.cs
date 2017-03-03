@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace ContentManagementSystem.Framework
 {
@@ -53,6 +54,9 @@ namespace ContentManagementSystem.Framework
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Properties
+
+        [JsonIgnore]
+        public HttpRequest Request { get; set; }
 
         [JsonIgnore]
         public bool HideBackgroundColor { get; set; }

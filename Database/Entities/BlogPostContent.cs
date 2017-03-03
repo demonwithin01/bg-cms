@@ -19,6 +19,10 @@ namespace ContentManagementSystemDatabase
         public int BlogId { get; set; }
         public virtual BlogPost Blog { get; set; }
 
+        [ForeignKey( "PublishedByUser" )]
+        public int? PublishedByUserId { get; set; }
+        public virtual UserProfile PublishedByUser { get; set; }
+
         [MaxLength( 150 )]
         public string Title { get; set; }
 
@@ -29,5 +33,7 @@ namespace ContentManagementSystemDatabase
         public virtual UserProfile LastEditedByUser { get; set; }
 
         public PublishStatus PublishStatus { get; set; }
+
+        public DateTime? PublishedUTCDate { get; set; }
     }
 }

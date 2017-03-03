@@ -41,11 +41,30 @@ namespace ContentManagementSystem.Framework.Models.Page
         {
             ContentManagementDb db = new ContentManagementDb();
 
-            this.BlogPosts = db.BlogPostContent.Include( s => s.Blog )
-                                               .Where( s => s.PublishStatus == PublishStatus.Published && s.Blog.DomainId == UserSession.Current.DomainId && s.Blog.IsDeleted == false )
-                                               .OrderByDescending( s => s.Blog.UTCDateCreated )
-                                               .Take( this.MaxNumberOfPosts )
-                                               .ToList();
+            int pageNumber = 0;
+
+            if ( base.Request.QueryString.AllKeys.Contains( "page" ) && int.TryParse( base.Request.QueryString[ "page" ], out pageNumber ) )
+            {
+                if ( pageNumber < 1 )
+                {
+                    pageNumber = 1;
+                }
+
+                --pageNumber;
+            }
+
+            var query = db.BlogPostContent.Include( s => s.Blog )
+                                          .Include( s => s.PublishedByUser )
+                                          .Where( s => s.PublishStatus == PublishStatus.Published && s.Blog.DomainId == UserSession.Current.DomainId && s.Blog.IsDeleted == false )
+                                          .OrderByDescending( s => s.Blog.UTCDateCreated )
+                                          .Skip( pageNumber * this.MaxNumberOfPosts );
+
+            this.PageNumberIndex = pageNumber;
+            this.HasPreviousPage = ( pageNumber > 0 );
+            this.HasNextPage = query.Count() > this.MaxNumberOfPosts;
+
+            this.BlogPosts = query.Take( this.MaxNumberOfPosts )
+                                  .ToList();
         }
 
         #endregion
@@ -61,6 +80,15 @@ namespace ContentManagementSystem.Framework.Models.Page
         #region Properties
 
         public int MaxNumberOfPosts { get; set; }
+
+        [JsonIgnore]
+        public int PageNumberIndex { get; set; }
+        
+        [JsonIgnore]
+        public bool HasNextPage { get; set; }
+
+        [JsonIgnore]
+        public bool HasPreviousPage { get; set; }
 
         [JsonIgnore]
         public List<BlogPostContent> BlogPosts { get; set; }
