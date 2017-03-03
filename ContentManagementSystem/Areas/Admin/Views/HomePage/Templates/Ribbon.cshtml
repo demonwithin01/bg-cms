@@ -30,6 +30,7 @@ if ( string.IsNullOrEmpty( height ) )
         <div class="ribbon-item-template ui-front">
             @Html.DropDownList( nameIndex + "Layout", CreateSelectList.FromEnum<RibbonColumns>( ribbonItem.Layout ), new { id = idIndex + "Layout", @class = "column-layout" } )
             @Html.DropDownList( nameIndex + "RemovePadding", CreateSelectList.ForBoolean( ribbonItem.RemovePadding ), new { id = idIndex + "RemovePadding", @class = "padding-option" } )
+            @Html.DropDownList( nameIndex + "RibbonLink", CreateSelectList.NavPages( ribbonItem.RibbonLink ), "None", new { id = idIndex + "RibbonLink", @class = "link-option" } )
         </div>
         <div class="remove-ribbon-item">
             <i class="fa fa-close"></i>
@@ -113,6 +114,8 @@ if ( string.IsNullOrEmpty( height ) )
                 $ribbon.toggleClass('no-padding', $(this).val() == 'true');
             }
         })
+
+        $ribbon.find( "select.link-option" ).selectmenu();
         
         $ribbon.find('select').each(function () {
             $(this).next().css('width', 'auto');

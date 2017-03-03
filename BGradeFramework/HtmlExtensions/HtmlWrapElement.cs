@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Routing;
 
-namespace ContentManagementSystem.Framework.Models.HomePage
+namespace ContentManagementSystem.Framework.HtmlExtensions
 {
-    public class RibbonItem
+    public class HtmlWrapElement
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -19,10 +20,16 @@ namespace ContentManagementSystem.Framework.Models.HomePage
 
         #region Constructors/Initialisation
 
-        public RibbonItem()
+        public HtmlWrapElement( string tag )
         {
-            Columns = new List<RibbonItemContent>();
-            Layout = RibbonColumns.OneColumn;
+            this.Tag = tag.ToLower();
+            this.HtmlAttributes = new RouteValueDictionary();
+        }
+
+        public HtmlWrapElement( string tag, object htmlAttributes )
+        {
+            this.Tag = tag.ToLower();
+            this.HtmlAttributes = new RouteValueDictionary( htmlAttributes );
         }
 
         #endregion
@@ -43,17 +50,9 @@ namespace ContentManagementSystem.Framework.Models.HomePage
 
         #region Properties
 
-        public string Background { get; set; }
+        public string Tag { get; private set; }
 
-        public RibbonColumns Layout { get; set; }
-
-        public int? RibbonLink { get; set; }
-
-        public bool RemovePadding { get; set; }
-
-        public string Height { get; set; }
-
-        public List<RibbonItemContent> Columns { get; set; }
+        public RouteValueDictionary HtmlAttributes { get; private set; }
 
         #endregion
 

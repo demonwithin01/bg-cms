@@ -16,6 +16,8 @@ if ( string.IsNullOrEmpty( height ) )
     height = "60px";
 }
 
+using ( Html.Wrap( ribbonItem.RibbonLink.HasValue ? new HtmlWrapElement( "a", new { href = Url.Action( "Index", "Page", new { Area = "Home", pageId = ribbonItem.RibbonLink } ) } ) : null ) )
+{
 <div class="ribbon-item @( ribbonItem.RemovePadding ? "no-padding" : "" )" style="background-color: @backgroundColor; height: @height;">
     <div class="b-grid">
         @for ( int i = 0 ; i < ribbonItem.Columns.Count ; i++ )
@@ -26,6 +28,7 @@ if ( string.IsNullOrEmpty( height ) )
         }
     </div>
 </div>
+}
 }
 
 <div id="ribbon-items">

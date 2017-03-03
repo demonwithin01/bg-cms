@@ -123,6 +123,8 @@
     <Compile Include="Helpers\CreateSelectList.cs" />
     <Compile Include="HtmlExtensions\Button.cs" />
     <Compile Include="HtmlExtensions\CheckboxFieldFor.cs" />
+    <Compile Include="HtmlExtensions\HtmlWrap.cs" />
+    <Compile Include="HtmlExtensions\HtmlWrapElement.cs" />
     <Compile Include="HtmlExtensions\SectionScripts.cs" />
     <Compile Include="HtmlExtensions\TextAreaFieldFor.cs" />
     <Compile Include="HtmlExtensions\DropDownListFieldFor.cs" />
