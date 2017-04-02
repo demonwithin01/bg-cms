@@ -12,6 +12,7 @@
         @Html.DropDownListFieldFor( m => m.BackgroundUploadId, Model.GetImageOptions( Model.BackgroundUploadId ) )
         @Html.DropDownListFieldFor( m => m.LogoUploadId, Model.GetImageOptions( Model.LogoUploadId ) )
         @Html.DropDownListFieldFor( m => m.Theme, Model.GetThemeOptions() )
+        @Html.TextBoxFieldFor( m => m.EmailAddress )
     </dl>
     @Html.SubmitButton( "Save" )
 }

@@ -4,6 +4,8 @@
     {
         abstract init(): void;
 
+        abstract name(): string;
+
         onResize( dim ): void
         {
 

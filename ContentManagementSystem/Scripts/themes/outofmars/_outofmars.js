@@ -5,4 +5,5 @@ site.initialise = function ( site )
 {
     //site.addPlugin( 'navigation', outofmars.navigation );
     site.addPlugin( "PageBackground", outofmars.PageBackground );
+    site.addPlugin( "Ribbon", bgrade.Ribbon );
 };

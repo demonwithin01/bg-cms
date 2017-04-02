@@ -13,8 +13,17 @@ var Site;
         Contact.prototype.init = function () {
             console.log("initialised Contact");
         };
+        Contact.prototype.name = function () {
+            return "ContactMe";
+        };
+        Contact.prototype.formResult = function (data) {
+            if (data.success) {
+                _site.showNotification(notificationType.success, data.message);
+            }
+            else {
+            }
+        };
         return Contact;
     }(Site.PageSection));
     Site.Contact = Contact;
 })(Site || (Site = {}));
-//# sourceMappingURL=site.contact.js.map

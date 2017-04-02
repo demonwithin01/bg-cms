@@ -42,6 +42,9 @@ var Site;
                 that._initialiseBlogPost($(this));
             });
         };
+        Blogs.prototype.name = function () {
+            return "Blogs";
+        };
         Blogs.prototype.onResize = function (dim) {
             for (var i = 0; i < this._blogPosts.length; i++) {
                 this._blogPosts[i].draw();
@@ -54,4 +57,3 @@ var Site;
     }(Site.PageSection));
     Site.Blogs = Blogs;
 })(Site || (Site = {}));
-//# sourceMappingURL=site.blogs.js.map

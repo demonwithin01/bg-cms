@@ -506,6 +506,7 @@
     <Content Include="Content\Styles\_blog.less" />
     <Content Include="Content\Styles\_tiled-sub-navigation.less" />
     <Content Include="Content\Styles\_tile-gallery.less" />
+    <Content Include="Content\Styles\_notifications.less" />
     <None Include="Properties\PublishProfiles\Production.pubxml" />
     <None Include="Scripts\Frameworks\jquery-1.8.2.intellisense.js" />
     <Content Include="Images\Backgrounds\background.png" />
@@ -515,6 +516,9 @@
     <Content Include="Images\Plugins\mCSB_buttons.png" />
     <Content Include="Scripts\bg.carousel.js" />
     <Content Include="Scripts\bg.modal.js" />
+    <Content Include="Scripts\bgrade.ribbon.js">
+      <DependentUpon>bgrade.ribbon.ts</DependentUpon>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Frameworks\jquery-1.8.2.js" />
@@ -534,9 +538,11 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery.extensions.js" />
     <Content Include="Scripts\PageSections\site.contact.js">
       <DependentUpon>site.contact.ts</DependentUpon>
     </Content>
+    <Content Include="Scripts\site.types.js" />
     <Content Include="Scripts\themes\outofmars\PageBackground.js">
       <DependentUpon>PageBackground.ts</DependentUpon>
     </Content>
@@ -1022,6 +1028,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Scripts\bgrade.ribbon.ts" />
     <TypeScriptCompile Include="Scripts\PageSections\site.blogs.ts" />
     <TypeScriptCompile Include="Scripts\PageSections\site.contact.ts" />
     <TypeScriptCompile Include="Scripts\themes\outofmars\PageBackground.ts" />

@@ -1883,6 +1883,7 @@ video {
   border: 0;
   font-size: 100%;
   font: inherit;
+  line-height: 1.2em;
   vertical-align: baseline;
   margin: 0;
   padding: 0;
@@ -2926,6 +2927,9 @@ a:active {
 p {
   margin: 10px 0;
 }
+.bg-color {
+  background: #fffddb;
+}
 blockquote {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -3816,6 +3820,67 @@ table td.options-column {
     display: block;
   }
 }
+#notifications {
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 30px;
+  width: 300px;
+  z-index: 2;
+}
+.notification {
+  position: relative;
+}
+.notification + .notification {
+  margin-top: 15px;
+}
+.notification.shift-up {
+  transform: translateY(-30px);
+  transition: all 0.3s ease;
+}
+.notification > div {
+  border-radius: 3px;
+  opacity: 0;
+  padding: 20px;
+  position: relative;
+  transform: translateY(-30px);
+  transition: all 0.3s ease;
+}
+.notification.notification-success > div {
+  background: #0bad4d;
+  color: white;
+}
+.notification.notification-warning > div {
+  background: #da8e3e;
+  color: white;
+}
+.notification.notification-error > div {
+  background: #c14545;
+  color: white;
+}
+.notification.show > div {
+  opacity: 1;
+  transform: translateY(0);
+}
+.notification p {
+  margin: 0;
+}
+.notification span.time {
+  background: rgba(255, 255, 255, 0.3);
+  height: 4px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 0;
+  /*z-index: 10;*/
+}
+.notification .fa {
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
 .tiled-sub-navigation-container {
   text-align: center;
 }
@@ -3987,19 +4052,24 @@ h6 a:active {
 }
 h1 {
   font-size: 2em;
+  line-height: 1.2em;
 }
 h2 {
   font-size: 1.75em;
+  line-height: 1.2em;
 }
 h3 {
   font-size: 1.2em;
+  line-height: 1.2em;
 }
 h4 {
   font-size: 1.1em;
+  line-height: 1.2em;
 }
 h5,
 h6 {
   font-size: 1em;
+  line-height: 1.2em;
 }
 /* main layout
 ----------------------------------------------------------*/

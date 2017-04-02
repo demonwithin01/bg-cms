@@ -30,17 +30,20 @@ namespace ContentManagementSystem
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add( new ScriptBundle( "~/bundles/modernizr" ).Include(
                         "~/Scripts/Frameworks/modernizr-*" ) );
-            
+
             bundles.Add( new ScriptBundle( "~/bundles/site" )
                             .Include(
+                                "~/Scripts/jquery.extensions.js",
                                 "~/Scripts/Plugins/jssocials.min.js",
                                 "~/Scripts/bg.modal.js",
                                 //"~/Scripts/site.contact.js",
                                 "~/Scripts/site.notification.js",
                                 "~/Scripts/site.animations.js",
                                 "~/Scripts/site.image-browser.js",
+                                "~/Scripts/site.types.js",
                                 "~/Scripts/site.js",
                                 "~/Scripts/site.plugin.js",
+                                "~/Scripts/bgrade.ribbon.js",
                                 "~/Scripts/_page-section.js" )
                             .IncludeDirectory( "~/Scripts/PageSections/", "*.js" ) );
 

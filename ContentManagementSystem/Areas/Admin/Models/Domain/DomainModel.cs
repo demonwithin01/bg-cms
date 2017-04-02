@@ -86,7 +86,11 @@ namespace ContentManagementSystem.Admin.Models
         [Display( Name = "Site Name" )]
         [Required( ErrorMessage = "Please enter in the name of your site" )]
         public string Name { get; set; }
-        
+
+        [Display( Name = "Email Address" )]
+        [EmailAddress( ErrorMessage = "Please enter in a valid email address" )]
+        public string EmailAddress { get; set; }
+
         [Display( Name = "Theme" )]
         [Required( ErrorMessage = "Please select a theme for your site")]
         public string Theme { get; set; }

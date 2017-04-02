@@ -1,0 +1,88 @@
+﻿#notifications
+{
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 30px;
+    width: 300px;
+    z-index: 2;
+}
+
+.notification
+{
+    @local-success: #0bad4d;
+    @local-warning: #da8e3e;
+    @local-error: #c14545;
+
+    position: relative;
+
+    & + .notification
+    {
+        margin-top: 15px;
+    }
+
+    &.shift-up
+    {
+        transform: translateY(-30px);
+        transition: all 0.3s ease;
+    }
+
+    & > div
+    {
+        border-radius: 3px;
+        opacity: 0;
+        padding: 20px;
+        position: relative;
+        transform: translateY(-30px);
+        transition: all 0.3s ease;
+    }
+
+    &.notification-success > div
+    {
+        background: @local-success;
+        color: white;
+    }
+
+    &.notification-warning > div
+    {
+        background: @local-warning;
+        color: white;
+    }
+
+    &.notification-error > div
+    {
+        background: @local-error;
+        color: white;
+    }
+
+    &.show > div
+    {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    p
+    {
+        margin: 0;
+    }
+
+    span.time
+    {
+        background: rgba(255, 255, 255, 0.3);
+        height: 4px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 0;
+        /*z-index: 10;*/
+    }
+
+    .fa
+    {
+        cursor: pointer;
+        position: absolute;
+        right: 5px;
+        top: 5px;
+    }
+}

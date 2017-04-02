@@ -10,18 +10,17 @@
 </hgroup>
 
 <section class="contact">
-    @using ( Ajax.BeginForm( new AjaxOptions() { OnSuccess = "_site.contactForm.contactFormSubmitted" } ) )
-    {
+    <form action="/home/home/contact" method="post" novalidate="novalidate">
         <dl>
             @Html.TextBoxFieldFor( m => m.FullName )
             @Html.TextBoxFieldFor( m => m.Subject )
             @Html.TextAreaFieldFor( m => m.Message )
         </dl>
-        
+
         <div class="button-wrapper">
             <input class="button primary-button" type="submit" title="Submit" />
         </div>
-    }
+    </form>
     <h3>
         <h3>Phone</h3>
     </h3>

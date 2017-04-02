@@ -62,6 +62,11 @@
             });
         }
 
+        public name(): string
+        {
+            return "Blogs";
+        }
+
         public onResize( dim ): void
         {
             for ( var i = 0; i < this._blogPosts.length; i++ )

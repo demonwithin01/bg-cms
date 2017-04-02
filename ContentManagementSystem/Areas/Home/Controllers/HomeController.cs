@@ -7,6 +7,7 @@ using ContentManagementSystem.Framework.BaseClasses;
 using ContentManagementSystem.Models.Home;
 using ContentManagementSystem.Framework;
 using ContentManagementSystem.Managers;
+using ContentManagementSystem.Framework.Models.Page.Sections;
 
 namespace ContentManagementSystem.Home.Controllers
 {
@@ -65,9 +66,18 @@ namespace ContentManagementSystem.Home.Controllers
         /// POST: /home/contact
         /// </summary>
         [HttpPost]
-        public JsonResult Contact( ContactModel model )
+        public JsonResult Contact( [Bind( Prefix = "ContactSection" )] ContactSection model )
         {
-            return JsonActionResult( new ContentManagementSystem.Framework.ValidationResult( true ) );
+            try
+            {
+                model.SendEmail();
+            }
+            catch
+            {
+                return JsonActionResult( new ValidationResult( false, "Your enquiry could not be sent at this time, please try again in 5 minutes." ) );
+            }
+
+            return JsonActionResult( new ContentManagementSystem.Framework.ValidationResult( true, "Your enquiry has been sent." ) );
         }
 
         #endregion

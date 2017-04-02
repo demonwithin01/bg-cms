@@ -63,7 +63,14 @@
 
             for ( var i = 0; i < _this._pageSections.length; i++ )
             {
-                _this._pageSections[i].onResize( dimensions );
+                try
+                {
+                    _this._pageSections[i].onResize( dimensions );
+                }
+                catch( e )
+                {
+                    console.error( e );
+                }
             }
 
             //var navHeight = 0;
@@ -149,8 +156,14 @@
                 {
                     continue;
                 }
-
-                func.call( _this, args );
+                try
+                {
+                    func.call( _this, args );
+                }
+                catch ( e )
+                {
+                    console.error( e );
+                }
             }
         }
 
@@ -199,6 +212,100 @@
         {
             section.init();
         }
+    }
+
+    Site.prototype.pageSection = function ( sectionName )
+    {
+        for ( var i = 0; i < this._pageSections.length; i++ )
+        {
+            if ( this._pageSections[i].name() == sectionName )
+            {
+                return this._pageSections[i];
+            }
+        }
+    }
+
+    /**
+     * Shows a notification on the screen.
+     * @param {notificationType} type The notification type.
+     * @message {string} message The message to display.
+     * @time {bool?|number?} time If true, the message is displayed until user interaction. If a number, the notification will be displayed for a set period of time.
+     */
+    Site.prototype.showNotification = function ( type, message, time )
+    {
+        switch( type )
+        {
+            case notificationType.success:
+                type = "success";
+                break;
+            case notificationType.error:
+                type = "error";
+                break;
+            default: // warning
+                type = "warning";
+                break;
+        }
+
+        var $notification = $( "<div class=\"notification notification-" + type + "\"><div><p>" + message + "</p><span class=\"fa fa-remove\" onclick=\"_site.removeNotification( this );\"></span></div></div>" );
+
+        var removing = $( ".notification:not(.show)" );
+
+        if ( removing.length > 0 )
+        {
+            var height = removing.outerHeight() + 15;
+
+            $notification.addClass( "shift-up" ).css( "transform", "translateY(-" + height + "px)" );
+        }
+
+        if ( time !== true )
+        {
+            if ( typeof ( time ) !== "number" )
+            {
+                time = 5000;
+            }
+
+            $notification.data( "notification-timeout", setTimeout( function ()
+            {
+                _site.removeNotification( $notification );
+            }, time + 300 ) );
+
+            $notification.children().prepend( "<span class=\"time\" style=\"transition: width " + time + "ms linear 0.3s;\"></span>" );
+        }
+
+        $( "#notifications" ).appendThen( $notification, function ()
+        {
+            $notification.addClass( "show" );
+            $notification.find( ".time" ).css( "width", "100%" );
+        } );
+
+    }
+
+    /**
+     * Removes the notification from the page.
+     * @param {jQuery} element The notification element or one of its descendents.
+     */
+    Site.prototype.removeNotification = function ( element )
+    {
+        var $notification = $( element ).closest( ".notification" ).removeClass( "show" );
+
+        $notification.removeData( "notification-timeout" );
+
+        var height = $notification.outerHeight() + 15;
+
+        $notification.nextAll().each( function ()
+        {
+            $( this ).addClass( "shift-up" ).css( "transform", "translateY(-" + height + "px)" );
+        } );
+
+        setTimeout( function ()
+        {
+            $notification.nextAll().each( function ()
+            {
+                $( this ).removeClass( "shift-up" ).css( "transform", "" );
+            } );
+
+            $notification.remove();
+        }, 300 );
     }
 
     return Site;

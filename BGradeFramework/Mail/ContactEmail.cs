@@ -1,15 +1,13 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
-using ContentManagementSystemDatabase;
+using System.Web.Helpers;
 
-namespace ContentManagementSystem.Framework.Models.Page.Sections
+namespace ContentManagementSystem.Framework.Mail
 {
-    public class ContactSection : PageSectionTemplate
+    public class ContactEmail
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -28,27 +26,9 @@ namespace ContentManagementSystem.Framework.Models.Page.Sections
 
         #region Public Methods
 
-        public void SendEmail()
+        public void Send()
         {
-            MailMessage message = new MailMessage();
-
-            Domain domain = new ContentManagementDb().Domains.Find( UserSession.Current.DomainId );
-
-            if ( string.IsNullOrEmpty( domain.EmailAddress ) )
-            {
-                return;
-            }
-
-            message.To.Add( domain.EmailAddress );
-            message.From = new MailAddress( this.EmailAddress );
-            message.Subject = "Online Enquiry";
-
-            message.Body = this.Enquiry;
-
-            using ( SmtpClient smtp = new SmtpClient() )
-            {
-                smtp.Send( message );
-            }
+            
         }
 
         #endregion
@@ -62,15 +42,6 @@ namespace ContentManagementSystem.Framework.Models.Page.Sections
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Properties
-
-        [Display( Name = "Name" )]
-        public string Name { get; set; }
-
-        [Display( Name = "Email" )]
-        public string EmailAddress { get; set; }
-
-        [Display( Name = "Enquiry" )]
-        public string Enquiry { get; set; }
 
         #endregion
 
