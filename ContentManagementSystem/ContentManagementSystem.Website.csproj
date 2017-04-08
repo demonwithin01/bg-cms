@@ -508,19 +508,38 @@
     <Content Include="Content\Styles\_tile-gallery.less" />
     <Content Include="Content\Styles\_notifications.less" />
     <None Include="Properties\PublishProfiles\Production.pubxml" />
+    <Content Include="Scripts\bgrade\bg.carousel.js">
+      <DependentUpon>bg.carousel.ts</DependentUpon>
+    </Content>
+    <Content Include="Scripts\bgrade\bg.modal.js">
+      <DependentUpon>bg.modal.ts</DependentUpon>
+    </Content>
+    <Content Include="Scripts\bgrade\bgrade.ribbon.js.map">
+      <DependentUpon>bgrade.ribbon.ts</DependentUpon>
+    </Content>
+    <Content Include="Scripts\Extensions\jquery.js.map">
+      <DependentUpon>jquery.ts</DependentUpon>
+    </Content>
+    <Content Include="Scripts\bgrade\bg.modal.js.map">
+      <DependentUpon>bg.modal.ts</DependentUpon>
+    </Content>
+    <Content Include="Scripts\bgrade\bg.carousel.js.map">
+      <DependentUpon>bg.carousel.ts</DependentUpon>
+    </Content>
     <None Include="Scripts\Frameworks\jquery-1.8.2.intellisense.js" />
     <Content Include="Images\Backgrounds\background.png" />
     <Content Include="Images\Header\Login.png" />
     <Content Include="Images\Header\Logo.png" />
     <Content Include="Images\Header\MenuIcon.png" />
     <Content Include="Images\Plugins\mCSB_buttons.png" />
-    <Content Include="Scripts\bg.carousel.js" />
-    <Content Include="Scripts\bg.modal.js" />
-    <Content Include="Scripts\bgrade.ribbon.js">
+    <Content Include="Scripts\bgrade\bgrade.ribbon.js">
       <DependentUpon>bgrade.ribbon.ts</DependentUpon>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Extensions\jquery.js">
+      <DependentUpon>jquery.ts</DependentUpon>
+    </Content>
     <Content Include="Scripts\Frameworks\jquery-1.8.2.js" />
     <Content Include="Scripts\Frameworks\jquery-1.8.2.min.js" />
     <None Include="Scripts\Frameworks\jquery.validate-vsdoc.js" />
@@ -535,18 +554,19 @@
     <Content Include="Scripts\Frameworks\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\Frameworks\knockout-2.2.0.js" />
     <Content Include="Scripts\Frameworks\modernizr-2.6.2.js" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <Content Include="Scripts\jquery.extensions.js" />
     <Content Include="Scripts\PageSections\site.contact.js">
       <DependentUpon>site.contact.ts</DependentUpon>
     </Content>
-    <Content Include="Scripts\site.types.js" />
+    <Content Include="Scripts\bgrade\site.js">
+      <DependentUpon>site.ts</DependentUpon>
+    </Content>
+    <Content Include="Scripts\bgrade\site.types.js">
+      <DependentUpon>site.types.ts</DependentUpon>
+    </Content>
     <Content Include="Scripts\themes\outofmars\PageBackground.js">
       <DependentUpon>PageBackground.ts</DependentUpon>
     </Content>
-    <Content Include="Scripts\_page-section.js">
+    <Content Include="Scripts\bgrade\_page-section.js">
       <DependentUpon>_page-section.ts</DependentUpon>
     </Content>
     <Content Include="Scripts\Plugins\ckeditor\adapters\jquery.js" />
@@ -926,12 +946,8 @@
     <Content Include="Scripts\Plugins\jquery.mCustomScrollbar.js" />
     <Content Include="Scripts\Plugins\jssocials.min.js" />
     <Content Include="Scripts\Plugins\spectrum.js" />
-    <Content Include="Scripts\site.animations.js" />
-    <Content Include="Scripts\site.contact.js" />
-    <Content Include="Scripts\site.image-browser.js" />
-    <Content Include="Scripts\site.js" />
-    <Content Include="Scripts\site.notification.js" />
-    <Content Include="Scripts\site.plugin.js" />
+    <Content Include="Scripts\bgrade\site.image-browser.js" />
+    <Content Include="Scripts\bgrade\site.plugin.js" />
     <Content Include="Scripts\themes\outofmars\navigation.js" />
     <Content Include="Scripts\themes\outofmars\_outofmars.js" />
     <Content Include="Scripts\themes\rachelsheree\navigation.js" />
@@ -989,7 +1005,6 @@
     <Content Include="Scripts\Plugins\ckeditor\skins\moonocolor\readme.md" />
     <Content Include="Scripts\Plugins\ckeditor\skins\moono-dark\readme.md" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\_ImageBrowserLayout.cshtml" />
     <Content Include="Views\Theme\outofmars\Header.cshtml" />
     <Content Include="Views\Theme\rachelsheree\Header.cshtml" />
@@ -999,6 +1014,15 @@
     <Content Include="Views\Shared\EditorTemplates\ContactSection.cshtml" />
     <Content Include="Scripts\PageSections\site.contact.js.map">
       <DependentUpon>site.contact.ts</DependentUpon>
+    </Content>
+    <Content Include="Scripts\bgrade\site.types.js.map">
+      <DependentUpon>site.types.ts</DependentUpon>
+    </Content>
+    <Content Include="Scripts\bgrade\site.js.map">
+      <DependentUpon>site.ts</DependentUpon>
+    </Content>
+    <Content Include="Scripts\bgrade\_page-section.js.map">
+      <DependentUpon>_page-section.ts</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -1028,11 +1052,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Scripts\bgrade.ribbon.ts" />
+    <TypeScriptCompile Include="Scripts\bgrade\bg.carousel.ts" />
+    <TypeScriptCompile Include="Scripts\bgrade\bg.modal.ts" />
+    <TypeScriptCompile Include="Scripts\bgrade\bgrade.ribbon.ts" />
+    <TypeScriptCompile Include="Scripts\Extensions\jquery.ts" />
     <TypeScriptCompile Include="Scripts\PageSections\site.blogs.ts" />
     <TypeScriptCompile Include="Scripts\PageSections\site.contact.ts" />
+    <TypeScriptCompile Include="Scripts\bgrade\site.ts" />
+    <TypeScriptCompile Include="Scripts\bgrade\site.types.ts" />
     <TypeScriptCompile Include="Scripts\themes\outofmars\PageBackground.ts" />
-    <TypeScriptCompile Include="Scripts\_page-section.ts" />
+    <TypeScriptCompile Include="Scripts\bgrade\_page-section.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
   </ItemGroup>
   <ItemGroup>

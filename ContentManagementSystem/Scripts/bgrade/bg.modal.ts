@@ -1,4 +1,4 @@
-﻿( function ( $ )
+﻿module bgrade
 {
     $.fn.bgmodal = function ( options )
     {
@@ -10,13 +10,13 @@
             }
 
             var defaults =
-            {
-                theme: '',
-                beforeShow: empty,
-                afterShow: empty,
-                beforeClose: empty,
-                afterClose: empty
-            };
+                {
+                    theme: '',
+                    beforeShow: empty,
+                    afterShow: empty,
+                    beforeClose: empty,
+                    afterClose: empty
+                };
 
             var _this = this;
             var _options = $.extend( {}, defaults, options );
@@ -39,7 +39,7 @@
                     $this.show().css( {
                         width: $this.children().outerWidth(),
                         height: $this.children().outerHeight()
-                    } ).prev().show();
+                    }).prev().show();
                     _options.afterShow.call( this );
                 }
             }
@@ -71,4 +71,4 @@
 
         return this;
     }
-}( jQuery ) );
+}

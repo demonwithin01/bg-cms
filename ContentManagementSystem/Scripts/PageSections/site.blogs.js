@@ -3,8 +3,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Site;
-(function (Site) {
+var bgrade;
+(function (bgrade) {
     var BlogPost = (function () {
         function BlogPost(element, blogs) {
             this._element = element;
@@ -54,6 +54,7 @@ var Site;
             this._blogPosts.push(new BlogPost(element, this));
         };
         return Blogs;
-    }(Site.PageSection));
-    Site.Blogs = Blogs;
-})(Site || (Site = {}));
+    }(bgrade.PageSection));
+    bgrade.Blogs = Blogs;
+})(bgrade || (bgrade = {}));
+//# sourceMappingURL=site.blogs.js.map

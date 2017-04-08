@@ -1,4 +1,4 @@
-﻿( function ( $ )
+﻿module bgrade
 {
     $.fn.carousel = function ( options )
     {
@@ -24,11 +24,11 @@
                     var left = 0;
                     _itemsTotalWidth = 0;
                     _carouselWidth = parseInt( $inner.width() );
-                    
+
                     $items.each( function ()
                     {
-                        _itemsTotalWidth += parseInt( $( this ).width() );
-                    } );
+                        _itemsTotalWidth += $( this ).width();
+                    });
 
                     if ( _itemsTotalWidth < _carouselWidth )
                     {
@@ -47,8 +47,8 @@
                     {
                         var $element = $( element );
                         $element.css( 'left', left );
-                        left += parseInt( $element.width() );
-                    } ).removeClass('pole-position').first().addClass( 'pole-position' );
+                        left += $element.width();
+                    }).removeClass( 'pole-position' ).first().addClass( 'pole-position' );
 
                     $inner.css( 'left', 0 );
                 }
@@ -73,8 +73,8 @@
 
                 $next.prevAll().each( function ()
                 {
-                    position += parseInt( $( this ).width() );
-                } );
+                    position += $( this ).width();
+                });
 
                 if ( $next.index() == $items.length - 2 )
                 {
@@ -107,8 +107,8 @@
 
                 $prev.prevAll().each( function ()
                 {
-                    position += parseInt( $( this ).width() );
-                } );
+                    position += $( this ).width();
+                });
 
                 if ( $prev.index() == 0 )
                 {
@@ -139,7 +139,7 @@
         if ( typeof ( options ) === 'string' )
         {
             var carousel = this.data( 'bg-carousel' );
-            
+
             if ( !carousel )
             {
                 return;
@@ -157,109 +157,4 @@
 
         return this;
     };
-
-}( jQuery ) );
-
-//function Carousel()
-//{
-//    var _itemsTotalWidth = 0;
-//    var _carouselWidth;
-
-//    var $inner;
-
-//    function init()
-//    {
-//        var left = 0;
-//        _carouselWidth = parseInt( $( '.carousel-inner' ).width() );
-        
-//        $( '.carousel-item' ).each( function ( index, element )
-//        {
-//            _itemsTotalWidth += parseInt( $( element ).width() );
-//        } );
-
-//        if ( _itemsTotalWidth < _carouselWidth )
-//        {
-//            left = ( _carouselWidth - _itemsTotalWidth ) / 2;
-
-//            $( '.carousel-previous, .carousel-next' ).hide();
-//        }
-//        else
-//        {
-//            $( '.carousel-previous' ).on( 'click', previousClicked );
-//            $( '.carousel-next' ).on( 'click', nextClicked );
-//        }
-
-//        $( '.carousel-item' ).each( function ( index, element )
-//        {
-//            var $element = $( element );
-//            $element.css( 'left', left );
-//            left += parseInt( $element.width() );
-//        } ).first().addClass('pole-position');
-
-//        $inner = $( '.carousel-inner' ).css( 'left', 0 );
-//    }
-
-//    function nextClicked()
-//    {
-//        var left = parseInt( $inner.css( 'left' ) );
-
-//        var $pole = $( '.pole-position' );
-//        var $next = $pole.next();
-
-//        if ( $next.length == 0 )
-//        {
-//            return;
-//        }
-
-//        if ( $next.index() > 0 )
-//        {
-//            $( '.carousel-previous' ).removeClass( 'hidden' );
-//        }
-
-//        var position = Math.abs( left ) + parseInt( $next.width() );
-
-//        if ( position > _itemsTotalWidth - _carouselWidth )
-//        {
-//            position = _itemsTotalWidth - _carouselWidth;
-
-//            $( '.carousel-next' ).addClass( 'hidden' );
-//        }
-
-//        $pole.removeClass( 'pole-position' );
-//        $next.addClass( 'pole-position' );
-//        $inner.css( 'left', -position );
-//    }
-
-//    function previousClicked()
-//    {
-//        var left = parseInt( $inner.css( 'left' ) );
-
-//        var $pole = $( '.pole-position' );
-//        var $prev = $pole.prev();
-
-//        if ( $pole.index() < $inner.children().length )
-//        {
-//            $( '.carousel-next' ).removeClass( 'hidden' );
-//        }
-
-//        if ( $prev.length == 0 )
-//        {
-//            return;
-//        }
-
-//        var position = Math.abs( left ) - parseInt( $prev.width() );
-
-//        if ( position < 0 )
-//        {
-//            position = 0;
-
-//            $( '.carousel-previous' ).addClass( 'hidden' );
-//        }
-
-//        $pole.removeClass( 'pole-position' );
-//        $prev.addClass( 'pole-position' );
-//        $inner.css( 'left', -position );
-//    }
-
-//    init();
-//}
+}

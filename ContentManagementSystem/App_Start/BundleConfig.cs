@@ -33,18 +33,15 @@ namespace ContentManagementSystem
 
             bundles.Add( new ScriptBundle( "~/bundles/site" )
                             .Include(
-                                "~/Scripts/jquery.extensions.js",
+                                "~/Scripts/Extensions/jquery.js",
                                 "~/Scripts/Plugins/jssocials.min.js",
-                                "~/Scripts/bg.modal.js",
-                                //"~/Scripts/site.contact.js",
-                                "~/Scripts/site.notification.js",
-                                "~/Scripts/site.animations.js",
-                                "~/Scripts/site.image-browser.js",
-                                "~/Scripts/site.types.js",
-                                "~/Scripts/site.js",
-                                "~/Scripts/site.plugin.js",
-                                "~/Scripts/bgrade.ribbon.js",
-                                "~/Scripts/_page-section.js" )
+                                "~/Scripts/bgrade/bg.modal.js",
+                                "~/Scripts/bgrade/site.image-browser.js",
+                                "~/Scripts/bgrade/site.types.js",
+                                "~/Scripts/bgrade/site.js",
+                                "~/Scripts/bgrade/site.plugin.js",
+                                "~/Scripts/bgrade/bgrade.ribbon.js",
+                                "~/Scripts/bgrade/_page-section.js" )
                             .IncludeDirectory( "~/Scripts/PageSections/", "*.js" ) );
 
             //bundles.Add( new ScriptBundle( "~/bundles/siteadmin" ).Include(
@@ -61,7 +58,7 @@ namespace ContentManagementSystem
                                             "~/Scripts/Frameworks/jquery.unobtrusive*",
                                             "~/Scripts/Frameworks/jquery.validate*",
                                             "~/Scripts/Frameworks/jquery.form.js",
-                                            "~/Scripts/site.image-browser.js"
+                                            "~/Scripts/bgrade/site.image-browser.js"
                                         ) );
 
 #if !DEBUG

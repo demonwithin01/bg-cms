@@ -1,5 +1,5 @@
-var Site;
-(function (Site) {
+var bgrade;
+(function (bgrade) {
     var PageSection = (function () {
         function PageSection() {
         }
@@ -8,5 +8,6 @@ var Site;
         ;
         return PageSection;
     }());
-    Site.PageSection = PageSection;
-})(Site || (Site = {}));
+    bgrade.PageSection = PageSection;
+})(bgrade || (bgrade = {}));
+//# sourceMappingURL=_page-section.js.map

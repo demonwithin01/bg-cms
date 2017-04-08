@@ -35,3 +35,4 @@ var bgrade;
     }());
     bgrade.Ribbon = Ribbon;
 })(bgrade || (bgrade = {}));
+//# sourceMappingURL=bgrade.ribbon.js.map

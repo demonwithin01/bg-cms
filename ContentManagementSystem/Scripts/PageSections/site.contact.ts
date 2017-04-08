@@ -1,4 +1,6 @@
-﻿module Site
+﻿var _site = _site || {};
+
+module bgrade
 {
     export class Contact extends PageSection
     {

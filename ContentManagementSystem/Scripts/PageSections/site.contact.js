@@ -3,8 +3,9 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Site;
-(function (Site) {
+var _site = _site || {};
+var bgrade;
+(function (bgrade) {
     var Contact = (function (_super) {
         __extends(Contact, _super);
         function Contact() {
@@ -18,12 +19,13 @@ var Site;
         };
         Contact.prototype.formResult = function (data) {
             if (data.success) {
-                _site.showNotification(notificationType.success, data.message);
+                _site.showNotification(bgrade.notificationType.success, data.message);
             }
             else {
             }
         };
         return Contact;
-    }(Site.PageSection));
-    Site.Contact = Contact;
-})(Site || (Site = {}));
+    }(bgrade.PageSection));
+    bgrade.Contact = Contact;
+})(bgrade || (bgrade = {}));
+//# sourceMappingURL=site.contact.js.map
