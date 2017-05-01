@@ -1,0 +1,24 @@
+﻿@import (reference) "_shared/_common.less";
+
+.overlay-text
+{
+    position: relative;
+
+    &:after
+    {
+        .center-vertically;
+        display: block;
+        opacity: 0.5;
+        right: 0;
+    }
+
+    &.overlay-text-title:after
+    {
+        content: 'Title';
+    }
+
+    &.overlay-text-notes:after
+    {
+        content: 'Notes';
+    }
+}

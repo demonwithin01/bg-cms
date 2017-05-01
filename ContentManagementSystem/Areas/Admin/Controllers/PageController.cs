@@ -56,7 +56,14 @@ namespace ContentManagementSystem.Admin.Controllers
 
         public ActionResult Edit( int id )
         {
-            return View( base.Manager.GetPageModel( id ) );
+            PageModel model = base.Manager.GetPageModel( id );
+
+            if ( model.PageTemplateModel != null )
+            {
+                model.PageTemplateModel.InitialiseForEditor();
+            }
+
+            return View( model );
         }
 
         [HttpPost]

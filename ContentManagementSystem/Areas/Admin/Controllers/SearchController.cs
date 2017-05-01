@@ -1,14 +1,16 @@
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web;
+using System.Web.Mvc;
+using ContentManagementSystem.BaseClasses;
+using ContentManagementSystem.Framework;
+using ContentManagementSystemDatabase;
 
-namespace ContentManagementSystem.Framework
+namespace ContentManagementSystem.Admin.Controllers
 {
-    public class PageTemplate
+    [Authorization( new Role[] { Role.Administrator } )]
+    public class SearchController : ContentManagementController
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -27,28 +29,16 @@ namespace ContentManagementSystem.Framework
 
         #region Public Methods
 
-        /// <summary>
-        /// Initiliases the model for editor purposes.
-        /// </summary>
-        public virtual void InitialiseForEditor()
+        [HttpPost]
+        public JsonResult Uploads( string term )
         {
+            ContentManagementDb db = new ContentManagementDb();
 
-        }
+            term = ( term ?? "" ).ToLower();
 
-        /// <summary>
-        /// Initiliases the model for display purposes.
-        /// </summary>
-        public virtual void InitialiseForDisplay()
-        {
+            var uploads = db.Uploads.Where( s => s.DomainId == UserSession.Current.DomainId && s.Title.ToLower().Contains( term ) ).Take( 10 );
 
-        }
-
-        /// <summary>
-        /// Raised before the object is saved.
-        /// </summary>
-        public virtual void OnBeforeSave()
-        {
-
+            return Json( new { uploads = uploads.Select( s => new { uploadId = s.UploadId, fileLocation = s.PhysicalLocation, title = s.Title } ) } );
         }
 
         #endregion
@@ -62,18 +52,6 @@ namespace ContentManagementSystem.Framework
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Properties
-
-        [JsonIgnore]
-        public HttpRequest Request { get; set; }
-
-        [JsonIgnore]
-        public bool HideBackgroundColor { get; set; }
-        
-        [JsonIgnore]
-        public string EditorLocation { get; set; }
-
-        [JsonIgnore]
-        public string DisplayLocation { get; set; }
 
         #endregion
 

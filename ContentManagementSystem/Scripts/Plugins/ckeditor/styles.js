@@ -119,6 +119,7 @@ CKEDITOR.stylesSet.add( 'default', [
     { name: 'No Line Height',       element: 'p',        styles: { 'line-height': '0' } },
 
     { name: 'Borderless Table',		element: 'table',	styles: { 'border-style': 'hidden', 'background-color': '#E6E6FA' } },
-    { name: 'Square Bulleted List',	element: 'ul',		styles: { 'list-style-type': 'square' } }
+    { name: 'Square Bulleted List', element: 'ul', styles: { 'list-style-type': 'square' } },
+    { name: 'Floating Look',        element: 'div', attributes: { 'class': 'floating' } }
 ] );
 

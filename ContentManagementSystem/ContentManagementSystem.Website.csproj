@@ -61,6 +61,10 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="LowercaseRoutesMVC4">
       <HintPath>..\packages\LowercaseRoutesMVC4.0.4.1\lib\LowercaseRoutesMVC4.dll</HintPath>
     </Reference>
@@ -220,6 +224,7 @@
     <Compile Include="Areas\Admin\Controllers\PageController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SearchController.cs" />
     <Compile Include="Areas\Admin\Controllers\UploadsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Admin\Managers\DomainManager.cs" />
@@ -507,6 +512,7 @@
     <Content Include="Content\Styles\_tiled-sub-navigation.less" />
     <Content Include="Content\Styles\_tile-gallery.less" />
     <Content Include="Content\Styles\_notifications.less" />
+    <Content Include="Content\Styles\_overlay-text.less" />
     <None Include="Properties\PublishProfiles\Production.pubxml" />
     <Content Include="Scripts\bgrade\bg.carousel.js">
       <DependentUpon>bg.carousel.ts</DependentUpon>
@@ -554,6 +560,9 @@
     <Content Include="Scripts\Frameworks\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\Frameworks\knockout-2.2.0.js" />
     <Content Include="Scripts\Frameworks\modernizr-2.6.2.js" />
+    <Content Include="Scripts\PageSections\site.blogs.js">
+      <DependentUpon>site.blogs.ts</DependentUpon>
+    </Content>
     <Content Include="Scripts\PageSections\site.contact.js">
       <DependentUpon>site.contact.ts</DependentUpon>
     </Content>
@@ -1023,6 +1032,9 @@
     </Content>
     <Content Include="Scripts\bgrade\_page-section.js.map">
       <DependentUpon>_page-section.ts</DependentUpon>
+    </Content>
+    <Content Include="Scripts\PageSections\site.blogs.js.map">
+      <DependentUpon>site.blogs.ts</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>

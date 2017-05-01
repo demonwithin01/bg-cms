@@ -1,2 +1,253 @@
-﻿@model ContentManagementSystem.Framework.Models.Page.TileGallery
+﻿@using ContentManagementSystem.Framework.Models.Page;
+@model TileGallery
 
+@{
+    TileGalleryItem template = new TileGalleryItem();
+}
+
+<div class="gallery-tiles">
+    @for ( int i = 0 ; i < Model.Items.Count ; i++ )
+    {
+        <div class="gallery-tile" data-index="@i">
+            <a href="javascript:void(0);" onclick="openModal($( this ).parent());">
+                <div class="gallery-tile-image" style="background-image: url('@Model.Items[ i ].ImageUrl');"></div>
+            </a>
+            @Html.HiddenFor( m => m.Items[ i ].UploadId )
+            <div class="gallery-tile-text">
+                <div class="gallery-tile-title">
+                    @Html.TextBoxFor( m => m.Items[ i ].Title, new { placeholder = "Title" } )
+                </div>
+                <div class="gallery-tile-details" data-notes-count="@Model.Items[ i ].Notes.Count">
+                    <ul>
+                        @for ( int j = 0 ; j < Model.Items[ i ].Notes.Count ; j++ )
+                        {
+                            <li class="edit">
+                                @Html.TextBoxFor( m => m.Items[ i ].Notes[ j ], new { placeholder = "Note" } )
+                                @Glyph( "remove", new { @class = "button cancel", onclick = "removeNote( $( this ) );" } )
+                            </li>
+                        }
+                        <li class="add-new-note" onclick="addNote( $( this ) );">
+                            <span class="button secondary">
+                                Add Note
+                                @Glyph( "add" )
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <span class="remove-tile button cancel" onclick="removeTile($(this));">
+                @Glyph( "remove" )
+            </span>
+        </div>
+    }
+    <div id="addGalleryTile" class="gallery-tile">
+        <a href="javascript:void(0);" onclick="addTile();">
+            <span>
+                @Glyph( "plus" )
+            </span>
+        </a>
+    </div>
+</div>
+
+<div id="uploadSelector" style="display: none;">
+    <div class="modal-content">
+        @Html.TextBoxFieldFor( m => m.SearchBox )
+        <div class="upload-options">
+            <div class="scroll-content">
+                <ul id="uploadOptions"></ul>
+            </div>
+        </div>
+        <span class="cancel-modal" onclick="$('#uploadSelector').bgmodal('close');">
+            @Glyph( "remove" )
+        </span>
+    </div>
+</div>
+
+<div id="galleryTileTemplate" style="display: none;">
+    <div class="gallery-tile">
+        <a href="javascript:void(0);" onclick="openModal($( this ).parent());">
+            <div class="gallery-tile-image" style="background-image: url('');"></div>
+        </a>
+        @Html.HiddenFor( m => template.UploadId )
+        <div class="gallery-tile-text">
+            <div class="gallery-tile-title">
+                @Html.TextBoxFor( m => template.Title, new { placeholder = "Title" } )
+            </div>
+            <div class="gallery-tile-details" data-notes-count="0">
+                <ul>
+                    <li class="add-new-note" onclick="addNote( $( this ) );">
+                        <span class="button secondary">
+                            Add Note
+                            @Glyph( "add" )
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <span class="remove-tile button cancel" onclick="removeTile($(this));">
+            @Glyph( "remove" )
+        </span>
+    </div>
+</div>
+
+<script>
+
+    var currentTileCount = @Model.Items.Count;
+    var currentTile;
+
+    function addTile()
+    {
+        var tileTemplate = $( "#galleryTileTemplate" ).children().clone();
+
+        tileTemplate.find( "input" ).each( function ()
+        {
+            var element = $(this);
+            var id = element.attr("id");
+            var name = element.attr("name");
+
+            element.attr( { id: id.replace( /template_/g, "Items_" + currentTileCount + "__" ), name: name.replace( /template\./g, "Items[" + currentTileCount + "]." ) });
+        });
+
+        tileTemplate.attr( "data-index", currentTileCount );
+
+        tileTemplate.insertBefore( $("#addGalleryTile" ) );
+
+        ++currentTileCount;
+    }
+
+    function addNote( element )
+    {
+        var $li = $( "<li class=\"edit\"><input id=\"template_Notes\" name=\"template.Notes\" class=\"gallery-tile-note-input\" placeholder=\"Note\" />@Glyph( "remove", new { @class = "button cancel", onclick = "removeNote( $( this ) );" } ).EscapeQuotes()</li>" );
+        var $input = $li.children().eq(0);
+
+        var id = $input.attr("id");
+        var name = $input.attr("name");
+        var index = element.closest( ".gallery-tile" ).attr( "data-index" );
+        var notesCount = element.closest( ".gallery-tile-details" ).attr( "data-notes-count" );
+
+        id = id.replace( /template_/g, "Items_" + index + "__" );
+        name = name.replace( /template\./g, "Items[" + index + "]." );
+
+        id = id.replace( /Notes/g, "Notes_" + notesCount + "_" );
+        name = name.replace( /Notes/g, "Notes[" + notesCount + "]" );
+
+        $input.attr( { id: id, name: name });
+
+        $li.insertBefore( element );
+
+        element.closest( ".gallery-tile-details" ).attr( "data-notes-count", Number( notesCount ) + 1 );
+    }
+
+    function removeNote( element )
+    {
+        var tileDetails = element.closest( ".gallery-tile-details" );
+        element.closest( "li" ).remove();
+
+        updateNoteIndices( tileDetails );
+    }
+
+    function updateNoteIndices( tileDetails )
+    {
+        var count = 0;
+
+        tileDetails.find( "li.edit" ).each( function ( idx )
+        {
+            ++count;
+
+            var $li = $(this);
+
+            var $input = $li.children().eq(0);
+
+            var id = $input.attr("id");
+            var name = $input.attr("name");
+
+            id = id.replace( /Notes_\d*_/g, "Notes__" + idx + "_" );
+            name = name.replace( /Notes\[\d*\]/g, "Notes[" + idx + "]" );
+
+            $input.attr( { id: id, name: name });
+        });
+
+        tileDetails.attr( "data-notes-count", count );
+    }
+
+    function performSearch()
+    {
+        $.post( "/admin/search/uploads", { term: $("#SearchBox").val() }, function ( data )
+        {
+            var options = $( "#uploadOptions" ).empty();
+            for ( var i = 0; i < data.uploads.length; i++ )
+            {
+                var upload = data.uploads[i];
+                options.append( "<li data-upload-id=\"" + upload.uploadId + "\"><a href=\"javascript:void(0);\" onclick=\"selectUpload( $(this) );\"><img src=\"" + upload.fileLocation + "\" /><p>" + upload.title + "</p></a></li>" );
+            }
+        });
+    }
+
+    function selectUpload( element )
+    {
+        currentTile.find( ".gallery-tile-image" ).css( "background-image", "url('" + element.find( "img" ).attr( "src" ) + "')" );
+        currentTile.find( "a" ).next().val( element.closest( "li" ).attr( "data-upload-id" ) );
+        currentTile.find( ".gallery-tile-title > input" ).val( element.find( "p" ).text() );
+
+        $("#uploadSelector").bgmodal("close");
+    }
+
+    function removeTile( element )
+    {
+        element.closest( ".gallery-tile" ).remove();
+
+        renameTiles();
+    }
+
+    function renameTiles()
+    {
+        $( ".gallery-tiles").children( ".gallery-tile" ).each( function ( idx )
+        {
+            var $tile = $( this );
+
+            $tile.find( "input" ).each( function ()
+            {
+                var $input = $(this);
+                var id = $input.attr("id");
+                var name = $input.attr("name");
+
+                id = id.replace( /Items_\d*_/g, "Items_" + idx + "_" );
+                name = name.replace( /Items\[\d*\]/g, "Items[" + idx + "]" );
+
+                $input.attr( { id: id, name: name });
+            });
+
+            $tile.attr( "data-index", idx );
+        });
+    }
+
+    function openModal( element )
+    {
+        currentTile = element;
+
+        $( "#SearchBox" ).val( "" );
+        $( "#uploadOptions" ).empty()
+        $( "#uploadSelector" ).bgmodal( "open" );
+    }
+
+    $( function ()
+    {
+        var _timeout;
+
+        $("#uploadSelector").bgmodal(
+        {
+            autoOpen: false
+        });
+
+        $("#SearchBox").on("keydown", function ()
+        {
+            clearTimeout(_timeout);
+
+            _timeout = setTimeout( function ()
+            {
+                performSearch();
+            }, 500);
+        });
+    });
+
+</script>

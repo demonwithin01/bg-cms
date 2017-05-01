@@ -28,12 +28,12 @@
             }
             else
             {
-                <a href="@Url.Action( "Login", "Account", new { Area = "Home" } )" class="login-button">
+                @*<a href="@Url.Action( "Login", "Account", new { Area = "Home" } )" class="login-button">
                     <span class="icon">
                         <i class="fa fa-sign-in"></i>
                     </span>
                     <span class="text">Login</span>
-                </a>
+                </a>*@
             }
             <ul id="menu" class="off">
                 @if ( UserCookie.Current.IsLoggedIn && UserCookie.Current.IsAdministrator )

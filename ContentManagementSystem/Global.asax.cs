@@ -34,6 +34,15 @@ namespace ContentManagementSystem
             RouteConfig.RegisterRoutes( RouteTable.Routes );
             BundleConfig.RegisterBundles( BundleTable.Bundles );
             AuthConfig.RegisterAuth();
+
+            RegisterLog4Net();
+        }
+
+        private void RegisterLog4Net()
+        {
+            log4net.Config.XmlConfigurator.Configure();
+            log4net.GlobalContext.Properties[ "loggedInUserId" ] = null;
+            log4net.GlobalContext.Properties[ "domain" ] = null;
         }
     }
 }

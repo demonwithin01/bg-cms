@@ -1,14 +1,15 @@
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web;
+using ContentManagementSystemDatabase;
+using Newtonsoft.Json;
 
-namespace ContentManagementSystem.Framework
+namespace ContentManagementSystem.Framework.Models.Page
 {
-    public class PageTemplate
+    public class TileGalleryItem
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -21,36 +22,22 @@ namespace ContentManagementSystem.Framework
 
         #region Constructors/Initialisation
 
+        public TileGalleryItem()
+        {
+            this.Notes = new List<string>();
+        }
+
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Public Methods
 
-        /// <summary>
-        /// Initiliases the model for editor purposes.
-        /// </summary>
-        public virtual void InitialiseForEditor()
+        public void UpdateUploadEntity( Upload upload )
         {
-
+            this.ImageUrl = upload.PhysicalLocation;
         }
-
-        /// <summary>
-        /// Initiliases the model for display purposes.
-        /// </summary>
-        public virtual void InitialiseForDisplay()
-        {
-
-        }
-
-        /// <summary>
-        /// Raised before the object is saved.
-        /// </summary>
-        public virtual void OnBeforeSave()
-        {
-
-        }
-
+        
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -63,18 +50,20 @@ namespace ContentManagementSystem.Framework
 
         #region Properties
 
-        [JsonIgnore]
-        public HttpRequest Request { get; set; }
-
-        [JsonIgnore]
-        public bool HideBackgroundColor { get; set; }
+        [JsonProperty( "uploadId" )]
+        public int UploadId { get; set; }
         
-        [JsonIgnore]
-        public string EditorLocation { get; set; }
+        [Required( ErrorMessage = "Please enter in the title" )]
+        [JsonProperty( "title" )]
+        public string Title { get; set; }
+        
+        [JsonProperty( "notes" )]
+        public List<string> Notes { get; set; }
+
 
         [JsonIgnore]
-        public string DisplayLocation { get; set; }
-
+        public string ImageUrl { get; private set; }
+        
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */

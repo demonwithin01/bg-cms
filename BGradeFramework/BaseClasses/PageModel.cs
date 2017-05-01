@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using System.Web.Security;
 using System.Web.WebPages;
 using ContentManagementSystemDatabase;
@@ -97,6 +98,40 @@ namespace ContentManagementSystem.Framework.BaseClasses
             }
 
             return Html.Raw( alternateHtml );
+        }
+
+        /// <summary>
+        /// Renders a Glyphicon to the screen.
+        /// </summary>
+        /// <param name="icon">The icon to render.</param>
+        public IHtmlString Glyph( string icon )
+        {
+            return Html.Raw( "<i class=\"icon fa fa-" + icon + "\"></i>" );
+        }
+
+        /// <summary>
+        /// Renders a Glyphicon to the screen.
+        /// </summary>
+        /// <param name="icon">The icon to render.</param>
+        /// <param name="htmlAttributes">Any additional attributes to add to the icon.</param>
+        public IHtmlString Glyph( string icon, object htmlAttributes )
+        {
+            TagBuilder tag = new TagBuilder( "i" );
+
+            tag.AddCssClass( "icon" );
+            tag.AddCssClass( "fa" );
+            tag.AddCssClass( "fa-" + icon );
+
+            RouteValueDictionary attributes = HtmlHelper.AnonymousObjectToHtmlAttributes( htmlAttributes );
+
+            if ( attributes.ContainsKey( "class" ) )
+            {
+                tag.AddCssClass( attributes[ "class" ].ToString() );
+            }
+
+            tag.MergeAttributes( attributes );
+
+            return Html.Raw( tag.ToString() );
         }
 
         #endregion

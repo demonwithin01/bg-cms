@@ -149,6 +149,8 @@ namespace ContentManagementSystem.Admin.Managers
         {
             pageContent.ModelType = pageModel.ModelType;
 
+            pageModel.PageTemplateModel.OnBeforeSave();
+
             pageContent.Content = JsonConvert.SerializeObject( pageModel.PageTemplateModel );
         }
 

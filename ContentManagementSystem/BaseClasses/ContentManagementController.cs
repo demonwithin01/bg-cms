@@ -10,19 +10,6 @@ namespace ContentManagementSystem.BaseClasses
 {
     public class ContentManagementController : BaseController
     {
-        private ContentManagementDb _db;
 
-        protected ContentManagementDb Database
-        {
-            get
-            {
-                if ( this._db == null )
-                {
-                    this._db = new ContentManagementDb();
-                }
-
-                return this._db;
-            }
-        }
     }
 }

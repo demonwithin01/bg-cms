@@ -108,6 +108,17 @@ namespace ContentManagementSystem.Framework.BaseClasses
         }
 
         /// <summary>
+        /// Logs the exception into the database.
+        /// </summary>
+        /// <param name="filterContext"></param>
+        protected override void OnException( ExceptionContext filterContext )
+        {
+            ErrorLog.Error( "Unknown Exception", filterContext.Exception );
+
+            base.OnException( filterContext );
+        }
+
+        /// <summary>
         /// Converts a route value dictionary into a json result.
         /// </summary>
         /// <param name="dictionary">The route value dictionary to convert into a json object</param>
