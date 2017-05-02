@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ContentManagementSystem.Framework
 {
-    
+    //TODO: Remove and replace with the one in BGrade Lib?
     /// <summary>
     /// Used to set whether an item was successfully validate and the corresponding message.
     /// </summary>
@@ -148,5 +144,4 @@ namespace ContentManagementSystem.Framework
         /* ---------------------------------------------------------------------------------------------------------- */
 
     }
-
 }

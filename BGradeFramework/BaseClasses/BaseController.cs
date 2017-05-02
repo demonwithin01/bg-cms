@@ -1,27 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 using System.Web.Helpers;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Script.Serialization;
-using ContentManagementSystem.Framework;
 using ContentManagementSystemDatabase;
 
 namespace ContentManagementSystem.Framework.BaseClasses
 {
-    
+    //TODO: Move to BGrade library
+    /// <summary>
+    /// The base controller which provides common functionality to all site actions/controllers.
+    /// </summary>
     public class BaseController : Controller
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Class Members
-
-        private ContentManagementDb _db;
 
         #endregion
 
@@ -47,48 +42,14 @@ namespace ContentManagementSystem.Framework.BaseClasses
 
         #region Public Methods
 
+        /// <summary>
+        /// Updates the object model with the form details.
+        /// </summary>
+        /// <typeparam name="TModel">The model type that is to be updated from the form data.</typeparam>
+        /// <param name="model">The model instance that is to be updated.</param>
         public void UpdateObjectModel<TModel>( TModel model ) where TModel : class
         {
             UpdateModel( model );
-        }
-
-        /// <summary>
-        /// Turns a validation result into a json result to be returned to the webpage.
-        /// </summary>
-        /// <param name="result">The validation result</param>
-        /// <param name="data">Any additional data to add to the json object</param>
-        /// <returns>A json result constructed from the validation result</returns>
-        public JsonResult JsonActionResult( ValidationResult result, object data = null )
-        {
-
-            RouteValueDictionary dictionary = new RouteValueDictionary( data );
-
-            if ( result.Result )
-            {
-                dictionary.Add( "success", true );
-                if ( result.DisplayNotification )
-                {
-                    dictionary.Add( "result", NotificationType.Confirmation.GetDescription() );
-                }
-            }
-            else
-            {
-                dictionary.Add( "success", false );
-                if ( result.DisplayNotification )
-                {
-                    dictionary.Add( "result", NotificationType.Error.GetDescription() );
-                }
-            }
-
-            if ( result.DisplayNotification )
-            {
-                dictionary.Add( "displayNotification", true );
-                dictionary.Add( "message", result.Message );
-            }
-
-
-            return ConvertRouteValueDictionaryToJSObject( dictionary );
-
         }
 
         #endregion
@@ -96,28 +57,7 @@ namespace ContentManagementSystem.Framework.BaseClasses
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Protected Methods
-
-        protected override void OnActionExecuting( ActionExecutingContext filterContext )
-        {
-            if ( UserCookie.Current.IsValidUrl == false )
-            {
-
-            }
             
-            base.OnActionExecuting( filterContext );
-        }
-
-        /// <summary>
-        /// Logs the exception into the database.
-        /// </summary>
-        /// <param name="filterContext"></param>
-        protected override void OnException( ExceptionContext filterContext )
-        {
-            ErrorLog.Error( "Unknown Exception", filterContext.Exception );
-
-            base.OnException( filterContext );
-        }
-
         /// <summary>
         /// Converts a route value dictionary into a json result.
         /// </summary>
@@ -125,12 +65,10 @@ namespace ContentManagementSystem.Framework.BaseClasses
         /// <returns>A json result built from the provided route value dictionary. Automatically uses JsonRequestBehavior.AllowGet</returns>
         protected JsonResult ConvertRouteValueDictionaryToJSObject( RouteValueDictionary dictionary )
         {
-
             string encoded = System.Web.Helpers.Json.Encode( new DynamicJsonObject( dictionary ) ); ;
             dynamic jsObject = new JavaScriptSerializer().Deserialize<object>( encoded );
 
             return Json( jsObject, JsonRequestBehavior.AllowGet );
-
         }
 
         /// <summary>
@@ -170,7 +108,6 @@ namespace ContentManagementSystem.Framework.BaseClasses
         /// <returns>The view as a string</returns>
         protected string RenderPartialViewToString( string viewName, object model )
         {
-
             if ( string.IsNullOrEmpty( viewName ) )
             {
                 viewName = base.ControllerContext.RouteData.GetRequiredString( "action" );
@@ -180,15 +117,12 @@ namespace ContentManagementSystem.Framework.BaseClasses
 
             using ( StringWriter writer = new StringWriter() )
             {
-
                 ViewEngineResult viewResult = ViewEngines.Engines.FindPartialView( base.ControllerContext, viewName );
                 ViewContext viewContext = new ViewContext( base.ControllerContext, viewResult.View, base.ViewData, base.TempData, writer );
                 viewResult.View.Render( viewContext, writer );
 
                 return writer.GetStringBuilder().ToString();
-
             }
-
         }
 
         #endregion
@@ -209,18 +143,9 @@ namespace ContentManagementSystem.Framework.BaseClasses
 
         #region Properties
 
-        public ContentManagementDb Database
-        {
-            get
-            {
-                return ( this._db ?? ( this._db = new ContentManagementDb() ) );
-            }
-        }
-
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
     }
-
 }

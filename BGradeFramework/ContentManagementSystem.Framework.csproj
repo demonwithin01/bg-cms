@@ -161,10 +161,10 @@
     <Compile Include="System\LessTransform.cs" />
     <Compile Include="System\NavItem.cs" />
     <Compile Include="System\SaveResult.cs" />
-    <Compile Include="System\SaveResultState.cs" />
+    <Compile Include="System\Types\SaveResultState.cs" />
     <Compile Include="System\UserCookie.cs" />
     <Compile Include="System\UserSession.cs" />
-    <Compile Include="System\Notification.cs" />
+    <Compile Include="System\Types\Notification.cs" />
     <Compile Include="System\ValidationResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

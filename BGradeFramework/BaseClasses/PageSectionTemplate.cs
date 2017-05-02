@@ -1,11 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace ContentManagementSystem.Framework
 {
+    /// <summary>
+    /// Acts as a base for all page section templates.
+    /// </summary>
     public class PageSectionTemplate
     {
 

@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-using System.Web.Security;
-using System.Web.WebPages;
 using ContentManagementSystemDatabase;
 
 namespace ContentManagementSystem.Framework.BaseClasses
 {
-    
+    /// <summary>
+    /// Provides common functionality to all razor page models.
+    /// </summary>
+    /// <typeparam name="T">The model type that the page model uses in the view.</typeparam>
     public class PageModel<T> : WebViewPage<T>
     {
 
@@ -20,10 +17,17 @@ namespace ContentManagementSystem.Framework.BaseClasses
 
         #region Class Members
 
+        internal class Keys
+        {
+            internal const string HideSocialButtons = "HideSocialButtons";
+            internal const string HideTitle = "HideTitle";
+            internal const string IsHomePage = "IsHomePage";
+            internal const string PageTitle = "PageTitle";
+            internal const string UseFullWidth = "UseFullWidth";
+        }
+
         private UserProfile _userProfile;
-
-        private string hideSocialButtons = "HideSocialButtons";
-
+        
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -36,11 +40,18 @@ namespace ContentManagementSystem.Framework.BaseClasses
 
         #region Public Methods
 
+        /// <summary>
+        /// Required by the base type. Does nothing.
+        /// </summary>
         public override void Execute()
         {
                
         }
 
+        /// <summary>
+        /// Gets the website url as it comes in through the request. If debug mode, the port is included, otherwise it is ignored.
+        /// </summary>
+        /// <returns>The current website url.</returns>
         public string SiteUrl()
         {
             string url = Request.Url.Scheme + "://" + Request.Url.Host;
@@ -52,13 +63,25 @@ namespace ContentManagementSystem.Framework.BaseClasses
             return url;
         }
 
+        /// <summary>
+        /// Gets the current page url as it comes in through the request.
+        /// </summary>
+        /// <returns>The current page url.</returns>
         public string PageUrl()
         {
             return SiteUrl() + Request.Url.AbsolutePath;
         }
 
+        /// <summary>
+        /// Gets the current page url as it comes in through the request, plus 
+        /// </summary>
+        /// <param name="queryString">Any query string parameters to be added to the page.</param>
+        /// <returns>The current page url.</returns>
         public string PageUrl( string queryString )
         {
+            //TODO: Make more robust.
+            //TODO: Make anonymous object version.
+
             queryString = queryString ?? "";
 
             if ( queryString.Length > 0 && queryString.StartsWith( "?" ) == false )
@@ -152,77 +175,95 @@ namespace ContentManagementSystem.Framework.BaseClasses
 
         #region Properties
 
+        /// <summary>
+        /// Gets/Sets the page title to use in the layout base.
+        /// </summary>
         public string PageTitle
         { 
             get
             {
-                object pageTitle = TempData[ "PageTitle" ];
+                object pageTitle = TempData[ Keys.PageTitle ];
                 if ( pageTitle != null ) return pageTitle.ToString();
 
                 return UserCookie.Current.SiteName;
             }
             set
             {
-                TempData[ "PageTitle" ] = value;
+                TempData[ Keys.PageTitle ] = value;
             }
         }
 
+        /// <summary>
+        /// Gets/Sets whether or not to hide the page title.
+        /// </summary>
         public bool HideTitle
         {
             get
             {
-                if ( TempData.ContainsKey( "HideTitle" ) ) return (bool)TempData[ "HideTitle" ];
+                if ( TempData.ContainsKey( Keys.HideTitle ) ) return (bool)TempData[ Keys.HideTitle ];
 
                 return false;
             }
             set
             {
-                TempData[ "HideTitle" ] = value;
+                TempData[ Keys.HideTitle ] = value;
             }
         }
 
+        /// <summary>
+        /// Gets/Sets whether or not to hide the social network buttons.
+        /// </summary>
         public bool HideSocialButtons
         {
             get
             {
-                if ( TempData.ContainsKey( hideSocialButtons ) ) return (bool)TempData[ hideSocialButtons ];
+                if ( TempData.ContainsKey( Keys.HideSocialButtons ) ) return (bool)TempData[ Keys.HideSocialButtons ];
 
                 return false;
             }
             set
             {
-                TempData[ hideSocialButtons ] = value;
+                TempData[ Keys.HideSocialButtons ] = value;
             }
         }
 
+        /// <summary>
+        /// Gets/Sets whether to use the full width or allow the theme default.
+        /// </summary>
         public bool UseFullWidth
         {
             get
             {
-                if ( TempData.ContainsKey( "UseFullWidth" ) ) return (bool)TempData[ "UseFullWidth" ];
+                if ( TempData.ContainsKey( Keys.UseFullWidth ) ) return (bool)TempData[ Keys.UseFullWidth ];
 
                 return false;
             }
             set
             {
-                TempData[ "UseFullWidth" ] = value;
+                TempData[ Keys.UseFullWidth ] = value;
             }
         }
 
+        /// <summary>
+        /// Gets/Sets whether or not this page is the current home page.
+        /// </summary>
         public bool IsHomePage
         {
             get
             {
-                if ( TempData.ContainsKey( "IsHomePage" ) ) return (bool)TempData[ "IsHomePage" ];
+                if ( TempData.ContainsKey( Keys.IsHomePage ) ) return (bool)TempData[ Keys.IsHomePage ];
 
                 return false;
             }
             set
             {
-                TempData[ "IsHomePage" ] = value;
+                TempData[ Keys.IsHomePage ] = value;
             }
         }
 
+        /// <summary>
+        /// Gets the current user profile.
+        /// </summary>
         public UserProfile UserProfile
         {
             get
@@ -236,6 +277,9 @@ namespace ContentManagementSystem.Framework.BaseClasses
             }
         }
 
+        /// <summary>
+        /// Gets the current user session.
+        /// </summary>
         public UserSession UserSession
         {
             get

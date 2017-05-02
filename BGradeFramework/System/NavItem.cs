@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace ContentManagementSystem.Framework
 {
+    /// <summary>
+    /// Navigation Item for use for storing in memory and using in views.
+    /// </summary>
     public class NavItem
     {
 
@@ -26,11 +29,18 @@ namespace ContentManagementSystem.Framework
 
         #region Constructors/Initialisation
 
+        /// <summary>
+        /// Creates a new Nav Item.
+        /// </summary>
         public NavItem()
         {
             SubItems = new List<NavItem>();
         }
 
+        /// <summary>
+        /// Creates a new Nav Item from a database instance.
+        /// </summary>
+        /// <param name="navItem">The database navigation item to copy the details from.</param>
         public NavItem( DomainNavigationItem navItem )
         {
             PageId = navItem.PageId;
@@ -63,11 +73,20 @@ namespace ContentManagementSystem.Framework
 
         #region Properties
 
-        public int PageId { get; set; }
+        /// <summary>
+        /// Gets the Page Id to navigate to.
+        /// </summary>
+        public int PageId { get; private set; }
 
-        public string Title { get; set; }
+        /// <summary>
+        /// Gets the display title.
+        /// </summary>
+        public string Title { get; private set; }
 
-        public List<NavItem> SubItems { get; set; }
+        /// <summary>
+        /// Gets any child navigation items.
+        /// </summary>
+        public List<NavItem> SubItems { get; private set; }
         
         #endregion
 

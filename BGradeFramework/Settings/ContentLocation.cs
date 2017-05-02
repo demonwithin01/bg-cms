@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ContentManagementSystem.Framework
+﻿namespace ContentManagementSystem.Framework
 {
+    /// <summary>
+    /// Provides folder locations.
+    /// </summary>
     public static class ContentLocation
     {
         /// <summary>

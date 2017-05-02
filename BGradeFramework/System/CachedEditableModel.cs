@@ -1,9 +1,5 @@
-﻿using ContentManagementSystem.Framework.BaseClasses;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using ContentManagementSystem.Framework.BaseClasses;
 
 namespace ContentManagementSystem.Framework
 {

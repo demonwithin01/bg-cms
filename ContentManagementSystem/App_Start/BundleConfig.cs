@@ -4,6 +4,7 @@ using System.Web.Optimization;
 
 namespace ContentManagementSystem
 {
+    //TODO: Refactor to join bundles together.
     public class BundleConfig
     {
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
@@ -43,10 +44,7 @@ namespace ContentManagementSystem
                                 "~/Scripts/bgrade/bgrade.ribbon.js",
                                 "~/Scripts/bgrade/_page-section.js" )
                             .IncludeDirectory( "~/Scripts/PageSections/", "*.js" ) );
-
-            //bundles.Add( new ScriptBundle( "~/bundles/siteadmin" ).Include(
-            //            "~/Scripts/Plugins/dropzone.js" ) );
-
+            
             bundles.Add( new ScriptBundle( "~/bundles/filedrop" ).Include(
                         "~/Scripts/Plugins/dropzone.js" ) );
 
@@ -61,31 +59,41 @@ namespace ContentManagementSystem
                                             "~/Scripts/bgrade/site.image-browser.js"
                                         ) );
 
-#if !DEBUG
-            bundles.Add( new StyleBundle( "~/Content/css" ).Include( 
-                "~/Content/Styles/_reset.min.css",
-                "~/Content/Styles/Plugins/jssocials.css",
-                "~/Content/Styles/Plugins/jssocials-theme-flat.css" ) );
-                //"~/Content/Styles/site.min.css"
-#else
             bundles.Add( new StyleBundle( "~/Content/css" ).Include(
-                "~/Content/Styles/_reset.min.css",
-                "~/Content/Styles/Plugins/jssocials.css",
-                "~/Content/Styles/Plugins/jssocials-theme-flat.css" ) );
-            //"~/Content/Styles/site.css" 
-#endif
+                CssFile( "_reset" ),
+                CssFile( "Plugins/jssocials" ),
+                CssFile( "Plugins/jssocials-theme-flat" ) ) );
 
-#if !DEBUG
-            bundles.Add( new StyleBundle( "~/Content/admincss" ).Include( 
-                "~/Content/Styles/_reset.min.css",
-                "~/Content/Styles/Plugins/spectrum.css",
-                "~/Content/Styles/admin.min.css" ) );
-#else
+//#if !DEBUG
+//            bundles.Add( new StyleBundle( "~/Content/css" ).Include( 
+//                "~/Content/Styles/_reset.min.css",
+//                "~/Content/Styles/Plugins/jssocials.css",
+//                "~/Content/Styles/Plugins/jssocials-theme-flat.css" ) );
+//                //"~/Content/Styles/site.min.css"
+//#else
+//            bundles.Add( new StyleBundle( "~/Content/css" ).Include(
+//                "~/Content/Styles/_reset.min.css",
+//                "~/Content/Styles/Plugins/jssocials.css",
+//                "~/Content/Styles/Plugins/jssocials-theme-flat.css" ) );
+//            //"~/Content/Styles/site.css" 
+//#endif
+
             bundles.Add( new StyleBundle( "~/Content/admincss" ).Include(
-                "~/Content/Styles/_reset.min.css",
+                CssFile( "_reset" ),
                 "~/Content/Styles/Plugins/spectrum.css",
-                "~/Content/Styles/admin.css" ) );
-#endif
+                CssFile( "admin" ) ) );
+
+//#if !DEBUG
+//            bundles.Add( new StyleBundle( "~/Content/admincss" ).Include( 
+//                "~/Content/Styles/_reset.min.css",
+//                "~/Content/Styles/Plugins/spectrum.css",
+//                "~/Content/Styles/admin.min.css" ) );
+//#else
+//            bundles.Add( new StyleBundle( "~/Content/admincss" ).Include(
+//                "~/Content/Styles/_reset.min.css",
+//                "~/Content/Styles/Plugins/spectrum.css",
+//                "~/Content/Styles/admin.css" ) );
+//#endif
 
             bundles.Add( new StyleBundle( "~/Content/image-browser-css" ).Include(
                 "~/Content/Styles/image-browser.css" ) );
@@ -116,6 +124,22 @@ namespace ContentManagementSystem
                     .Include( "~/scripts/themes/" + directoryName + "/_" + directoryName + ".js" )
                     .IncludeDirectory( "~/scripts/themes/" + directoryName, "*.js" ) );
             }
+        }
+
+        /// <summary>
+        /// Generates the path to the CSS file based off the current DEBUG mode.
+        /// </summary>
+        /// <param name="fileName">The file name and sub path for the css file.</param>
+        /// <returns>The virtual location of the css file.</returns>
+        private static string CssFile( string fileName )
+        {
+#if DEBUG
+            string end = ".css";
+#else
+            string end = ".min.css";
+#endif
+
+            return "~/Content/Styles/" + fileName + end;
         }
     }
 }

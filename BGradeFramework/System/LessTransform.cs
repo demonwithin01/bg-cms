@@ -6,12 +6,13 @@ using System.Web.Optimization;
 
 namespace ContentManagementSystem.Framework
 {
-    public class LessTransform : IBundleTransform
-    {
-        public void Process( BundleContext context, BundleResponse response )
-        {
-            response.Content = dotless.Core.Less.Parse( response.Content );
-            response.ContentType = "text/css";
-        }
-    }
+    //TODO: Remove file.
+    //public class LessTransform : IBundleTransform
+    //{
+    //    public void Process( BundleContext context, BundleResponse response )
+    //    {
+    //        response.Content = dotless.Core.Less.Parse( response.Content );
+    //        response.ContentType = "text/css";
+    //    }
+    //}
 }

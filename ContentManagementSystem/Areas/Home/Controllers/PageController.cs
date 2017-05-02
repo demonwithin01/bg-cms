@@ -11,7 +11,7 @@ using ContentManagementSystem.Managers;
 
 namespace ContentManagementSystem.Home.Controllers
 {
-    public class PageController : AdminContentManagementController<PageManager>
+    public class PageController : ContentManagementController
     {
         public ActionResult Index( int? pageId )
         {
@@ -30,7 +30,7 @@ namespace ContentManagementSystem.Home.Controllers
             {
                 bool isDraft;
 
-                if ( bool.TryParse( Request.QueryString["draft"], out isDraft ) && isDraft )
+                if ( bool.TryParse( Request.QueryString[ "draft" ], out isDraft ) && isDraft )
                 {
                     if ( UserSession.Current.IsAdministrator )
                     {
@@ -51,7 +51,9 @@ namespace ContentManagementSystem.Home.Controllers
                 throw new HttpException( 404, "The page requested could not be found" );
             }
 
-            PageTemplate pageTemplate = base.Manager.RetrievePage( pageContent );
+            PageManager manager = new PageManager();
+            //TODO: Refactor Manager instance.
+            PageTemplate pageTemplate = manager.RetrievePage( pageContent );
             pageTemplate.InitialiseForDisplay();
 
             return View( new IndexModel( pageContent, pageTemplate ) );

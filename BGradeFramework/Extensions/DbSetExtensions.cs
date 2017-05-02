@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
 
 namespace ContentManagementSystemDatabase
 {
+    /// <summary>
+    /// Defines new functionality to database entity sets.
+    /// </summary>
     public static class DbSetExtensions
     {
         /// <summary>

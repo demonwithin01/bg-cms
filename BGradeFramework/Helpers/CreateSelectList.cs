@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Mvc;
-using ContentManagementSystemDatabase;
 
 namespace ContentManagementSystem.Framework
 {
+    //TODO: Move NumberList, FromEnum, and ForBoolean into BGrade Library.
+    /// <summary>
+    /// Provides functionality to generate common select lists.
+    /// </summary>
     public static class CreateSelectList
     {
 
@@ -67,6 +67,11 @@ namespace ContentManagementSystem.Framework
             return selectList;
         }
 
+        /// <summary>
+        /// Creates a select list from the provided enumeration.
+        /// </summary>
+        /// <typeparam name="TEnum">The type of the enumeration.</typeparam>
+        /// <param name="selected">The currently selected enumeration.</param>
         public static List<SelectListItem> FromEnum<TEnum>( TEnum selected ) where TEnum : struct, IConvertible
         {
             Array values = Enum.GetValues( typeof( TEnum ) );
@@ -88,6 +93,12 @@ namespace ContentManagementSystem.Framework
             return selectList;
         }
 
+        /// <summary>
+        /// Creates a select list for a boolean.
+        /// </summary>
+        /// <param name="selected">Whether or not the 'true' label should be selected.</param>
+        /// <param name="trueLabel">The label to use for the 'true' value. Defaults to 'Yes'.</param>
+        /// <param name="falseLabel">The label to use for the 'false' value. Defaults to 'No'.</param>
         public static List<SelectListItem> ForBoolean( bool selected, string trueLabel = "Yes", string falseLabel = "No" )
         {
             List<SelectListItem> selectList = new List<SelectListItem>();
@@ -98,6 +109,10 @@ namespace ContentManagementSystem.Framework
             return selectList;
         }
 
+        /// <summary>
+        /// Creates a select list of the navigation pages.
+        /// </summary>
+        /// <param name="selected">The currently selected navigation page id.</param>
         public static List<SelectListItem> NavPages( int? selected )
         {
             List<SelectListItem> selectList = new List<SelectListItem>();

@@ -1,13 +1,12 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web;
 using log4net;
 
 namespace ContentManagementSystem.Framework
 {
+    /// <summary>
+    /// Provides functionality for logging errors/warnings/messages into the database.
+    /// </summary>
     public static class ErrorLog
     {
 
@@ -27,6 +26,11 @@ namespace ContentManagementSystem.Framework
 
         #region Public Methods
 
+        /// <summary>
+        /// Logs an exception into the log table of the database.
+        /// </summary>
+        /// <param name="messageObject">The object to log into the error.</param>
+        /// <param name="exception">The exception that occurred.</param>
         public static void Error( object messageObject, Exception exception )
         {
             ILog logger = CreateLogger();
@@ -34,6 +38,11 @@ namespace ContentManagementSystem.Framework
             logger.Error( messageObject, exception );
         }
 
+        /// <summary>
+        /// Logs an exception into the log table of the database.
+        /// </summary>
+        /// <param name="message">The message to log into the error.</param>
+        /// <param name="exception">The exception that occurred.</param>
         public static void Error( string message, Exception exception )
         {
             ILog logger = CreateLogger();
@@ -47,6 +56,10 @@ namespace ContentManagementSystem.Framework
 
         #region Private Methods
 
+        /// <summary>
+        /// Creates the logger with the common details that will be attached to all log messages.
+        /// </summary>
+        /// <returns>The logger that will be used to log the actual message.</returns>
         private static ILog CreateLogger()
         {
             ILog logger = LogManager.GetLogger( "errorLog" );

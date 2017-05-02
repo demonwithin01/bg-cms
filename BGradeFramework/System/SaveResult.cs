@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace ContentManagementSystem.Framework
 {
+    //TODO: Replace with one in BGrade Library?
+    /// <summary>
+    /// Defines the result of a save action.
+    /// </summary>
     public class SaveResult
     {
 
@@ -19,6 +23,10 @@ namespace ContentManagementSystem.Framework
 
         #region Constructors/Initialisation
 
+        /// <summary>
+        /// Creates a new save result with the provided state.
+        /// </summary>
+        /// <param name="state">The state of the save.</param>
         private SaveResult( SaveResultState state )
         {
             this.State = state;
@@ -35,19 +43,7 @@ namespace ContentManagementSystem.Framework
         /// </summary>
         public override string ToString()
         {
-            switch ( State )
-            {
-                case SaveResultState.Success:
-                    return "Succeeded";
-                case SaveResultState.Fail:
-                    return "Failed";
-                case SaveResultState.AccessDenied:
-                    return "Access was Denied";
-                case SaveResultState.IncorrectDomain:
-                    return "Incorrect Domain";
-            }
-
-            return base.ToString();
+            return State.GetDescription();
         }
 
         #endregion
@@ -68,6 +64,9 @@ namespace ContentManagementSystem.Framework
 
         #region Properties
 
+        /// <summary>
+        /// Gets the save state result.
+        /// </summary>
         public SaveResultState State { get; private set; }
 
         #endregion
@@ -76,15 +75,30 @@ namespace ContentManagementSystem.Framework
 
         #region Static Methods
 
+        /// <summary>
+        /// Creates a new instance of a save result that states the save was successful.
+        /// </summary>
         public static SaveResult Success { get { return new SaveResult( SaveResultState.Success ); } }
 
+        /// <summary>
+        /// Creates a new instance of a save result that states the save failed due to a non-categorised issue.
+        /// </summary>
         public static SaveResult Fail { get { return new SaveResult( SaveResultState.Fail ); } }
 
+        /// <summary>
+        /// Creates a new instance of a save result that states the save failed due to access being denied.
+        /// </summary>
         public static SaveResult AccessDenied { get { return new SaveResult( SaveResultState.AccessDenied ); } }
 
+        /// <summary>
+        /// Creates a new instance of a save result that states the save failed due to the current domain being different to the one requested.
+        /// </summary>
         public static SaveResult IncorrectDomain { get { return new SaveResult( SaveResultState.IncorrectDomain ); } }
 
-        public static SaveResult WriteFailure { get { return new SaveResult( SaveResultState.WritePermissionsFailed ); } }
+        /// <summary>
+        /// Creates a new instance of a save result that states the save failed due to invalid write permissions.
+        /// </summary>
+        public static SaveResult WriteFailure { get { return new SaveResult( SaveResultState.InvalidWritePermissions ); } }
 
         #endregion
 

@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+//TODO: Refactor models into website project.
 namespace ContentManagementSystem.Framework.Models
 {
     public class HomePageModel
