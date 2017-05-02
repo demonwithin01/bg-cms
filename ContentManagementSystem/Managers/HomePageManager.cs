@@ -1,13 +1,12 @@
 ﻿using ContentManagementSystem.Framework;
 using ContentManagementSystemDatabase;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace ContentManagementSystem.Managers
 {
+    /// <summary>
+    /// Contains all functionality related to retrieving and saving the home page information.
+    /// </summary>
     public class HomePageManager
     {
 
@@ -26,7 +25,11 @@ namespace ContentManagementSystem.Managers
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Public Methods
-
+    
+        /// <summary>
+        /// Retrieves the home page template model for the current domain.
+        /// </summary>
+        /// <returns>The current domains home page template.</returns>
         public HomePageTemplate RetrieveHomePage()
         {
             string name;
@@ -34,6 +37,11 @@ namespace ContentManagementSystem.Managers
             return RetrieveHomePage( out name );
         }
 
+        /// <summary>
+        /// Retrieves the home page template model for the current domain.
+        /// </summary>
+        /// <param name="name">Holds the name of the model type that was retrieved.</param>
+        /// <returns>The current domains home page template.</returns>
         public HomePageTemplate RetrieveHomePage( out string name )
         {
             DomainHomePage entity = Query.DomainHomePage( UserCookie.Current.DomainId );

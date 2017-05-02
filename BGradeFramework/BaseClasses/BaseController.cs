@@ -3,7 +3,6 @@ using System.Web.Helpers;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Script.Serialization;
-using ContentManagementSystemDatabase;
 
 namespace ContentManagementSystem.Framework.BaseClasses
 {

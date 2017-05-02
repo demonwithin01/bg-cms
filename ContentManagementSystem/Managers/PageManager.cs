@@ -1,15 +1,16 @@
-﻿using ContentManagementSystem.Framework;
+﻿using System.Data.Entity;
+using System.Linq;
+using System.Web;
+using ContentManagementSystem.Framework;
 using ContentManagementSystem.Framework.Models.Page;
 using ContentManagementSystemDatabase;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
 
 namespace ContentManagementSystem.Managers
 {
+    /// <summary>
+    /// Contains all functionality related to retrieving and save page information.
+    /// </summary>
     public class PageManager
     {
 
@@ -29,6 +30,12 @@ namespace ContentManagementSystem.Managers
 
         #region Public Methods
 
+        /// <summary>
+        /// Retrieves the page template model.
+        /// </summary>
+        /// <param name="pageId">The page id to get the model for.</param>
+        /// <param name="status">The publish status version to get the page for.</param>
+        /// <returns>Retrieves the requested page template.</returns>
         public PageTemplate RetrievePage( int pageId, PublishStatus status )
         {
             string name;
@@ -36,6 +43,11 @@ namespace ContentManagementSystem.Managers
             return RetrievePage( pageId, status, out name );
         }
 
+        /// <summary>
+        /// Retrieves the page template model.
+        /// </summary>
+        /// <param name="pageContent">The page content entity to get the model for.</param>
+        /// <returns>Retrieves the requested page template.</returns>
         public PageTemplate RetrievePage( PageContent pageContent )
         {
             string name;
@@ -43,6 +55,13 @@ namespace ContentManagementSystem.Managers
             return RetrievePage( pageContent, out name );
         }
 
+        /// <summary>
+        /// Retrieves the page template model.
+        /// </summary>
+        /// <param name="pageId">The page id to get the model for.</param>
+        /// <param name="status">The publish status version to get the page for.</param>
+        /// <param name="name">Holds the name of the model type that was retrieved.</param>
+        /// <returns>Retrieves the requested page template.</returns>
         public PageTemplate RetrievePage( int pageId, PublishStatus status, out string name )
         {
             ContentManagementDb db = new ContentManagementDb();
@@ -51,6 +70,13 @@ namespace ContentManagementSystem.Managers
             return RetrievePage( entity, status, out name );
         }
 
+        /// <summary>
+        /// Retrieves the page template model.
+        /// </summary>
+        /// <param name="pageEntity">The page entity to get the model for.</param>
+        /// <param name="status"></param>
+        /// <param name="name">Holds the name of the model type that was retrieved.</param>
+        /// <returns>Retrieves the requested page template.</returns>
         public PageTemplate RetrievePage( Page pageEntity, PublishStatus status, out string name )
         {
             name = "Not Found";
@@ -70,6 +96,12 @@ namespace ContentManagementSystem.Managers
             return RetrievePage( pageContent, out name );
         }
 
+        /// <summary>
+        /// Retrieves the page template model.
+        /// </summary>
+        /// <param name="pageContent">The page content entity to get the model for.</param>
+        /// <param name="name">Holds the name of the model type that was retrieved.</param>
+        /// <returns>Retrieves the requested page template.</returns>
         public PageTemplate RetrievePage( PageContent pageContent, out string name )
         {
             name = "Not Found";
