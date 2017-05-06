@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ContentManagementSystem.BaseClasses;
 using ContentManagementSystem.Framework;
 using ContentManagementSystem.Framework.BaseClasses;
 using ContentManagementSystem.Models.Page;
@@ -11,7 +12,7 @@ using ContentManagementSystemDatabase;
 
 namespace ContentManagementSystem.Home.Controllers
 {
-    public class BlogPostController : BaseController
+    public class BlogPostController : ContentManagementController
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */

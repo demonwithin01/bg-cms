@@ -119,13 +119,11 @@
     <Compile Include="ClassRegions.cs" />
     <Compile Include="ControllerRegions.cs" />
     <Compile Include="Enums\ButtonType.cs" />
-    <Compile Include="Extensions\CachedEditableModelsExtensions.cs" />
     <Compile Include="Extensions\DbSetExtensions.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\HtmlStringExtensions.cs" />
-    <Compile Include="Extensions\PropertyExtension.cs" />
-    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Helpers\CreateSelectList.cs" />
+    <Compile Include="Helpers\StringHelpers.cs" />
     <Compile Include="HtmlExtensions\Button.cs" />
     <Compile Include="HtmlExtensions\CheckboxFieldFor.cs" />
     <Compile Include="HtmlExtensions\HtmlWrap.cs" />
@@ -158,7 +156,6 @@
     <Compile Include="System\AutoMap.cs" />
     <Compile Include="System\CachedEditableModel.cs" />
     <Compile Include="System\CMSCache.cs" />
-    <Compile Include="System\LessTransform.cs" />
     <Compile Include="System\NavItem.cs" />
     <Compile Include="System\SaveResult.cs" />
     <Compile Include="System\Types\SaveResultState.cs" />

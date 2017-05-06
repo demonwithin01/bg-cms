@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace ContentManagementSystem.Framework
 {
@@ -76,16 +77,19 @@ namespace ContentManagementSystem.Framework
         /// <summary>
         /// Gets the Page Id to navigate to.
         /// </summary>
+        [JsonProperty( "pageId" )]
         public int PageId { get; private set; }
 
         /// <summary>
         /// Gets the display title.
         /// </summary>
+        [JsonProperty( "title" )]
         public string Title { get; private set; }
 
         /// <summary>
         /// Gets any child navigation items.
         /// </summary>
+        [JsonProperty( "navItems" )]
         public List<NavItem> SubItems { get; private set; }
         
         #endregion

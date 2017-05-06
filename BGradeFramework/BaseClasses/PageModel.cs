@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -73,23 +74,41 @@ namespace ContentManagementSystem.Framework.BaseClasses
         }
 
         /// <summary>
-        /// Gets the current page url as it comes in through the request, plus 
+        /// Gets the current page url as it comes in through the request and appends a query string.
         /// </summary>
         /// <param name="queryString">Any query string parameters to be added to the page.</param>
         /// <returns>The current page url.</returns>
         public string PageUrl( string queryString )
         {
-            //TODO: Make more robust.
-            //TODO: Make anonymous object version.
-
             queryString = queryString ?? "";
-
+            
             if ( queryString.Length > 0 && queryString.StartsWith( "?" ) == false )
             {
                 queryString = "?" + queryString;
             }
 
             return PageUrl() + queryString;
+        }
+
+        /// <summary>
+        /// Gets the current page url as it comes in through the request and appends a query string.
+        /// </summary>
+        /// <param name="query">The object to create the query string from.</param>
+        /// <returns>The current page url.</returns>
+        public string PageUrl( object query )
+        {
+            RouteValueDictionary dict = HtmlHelper.AnonymousObjectToHtmlAttributes( query );
+            
+            List<string> builder = new List<string>();
+
+            foreach ( var item in dict )
+            {
+                builder.Add( Url.Encode( item.Key ) + "=" + Url.Encode( item.Value.ToString() ) );
+            }
+
+            string queryString = queryString = "?" + string.Join( "&", builder );
+            
+            return PageUrl();
         }
 
         /// <summary>

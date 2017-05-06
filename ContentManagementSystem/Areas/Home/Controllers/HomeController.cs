@@ -8,10 +8,11 @@ using ContentManagementSystem.Models.Home;
 using ContentManagementSystem.Framework;
 using ContentManagementSystem.Managers;
 using ContentManagementSystem.Framework.Models.Page.Sections;
+using ContentManagementSystem.BaseClasses;
 
 namespace ContentManagementSystem.Home.Controllers
 {
-    public class HomeController : BaseController
+    public class HomeController : ContentManagementController
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */

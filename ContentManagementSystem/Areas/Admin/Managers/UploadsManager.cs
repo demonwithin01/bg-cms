@@ -86,7 +86,7 @@ namespace ContentManagementSystem.Admin.Managers
                 
                 uploadFolder += domain.UploadFolder.ToString();
 
-                string physicalLocation = uploadFolder.MapToServer();
+                string physicalLocation = StringHelpers.MapToServer( uploadFolder );
 
                 if ( Directory.Exists( physicalLocation ) == false )
                 {

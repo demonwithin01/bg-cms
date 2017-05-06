@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Transactions;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using ContentManagementSystem.Framework;
+using ContentManagementSystem.Framework.BaseClasses;
+using ContentManagementSystem.Models;
+using ContentManagementSystemDatabase;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
-using ContentManagementSystem.Filters;
-using ContentManagementSystem.Models;
-using ContentManagementSystem.Framework;
-using ContentManagementSystemDatabase;
-using ContentManagementSystem.Framework.BaseClasses;
 
 namespace ContentManagementSystem.Home.Controllers
 {
