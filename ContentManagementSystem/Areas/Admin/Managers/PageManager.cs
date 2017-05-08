@@ -113,7 +113,7 @@ namespace ContentManagementSystem.Admin.Managers
         {
             if ( UserSession.Current.IsAdministrator == false ) return SaveResult.AccessDenied;
 
-            if ( UserSession.Current.CurrentDomain( db ).CanAccess( page ) == false ) return SaveResult.IncorrectDomain;
+            if ( UserSession.Current.CurrentDomain().CanAccess( page ) == false ) return SaveResult.IncorrectDomain;
 
             try
             {

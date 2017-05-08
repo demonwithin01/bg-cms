@@ -11,9 +11,7 @@
         @Styles.Render( "~/Content/css" )
         <link rel="stylesheet" href="@(ContentLocation.ThemesLocation)@(UserCookie.Current.Theme).min.css" />
         @*<link rel="stylesheet" href="/content/styles/themes/outofmars.min.css" />*@
-        @Scripts.Render( "~/bundles/modernizr" )
-        @Scripts.Render( "~/bundles/jquery" )
-        @Scripts.Render( "~/bundles/jqueryval" )
+        @Scripts.Render( "~/bundles/external" )
         @Scripts.Render( "~/bundles/site" )
         @Scripts.Render( "~/scripts/theme/" + UserCookie.Current.Theme )
         @*@Scripts.Render( "~/scripts/theme/outofmars" )*@

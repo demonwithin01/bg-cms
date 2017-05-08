@@ -82,8 +82,7 @@ namespace ContentManagementSystem.Framework
             if ( user != null )
             {
                 UserId = user.UserId;
-
-                IsAdministrator = user.IsAdministrator;
+                
                 Role = user.Role;
             }
         }
@@ -97,10 +96,9 @@ namespace ContentManagementSystem.Framework
         /// <summary>
         /// Retrieves the current domain from the database.
         /// </summary>
-        public Domain CurrentDomain( ContentManagementDb db = null )
+        public Domain CurrentDomain()
         {
-            //TODO: Refactor out db parameter.
-            db = db ?? new ContentManagementDb();
+            ContentManagementDb db = new ContentManagementDb();
 
             return db.Domains.Find( DomainId );
         }
@@ -161,13 +159,24 @@ namespace ContentManagementSystem.Framework
         /// Gets the role for the current user.
         /// </summary>
         public Role Role { get; private set; }
+        
+        #endregion
 
-        //TODO: Refactor or remove.
+        /* ---------------------------------------------------------------------------------------------------------- */
+
+        #region Derived Properties
+
         /// <summary>
         /// Gets whether or not the current user is an administrator.
         /// </summary>
-        public bool IsAdministrator { get; private set; }
-        
+        public bool IsAdministrator
+        {
+            get
+            {
+                return ( Role == Role.Administrator );
+            }
+        }
+
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */

@@ -77,7 +77,7 @@ namespace ContentManagementSystem.Admin.Managers
             if ( UserSession.Current.IsAdministrator == false )
                 return SaveResult.AccessDenied;
 
-            if ( UserSession.Current.CurrentDomain( db ).CanAccess( product ) == false )
+            if ( UserSession.Current.CurrentDomain().CanAccess( product ) == false )
                 return SaveResult.IncorrectDomain;
 
             try

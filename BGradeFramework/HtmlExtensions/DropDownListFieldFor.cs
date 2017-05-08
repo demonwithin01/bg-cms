@@ -11,26 +11,63 @@ namespace ContentManagementSystem.Framework.HtmlExtensions
     /// </summary>
     public static class DropDownListFieldForExtension
     {
-
-        public static MvcHtmlString DropDownListFieldFor<TModel, TProperty>( this HtmlHelper<TModel> helper, Expression<Func<TModel, TProperty>> expression, IEnumerable<SelectListItem> selectList, object htmlAttributes = null )
+        /// <summary>
+        /// Generates the html for rendering a dropdown field with the label.
+        /// </summary>
+        /// <typeparam name="TModel">The model type that the html helper is using.</typeparam>
+        /// <typeparam name="TProperty">The property type that the value is to be set/retrieved on/from.</typeparam>
+        /// <param name="helper">The instance of the html helper.</param>
+        /// <param name="expression">The expression that defines access to the property to display.</param>
+        /// <param name="selectList">The items to display in the dropdown.</param>
+        /// <returns>The generated html for a dropdown field.</returns>
+        public static MvcHtmlString DropDownListFieldFor<TModel, TProperty>( this HtmlHelper<TModel> helper, Expression<Func<TModel, TProperty>> expression, IEnumerable<SelectListItem> selectList )
         {
-            //TODO: Create signatures that do not utilise default values.
-            //TODO: Comment.
-            //TODO: Attempt to simplify and move to common method for all FieldFor methods.
-            TagBuilder dt = new TagBuilder( "dt" );
-            TagBuilder dd = new TagBuilder( "dd" );
-            
-            dt.InnerHtml = helper.LabelFor( expression ).ToString();
-            dd.InnerHtml = helper.DropDownListFor( expression, selectList, htmlAttributes ).ToString();
-            dd.InnerHtml += helper.ValidationMessageFor( expression ).ToString();
-
-            return new MvcHtmlString( dt.ToString() + dd.ToString() );
+            return DropDownListFieldFor( helper, expression, selectList, null, null );
         }
 
-        public static MvcHtmlString DropDownListFieldFor<TModel, TProperty>( this HtmlHelper<TModel> helper, Expression<Func<TModel, TProperty>> expression, IEnumerable<SelectListItem> selectList, string optionLabel, object htmlAttributes = null )
+        /// <summary>
+        /// Generates the html for rendering a dropdown field with the label.
+        /// </summary>
+        /// <typeparam name="TModel">The model type that the html helper is using.</typeparam>
+        /// <typeparam name="TProperty">The property type that the value is to be set/retrieved on/from.</typeparam>
+        /// <param name="helper">The instance of the html helper.</param>
+        /// <param name="expression">The expression that defines access to the property to display.</param>
+        /// <param name="selectList">The items to display in the dropdown.</param>
+        /// <param name="optionLabel">The label to use when there is no item selected.</param>
+        /// <returns>The generated html for a dropdown field.</returns>
+        public static MvcHtmlString DropDownListFieldFor<TModel, TProperty>( this HtmlHelper<TModel> helper, Expression<Func<TModel, TProperty>> expression, IEnumerable<SelectListItem> selectList, string optionLabel )
         {
-            //TODO: Create signatures that do not utilise default values.
-            //TODO: Comment.
+            return DropDownListFieldFor( helper, expression, selectList, optionLabel, null );
+        }
+
+        /// <summary>
+        /// Generates the html for rendering a dropdown field with the label.
+        /// </summary>
+        /// <typeparam name="TModel">The model type that the html helper is using.</typeparam>
+        /// <typeparam name="TProperty">The property type that the value is to be set/retrieved on/from.</typeparam>
+        /// <param name="helper">The instance of the html helper.</param>
+        /// <param name="expression">The expression that defines access to the property to display.</param>
+        /// <param name="selectList">The items to display in the dropdown.</param>
+        /// <param name="htmlAttributes">Any additional html attributes that are to be applied to the input field.</param>
+        /// <returns>The generated html for a dropdown field.</returns>
+        public static MvcHtmlString DropDownListFieldFor<TModel, TProperty>( this HtmlHelper<TModel> helper, Expression<Func<TModel, TProperty>> expression, IEnumerable<SelectListItem> selectList, object htmlAttributes )
+        {
+            return DropDownListFieldFor( helper, expression, selectList, null, htmlAttributes );
+        }
+
+        /// <summary>
+        /// Generates the html for rendering a dropdown field with the label.
+        /// </summary>
+        /// <typeparam name="TModel">The model type that the html helper is using.</typeparam>
+        /// <typeparam name="TProperty">The property type that the value is to be set/retrieved on/from.</typeparam>
+        /// <param name="helper">The instance of the html helper.</param>
+        /// <param name="expression">The expression that defines access to the property to display.</param>
+        /// <param name="selectList">The items to display in the dropdown.</param>
+        /// <param name="optionLabel">The label to use when there is no item selected.</param>
+        /// <param name="htmlAttributes">Any additional html attributes that are to be applied to the input field.</param>
+        /// <returns>The generated html for a dropdown field.</returns>
+        public static MvcHtmlString DropDownListFieldFor<TModel, TProperty>( this HtmlHelper<TModel> helper, Expression<Func<TModel, TProperty>> expression, IEnumerable<SelectListItem> selectList, string optionLabel, object htmlAttributes )
+        {
             //TODO: Attempt to simplify and move to common method for all FieldFor methods.
             TagBuilder dt = new TagBuilder( "dt" );
             TagBuilder dd = new TagBuilder( "dd" );
