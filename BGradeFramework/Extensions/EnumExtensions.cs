@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ContentManagementSystem.Framework
 {
-    //TODO: Move to BGrade library.
+    //TODO: Utilise from BGrade library.
     /// <summary>
     /// Defines new functionality to enumeration types.
     /// </summary>

@@ -7,6 +7,7 @@ using System.Web;
 
 namespace ContentManagementSystem.Framework
 {
+    //TODO: Utilise from BGrade Library
     /// <summary>
     /// Provides new functionality to all strings.
     /// </summary>

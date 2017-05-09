@@ -4,7 +4,7 @@ using System.Web.Mvc;
 
 namespace ContentManagementSystem.Framework
 {
-    //TODO: Move NumberList, FromEnum, and ForBoolean into BGrade Library.
+    //TODO: Utilise NumberList, FromEnum, and ForBoolean from BGrade Library.
     /// <summary>
     /// Provides functionality to generate common select lists.
     /// </summary>
@@ -42,6 +42,7 @@ namespace ContentManagementSystem.Framework
             if ( start > end )
             {
                 reverse = true;
+
                 int temp = start;
                 start = end;
                 end = temp;

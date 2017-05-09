@@ -2,7 +2,7 @@
 
 namespace ContentManagementSystem.Framework
 {
-    //TODO: Move to BGrade library.
+    //TODO: Utilise from BGrade library.
     /// <summary>
     /// Forces the action or controller to only be available for an ajax request.
     /// </summary>

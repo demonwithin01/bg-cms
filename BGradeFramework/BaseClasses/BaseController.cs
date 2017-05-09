@@ -6,7 +6,7 @@ using System.Web.Script.Serialization;
 
 namespace ContentManagementSystem.Framework.BaseClasses
 {
-    //TODO: Move to BGrade library
+    //TODO: Utilise from BGrade library
     /// <summary>
     /// The base controller which provides common functionality to all site actions/controllers.
     /// </summary>
