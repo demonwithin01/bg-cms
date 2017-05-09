@@ -13,6 +13,8 @@ namespace ContentManagementSystem
         {
             routes.IgnoreRoute( "{resource}.axd/{*pathInfo}" );
 
+            routes.MapMvcAttributeRoutes();
+
             //routes.MapRoute(
             //    name: "PageWithId",
             //    url: "Page/{pageId}",

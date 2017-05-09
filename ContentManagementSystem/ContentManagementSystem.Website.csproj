@@ -278,6 +278,13 @@
     <Compile Include="Areas\Home\Controllers\HomeController.cs" />
     <Compile Include="Areas\Home\Controllers\PageController.cs" />
     <Compile Include="BaseClasses\ManagerBase.cs" />
+    <Compile Include="Controllers\Admin\AdminController.Domain.cs" />
+    <Compile Include="Controllers\Admin\AdminController.HomePage.cs" />
+    <Compile Include="Controllers\Admin\AdminController.Navigation.cs" />
+    <Compile Include="Controllers\Admin\AdminController.Page.cs" />
+    <Compile Include="Controllers\Admin\AdminController.Uploads.cs" />
+    <Compile Include="Controllers\Admin\AdminController._.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1045,8 +1052,8 @@
     <Folder Include="Areas\Shop\Views\Shared\" />
     <Folder Include="Attributes\" />
     <Folder Include="Content\UploadsFolder\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

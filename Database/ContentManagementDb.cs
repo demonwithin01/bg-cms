@@ -48,5 +48,23 @@ namespace ContentManagementSystemDatabase
             //            .WithMany()
             //            .HasForeignKey( s => s.ParentDomainNavigationItemId );
         }
+
+        /// <summary>
+        /// Finds the corresponding page associated with the slug provided.
+        /// </summary>
+        /// <param name="currentDomainId">The current user domain.</param>
+        /// <param name="pageSlug">The slug that identifies the page.</param>
+        /// <returns>The corresponding page if found, otherwise null.</returns>
+        public Page FindPage( int currentDomainId, string pageSlug )
+        {
+            int pageId;
+
+            if ( int.TryParse( pageSlug, out pageId ) )
+            {
+                return this.Pages.FirstOrDefault( s => s.DomainId == currentDomainId && s.PageId == pageId );
+            }
+
+            return this.Pages.FirstOrDefault( s => s.DomainId == currentDomainId && s.PageSlug == pageSlug );
+        }
     }
 }

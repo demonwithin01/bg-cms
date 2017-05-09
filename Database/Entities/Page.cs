@@ -13,6 +13,9 @@ namespace ContentManagementSystemDatabase
 
         public int DomainId { get; set; }
 
+        [NotMapped]
+        public string PageSlug { get; set; }
+
         [ForeignKey( "CreatedByUser" )]
         public int CreatedByUserId { get; set; }
         public virtual UserProfile CreatedByUser { get; set; }
