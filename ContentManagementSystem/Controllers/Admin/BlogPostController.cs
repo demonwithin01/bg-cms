@@ -24,37 +24,37 @@ namespace ContentManagementSystem.Controllers
 
         #endregion
 
-        /* ---------------------------------------------------------------------------------------------------------- */
+        /* ----------------------------------------------------------------------------------------------------------------------------------------- */
 
         #region Page Actions
 
-        [Route( "navigation/list" )]
-        public ViewResult NavigationList()
+        [Route( "blog-post/list" )]
+        public ActionResult BlogPostList()
         {
-            return View( new NavigationListModel( UserSession.Current.DomainId, base.Database ) );
+            return View( new BlogPostListModel( UserSession.Current.DomainId, base.Database ) );
         }
-        
-        [Route( "navigation/create" )]
-        [Route( "navigation/edit/{navItemId}" )]
-        public ViewResult NavigationEdit( int? navItemId = null )
-        {
-            NavigationManager manager = new NavigationManager();
 
-            return View( manager.GetNavigationModel( navItemId ) );
+        [Route( "blog-post/create" )]
+        [Route( "blog-post/edit/{blogPostId}" )]
+        public ActionResult Edit( int? blogPostId = null )
+        {
+            BlogPostManager manager = new BlogPostManager();
+
+            return View( manager.GetBlogPostModel( blogPostId ) );
         }
 
         [HttpPost]
-        [Route( "navigation/create" )]
-        [Route( "navigation/edit/{navItemId}" )]
-        public ActionResult NavigationEdit( NavigationModel model )
+        [Route( "blog-post/create" )]
+        [Route( "blog-post/edit/{blogPostId}" )]
+        public ActionResult Edit( BlogPostModel model )
         {
-            NavigationManager manager = new NavigationManager();
+            BlogPostManager manager = new BlogPostManager();
 
-            SaveResult result = manager.SaveNavigationItem( model );
+            SaveResult result = manager.SaveBlogPost( model );
 
             if( result.State == SaveResultState.Success )
             {
-                return RedirectToAction( "List" );
+                return RedirectToAction( "BlogPostList" );
             }
 
             return View( model );
@@ -68,7 +68,7 @@ namespace ContentManagementSystem.Controllers
 
         #endregion
 
-        /* ----------------------------------------------------------------------------------------------------------------------------------------- */
+        /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Public Methods
 

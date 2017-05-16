@@ -65,7 +65,7 @@ namespace ContentManagementSystem.Controllers
 
             if( result.State == SaveResultState.Success )
             {
-                return RedirectToAction( "List" );
+                return RedirectToAction( "PageList" );
             }
 
             return View( model );

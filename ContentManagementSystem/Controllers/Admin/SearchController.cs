@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Http.Results;
 using System.Web.Mvc;
-using ContentManagementSystem.Admin.Managers;
-using ContentManagementSystem.Admin.Models;
 using ContentManagementSystem.Framework;
+using ContentManagementSystemDatabase;
 
 namespace ContentManagementSystem.Controllers
 {
@@ -28,40 +28,24 @@ namespace ContentManagementSystem.Controllers
 
         #region Page Actions
 
-        [Route( "home-page/edit" )]
-        public ViewResult EditHomePage()
-        {
-            HomePageManager manager = new HomePageManager();
-            return View( manager.GetHomePageModel() );
-        }
-
-        [HttpPost]
-        [Route( "home-page/edit" )]
-        public ActionResult EditHomePage( HomePageModel model )
-        {
-            CachedEditableModel cachedModel = CMSCache.HomePages[ model.HomePageTemplate ];
-
-            model.HomePageTemplateModel = cachedModel.GetHomePageModel( this );
-
-            if( model.HomePageTemplateModel != null )
-            {
-                HomePageManager manager = new HomePageManager();
-                SaveResult result = manager.SaveHomePageModel( model );
-
-                if( result.State == SaveResultState.Success )
-                {
-                    return RedirectToAction( "Index", "Home" );
-                }
-            }
-
-            return View( model );
-        }
-
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Ajax Actions
+
+        [HttpPost]
+        [Route( "search/uploads" )]
+        public JsonResult Uploads( string term )
+        {
+            ContentManagementDb db = new ContentManagementDb();
+
+            term = ( term ?? "" ).ToLower();
+
+            var uploads = db.Uploads.Where( s => s.DomainId == UserSession.Current.DomainId && s.Title.ToLower().Contains( term ) ).Take( 10 );
+
+            return Json( new { uploads = uploads.Select( s => new { uploadId = s.UploadId, fileLocation = s.PhysicalLocation, title = s.Title } ) } );
+        }
 
         #endregion
 

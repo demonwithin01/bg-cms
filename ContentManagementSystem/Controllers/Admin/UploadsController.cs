@@ -20,33 +20,41 @@ namespace ContentManagementSystem.Controllers
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
-        #region Constructors/Initialisation
+        #region Constructor & Intialisation
 
         #endregion
 
-        /* ---------------------------------------------------------------------------------------------------------- */
+        /* ----------------------------------------------------------------------------------------------------------*/
 
         #region Page Actions
 
-        [Route( "domain/edit" )]
-        public ActionResult EditDomain()
+        [Route( "uploads/list" )]
+        public ActionResult UploadsList()
         {
-            DomainManager manager = new DomainManager();
+            return View( new UploadsListModel( UserSession.Current.DomainId, base.Database ) );
+        }
+        
+        [Route( "uploads/create" )]
+        [Route( "uploads/edit/{id}" )]
+        public ActionResult UploadsEdit( int? id = null )
+        {
+            UploadsManager manager = new UploadsManager();
 
-            return View( manager.GetDomainSettings() );
+            return View( manager.GetUploadModel( id ) );
         }
 
         [HttpPost]
-        [Route( "domain/edit" )]
-        public ActionResult EditDomain( DomainModel model )
+        [Route( "uploads/create" )]
+        [Route( "uploads/edit/{id}" )]
+        public ActionResult UploadsEdit( UploadModel model )
         {
-            DomainManager manager = new DomainManager();
+            UploadsManager manager = new UploadsManager();
 
-            SaveResult result = manager.SaveDomainSettings( model );
+            SaveResult result = manager.SaveImage( model );
 
             if( result.State == SaveResultState.Success )
             {
-                return RedirectToAction( "Index", "Home" );
+                return RedirectToAction( "UploadsList" );
             }
 
             return View( model );
@@ -68,6 +76,12 @@ namespace ContentManagementSystem.Controllers
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
+        #region Protected Methods
+
+        #endregion
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+
         #region Static Methods
 
         #endregion
@@ -81,6 +95,12 @@ namespace ContentManagementSystem.Controllers
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Properties
+
+        #endregion
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+
+        #region Derived Properties
 
         #endregion
 

@@ -20,41 +20,33 @@ namespace ContentManagementSystem.Controllers
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
-        #region Constructor & Intialisation
+        #region Constructors/Initialisation
 
         #endregion
 
-        /* ----------------------------------------------------------------------------------------------------------*/
+        /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Page Actions
 
-        [Route( "uploads/list" )]
-        public ActionResult UploadsList()
+        [Route( "domain/edit" )]
+        public ActionResult EditDomain()
         {
-            return View( new UploadsListModel( UserSession.Current.DomainId, base.Database ) );
-        }
-        
-        [Route( "uploads/create" )]
-        [Route( "uploads/edit/{id}" )]
-        public ActionResult UploadsEdit( int? id = null )
-        {
-            UploadsManager manager = new UploadsManager();
+            DomainManager manager = new DomainManager();
 
-            return View( manager.GetUploadModel( id ) );
+            return View( manager.GetDomainSettings() );
         }
 
         [HttpPost]
-        [Route( "uploads/create" )]
-        [Route( "uploads/edit/{id}" )]
-        public ActionResult UploadsEdit( UploadModel model )
+        [Route( "domain/edit" )]
+        public ActionResult EditDomain( DomainModel model )
         {
-            UploadsManager manager = new UploadsManager();
+            DomainManager manager = new DomainManager();
 
-            SaveResult result = manager.SaveImage( model );
+            SaveResult result = manager.SaveDomainSettings( model );
 
             if( result.State == SaveResultState.Success )
             {
-                return RedirectToAction( "List" );
+                return Redirect( "/admin" );
             }
 
             return View( model );
@@ -76,12 +68,6 @@ namespace ContentManagementSystem.Controllers
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
-        #region Protected Methods
-
-        #endregion
-
-        /* ---------------------------------------------------------------------------------------------------------- */
-
         #region Static Methods
 
         #endregion
@@ -95,12 +81,6 @@ namespace ContentManagementSystem.Controllers
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Properties
-
-        #endregion
-
-        /* ---------------------------------------------------------------------------------------------------------- */
-
-        #region Derived Properties
 
         #endregion
 
