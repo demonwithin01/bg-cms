@@ -31,33 +31,33 @@ namespace ContentManagementSystem.Admin.Controllers
 
         #region Page Actions
         
-        public ActionResult List()
-        {
-            return View( new UploadsListModel( UserSession.Current.DomainId, base.Database ) );
-        }
+        //public ActionResult List()
+        //{
+        //    return View( new UploadsListModel( UserSession.Current.DomainId, base.Database ) );
+        //}
 
-        public ActionResult Create()
-        {
-            return View( "Edit", base.Manager.GetUploadModel( null ) );
-        }
+        //public ActionResult Create()
+        //{
+        //    return View( "Edit", base.Manager.GetUploadModel( null ) );
+        //}
         
-        public ActionResult Edit( int id )
-        {
-            return View( base.Manager.GetUploadModel( id ) );
-        }
+        //public ActionResult Edit( int id )
+        //{
+        //    return View( base.Manager.GetUploadModel( id ) );
+        //}
 
-        [HttpPost]
-        public ActionResult Edit( UploadModel model )
-        {
-            SaveResult result = base.Manager.SaveImage( model );
+        //[HttpPost]
+        //public ActionResult Edit( UploadModel model )
+        //{
+        //    SaveResult result = base.Manager.SaveImage( model );
 
-            if ( result.State == SaveResultState.Success )
-            {
-                return RedirectToAction( "List" );
-            }
+        //    if ( result.State == SaveResultState.Success )
+        //    {
+        //        return RedirectToAction( "List" );
+        //    }
 
-            return View( model );
-        }
+        //    return View( model );
+        //}
 
         #endregion
 

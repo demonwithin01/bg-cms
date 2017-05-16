@@ -1011,7 +1011,7 @@
     <Content Include="Views\Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Areas\Home\Views\Page\Index.cshtml" />
+    <Content Include="Areas\Home\Views\Page\Page.cshtml" />
     <Content Include="Views\Shared\_Table.cshtml" />
     <Content Include="Scripts\Plugins\ckeditor\plugins\scayt\LICENSE.md" />
     <Content Include="Scripts\Plugins\ckeditor\plugins\scayt\README.md" />
@@ -1043,6 +1043,22 @@
     <Content Include="Scripts\PageSections\site.blogs.js.map">
       <DependentUpon>site.blogs.ts</DependentUpon>
     </Content>
+    <Content Include="Views\Admin\BlogPostEdit.cshtml" />
+    <Content Include="Views\Admin\BlogPostList.cshtml" />
+    <Content Include="Views\Admin\DomainEdit.cshtml" />
+    <Content Include="Views\Admin\HomePageEdit.cshtml" />
+    <Content Include="Views\Admin\NavigationEdit.cshtml" />
+    <Content Include="Views\Admin\NavigationList.cshtml" />
+    <Content Include="Views\Admin\PageEdit.cshtml" />
+    <Content Include="Views\Admin\PageList.cshtml" />
+    <Content Include="Views\Admin\UploadsEdit.cshtml" />
+    <Content Include="Views\Admin\UploadsList.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Page.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Admin\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1055,7 +1071,6 @@
     <Folder Include="Attributes\" />
     <Folder Include="Content\UploadsFolder\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -8,15 +8,15 @@
 
 @helper RenderRibbonItem( RibbonItem ribbonItem )
 {
-string backgroundColor = ribbonItem.Background ?? "transparent";
-string height = ribbonItem.Height;
+    string backgroundColor = ribbonItem.Background ?? "transparent";
+    string height = ribbonItem.Height;
 
-if ( string.IsNullOrEmpty( height ) )
-{
-    height = "60px";
-}
+    if ( string.IsNullOrEmpty( height ) )
+    {
+        height = "60px";
+    }
 
-using ( Html.Wrap( ribbonItem.RibbonLink.HasValue ? new HtmlWrapElement( "a", new { href = Url.Action( "Index", "Page", new { Area = "Home", pageId = ribbonItem.RibbonLink } ) } ) : null ) )
+    using ( Html.Wrap( ribbonItem.RibbonLink.HasValue ? new HtmlWrapElement( "a", new { href = "page/" + ribbonItem.RibbonLink } ) : null ) )
 {
 <div class="ribbon-item @( ribbonItem.RemovePadding ? "no-padding" : "" )" style="background-color: @backgroundColor; height: @height;">
     <div class="b-grid">

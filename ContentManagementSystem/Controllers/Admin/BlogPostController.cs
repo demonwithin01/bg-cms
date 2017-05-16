@@ -36,7 +36,7 @@ namespace ContentManagementSystem.Controllers
 
         [Route( "blog-post/create" )]
         [Route( "blog-post/edit/{blogPostId}" )]
-        public ActionResult Edit( int? blogPostId = null )
+        public ActionResult BlogPostEdit( int? blogPostId = null )
         {
             BlogPostManager manager = new BlogPostManager();
 
@@ -46,7 +46,7 @@ namespace ContentManagementSystem.Controllers
         [HttpPost]
         [Route( "blog-post/create" )]
         [Route( "blog-post/edit/{blogPostId}" )]
-        public ActionResult Edit( BlogPostModel model )
+        public ActionResult BlogPostEdit( BlogPostModel model )
         {
             BlogPostManager manager = new BlogPostManager();
 

@@ -45,6 +45,7 @@ namespace ContentManagementSystem.Controllers
 
         [HttpPost]
         [Route( "uploads/create" )]
+        [Route( "uploads/edit" )]
         [Route( "uploads/edit/{id}" )]
         public ActionResult UploadsEdit( UploadModel model )
         {

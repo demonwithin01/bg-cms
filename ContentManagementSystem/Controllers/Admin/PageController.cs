@@ -57,7 +57,8 @@ namespace ContentManagementSystem.Controllers
         {
             CachedEditableModel cachedModel = CMSCache.Pages[ model.ModelType ];
 
-            model.PageTemplateModel = cachedModel.GetPageModel( this );
+            model.PageTemplateModel = cachedModel.GetPageModel();
+            UpdateModel( model.PageTemplateModel );
 
             PageManager manager = new PageManager();
 

@@ -58,7 +58,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/22/2017 21:03:15</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Page/Templates/TileGallery.cshtml">
-      <publishTime>02/23/2017 20:23:08</publishTime>
+      <publishTime>05/01/2017 21:56:54</publishTime>
     </File>
     <File Include="Areas/Admin/Views/PageComponents/ImageSlideshow.cshtml">
       <publishTime>09/01/2016 21:47:46</publishTime>
@@ -76,7 +76,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/25/2015 21:15:02</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Uploads/Edit.cshtml">
-      <publishTime>07/17/2016 13:49:43</publishTime>
+      <publishTime>04/08/2017 16:19:14</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Uploads/List.cshtml">
       <publishTime>10/07/2015 21:56:02</publishTime>
@@ -133,13 +133,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/04/2017 09:31:19</publishTime>
     </File>
     <File Include="Areas/Home/Views/Home/Index.cshtml">
-      <publishTime>10/09/2016 12:20:46</publishTime>
+      <publishTime>04/10/2017 19:56:36</publishTime>
     </File>
     <File Include="Areas/Home/Views/Page/Index.cshtml">
       <publishTime>02/22/2017 20:17:05</publishTime>
     </File>
     <File Include="Areas/Home/Views/Page/Templates/BlogList.cshtml">
-      <publishTime>03/04/2017 08:52:34</publishTime>
+      <publishTime>04/08/2017 15:27:20</publishTime>
     </File>
     <File Include="Areas/Home/Views/Page/Templates/Contact.cshtml">
       <publishTime>01/09/2017 21:19:12</publishTime>
@@ -157,7 +157,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/23/2017 21:50:03</publishTime>
     </File>
     <File Include="Areas/Home/Views/Page/Templates/TileGallery.cshtml">
-      <publishTime>02/23/2017 20:42:33</publishTime>
+      <publishTime>04/14/2017 11:41:46</publishTime>
     </File>
     <File Include="Areas/Home/Views/Web.config">
       <publishTime>10/05/2015 11:21:06</publishTime>
@@ -172,7 +172,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/13/2016 20:23:38</publishTime>
     </File>
     <File Include="Areas/Shop/Views/Web.config">
-      <publishTime>10/05/2015 11:21:08</publishTime>
+      <publishTime>04/08/2017 17:46:49</publishTime>
     </File>
     <File Include="Areas/Shop/Views/_ViewStart.cshtml">
       <publishTime>05/20/2015 21:29:06</publishTime>
@@ -187,13 +187,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/27/2014 21:09:36</publishTime>
     </File>
     <File Include="bin/ContentManagementSystem.Database.dll">
-      <publishTime>04/02/2017 21:40:21</publishTime>
+      <publishTime>05/06/2017 15:37:29</publishTime>
     </File>
     <File Include="bin/ContentManagementSystem.dll">
-      <publishTime>04/02/2017 21:42:57</publishTime>
+      <publishTime>05/06/2017 15:37:31</publishTime>
     </File>
     <File Include="bin/ContentManagementSystem.Framework.dll">
-      <publishTime>04/02/2017 21:40:21</publishTime>
+      <publishTime>05/06/2017 15:37:29</publishTime>
     </File>
     <File Include="bin/DataAnnotationsExtensions.ClientValidation.dll">
       <publishTime>08/27/2014 20:51:16</publishTime>
@@ -281,6 +281,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/ko/System.Spatial.resources.dll">
       <publishTime>08/04/2014 20:01:00</publishTime>
+    </File>
+    <File Include="bin/log4net.dll">
+      <publishTime>03/08/2017 19:26:22</publishTime>
     </File>
     <File Include="bin/LowercaseRoutesMVC4.dll">
       <publishTime>04/15/2015 21:38:42</publishTime>
@@ -424,16 +427,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/29/2014 20:57:38</publishTime>
     </File>
     <File Include="Content/Styles/admin.css">
-      <publishTime>03/07/2017 21:10:44</publishTime>
+      <publishTime>05/01/2017 21:53:44</publishTime>
     </File>
     <File Include="Content/Styles/admin.css.map">
       <publishTime>10/14/2015 19:07:28</publishTime>
     </File>
     <File Include="Content/Styles/admin.less">
-      <publishTime>07/24/2016 20:29:34</publishTime>
+      <publishTime>04/14/2017 11:12:24</publishTime>
     </File>
     <File Include="Content/Styles/admin.min.css">
-      <publishTime>03/07/2017 21:10:44</publishTime>
+      <publishTime>05/01/2017 21:53:44</publishTime>
     </File>
     <File Include="Content/Styles/Admin/_layout.less">
       <publishTime>02/22/2017 20:33:28</publishTime>
@@ -484,7 +487,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/17/2016 13:49:43</publishTime>
     </File>
     <File Include="Content/Styles/image-browser.css">
-      <publishTime>03/07/2017 21:10:44</publishTime>
+      <publishTime>04/14/2017 11:04:34</publishTime>
     </File>
     <File Include="Content/Styles/image-browser.css.map">
       <publishTime>10/14/2015 20:31:36</publishTime>
@@ -493,7 +496,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/17/2016 13:49:43</publishTime>
     </File>
     <File Include="Content/Styles/image-browser.min.css">
-      <publishTime>03/07/2017 21:10:44</publishTime>
+      <publishTime>04/14/2017 11:04:34</publishTime>
     </File>
     <File Include="Content/Styles/Plugins/jquery.mCustomScrollbar.css">
       <publishTime>02/12/2015 21:55:44</publishTime>
@@ -520,37 +523,37 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/14/2015 10:40:28</publishTime>
     </File>
     <File Include="Content/Styles/site.css">
-      <publishTime>04/02/2017 21:26:13</publishTime>
+      <publishTime>05/01/2017 21:53:45</publishTime>
     </File>
     <File Include="Content/Styles/site.css.map">
       <publishTime>10/14/2015 19:07:26</publishTime>
     </File>
     <File Include="Content/Styles/site.less">
-      <publishTime>04/02/2017 19:49:19</publishTime>
+      <publishTime>04/14/2017 11:12:28</publishTime>
     </File>
     <File Include="Content/Styles/site.min.css">
-      <publishTime>04/02/2017 21:26:13</publishTime>
+      <publishTime>05/01/2017 21:53:45</publishTime>
     </File>
     <File Include="Content/Styles/themes/outofmars.css">
-      <publishTime>04/02/2017 21:26:13</publishTime>
+      <publishTime>05/01/2017 21:53:46</publishTime>
     </File>
     <File Include="Content/Styles/themes/outofmars.less">
-      <publishTime>03/04/2017 07:32:35</publishTime>
+      <publishTime>04/08/2017 17:13:16</publishTime>
     </File>
     <File Include="Content/Styles/themes/outofmars.min.css">
-      <publishTime>04/02/2017 21:26:13</publishTime>
+      <publishTime>05/01/2017 21:53:46</publishTime>
     </File>
     <File Include="Content/Styles/themes/rachelsheree.css">
-      <publishTime>04/02/2017 21:26:14</publishTime>
+      <publishTime>05/01/2017 21:53:46</publishTime>
     </File>
     <File Include="Content/Styles/themes/rachelsheree.less">
       <publishTime>03/04/2017 07:33:01</publishTime>
     </File>
     <File Include="Content/Styles/themes/rachelsheree.min.css">
-      <publishTime>04/02/2017 21:26:14</publishTime>
+      <publishTime>05/01/2017 21:53:46</publishTime>
     </File>
     <File Include="Content/Styles/_bgmodal.less">
-      <publishTime>07/17/2016 13:49:43</publishTime>
+      <publishTime>05/01/2017 21:41:26</publishTime>
     </File>
     <File Include="Content/Styles/_blog.less">
       <publishTime>03/04/2017 08:41:00</publishTime>
@@ -583,10 +586,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/11/2016 20:58:22</publishTime>
     </File>
     <File Include="Content/Styles/_navigation.less">
-      <publishTime>02/22/2017 20:29:45</publishTime>
+      <publishTime>04/09/2017 11:13:45</publishTime>
     </File>
     <File Include="Content/Styles/_notifications.less">
       <publishTime>04/02/2017 21:26:12</publishTime>
+    </File>
+    <File Include="Content/Styles/_overlay-text.less">
+      <publishTime>04/14/2017 11:18:57</publishTime>
     </File>
     <File Include="Content/Styles/_products.less">
       <publishTime>07/17/2016 13:49:43</publishTime>
@@ -598,16 +604,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/22/2017 21:35:15</publishTime>
     </File>
     <File Include="Content/Styles/_ribbon.less">
-      <publishTime>01/30/2017 20:22:07</publishTime>
+      <publishTime>04/08/2017 17:12:53</publishTime>
     </File>
     <File Include="Content/Styles/_shared/_common.less">
       <publishTime>07/17/2016 13:49:43</publishTime>
     </File>
     <File Include="Content/Styles/_shared/_mixins.classes.less">
-      <publishTime>07/17/2016 13:49:43</publishTime>
+      <publishTime>04/14/2017 11:04:34</publishTime>
     </File>
     <File Include="Content/Styles/_shared/_mixins.functions.less">
-      <publishTime>02/13/2017 20:32:43</publishTime>
+      <publishTime>04/14/2017 11:03:57</publishTime>
     </File>
     <File Include="Content/Styles/_shared/_reset.less">
       <publishTime>03/07/2017 21:10:44</publishTime>
@@ -616,13 +622,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/04/2017 08:29:58</publishTime>
     </File>
     <File Include="Content/Styles/_social.less">
-      <publishTime>02/22/2017 20:23:37</publishTime>
+      <publishTime>04/09/2017 10:55:05</publishTime>
     </File>
     <File Include="Content/Styles/_tables.less">
       <publishTime>04/16/2015 20:33:40</publishTime>
     </File>
     <File Include="Content/Styles/_tile-gallery.less">
-      <publishTime>02/23/2017 20:56:07</publishTime>
+      <publishTime>05/01/2017 21:53:44</publishTime>
     </File>
     <File Include="Content/Styles/_tiled-sub-navigation.less">
       <publishTime>03/04/2017 07:33:06</publishTime>
@@ -874,7 +880,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/12/2015 21:54:40</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>01/31/2017 20:51:58</publishTime>
+      <publishTime>04/09/2017 11:21:38</publishTime>
     </File>
     <File Include="Scripts/bg.carousel.js">
       <publishTime>11/22/2015 12:54:18</publishTime>
@@ -888,11 +894,59 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Scripts/bgrade.ribbon.js.map">
       <publishTime>04/02/2017 21:42:57</publishTime>
     </File>
+    <File Include="Scripts/bgrade/bg.carousel.js">
+      <publishTime>05/06/2017 15:37:30</publishTime>
+    </File>
+    <File Include="Scripts/bgrade/bg.carousel.js.map">
+      <publishTime>05/06/2017 15:37:30</publishTime>
+    </File>
+    <File Include="Scripts/bgrade/bg.modal.js">
+      <publishTime>05/06/2017 15:37:30</publishTime>
+    </File>
+    <File Include="Scripts/bgrade/bg.modal.js.map">
+      <publishTime>05/06/2017 15:37:30</publishTime>
+    </File>
+    <File Include="Scripts/bgrade/bgrade.ribbon.js">
+      <publishTime>05/06/2017 15:37:30</publishTime>
+    </File>
+    <File Include="Scripts/bgrade/bgrade.ribbon.js.map">
+      <publishTime>05/06/2017 15:37:30</publishTime>
+    </File>
+    <File Include="Scripts/bgrade/site.image-browser.js">
+      <publishTime>10/25/2015 22:35:08</publishTime>
+    </File>
+    <File Include="Scripts/bgrade/site.js">
+      <publishTime>05/06/2017 15:37:30</publishTime>
+    </File>
+    <File Include="Scripts/bgrade/site.js.map">
+      <publishTime>05/06/2017 15:37:30</publishTime>
+    </File>
+    <File Include="Scripts/bgrade/site.plugin.js">
+      <publishTime>08/16/2016 22:10:51</publishTime>
+    </File>
+    <File Include="Scripts/bgrade/site.types.js">
+      <publishTime>05/06/2017 15:37:30</publishTime>
+    </File>
+    <File Include="Scripts/bgrade/site.types.js.map">
+      <publishTime>05/06/2017 15:37:30</publishTime>
+    </File>
+    <File Include="Scripts/bgrade/_page-section.js">
+      <publishTime>05/06/2017 15:37:30</publishTime>
+    </File>
+    <File Include="Scripts/bgrade/_page-section.js.map">
+      <publishTime>05/06/2017 15:37:30</publishTime>
+    </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>05/20/2015 21:25:32</publishTime>
     </File>
     <File Include="Scripts/bootstrap.min.js">
       <publishTime>05/20/2015 21:25:32</publishTime>
+    </File>
+    <File Include="Scripts/Extensions/jquery.js">
+      <publishTime>05/06/2017 15:37:30</publishTime>
+    </File>
+    <File Include="Scripts/Extensions/jquery.js.map">
+      <publishTime>05/06/2017 15:37:30</publishTime>
     </File>
     <File Include="Scripts/Frameworks/jquery-1.8.2.js">
       <publishTime>08/04/2014 20:00:52</publishTime>
@@ -949,16 +1003,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/02/2017 20:47:50</publishTime>
     </File>
     <File Include="Scripts/PageSections/site.blogs.js">
-      <publishTime>04/02/2017 21:42:57</publishTime>
+      <publishTime>05/06/2017 15:37:30</publishTime>
     </File>
     <File Include="Scripts/PageSections/site.blogs.js.map">
-      <publishTime>04/02/2017 21:42:57</publishTime>
+      <publishTime>05/06/2017 15:37:30</publishTime>
     </File>
     <File Include="Scripts/PageSections/site.contact.js">
-      <publishTime>04/02/2017 21:42:57</publishTime>
+      <publishTime>05/06/2017 15:37:30</publishTime>
     </File>
     <File Include="Scripts/PageSections/site.contact.js.map">
-      <publishTime>04/02/2017 21:42:57</publishTime>
+      <publishTime>05/06/2017 15:37:30</publishTime>
     </File>
     <File Include="Scripts/Plugins/ckeditor/adapters/jquery.js">
       <publishTime>01/27/2015 15:20:02</publishTime>
@@ -2098,7 +2152,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/22/2015 21:32:12</publishTime>
     </File>
     <File Include="Scripts/Plugins/ckeditor/styles.js">
-      <publishTime>01/08/2017 21:14:56</publishTime>
+      <publishTime>04/09/2017 13:16:40</publishTime>
     </File>
     <File Include="Scripts/Plugins/dropzone.js">
       <publishTime>09/02/2015 20:04:00</publishTime>
@@ -2137,13 +2191,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/14/2017 21:44:07</publishTime>
     </File>
     <File Include="Scripts/themes/outofmars/PageBackground.js">
-      <publishTime>04/02/2017 21:42:57</publishTime>
+      <publishTime>05/06/2017 15:37:30</publishTime>
     </File>
     <File Include="Scripts/themes/outofmars/PageBackground.js.map">
-      <publishTime>04/02/2017 21:42:57</publishTime>
+      <publishTime>05/06/2017 15:37:30</publishTime>
     </File>
     <File Include="Scripts/themes/outofmars/_outofmars.js">
-      <publishTime>03/07/2017 21:19:27</publishTime>
+      <publishTime>04/09/2017 13:20:33</publishTime>
     </File>
     <File Include="Scripts/themes/rachelsheree/navigation.js">
       <publishTime>08/31/2016 21:06:41</publishTime>
@@ -2158,7 +2212,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/02/2017 21:42:57</publishTime>
     </File>
     <File Include="Views/Shared/DisplayTemplates/ContactSection.cshtml">
-      <publishTime>04/02/2017 19:39:41</publishTime>
+      <publishTime>04/08/2017 15:26:38</publishTime>
     </File>
     <File Include="Views/Shared/EditorTemplates/ContactSection.cshtml">
       <publishTime>01/08/2017 21:20:27</publishTime>
@@ -2167,13 +2221,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/04/2014 20:00:50</publishTime>
     </File>
     <File Include="Views/Shared/_AdminLayout.cshtml">
-      <publishTime>07/17/2016 13:49:43</publishTime>
+      <publishTime>04/09/2017 11:13:09</publishTime>
     </File>
     <File Include="Views/Shared/_ImageBrowserLayout.cshtml">
       <publishTime>10/20/2015 20:29:10</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>04/02/2017 19:47:13</publishTime>
+      <publishTime>04/08/2017 15:19:45</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>08/04/2014 20:00:50</publishTime>
@@ -2191,7 +2245,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/31/2016 22:00:57</publishTime>
     </File>
     <File Include="Views/Theme/rachelsheree/Header.cshtml">
-      <publishTime>04/02/2017 18:02:46</publishTime>
+      <publishTime>05/01/2017 20:45:52</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>01/31/2017 21:07:52</publishTime>
@@ -2200,7 +2254,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/04/2014 20:00:50</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/02/2017 21:42:57</publishTime>
+      <publishTime>05/06/2017 15:37:37</publishTime>
     </File>
   </ItemGroup>
 </Project>

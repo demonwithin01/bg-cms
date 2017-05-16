@@ -31,23 +31,23 @@ namespace ContentManagementSystem.Admin.Controllers
 
         #region Page Actions
             
-        public ActionResult Edit()
-        {
-            return View( base.Manager.GetDomainSettings() );
-        }
+        //public ActionResult Edit()
+        //{
+        //    return View( base.Manager.GetDomainSettings() );
+        //}
 
-        [HttpPost]
-        public ActionResult Edit( DomainModel model )
-        {
-            SaveResult result = base.Manager.SaveDomainSettings( model );
+        //[HttpPost]
+        //public ActionResult Edit( DomainModel model )
+        //{
+        //    SaveResult result = base.Manager.SaveDomainSettings( model );
 
-            if ( result.State == SaveResultState.Success )
-            {
-                return RedirectToAction( "Index", "Home" );
-            }
+        //    if ( result.State == SaveResultState.Success )
+        //    {
+        //        return RedirectToAction( "Index", "Home" );
+        //    }
 
-            return View( model );
-        }
+        //    return View( model );
+        //}
 
         #endregion
 

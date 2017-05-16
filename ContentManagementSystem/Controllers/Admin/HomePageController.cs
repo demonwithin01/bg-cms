@@ -29,7 +29,7 @@ namespace ContentManagementSystem.Controllers
         #region Page Actions
 
         [Route( "home-page/edit" )]
-        public ViewResult EditHomePage()
+        public ViewResult HomePageEdit()
         {
             HomePageManager manager = new HomePageManager();
             return View( manager.GetHomePageModel() );
@@ -37,11 +37,12 @@ namespace ContentManagementSystem.Controllers
 
         [HttpPost]
         [Route( "home-page/edit" )]
-        public ActionResult EditHomePage( HomePageModel model )
+        public ActionResult HomePageEdit( HomePageModel model )
         {
             CachedEditableModel cachedModel = CMSCache.HomePages[ model.HomePageTemplate ];
 
-            model.HomePageTemplateModel = cachedModel.GetHomePageModel( this );
+            model.HomePageTemplateModel = cachedModel.GetHomePageModel();
+            UpdateModel( model.HomePageTemplateModel );
 
             if( model.HomePageTemplateModel != null )
             {

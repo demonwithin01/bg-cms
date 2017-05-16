@@ -31,46 +31,46 @@ namespace ContentManagementSystem.Admin.Controllers
 
         #region Page Actions
 
-        public ActionResult List()
-        {
-            return View( new BlogPostListModel( UserSession.Current.DomainId, base.Database ) );
-        }
+        //public ActionResult List()
+        //{
+        //    return View( new BlogPostListModel( UserSession.Current.DomainId, base.Database ) );
+        //}
 
-        public ActionResult Create()
-        {
-            return View( "Edit", base.Manager.GetBlogPostModel( null ) );
-        }
+        //public ActionResult Create()
+        //{
+        //    return View( "Edit", base.Manager.GetBlogPostModel( null ) );
+        //}
 
-        [HttpPost]
-        public ActionResult Create( BlogPostModel model )
-        {
-            SaveResult result = base.Manager.SaveBlogPost( model );
+        //[HttpPost]
+        //public ActionResult Create( BlogPostModel model )
+        //{
+        //    SaveResult result = base.Manager.SaveBlogPost( model );
 
-            if ( result.State == SaveResultState.Success )
-            {
-                return RedirectToAction( "List" );
-            }
+        //    if ( result.State == SaveResultState.Success )
+        //    {
+        //        return RedirectToAction( "List" );
+        //    }
 
-            return View( "Edit", model );
-        }
+        //    return View( "Edit", model );
+        //}
 
-        public ActionResult Edit( int id )
-        {
-            return View( base.Manager.GetBlogPostModel( id ) );
-        }
+        //public ActionResult Edit( int id )
+        //{
+        //    return View( base.Manager.GetBlogPostModel( id ) );
+        //}
 
-        [HttpPost]
-        public ActionResult Edit( BlogPostModel model )
-        {
-            SaveResult result = base.Manager.SaveBlogPost( model );
+        //[HttpPost]
+        //public ActionResult Edit( BlogPostModel model )
+        //{
+        //    SaveResult result = base.Manager.SaveBlogPost( model );
 
-            if ( result.State == SaveResultState.Success )
-            {
-                return RedirectToAction( "List" );
-            }
+        //    if ( result.State == SaveResultState.Success )
+        //    {
+        //        return RedirectToAction( "List" );
+        //    }
 
-            return View( model );
-        }
+        //    return View( model );
+        //}
 
         #endregion
 

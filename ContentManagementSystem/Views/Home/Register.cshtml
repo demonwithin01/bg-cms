@@ -1,0 +1,18 @@
+﻿@model ContentManagementSystem.Models.RegisterModel
+
+@using ( Html.BeginForm( "Register", "Account", new { ReturnUrl = ViewBag.ReturnUrl } ) )
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Registration Form</legend>
+        <dl>
+            @Html.TextBoxFieldFor( m => m.EmailAddress )
+            @Html.TextBoxFieldFor( m => m.UserName )
+            @Html.PasswordFieldFor( m => m.Password )
+            @Html.PasswordFieldFor( m => m.ConfirmPassword )
+        </dl>
+        @Html.SubmitButton( "Register" )
+    </fieldset>
+}

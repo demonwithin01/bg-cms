@@ -14,20 +14,6 @@ namespace ContentManagementSystem
             routes.IgnoreRoute( "{resource}.axd/{*pathInfo}" );
 
             routes.MapMvcAttributeRoutes();
-
-            //routes.MapRoute(
-            //    name: "PageWithId",
-            //    url: "Page/{pageId}",
-            //    defaults: new { controller = "Page", action = "Index", id = UrlParameter.Optional },
-            //    namespaces: new string[] { "ContentManagementSystem.ContentManagementSystem.ControllersControllers" }
-            //);
-
-            //routes.MapRoute(
-            //    name: "Default",
-            //    url: "{controller}/{action}/{id}",
-            //    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-            //    namespaces: new string[] { "ContentManagementSystem.Controllers" }
-            //);
         }
     }
 }

@@ -37,7 +37,7 @@
                         </li>
                         <li class="off">
                             <div class="nav-link">
-                                <a href="@Url.Action( "Index", "Home", new { Area = "Admin" } )">Admin Home</a>
+                                <a href="/admin/home">Admin Home</a>
                             </div>
                         </li>
                         <li class="off">
@@ -48,18 +48,18 @@
                                         <ul>
                                             <li>
                                                 <div class="nav-link">
-                                                    <a href="@Url.Action( "List", "Navigation", new { Area = "Admin" } )">Edit nav items</a>
+                                                    <a href="/admin/navigation/list">Edit nav items</a>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="nav-link">
-                                                    <a href="@Url.Action( "Edit", "Navigation", new { Area = "Admin" } )">Add new nav item</a>
+                                                    <a href="/admin/navigation/create">Add new nav item</a>
                                                 </div>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
-                                <a href="@Url.Action( "List", "Navigation", new { Area = "Admin" } )">Nav Items</a>
+                                <a href="/admin/navigation/list">Nav Items</a>
                             </div>
                         </li>
                         <li class="off">
@@ -70,18 +70,18 @@
                                         <ul>
                                             <li>
                                                 <div class="nav-link">
-                                                    <a href="@Url.Action( "List", "Page", new { Area = "Admin" } )">View pages</a>
+                                                    <a href="/admin/page/list">View pages</a>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="nav-link">
-                                                    <a href="@Url.Action( "Create", "Page", new { Area = "Admin" } )">Add new page</a>
+                                                    <a href="/admin/page/create">Add new page</a>
                                                 </div>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
-                                <a href="@Url.Action( "List", "Page", new { Area = "Admin" } )">Pages</a>
+                                <a href="/admin/page/list">Pages</a>
                             </div>
                         </li>
                         @*<li class="off">

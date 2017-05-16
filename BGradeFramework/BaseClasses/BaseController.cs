@@ -41,15 +41,16 @@ namespace ContentManagementSystem.Framework.BaseClasses
 
         #region Public Methods
 
-        /// <summary>
-        /// Updates the object model with the form details.
-        /// </summary>
-        /// <typeparam name="TModel">The model type that is to be updated from the form data.</typeparam>
-        /// <param name="model">The model instance that is to be updated.</param>
-        public void UpdateObjectModel<TModel>( TModel model ) where TModel : class
-        {
-            UpdateModel( model );
-        }
+        ///// <summary>
+        ///// Updates the object model with the form details.
+        ///// </summary>
+        ///// <typeparam name="TModel">The model type that is to be updated from the form data.</typeparam>
+        ///// <param name="model">The model instance that is to be updated.</param>
+        ////[Ignore]
+        //public void UpdateObjectModel<TModel>( TModel model ) where TModel : class
+        //{
+        //    UpdateModel( model );
+        //}
 
         #endregion
 

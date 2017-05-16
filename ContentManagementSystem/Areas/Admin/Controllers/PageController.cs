@@ -31,53 +31,53 @@ namespace ContentManagementSystem.Admin.Controllers
 
         #region Page Actions
 
-        public ActionResult List()
-        {
-            return View( new PageListModel( UserSession.Current.DomainId, base.Database ) );
-        }
+        //public ActionResult List()
+        //{
+        //    return View( new PageListModel( UserSession.Current.DomainId, base.Database ) );
+        //}
 
-        public ActionResult Create()
-        {
-            return View( "Edit", base.Manager.GetPageModel( null ) );
-        }
+        //public ActionResult Create()
+        //{
+        //    return View( "Edit", base.Manager.GetPageModel( null ) );
+        //}
 
-        [HttpPost]
-        public ActionResult Create( PageModel model )
-        {
-            SaveResult result = UpdatePageModel( model );
+        //[HttpPost]
+        //public ActionResult Create( PageModel model )
+        //{
+        //    SaveResult result = UpdatePageModel( model );
 
-            if ( result.State == SaveResultState.Success )
-            {
-                return RedirectToAction( "List" );
-            }
+        //    if ( result.State == SaveResultState.Success )
+        //    {
+        //        return RedirectToAction( "List" );
+        //    }
 
-            return View( "Edit", model );
-        }
+        //    return View( "Edit", model );
+        //}
 
-        public ActionResult Edit( int id )
-        {
-            PageModel model = base.Manager.GetPageModel( id );
+        //public ActionResult Edit( int id )
+        //{
+        //    PageModel model = base.Manager.GetPageModel( id );
 
-            if ( model.PageTemplateModel != null )
-            {
-                model.PageTemplateModel.InitialiseForEditor();
-            }
+        //    if ( model.PageTemplateModel != null )
+        //    {
+        //        model.PageTemplateModel.InitialiseForEditor();
+        //    }
 
-            return View( model );
-        }
+        //    return View( model );
+        //}
 
-        [HttpPost]
-        public ActionResult Edit( PageModel model )
-        {
-            SaveResult result = UpdatePageModel( model );
+        //[HttpPost]
+        //public ActionResult Edit( PageModel model )
+        //{
+        //    SaveResult result = UpdatePageModel( model );
 
-            if ( result.State == SaveResultState.Success )
-            {
-                return RedirectToAction( "List" );
-            }
+        //    if ( result.State == SaveResultState.Success )
+        //    {
+        //        return RedirectToAction( "List" );
+        //    }
 
-            return View( model );
-        }
+        //    return View( model );
+        //}
 
         #endregion
 
@@ -103,14 +103,14 @@ namespace ContentManagementSystem.Admin.Controllers
 
         #region Private Methods
 
-        private SaveResult UpdatePageModel( PageModel model )
-        {
-            CachedEditableModel cachedModel = CMSCache.Pages[ model.ModelType ];
+        //private SaveResult UpdatePageModel( PageModel model )
+        //{
+        //    CachedEditableModel cachedModel = CMSCache.Pages[ model.ModelType ];
 
-            model.PageTemplateModel = cachedModel.GetPageModel( this );
+        //    model.PageTemplateModel = cachedModel.GetPageModel( this );
 
-            return base.Manager.SavePage( model );
-        }
+        //    return base.Manager.SavePage( model );
+        //}
 
         #endregion
 

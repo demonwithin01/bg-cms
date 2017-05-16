@@ -1,0 +1,92 @@
+﻿@model ContentManagementSystem.Admin.Models.UploadModel
+@{
+    PageTitle = ( Model.UploadId.HasValue ? "Edit" : "Add" ) + " Upload";
+}
+
+<h2>@PageTitle</h2>
+
+@using ( Html.BeginForm( "Edit", "Uploads" ) )
+{
+    @Html.HiddenFor( m => m.UploadId )
+    <dl>
+        @if ( Model.UploadId.HasValue )
+        {
+            @Html.TextBoxFieldFor( m => m.UploadLocation, new { @readonly = "readonly" } )
+        }
+        @Html.TextBoxFieldFor( m => m.Title )
+        @Html.TextAreaFieldFor( m => m.Description )
+    </dl>
+    <div id="filedrop" class="drop-zone">
+        <div class="no-file-upload-message">
+            Drag a file here
+            <br />
+            -- Or --
+            <br />
+            Click here to select a file to upload
+        </div>
+    </div>
+}
+
+<div id="preview-template" style="display: none;">
+    <div class="dz-preview dz-file-preview">
+        <div class="dz-details">
+            <div class="dz-filename"><span data-dz-name></span></div>
+            <div class="dz-size" data-dz-size></div>
+            <img data-dz-thumbnail />
+        </div>
+        <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
+        <div class="button-group">
+            <div class="dz-success-mark button primary"><span>Accept</span></div>
+            <div class="dz-error-mark button cancel"><span>Cancel</span></div>
+        </div>
+        <div class="dz-error-message"><span data-dz-errormessage></span></div>
+    </div>
+</div>
+
+@section scripts
+{
+    @Scripts.Render( "~/bundles/filedrop" )
+    <script>
+        $(function ()
+        {
+            Dropzone.autoDiscover = false;
+
+            var dropzone = new Dropzone('#filedrop', {
+                url: '/admin/uploads/edit',
+                paramName: 'Upload',
+                acceptedFiles: 'image/*',
+                autoProcessQueue: false,
+                maxFilesize: 2,
+                maxFiles: 1,
+                previewTemplate: $('#preview-template').html(),
+                accept: function (file, done)
+                {
+                    done();
+                },
+                success: function (uploadResult, data)
+                {
+                    window.location = "/admin/uploads/list";
+                }
+            });
+
+            dropzone.on('sending', function (file, xhr, formData)
+            {
+                $('form').find('input, select, textarea').each(function ()
+                {
+                    var $this = $(this);
+                    formData.append($this.attr('name'), $this.val());
+                });
+            });
+
+            $(document).on('click', '.dz-success-mark', function ()
+            {
+                dropzone.processQueue();
+            });
+
+            $(document).on('click', '.dz-error-mark', function ()
+            {
+                dropzone.removeAllFiles();
+            });
+        });
+    </script>
+}

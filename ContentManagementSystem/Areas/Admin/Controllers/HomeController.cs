@@ -25,10 +25,10 @@ namespace ContentManagementSystem.Admin.Controllers
 
         #region Page Actions
 
-        public ActionResult Index()
-        {
-            return View();
-        }
+        //public ActionResult Index()
+        //{
+        //    return View();
+        //}
 
         #endregion
 

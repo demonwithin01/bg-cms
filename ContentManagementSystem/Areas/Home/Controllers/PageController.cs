@@ -13,51 +13,51 @@ namespace ContentManagementSystem.Home.Controllers
 {
     public class PageController : ContentManagementController
     {
-        public ActionResult Index( int? pageId )
-        {
-            Page page = base.Database.Pages.Find( pageId );
+        //public ActionResult Index( int? pageId )
+        //{
+        //    Page page = base.Database.Pages.Find( pageId );
             
-            if ( page == null )
-            {
-                throw new HttpException( 404, "The page requested could not be found" );
-            }
+        //    if ( page == null )
+        //    {
+        //        throw new HttpException( 404, "The page requested could not be found" );
+        //    }
 
-            bool loadDefaultPage = true;
+        //    bool loadDefaultPage = true;
 
-            PageContent pageContent = null;
+        //    PageContent pageContent = null;
 
-            if ( Request.QueryString.AllKeys.Contains( "draft" ) )
-            {
-                bool isDraft;
+        //    if ( Request.QueryString.AllKeys.Contains( "draft" ) )
+        //    {
+        //        bool isDraft;
 
-                if ( bool.TryParse( Request.QueryString[ "draft" ], out isDraft ) && isDraft )
-                {
-                    if ( UserSession.Current.IsAdministrator )
-                    {
-                        pageContent = page.PageContent.FirstOrDefault( (Func<PageContent, bool>)(s => s.PublishStatus == PublishStatus.Draft) );
+        //        if ( bool.TryParse( Request.QueryString[ "draft" ], out isDraft ) && isDraft )
+        //        {
+        //            if ( UserSession.Current.IsAdministrator )
+        //            {
+        //                pageContent = page.PageContent.FirstOrDefault( (Func<PageContent, bool>)(s => s.PublishStatus == PublishStatus.Draft) );
 
-                        loadDefaultPage = ( pageContent == null );
-                    }
-                }
-            }
+        //                loadDefaultPage = ( pageContent == null );
+        //            }
+        //        }
+        //    }
 
-            if ( loadDefaultPage )
-            {
-                pageContent = page.PageContent.FirstOrDefault( (Func<PageContent, bool>)(s => s.PublishStatus == PublishStatus.Published) );
-            }
+        //    if ( loadDefaultPage )
+        //    {
+        //        pageContent = page.PageContent.FirstOrDefault( (Func<PageContent, bool>)(s => s.PublishStatus == PublishStatus.Published) );
+        //    }
 
-            if ( pageContent == null || ( page.RequiresLogin && Request.IsAuthenticated == false ) )
-            {
-                throw new HttpException( 404, "The page requested could not be found" );
-            }
+        //    if ( pageContent == null || ( page.RequiresLogin && Request.IsAuthenticated == false ) )
+        //    {
+        //        throw new HttpException( 404, "The page requested could not be found" );
+        //    }
 
-            PageManager manager = new PageManager();
-            //TODO: Refactor Manager instance.
-            PageTemplate pageTemplate = manager.RetrievePage( pageContent );
-            pageTemplate.InitialiseForDisplay();
+        //    PageManager manager = new PageManager();
+        //    //TODO: Refactor Manager instance.
+        //    PageTemplate pageTemplate = manager.RetrievePage( pageContent );
+        //    pageTemplate.InitialiseForDisplay();
 
-            return View( new IndexModel( pageContent, pageTemplate ) );
-        }
+        //    return View( new IndexModel( pageContent, pageTemplate ) );
+        //}
 
     }
 }

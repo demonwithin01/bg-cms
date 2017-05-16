@@ -1,0 +1,48 @@
+﻿@using ContentManagementSystem.Helpers;
+@model ContentManagementSystem.Admin.Models.PageModel
+@{
+    PageTitle = ( Model.PageId.HasValue ? "Edit" : "Add" ) + " Page";
+    SelectListGenerator generator = new SelectListGenerator();
+}
+
+<h2>@PageTitle</h2>
+
+@using ( Html.BeginForm() )
+{
+    @Html.HiddenFor( m => m.PageId )
+    @Html.HiddenFor( m => m.Publish )
+
+    <div>
+        <div class="button-list text-right">
+            @Html.Button( "Save as Draft", ButtonType.Secondary, "saveDraft" )
+            @Html.Button( "Save & Publish", ButtonType.Primary, "savePublish" )
+        </div>
+        @Html.DropDownListFieldFor( m => m.ModelType, generator.PageTemplates( Model.ModelType ) )
+        <dl>
+            @Html.TextBoxFieldFor( m => m.Title )
+        </dl>
+    </div>
+    <div id="page-template">
+        @Html.Partial( Model.PageTemplateModel.EditorLocation, Model.PageTemplateModel )
+    </div>
+}
+
+@section scripts
+{
+    <script>
+        $(function ()
+        {
+            $( '#saveDraft' ).on( 'click', function ()
+            {
+                $( '#Publish' ).val( 'false' );
+                $( 'form' ).submit();
+            } );
+
+            $( '#savePublish' ).on( 'click', function ()
+            {
+                $( '#Publish' ).val( 'true' );
+                $( 'form' ).submit();
+            } );
+        });
+    </script>
+}

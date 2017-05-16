@@ -33,30 +33,30 @@ namespace ContentManagementSystem.Admin.Controllers
 
         #region Page Actions
             
-        public ViewResult Edit()
-        {
-            return View( base.Manager.GetHomePageModel() );
-        }
+        //public ViewResult Edit()
+        //{
+        //    return View( base.Manager.GetHomePageModel() );
+        //}
 
-        [HttpPost]
-        public ActionResult Edit( HomePageModel model )
-        {
-            CachedEditableModel cachedModel = CMSCache.HomePages[ model.HomePageTemplate ];
+        //[HttpPost]
+        //public ActionResult Edit( HomePageModel model )
+        //{
+        //    CachedEditableModel cachedModel = CMSCache.HomePages[ model.HomePageTemplate ];
             
-            model.HomePageTemplateModel = cachedModel.GetHomePageModel( this );
+        //    model.HomePageTemplateModel = cachedModel.GetHomePageModel( this );
             
-            if ( model.HomePageTemplateModel != null )
-            {
-                SaveResult result = base.Manager.SaveHomePageModel( model );
+        //    if ( model.HomePageTemplateModel != null )
+        //    {
+        //        SaveResult result = base.Manager.SaveHomePageModel( model );
 
-                if ( result.State == SaveResultState.Success )
-                {
-                    return RedirectToAction( "Index", "Home" );
-                }
-            }
+        //        if ( result.State == SaveResultState.Success )
+        //        {
+        //            return RedirectToAction( "Index", "Home" );
+        //        }
+        //    }
 
-            return View( model );
-        }
+        //    return View( model );
+        //}
 
         #endregion
 

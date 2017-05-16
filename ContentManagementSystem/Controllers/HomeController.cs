@@ -98,6 +98,7 @@ namespace ContentManagementSystem.Controllers
 
         [AllowAnonymous]
         [Route( "login" )]
+        [Route( "home/account/login" )]
         public ActionResult Login( string returnUrl )
         {
             ViewBag.ReturnUrl = returnUrl;
@@ -108,6 +109,7 @@ namespace ContentManagementSystem.Controllers
         [HttpPost]
         [AllowAnonymous]
         [Route( "login" )]
+        [Route( "home/account/login" )]
         [ValidateAntiForgeryToken]
         public ActionResult Login( LoginModel model, string returnUrl )
         {
@@ -135,7 +137,7 @@ namespace ContentManagementSystem.Controllers
             WebSecurity.Logout();
             UserCookie.CreateInstance( null, HttpContext );
 
-            return RedirectToAction( "Index", "Home" );
+            return Redirect( "/" );
         }
 
         #endregion

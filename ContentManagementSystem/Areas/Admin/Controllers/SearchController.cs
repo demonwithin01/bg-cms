@@ -29,17 +29,17 @@ namespace ContentManagementSystem.Admin.Controllers
 
         #region Public Methods
 
-        [HttpPost]
-        public JsonResult Uploads( string term )
-        {
-            ContentManagementDb db = new ContentManagementDb();
+        //[HttpPost]
+        //public JsonResult Uploads( string term )
+        //{
+        //    ContentManagementDb db = new ContentManagementDb();
 
-            term = ( term ?? "" ).ToLower();
+        //    term = ( term ?? "" ).ToLower();
 
-            var uploads = db.Uploads.Where( s => s.DomainId == UserSession.Current.DomainId && s.Title.ToLower().Contains( term ) ).Take( 10 );
+        //    var uploads = db.Uploads.Where( s => s.DomainId == UserSession.Current.DomainId && s.Title.ToLower().Contains( term ) ).Take( 10 );
 
-            return Json( new { uploads = uploads.Select( s => new { uploadId = s.UploadId, fileLocation = s.PhysicalLocation, title = s.Title } ) } );
-        }
+        //    return Json( new { uploads = uploads.Select( s => new { uploadId = s.UploadId, fileLocation = s.PhysicalLocation, title = s.Title } ) } );
+        //}
 
         #endregion
 

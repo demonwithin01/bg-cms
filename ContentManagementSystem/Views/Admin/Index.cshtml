@@ -1,0 +1,70 @@
+﻿@{
+    PageTitle = "Admin";
+}
+
+@helper RenderStandardAdminTiles( string title, string controller )
+{
+    <li>
+        <div class="admin-link-title"><h3>@title</h3></div>
+        <div class="admin-link">
+            <a href="/admin/@controller/list">
+                <div>
+                    <span class="admin-link-icon"><i class="fa fa-edit"></i></span>
+                    <span class="admin-link-text">Manage</span>
+                </div>
+            </a>
+        </div>
+        <div class="admin-link">
+            <a href="/admin/@controller/create">
+                <div>
+                    <span class="admin-link-icon"><i class="fa fa-plus"></i></span>
+                    <span class="admin-link-text">Add</span>
+                </div>
+            </a>
+        </div>
+    </li>
+}
+
+@helper RenderManageAdminTile( string title, string controller )
+{
+    <li>
+        <div class="admin-link-title"><h3>@title</h3></div>
+        <div class="admin-link single">
+            <a href="/admin/@controller/list">
+                <div>
+                    <span class="admin-link-icon"><i class="fa fa-edit"></i></span>
+                    <span class="admin-link-text">Manage</span>
+                </div>
+            </a>
+        </div>
+    </li>
+}
+
+@helper RenderEditAdminTile( string title, string controller )
+{
+    <li>
+        <div class="admin-link-title"><h3>@title</h3></div>
+        <div class="admin-link single">
+            <a href="/admin/@controller/edit">
+                <div>
+                    <span class="admin-link-icon"><i class="fa fa-edit"></i></span>
+                    <span class="admin-link-text">Edit</span>
+                </div>
+            </a>
+        </div>
+    </li>
+}
+
+<div class="admin-home-nav-items">
+    <ul>
+        @RenderEditAdminTile( "Domain Settings", "Domain" )
+        @RenderEditAdminTile( "Home Page", "HomePage" )
+        @RenderStandardAdminTiles( "Nav Menu", "Navigation" )
+        @RenderStandardAdminTiles( "Pages", "Page" )
+        @RenderStandardAdminTiles( "Blog Posts", "BlogPost" )
+        @*@RenderStandardAdminTiles( "Product Categories", "ProductCategory" )
+        @RenderStandardAdminTiles( "Products", "Product" )*@
+        @RenderStandardAdminTiles( "Uploads", "Uploads" )
+        @*@RenderManageAdminTile( "Users", "User" )*@
+    </ul>
+</div>

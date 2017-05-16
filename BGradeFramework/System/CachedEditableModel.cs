@@ -22,20 +22,20 @@ namespace ContentManagementSystem.Framework
 
         #region Public Methods
 
-        public HomePageTemplate GetHomePageModel( BaseController controller )
+        public HomePageTemplate GetHomePageModel()// BaseController controller )
         {
             dynamic model = Activator.CreateInstance( ModelType );
 
-            controller.UpdateObjectModel( model );
+            //controller.UpdateObjectModel( model );
 
             return ( model as HomePageTemplate );
         }
 
-        public PageTemplate GetPageModel( BaseController controller )
+        public PageTemplate GetPageModel()// BaseController controller )
         {
             dynamic model = Activator.CreateInstance( ModelType );
 
-            controller.UpdateObjectModel( model );
+            //controller.UpdateObjectModel( model );
 
             return ( model as PageTemplate );
         }

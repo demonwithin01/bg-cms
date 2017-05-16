@@ -32,33 +32,33 @@ namespace ContentManagementSystem.Admin.Controllers
 
         #region Page Actions
 
-        public ViewResult List()
-        {
-            return View( new NavigationListModel( UserSession.Current.DomainId, base.Database ) );
-        }
+        //public ViewResult List()
+        //{
+        //    return View( new NavigationListModel( UserSession.Current.DomainId, base.Database ) );
+        //}
 
-        public ActionResult Create()
-        {
-            return View( "Edit", base.Manager.GetNavigationModel( null ) );
-        }
+        //public ActionResult Create()
+        //{
+        //    return View( "Edit", base.Manager.GetNavigationModel( null ) );
+        //}
 
-        public ViewResult Edit( int? navItemId )
-        {
-            return View( base.Manager.GetNavigationModel( navItemId ) );
-        }
+        //public ViewResult Edit( int? navItemId )
+        //{
+        //    return View( base.Manager.GetNavigationModel( navItemId ) );
+        //}
 
-        [HttpPost]
-        public ActionResult Edit( NavigationModel model )
-        {
-            SaveResult result = base.Manager.SaveNavigationItem( model );
+        //[HttpPost]
+        //public ActionResult Edit( NavigationModel model )
+        //{
+        //    SaveResult result = base.Manager.SaveNavigationItem( model );
 
-            if ( result.State == SaveResultState.Success )
-            {
-                return RedirectToAction( "List" );
-            }
+        //    if ( result.State == SaveResultState.Success )
+        //    {
+        //        return RedirectToAction( "List" );
+        //    }
 
-            return View( model );
-        }
+        //    return View( model );
+        //}
 
         #endregion
 

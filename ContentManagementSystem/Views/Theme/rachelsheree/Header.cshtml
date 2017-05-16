@@ -40,7 +40,7 @@
                 {
                     <li class="off">
                         <div class="nav-link">
-                            <a href="@Url.Action( "Index", "Home", new { Area = "Admin" } )">Admin</a>
+                            <a href="/admin">Admin</a>
                         </div>
                     </li>
                 }
@@ -87,7 +87,7 @@
                 </div>
             </div>
             }
-            <a href="@Url.Action( "Index", "Page", new { Area = "Home", pageId = navItem.PageId } )">@navItem.Title</a>
+            <a href="/page/@navItem.PageId">@navItem.Title</a>
         </div>
     </li>
 }

@@ -29,7 +29,7 @@ namespace ContentManagementSystem.Controllers
         #region Page Actions
 
         [Route( "domain/edit" )]
-        public ActionResult EditDomain()
+        public ActionResult DomainEdit()
         {
             DomainManager manager = new DomainManager();
 
@@ -38,7 +38,7 @@ namespace ContentManagementSystem.Controllers
 
         [HttpPost]
         [Route( "domain/edit" )]
-        public ActionResult EditDomain( DomainModel model )
+        public ActionResult DomainEdit( DomainModel model )
         {
             DomainManager manager = new DomainManager();
 
