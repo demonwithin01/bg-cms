@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace ContentManagementSystem.Framework.Models.Page
 {
-    [EditorLocation( "~/Areas/Admin/Views/Page/Templates/Default.cshtml" )]
+    [EditorLocation( "~/Views/Admin/PageTemplates/Default.cshtml" )]
     [DisplayLocation( "~/Areas/Home/Views/Page/Templates/Default.cshtml" )]
     public class Default : PageTemplate
     {

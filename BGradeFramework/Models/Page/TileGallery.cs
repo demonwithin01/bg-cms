@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 namespace ContentManagementSystem.Framework.Models.Page
 {
-    [EditorLocation( "~/Areas/Admin/Views/Page/Templates/TileGallery.cshtml" )]
+    [EditorLocation( "~/Views/Admin/PageTemplates/TileGallery.cshtml" )]
     [DisplayLocation( "~/Areas/Home/Views/Page/Templates/TileGallery.cshtml" )]
     public class TileGallery : PageTemplate
     {

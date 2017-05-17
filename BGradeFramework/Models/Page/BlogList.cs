@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 namespace ContentManagementSystem.Framework.Models.Page
 {
-    [EditorLocation( "~/Areas/Admin/Views/Page/Templates/BlogList.cshtml" )]
+    [EditorLocation( "~/Views/Admin/PageTemplates/BlogList.cshtml" )]
     [DisplayLocation( "~/Areas/Home/Views/Page/Templates/BlogList.cshtml" )]
     public class BlogList : PageTemplate
     {

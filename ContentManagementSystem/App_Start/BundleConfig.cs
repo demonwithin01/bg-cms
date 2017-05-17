@@ -11,46 +11,46 @@ namespace ContentManagementSystem
         public static void RegisterBundles( BundleCollection bundles )
         {
             bundles.Add( new ScriptBundle( "~/bundles/external" ).Include(
-                "~/Scripts/Frameworks/modernizr-*",
-                "~/Scripts/Frameworks/jquery-{version}.js", 
-                "~/Scripts/Frameworks/jquery.unobtrusive*",
-                "~/Scripts/Frameworks/jquery.validate*" ) );
+                "~/Content/Scripts/Frameworks/modernizr-*",
+                "~/Content/Scripts/Frameworks/jquery-{version}.js", 
+                "~/Content/Scripts/Frameworks/jquery.unobtrusive*",
+                "~/Content/Scripts/Frameworks/jquery.validate*" ) );
             
             bundles.Add( new ScriptBundle( "~/bundles/jqueryui" ).Include(
-                        "~/Scripts/Frameworks/jquery-ui-{version}.js" ) );
+                        "~/Content/Scripts/Frameworks/jquery-ui-{version}.js" ) );
             
             bundles.Add( new ScriptBundle( "~/bundles/siteadmin" ).Include(
-                        "~/Scripts/Plugins/ckeditor/ckeditor.js",
-                        //"~/Scripts/Plugins/ckeditor/styles.js",
-                        //"~/Scripts/Plugins/ckeditor/config.js"
-                        "~/Scripts/Plugins/spectrum.js"
+                        "~/Content/Scripts/Plugins/ckeditor/ckeditor.js",
+                        //"~/Content/Scripts/Plugins/ckeditor/styles.js",
+                        //"~/Content/Scripts/Plugins/ckeditor/config.js"
+                        "~/Content/Scripts/Plugins/spectrum.js"
                         ) );
             
             bundles.Add( new ScriptBundle( "~/bundles/site" )
                             .Include(
-                                "~/Scripts/Extensions/jquery.js",
-                                "~/Scripts/Plugins/jssocials.min.js",
-                                "~/Scripts/bgrade/bg.modal.js",
-                                "~/Scripts/bgrade/site.image-browser.js",
-                                "~/Scripts/bgrade/site.types.js",
-                                "~/Scripts/bgrade/site.js",
-                                "~/Scripts/bgrade/site.plugin.js",
-                                "~/Scripts/bgrade/bgrade.ribbon.js",
-                                "~/Scripts/bgrade/_page-section.js" )
-                            .IncludeDirectory( "~/Scripts/PageSections/", "*.js" ) );
+                                "~/Content/Scripts/Extensions/jquery.js",
+                                "~/Content/Scripts/Plugins/jssocials.min.js",
+                                "~/Content/Scripts/bgrade/bg.modal.js",
+                                "~/Content/Scripts/bgrade/site.image-browser.js",
+                                "~/Content/Scripts/bgrade/site.types.js",
+                                "~/Content/Scripts/bgrade/site.js",
+                                "~/Content/Scripts/bgrade/site.plugin.js",
+                                "~/Content/Scripts/bgrade/bgrade.ribbon.js",
+                                "~/Content/Scripts/bgrade/_page-section.js" )
+                            .IncludeDirectory( "~/Content/Scripts/PageSections/", "*.js" ) );
             
             bundles.Add( new ScriptBundle( "~/bundles/filedrop" ).Include(
-                        "~/Scripts/Plugins/dropzone.js" ) );
+                        "~/Content/Scripts/Plugins/dropzone.js" ) );
 
             bundles.Add( new ScriptBundle( "~/bundles/image-upload-page" ).Include(
-                                            "~/Scripts/Frameworks/modernizr-*",
-                                            "~/Scripts/Frameworks/jquery-{version}.js",
-                                            "~/Scripts/Frameworks/jquery-migrate-1.2.1.min.js",
-                                            "~/Scripts/Frameworks/jquery-ui-{version}.js",
-                                            "~/Scripts/Frameworks/jquery.unobtrusive*",
-                                            "~/Scripts/Frameworks/jquery.validate*",
-                                            "~/Scripts/Frameworks/jquery.form.js",
-                                            "~/Scripts/bgrade/site.image-browser.js"
+                                            "~/Content/Scripts/Frameworks/modernizr-*",
+                                            "~/Content/Scripts/Frameworks/jquery-{version}.js",
+                                            "~/Content/Scripts/Frameworks/jquery-migrate-1.2.1.min.js",
+                                            "~/Content/Scripts/Frameworks/jquery-ui-{version}.js",
+                                            "~/Content/Scripts/Frameworks/jquery.unobtrusive*",
+                                            "~/Content/Scripts/Frameworks/jquery.validate*",
+                                            "~/Content/Scripts/Frameworks/jquery.form.js",
+                                            "~/Content/Scripts/bgrade/site.image-browser.js"
                                         ) );
 
             bundles.Add( new StyleBundle( "~/Content/css" ).Include(
@@ -89,8 +89,8 @@ namespace ContentManagementSystem
                 var directoryName = themeDirectory.Substring( Path.GetDirectoryName( themeDirectory ).Length + 1 );
 
                 bundles.Add( new ScriptBundle( "~/scripts/theme/" + directoryName )
-                    .Include( "~/scripts/themes/" + directoryName + "/_" + directoryName + ".js" )
-                    .IncludeDirectory( "~/scripts/themes/" + directoryName, "*.js" ) );
+                    .Include( "~/Content/Scripts/themes/" + directoryName + "/_" + directoryName + ".js" )
+                    .IncludeDirectory( "~/Content/Scripts/themes/" + directoryName, "*.js" ) );
             }
         }
 
@@ -102,12 +102,12 @@ namespace ContentManagementSystem
         private static string CssFile( string fileName )
         {
 #if DEBUG
-            string end = ".css";
+            string fileExtension = ".css";
 #else
-            string end = ".min.css";
+            string fileExtension = ".min.css";
 #endif
 
-            return "~/Content/Styles/" + fileName + end;
+            return "~/Content/Styles/" + fileName + fileExtension;
         }
     }
 }

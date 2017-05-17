@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ContentManagementSystem.Framework.Models.Page
 {
-    [EditorLocation( "~/Areas/Admin/Views/Page/Templates/Shop.cshtml" )]
+    [EditorLocation( "~/Views/Admin/PageTemplates/Shop.cshtml" )]
     [DisplayLocation( "~/Areas/Home/Views/Page/Templates/Shop.cshtml" )]
     public class Shop : PageTemplate
     {

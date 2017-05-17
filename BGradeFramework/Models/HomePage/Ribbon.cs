@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ContentManagementSystem.Framework.Models.HomePage
 {
-    [DisplayLocation( "~/Areas/Home/Views/Home/HomePageTemplates/Ribbon.cshtml" )]
+    [DisplayLocation( "~/Views/Admin/HomePageTemplates/Ribbon.cshtml" )]
     [EditorLocation( "~/Areas/Admin/Views/HomePage/Templates/Ribbon.cshtml" )]
     public class Ribbon : HomePageTemplate
     {
