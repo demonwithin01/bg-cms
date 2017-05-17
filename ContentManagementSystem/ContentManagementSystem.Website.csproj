@@ -322,24 +322,24 @@
     <Content Include="Content\Images\orderedList8.png" />
     <Content Include="Content\Images\orderedList9.png" />
     <Content Include="Content\Images\Plugins\mCSB_buttons.png" />
-    <Content Include="Content\Scripts\bgrade\bg.carousel.js">
+    <Content Include="Content\Scripts\apollyon\bg.carousel.js">
       <DependentUpon>bg.carousel.ts</DependentUpon>
     </Content>
-    <Content Include="Content\Scripts\bgrade\bg.modal.js">
+    <Content Include="Content\Scripts\apollyon\bg.modal.js">
       <DependentUpon>bg.modal.ts</DependentUpon>
     </Content>
-    <Content Include="Content\Scripts\bgrade\bgrade.ribbon.js">
-      <DependentUpon>bgrade.ribbon.ts</DependentUpon>
+    <Content Include="Content\Scripts\apollyon\bgrade.ribbon.js">
+      <DependentUpon>apollyon.ribbon.ts</DependentUpon>
     </Content>
-    <Content Include="Content\Scripts\bgrade\site.image-browser.js" />
-    <Content Include="Content\Scripts\bgrade\site.js">
+    <Content Include="Content\Scripts\apollyon\site.image-browser.js" />
+    <Content Include="Content\Scripts\apollyon\site.js">
       <DependentUpon>site.ts</DependentUpon>
     </Content>
-    <Content Include="Content\Scripts\bgrade\site.plugin.js" />
-    <Content Include="Content\Scripts\bgrade\site.types.js">
+    <Content Include="Content\Scripts\apollyon\site.plugin.js" />
+    <Content Include="Content\Scripts\apollyon\site.types.js">
       <DependentUpon>site.types.ts</DependentUpon>
     </Content>
-    <Content Include="Content\Scripts\bgrade\_page-section.js">
+    <Content Include="Content\Scripts\apollyon\_page-section.js">
       <DependentUpon>_page-section.ts</DependentUpon>
     </Content>
     <Content Include="Content\Scripts\bootstrap.js" />
@@ -858,22 +858,22 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="Content\Styles\Admin\_variables.less" />
-    <Content Include="Content\Scripts\bgrade\_page-section.js.map">
+    <Content Include="Content\Scripts\apollyon\_page-section.js.map">
       <DependentUpon>_page-section.ts</DependentUpon>
     </Content>
-    <Content Include="Content\Scripts\bgrade\bg.carousel.js.map">
+    <Content Include="Content\Scripts\apollyon\bg.carousel.js.map">
       <DependentUpon>bg.carousel.ts</DependentUpon>
     </Content>
-    <Content Include="Content\Scripts\bgrade\bg.modal.js.map">
+    <Content Include="Content\Scripts\apollyon\bg.modal.js.map">
       <DependentUpon>bg.modal.ts</DependentUpon>
     </Content>
-    <Content Include="Content\Scripts\bgrade\bgrade.ribbon.js.map">
-      <DependentUpon>bgrade.ribbon.ts</DependentUpon>
+    <Content Include="Content\Scripts\apollyon\bgrade.ribbon.js.map">
+      <DependentUpon>apollyon.ribbon.ts</DependentUpon>
     </Content>
-    <Content Include="Content\Scripts\bgrade\site.js.map">
+    <Content Include="Content\Scripts\apollyon\site.js.map">
       <DependentUpon>site.ts</DependentUpon>
     </Content>
-    <Content Include="Content\Scripts\bgrade\site.types.js.map">
+    <Content Include="Content\Scripts\apollyon\site.types.js.map">
       <DependentUpon>site.types.ts</DependentUpon>
     </Content>
     <Content Include="Content\Scripts\Extensions\jquery.js.map">
@@ -1083,6 +1083,13 @@
     <Content Include="Views\Admin\PageTemplates\TiledSubNavigation.cshtml" />
     <Content Include="Views\Admin\PageTemplates\TileGallery.cshtml" />
     <Content Include="Views\Admin\HomePageTemplates\Ribbon.cshtml" />
+    <Content Include="Views\Home\HomePageTemplates\Ribbon.cshtml" />
+    <Content Include="Views\Home\PageTemplates\BlogList.cshtml" />
+    <Content Include="Views\Home\PageTemplates\Contact.cshtml" />
+    <Content Include="Views\Home\PageTemplates\Default.cshtml" />
+    <Content Include="Views\Home\PageTemplates\Shop.cshtml" />
+    <Content Include="Views\Home\PageTemplates\TiledSubNavigation.cshtml" />
+    <Content Include="Views\Home\PageTemplates\TileGallery.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1110,12 +1117,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Content\Scripts\bgrade\bg.carousel.ts" />
-    <TypeScriptCompile Include="Content\Scripts\bgrade\bg.modal.ts" />
-    <TypeScriptCompile Include="Content\Scripts\bgrade\bgrade.ribbon.ts" />
-    <TypeScriptCompile Include="Content\Scripts\bgrade\site.ts" />
-    <TypeScriptCompile Include="Content\Scripts\bgrade\site.types.ts" />
-    <TypeScriptCompile Include="Content\Scripts\bgrade\_page-section.ts" />
+    <TypeScriptCompile Include="Content\Scripts\apollyon\bg.carousel.ts" />
+    <TypeScriptCompile Include="Content\Scripts\apollyon\bg.modal.ts" />
+    <TypeScriptCompile Include="Content\Scripts\apollyon\apollyon.ribbon.ts" />
+    <TypeScriptCompile Include="Content\Scripts\apollyon\site.ts" />
+    <TypeScriptCompile Include="Content\Scripts\apollyon\site.types.ts" />
+    <TypeScriptCompile Include="Content\Scripts\apollyon\_page-section.ts" />
     <TypeScriptCompile Include="Content\Scripts\Extensions\jquery.ts" />
     <TypeScriptCompile Include="Content\Scripts\PageSections\site.blogs.ts" />
     <TypeScriptCompile Include="Content\Scripts\PageSections\site.contact.ts" />

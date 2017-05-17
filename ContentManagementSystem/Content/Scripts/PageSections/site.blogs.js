@@ -3,8 +3,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var bgrade;
-(function (bgrade) {
+var apollyon;
+(function (apollyon) {
     var BlogPost = (function () {
         function BlogPost(element, blogs) {
             this._element = element;
@@ -54,7 +54,7 @@ var bgrade;
             this._blogPosts.push(new BlogPost(element, this));
         };
         return Blogs;
-    }(bgrade.PageSection));
-    bgrade.Blogs = Blogs;
-})(bgrade || (bgrade = {}));
+    }(apollyon.PageSection));
+    apollyon.Blogs = Blogs;
+})(apollyon || (apollyon = {}));
 //# sourceMappingURL=site.blogs.js.map

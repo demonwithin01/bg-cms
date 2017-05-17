@@ -1,4 +1,4 @@
-﻿module bgrade
+﻿module apollyon
 {
     $.fn.carousel = function ( options )
     {

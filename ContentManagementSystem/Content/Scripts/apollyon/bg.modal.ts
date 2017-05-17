@@ -1,4 +1,4 @@
-﻿module bgrade
+﻿module apollyon
 {
     $.fn.bgmodal = function ( options )
     {

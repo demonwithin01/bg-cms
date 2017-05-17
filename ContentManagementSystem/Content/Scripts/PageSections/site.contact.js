@@ -4,8 +4,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var _site = _site || {};
-var bgrade;
-(function (bgrade) {
+var apollyon;
+(function (apollyon) {
     var Contact = (function (_super) {
         __extends(Contact, _super);
         function Contact() {
@@ -19,13 +19,13 @@ var bgrade;
         };
         Contact.prototype.formResult = function (data) {
             if (data.success) {
-                _site.showNotification(bgrade.notificationType.success, data.message);
+                _site.showNotification(apollyon.notificationType.success, data.message);
             }
             else {
             }
         };
         return Contact;
-    }(bgrade.PageSection));
-    bgrade.Contact = Contact;
-})(bgrade || (bgrade = {}));
+    }(apollyon.PageSection));
+    apollyon.Contact = Contact;
+})(apollyon || (apollyon = {}));
 //# sourceMappingURL=site.contact.js.map

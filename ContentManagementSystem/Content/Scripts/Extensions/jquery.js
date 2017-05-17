@@ -1,5 +1,5 @@
-var bgrade;
-(function (bgrade) {
+var apollyon;
+(function (apollyon) {
     /**
      * Performs a JQuery append, then raises the callback method.
      * @param {JQuery | any[] | Element | DocumentFragment | Text | string} content The content to append to the current JQuery object.
@@ -23,5 +23,5 @@ var bgrade;
         });
         return this;
     };
-})(bgrade || (bgrade = {}));
+})(apollyon || (apollyon = {}));
 //# sourceMappingURL=jquery.js.map

@@ -30,13 +30,13 @@ namespace ContentManagementSystem
                             .Include(
                                 "~/Content/Scripts/Extensions/jquery.js",
                                 "~/Content/Scripts/Plugins/jssocials.min.js",
-                                "~/Content/Scripts/bgrade/bg.modal.js",
-                                "~/Content/Scripts/bgrade/site.image-browser.js",
-                                "~/Content/Scripts/bgrade/site.types.js",
-                                "~/Content/Scripts/bgrade/site.js",
-                                "~/Content/Scripts/bgrade/site.plugin.js",
-                                "~/Content/Scripts/bgrade/bgrade.ribbon.js",
-                                "~/Content/Scripts/bgrade/_page-section.js" )
+                                "~/Content/Scripts/apollyon/bg.modal.js",
+                                "~/Content/Scripts/apollyon/site.image-browser.js",
+                                "~/Content/Scripts/apollyon/site.types.js",
+                                "~/Content/Scripts/apollyon/site.js",
+                                "~/Content/Scripts/apollyon/site.plugin.js",
+                                "~/Content/Scripts/apollyon/apollyon.ribbon.js",
+                                "~/Content/Scripts/apollyon/_page-section.js" )
                             .IncludeDirectory( "~/Content/Scripts/PageSections/", "*.js" ) );
             
             bundles.Add( new ScriptBundle( "~/bundles/filedrop" ).Include(
@@ -50,7 +50,7 @@ namespace ContentManagementSystem
                                             "~/Content/Scripts/Frameworks/jquery.unobtrusive*",
                                             "~/Content/Scripts/Frameworks/jquery.validate*",
                                             "~/Content/Scripts/Frameworks/jquery.form.js",
-                                            "~/Content/Scripts/bgrade/site.image-browser.js"
+                                            "~/Content/Scripts/apollyon/site.image-browser.js"
                                         ) );
 
             bundles.Add( new StyleBundle( "~/Content/css" ).Include(
@@ -82,7 +82,7 @@ namespace ContentManagementSystem
 
 
 
-            var themeDirectories = Directory.GetDirectories( HttpContext.Current.Server.MapPath( "~/scripts/themes/" ) );
+            var themeDirectories = Directory.GetDirectories( HttpContext.Current.Server.MapPath( "~/content/scripts/themes/" ) );
 
             foreach ( var themeDirectory in themeDirectories )
             {

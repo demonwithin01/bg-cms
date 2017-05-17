@@ -41,8 +41,7 @@ namespace ContentManagementSystem.Controllers
         {
             CachedEditableModel cachedModel = CMSCache.HomePages[ model.HomePageTemplate ];
 
-            model.HomePageTemplateModel = cachedModel.GetHomePageModel();
-            UpdateModel( model.HomePageTemplateModel );
+            model.HomePageTemplateModel = GetHomePageModel( cachedModel );
 
             if( model.HomePageTemplateModel != null )
             {

@@ -1,5 +1,5 @@
-var bgrade;
-(function (bgrade) {
+var apollyon;
+(function (apollyon) {
     var PageSection = (function () {
         function PageSection() {
         }
@@ -8,6 +8,6 @@ var bgrade;
         ;
         return PageSection;
     }());
-    bgrade.PageSection = PageSection;
-})(bgrade || (bgrade = {}));
+    apollyon.PageSection = PageSection;
+})(apollyon || (apollyon = {}));
 //# sourceMappingURL=_page-section.js.map

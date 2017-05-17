@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 namespace ContentManagementSystem.Framework.Models.Page
 {
     [EditorLocation( "~/Views/Admin/PageTemplates/TiledSubNavigation.cshtml" )]
-    [DisplayLocation( "~/Areas/Home/Views/Page/Templates/TiledSubNavigation.cshtml" )]
+    [DisplayLocation( "~/Views/Home/PageTemplates/TiledSubNavigation.cshtml" )]
     public class TiledSubNavigation : PageTemplate
     {
 

@@ -7,7 +7,7 @@
     carousel( options: any ): JQuery;
 }
 
-module bgrade
+module apollyon
 {
     /**
      * Performs a JQuery append, then raises the callback method.

@@ -1,6 +1,6 @@
 ﻿var _site = _site || {};
 
-module bgrade
+module apollyon
 {
     export class Contact extends PageSection
     {

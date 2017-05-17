@@ -124,6 +124,7 @@
     <Compile Include="Extensions\HtmlStringExtensions.cs" />
     <Compile Include="Helpers\CreateSelectList.cs" />
     <Compile Include="Helpers\StringHelpers.cs" />
+    <Compile Include="Helpers\MvcUrlForm.cs" />
     <Compile Include="HtmlExtensions\Button.cs" />
     <Compile Include="HtmlExtensions\CheckboxFieldFor.cs" />
     <Compile Include="HtmlExtensions\HtmlWrap.cs" />

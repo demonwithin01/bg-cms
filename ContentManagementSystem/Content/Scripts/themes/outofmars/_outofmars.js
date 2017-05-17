@@ -6,7 +6,7 @@ outofmars.initialise = function ( site )
 {
     //site.addPlugin( 'navigation', outofmars.navigation );
     
-    this.addPlugin( "Ribbon", bgrade.Ribbon );
+    this.addPlugin( "Ribbon", apollyon.Ribbon );
 };
 
 var theme = outofmars;

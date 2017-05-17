@@ -9,7 +9,7 @@ using System.Web.Mvc;
 namespace ContentManagementSystem.Framework.Models.Page
 {
     [EditorLocation( "~/Views/Admin/PageTemplates/Default.cshtml" )]
-    [DisplayLocation( "~/Areas/Home/Views/Page/Templates/Default.cshtml" )]
+    [DisplayLocation( "~/Views/Home/PageTemplates/Default.cshtml" )]
     public class Default : PageTemplate
     {
 

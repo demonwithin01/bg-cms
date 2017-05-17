@@ -2,7 +2,9 @@
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Mvc.Html;
 using System.Web.Routing;
+using ContentManagementSystem.Framework.Helpers;
 using ContentManagementSystemDatabase;
 
 namespace ContentManagementSystem.Framework.BaseClasses
@@ -174,6 +176,15 @@ namespace ContentManagementSystem.Framework.BaseClasses
             tag.MergeAttributes( attributes );
 
             return Html.Raw( tag.ToString() );
+        }
+
+        /// <summary>
+        /// Begins a html form using the provided url as the action.
+        /// </summary>
+        /// <param name="url">The url for the form.</param>
+        public MvcUrlForm BeginUrlForm( string url )
+        {
+            return new MvcUrlForm( Html, url );
         }
 
         #endregion

@@ -1,5 +1,5 @@
-var bgrade;
-(function (bgrade) {
+var apollyon;
+(function (apollyon) {
     $.fn.carousel = function (options) {
         function Carousel(element) {
             var _itemsTotalWidth = 0;
@@ -102,5 +102,5 @@ var bgrade;
         }
         return this;
     };
-})(bgrade || (bgrade = {}));
+})(apollyon || (apollyon = {}));
 //# sourceMappingURL=bg.carousel.js.map

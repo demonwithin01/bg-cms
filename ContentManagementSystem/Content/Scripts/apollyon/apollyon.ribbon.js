@@ -1,5 +1,5 @@
-var bgrade;
-(function (bgrade) {
+var apollyon;
+(function (apollyon) {
     var Ribbon = (function () {
         function Ribbon() {
         }
@@ -33,6 +33,6 @@ var bgrade;
         };
         return Ribbon;
     }());
-    bgrade.Ribbon = Ribbon;
-})(bgrade || (bgrade = {}));
-//# sourceMappingURL=bgrade.ribbon.js.map
+    apollyon.Ribbon = Ribbon;
+})(apollyon || (apollyon = {}));
+//# sourceMappingURL=apollyon.ribbon.js.map

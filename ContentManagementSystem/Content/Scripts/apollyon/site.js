@@ -1,6 +1,6 @@
 // // <reference path="./jquery.extensions.js" />
-var bgrade;
-(function (bgrade) {
+var apollyon;
+(function (apollyon) {
     var Site = (function () {
         function Site() {
             this._plugins = {};
@@ -66,10 +66,10 @@ var bgrade;
         Site.prototype.showNotification = function (nType, message, time) {
             var type;
             switch (nType) {
-                case bgrade.notificationType.success:
+                case apollyon.notificationType.success:
                     type = "success";
                     break;
-                case bgrade.notificationType.error:
+                case apollyon.notificationType.error:
                     type = "error";
                     break;
                 default:
@@ -176,7 +176,7 @@ var bgrade;
         };
         return Site;
     }());
-    bgrade.Site = Site;
-})(bgrade || (bgrade = {}));
+    apollyon.Site = Site;
+})(apollyon || (apollyon = {}));
 var theme;
 //# sourceMappingURL=site.js.map

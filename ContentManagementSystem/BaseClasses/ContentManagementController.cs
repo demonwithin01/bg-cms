@@ -102,6 +102,24 @@ namespace ContentManagementSystem.BaseClasses
             base.OnException( filterContext );
         }
 
+        protected HomePageTemplate GetHomePageModel( CachedEditableModel cachedModel )// BaseController controller )
+        {
+            dynamic model = Activator.CreateInstance( cachedModel.ModelType );
+
+            UpdateModel( model );
+
+            return ( model as HomePageTemplate );
+        }
+
+        protected PageTemplate GetPageModel( CachedEditableModel cachedModel )
+        {
+            dynamic model = Activator.CreateInstance( cachedModel.ModelType );
+
+            UpdateModel( model );
+
+            return ( model as PageTemplate );
+        }
+
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */

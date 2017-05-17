@@ -5,7 +5,7 @@
         <div class="nav-content">
             @if ( UserCookie.Current.IsLoggedIn )
             {
-                using ( Html.BeginForm( "LogOff", "Account", new { Area = "Home" } ) )
+                using ( BeginUrlForm( "/logoff" ) )
                 {
                     @Html.AntiForgeryToken()
                     <span onclick="$(this).parent().submit();" class="logged-in-button">

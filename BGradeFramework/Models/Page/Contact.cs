@@ -8,7 +8,7 @@ using ContentManagementSystem.Framework.Models.Page.Sections;
 namespace ContentManagementSystem.Framework.Models.Page
 {
     [EditorLocation( "~/Views/Admin/PageTemplates/Contact.cshtml" )]
-    [DisplayLocation( "~/Areas/Home/Views/Page/Templates/Contact.cshtml" )]
+    [DisplayLocation( "~/Views/Home/PageTemplates/Contact.cshtml" )]
     public class Contact : PageTemplate
     {
 

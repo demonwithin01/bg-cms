@@ -1,5 +1,5 @@
-var bgrade;
-(function (bgrade) {
+var apollyon;
+(function (apollyon) {
     $.fn.bgmodal = function (options) {
         function Modal(element) {
             function empty() {
@@ -49,5 +49,5 @@ var bgrade;
         }
         return this;
     };
-})(bgrade || (bgrade = {}));
+})(apollyon || (apollyon = {}));
 //# sourceMappingURL=bg.modal.js.map

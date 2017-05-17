@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width" />
         @Styles.Render( "~/Content/admincss" )
         <script type="text/javascript">
-            var CKEDITOR_BASEPATH = '/scripts/plugins/ckeditor/';
+            var CKEDITOR_BASEPATH = '/content/scripts/plugins/ckeditor/';
         </script>
         @Scripts.Render( "~/bundles/external" )
         @Scripts.Render( "~/bundles/siteadmin" )
@@ -19,7 +19,7 @@
         <header class="always-open">
             <nav>
                 <div class="nav-content">
-                    @using ( Html.BeginForm( "LogOff", "Account", new { Area = "Home" } ) )
+                    @using ( BeginUrlForm( "/logoff" ) )
                     {
                         @Html.AntiForgeryToken()
                         <span onclick="$(this).parent().submit();" class="logged-in-button">
@@ -37,7 +37,7 @@
                         </li>
                         <li class="off">
                             <div class="nav-link">
-                                <a href="/admin/home">Admin Home</a>
+                                <a href="/admin">Admin Home</a>
                             </div>
                         </li>
                         <li class="off">
@@ -131,7 +131,7 @@
 
             $(function ()
             {
-                _site = new bgrade.Site();
+                _site = new apollyon.Site();
             });
         </script>
     </body>

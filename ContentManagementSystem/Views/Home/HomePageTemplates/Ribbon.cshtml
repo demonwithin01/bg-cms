@@ -1,0 +1,39 @@
+﻿@using ContentManagementSystem.Framework.Models.HomePage;
+@model Ribbon
+
+@{ 
+    UseFullWidth = true;
+    HideTitle = true;
+}
+
+@helper RenderRibbonItem( RibbonItem ribbonItem )
+{
+    string backgroundColor = ribbonItem.Background ?? "transparent";
+    string height = ribbonItem.Height;
+
+    if ( string.IsNullOrEmpty( height ) )
+    {
+        height = "60px";
+    }
+
+    using ( Html.Wrap( ribbonItem.RibbonLink.HasValue ? new HtmlWrapElement( "a", new { href = "page/" + ribbonItem.RibbonLink } ) : null ) )
+{
+<div class="ribbon-item @( ribbonItem.RemovePadding ? "no-padding" : "" )" style="background-color: @backgroundColor; height: @height;">
+    <div class="b-grid">
+        @for ( int i = 0 ; i < ribbonItem.Columns.Count ; i++ )
+        {
+        <div class="b-width-1-@ribbonItem.Columns.Count">
+            @Html.Raw( ribbonItem.Columns[ i ].Html )
+        </div>
+        }
+    </div>
+</div>
+}
+}
+
+<div id="ribbon-items">
+    @for ( int i = 0 ; i < Model.Items.Count ; i++ )
+    {
+    @RenderRibbonItem( Model.Items[ i ] )
+    }
+</div>
