@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using ContentManagementSystem.Framework;
-using ContentManagementSystemDatabase;
 
-namespace ContentManagementSystem.Shop.Models
+namespace ContentManagementSystem.Models.Home
 {
-    public class ProductsListItemModel
+    public class LoginModel
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -20,26 +19,11 @@ namespace ContentManagementSystem.Shop.Models
 
         #region Constructors/Initialisation
 
-        public ProductsListItemModel( Product product )
-        {
-            AutoMap.Map( product, this );
-
-            this.IsInStock = ( product.StockCount > 0 );
-
-            this.ImageLocation = product.ProductImages.First().Upload.PhysicalLocation;
-        }
-
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Public Methods
-
-        #endregion
-
-        /* ---------------------------------------------------------------------------------------------------------- */
-
-        #region Static Methods
 
         #endregion
 
@@ -53,27 +37,17 @@ namespace ContentManagementSystem.Shop.Models
 
         #region Properties
 
-        public int ProductId
-        {
-            get; set;
-        }
+        [Required]
+        [Display( Name = "User name" )]
+        public string UserName { get; set; }
 
-        public string Title
-        {
-            get; set;
-        }
+        [Required]
+        [DataType( DataType.Password )]
+        [Display( Name = "Password" )]
+        public string Password { get; set; }
 
-        public decimal Price
-        {
-            get; set;
-        }
-
-        public bool IsInStock
-        {
-            get; set;
-        }
-
-        public string ImageLocation { get; set; }
+        [Display( Name = "Remember me?" )]
+        public bool RememberMe { get; set; }
 
         #endregion
 

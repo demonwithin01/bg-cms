@@ -6,7 +6,7 @@ using System.Web;
 
 namespace ContentManagementSystem.Models.Home
 {
-    public class ContactModel
+    public class RegisterModel
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -29,12 +29,6 @@ namespace ContentManagementSystem.Models.Home
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
-        #region Static Methods
-
-        #endregion
-
-        /* ---------------------------------------------------------------------------------------------------------- */
-
         #region Private Methods
 
         #endregion
@@ -43,17 +37,24 @@ namespace ContentManagementSystem.Models.Home
 
         #region Properties
 
-        [Display( Name = "Subject:" )]
-        [Required( ErrorMessage = "Please enter in a subject" )]
-        public string Subject { get; set; }
+        [Required]
+        [Display( Name = "User name" )]
+        public string UserName { get; set; }
 
-        [Display( Name = "Your Name:" )]
-        [Required( ErrorMessage = "Please enter in your full name" )]
-        public string FullName { get; set; }
+        [Required]
+        [Display( Name = "Email Address" )]
+        public string EmailAddress { get; set; }
 
-        [Display( Name = "Message:" )]
-        [Required( ErrorMessage = "Please enter in a message to send" )]
-        public string Message { get; set; }
+        [Required]
+        [StringLength( 100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6 )]
+        [DataType( DataType.Password )]
+        [Display( Name = "Password" )]
+        public string Password { get; set; }
+
+        [DataType( DataType.Password )]
+        [Display( Name = "Confirm password" )]
+        [Compare( "Password", ErrorMessage = "The password and confirmation password do not match." )]
+        public string ConfirmPassword { get; set; }
 
         #endregion
 

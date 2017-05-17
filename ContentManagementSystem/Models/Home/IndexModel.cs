@@ -1,14 +1,13 @@
-﻿using System;
+﻿using ContentManagementSystem.Framework;
+using ContentManagementSystemDatabase;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using ContentManagementSystem.Framework;
-using ContentManagementSystemDatabase;
 
-namespace ContentManagementSystem.Shop.Models
+namespace ContentManagementSystem.Models.Home
 {
-    public class ProductsListModel
+    public class IndexModel
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -20,25 +19,12 @@ namespace ContentManagementSystem.Shop.Models
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Constructors/Initialisation
-
-        public ProductsListModel()
-        {
-            ProductsContext productsRepository = new ProductsContext();
-
-            this.Products = productsRepository.Products.WhereActive().Where( s => s.DomainId == UserCookie.Current.DomainId ).ToList().Select( s => new ProductsListItemModel( s ) ).ToList();
-        }
-
+            
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Public Methods
-
-        #endregion
-
-        /* ---------------------------------------------------------------------------------------------------------- */
-
-        #region Static Methods
 
         #endregion
 
@@ -52,18 +38,10 @@ namespace ContentManagementSystem.Shop.Models
 
         #region Properties
 
-        public List<ProductsListItemModel> Products
-        {
-            get; set;
-        }
+        public HomePageTemplate HomePageTemplateModel { get; set; }
 
-        [Display( Name = "Category" )]
-        public int ProductCategoryId
-        {
-            get;
-            set;
-        }
-        
+        public string Title { get; set; }
+
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */

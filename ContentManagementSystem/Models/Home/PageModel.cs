@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Helpers;
+using ContentManagementSystem.Framework;
+using ContentManagementSystemDatabase;
+using ContentManagementSystem.Managers;
 
-namespace ContentManagementSystem.Models.Shared
+namespace ContentManagementSystem.Models.Home
 {
-    public class TableModel : WebGrid
+    public class PageModel
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -18,6 +20,17 @@ namespace ContentManagementSystem.Models.Shared
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Constructors/Initialisation
+
+        public PageModel()
+        {
+
+        }
+
+        public PageModel( PageContent page, PageTemplate pageTemplate )
+        {
+            this.Title = page.Title;
+            this.PageTemplate = pageTemplate;
+        }
 
         #endregion
 
@@ -43,9 +56,9 @@ namespace ContentManagementSystem.Models.Shared
 
         #region Properties
 
-        public string TableId { get; set; }
-
-        public string UpdateUrl { get; set; }
+        public string Title { get; set; }
+        
+        public PageTemplate PageTemplate { get; set; }
 
         #endregion
 

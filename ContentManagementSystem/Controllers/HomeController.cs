@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ContentManagementSystem.Admin.Managers;
 using ContentManagementSystem.BaseClasses;
 using ContentManagementSystem.Framework;
-using ContentManagementSystem.Models;
 using ContentManagementSystem.Models.Home;
-using ContentManagementSystem.Models.Page;
 using ContentManagementSystemDatabase;
 using WebMatrix.WebData;
 
@@ -40,7 +37,7 @@ namespace ContentManagementSystem.Controllers
         [Route( "" )]
         public ActionResult Index()
         {
-            HomeModel model = new HomeModel();
+            IndexModel model = new IndexModel();
 
             HomePageManager manager = new HomePageManager();
             model.HomePageTemplateModel = manager.RetrieveHomePage();
@@ -93,7 +90,7 @@ namespace ContentManagementSystem.Controllers
             PageTemplate pageTemplate = manager.RetrievePage( pageContent );
             pageTemplate.InitialiseForDisplay();
 
-            return View( new IndexModel( pageContent, pageTemplate ) );
+            return View( new PageModel( pageContent, pageTemplate ) );
         }
 
         [AllowAnonymous]

@@ -102,7 +102,12 @@ namespace ContentManagementSystem.BaseClasses
             base.OnException( filterContext );
         }
 
-        protected HomePageTemplate GetHomePageModel( CachedEditableModel cachedModel )// BaseController controller )
+        /// <summary>
+        /// Gets the home page template model, updated with the form data.
+        /// </summary>
+        /// <param name="cachedModel"></param>
+        /// <returns></returns>
+        protected HomePageTemplate GetHomePageModel( CachedEditableModel cachedModel )
         {
             dynamic model = Activator.CreateInstance( cachedModel.ModelType );
 
@@ -111,6 +116,11 @@ namespace ContentManagementSystem.BaseClasses
             return ( model as HomePageTemplate );
         }
 
+        /// <summary>
+        /// Gets the page template model, updated with the form data.
+        /// </summary>
+        /// <param name="cachedModel"></param>
+        /// <returns></returns>
         protected PageTemplate GetPageModel( CachedEditableModel cachedModel )
         {
             dynamic model = Activator.CreateInstance( cachedModel.ModelType );
