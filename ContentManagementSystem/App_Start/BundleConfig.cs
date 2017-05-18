@@ -30,14 +30,14 @@ namespace ContentManagementSystem
                             .Include(
                                 "~/Content/Scripts/Extensions/jquery.js",
                                 "~/Content/Scripts/Plugins/jssocials.min.js",
-                                "~/Content/Scripts/apollyon/bg.modal.js",
-                                "~/Content/Scripts/apollyon/site.image-browser.js",
-                                "~/Content/Scripts/apollyon/site.types.js",
-                                "~/Content/Scripts/apollyon/site.js",
-                                "~/Content/Scripts/apollyon/site.plugin.js",
-                                "~/Content/Scripts/apollyon/apollyon.ribbon.js",
-                                "~/Content/Scripts/apollyon/_page-section.js" )
-                            .IncludeDirectory( "~/Content/Scripts/PageSections/", "*.js" ) );
+                                "~/Content/Scripts/Apollyon/Extensions/modal.js",
+                                "~/Content/Scripts/Apollyon/Workers/image-browser.js",
+                                "~/Content/Scripts/Apollyon/site.types.js",
+                                "~/Content/Scripts/Apollyon/site.js",
+                                "~/Content/Scripts/Apollyon/Bases/plugin.js",
+                                "~/Content/Scripts/Apollyon/Workers/ribbon.js",
+                                "~/Content/Scripts/Apollyon/Bases/_page-section.js" )
+                            .IncludeDirectory( "~/Content/Scripts/Apollyon/PageSections/", "*.js" ) );
             
             bundles.Add( new ScriptBundle( "~/bundles/filedrop" ).Include(
                         "~/Content/Scripts/Plugins/dropzone.js" ) );
@@ -50,7 +50,7 @@ namespace ContentManagementSystem
                                             "~/Content/Scripts/Frameworks/jquery.unobtrusive*",
                                             "~/Content/Scripts/Frameworks/jquery.validate*",
                                             "~/Content/Scripts/Frameworks/jquery.form.js",
-                                            "~/Content/Scripts/apollyon/site.image-browser.js"
+                                            "~/Content/Scripts/Apollyon/Workers/image-browser.js"
                                         ) );
 
             bundles.Add( new StyleBundle( "~/Content/css" ).Include(

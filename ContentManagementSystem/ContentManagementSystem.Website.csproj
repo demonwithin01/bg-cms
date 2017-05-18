@@ -286,8 +286,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Fonts\fontawesome-webfont.svg" />
     <Content Include="Content\Images\accent.png" />
     <Content Include="Content\Images\Backgrounds\background.png" />
@@ -307,28 +305,26 @@
     <Content Include="Content\Images\orderedList8.png" />
     <Content Include="Content\Images\orderedList9.png" />
     <Content Include="Content\Images\Plugins\mCSB_buttons.png" />
-    <Content Include="Content\Scripts\apollyon\bg.carousel.js">
-      <DependentUpon>bg.carousel.ts</DependentUpon>
+    <Content Include="Content\Scripts\Apollyon\Extensions\bg.carousel.js">
+      <DependentUpon>carousel.ts</DependentUpon>
     </Content>
-    <Content Include="Content\Scripts\apollyon\bg.modal.js">
-      <DependentUpon>bg.modal.ts</DependentUpon>
+    <Content Include="Content\Scripts\Apollyon\Extensions\bg.modal.js">
+      <DependentUpon>modal.ts</DependentUpon>
     </Content>
-    <Content Include="Content\Scripts\apollyon\bgrade.ribbon.js">
-      <DependentUpon>apollyon.ribbon.ts</DependentUpon>
+    <Content Include="Content\Scripts\Apollyon\Workers\bgrade.ribbon.js">
+      <DependentUpon>ribbon.ts</DependentUpon>
     </Content>
-    <Content Include="Content\Scripts\apollyon\site.image-browser.js" />
-    <Content Include="Content\Scripts\apollyon\site.js">
+    <Content Include="Content\Scripts\Apollyon\Workers\image-browser.js" />
+    <Content Include="Content\Scripts\Apollyon\site.js">
       <DependentUpon>site.ts</DependentUpon>
     </Content>
-    <Content Include="Content\Scripts\apollyon\site.plugin.js" />
-    <Content Include="Content\Scripts\apollyon\site.types.js">
+    <Content Include="Content\Scripts\Apollyon\Bases\plugin.js" />
+    <Content Include="Content\Scripts\Apollyon\site.types.js">
       <DependentUpon>site.types.ts</DependentUpon>
     </Content>
-    <Content Include="Content\Scripts\apollyon\_page-section.js">
+    <Content Include="Content\Scripts\Apollyon\Bases\_page-section.js">
       <DependentUpon>_page-section.ts</DependentUpon>
     </Content>
-    <Content Include="Content\Scripts\bootstrap.js" />
-    <Content Include="Content\Scripts\bootstrap.min.js" />
     <Content Include="Content\Scripts\Extensions\jquery.js">
       <DependentUpon>jquery.ts</DependentUpon>
     </Content>
@@ -348,11 +344,11 @@
     <Content Include="Content\Scripts\Frameworks\knockout-2.2.0.js" />
     <Content Include="Content\Scripts\Frameworks\modernizr-2.6.2.js" />
     <None Include="Content\Scripts\Frameworks\_references.js" />
-    <Content Include="Content\Scripts\PageSections\site.blogs.js">
-      <DependentUpon>site.blogs.ts</DependentUpon>
+    <Content Include="Content\Scripts\Apollyon\PageSections\site.blogs.js">
+      <DependentUpon>blogs.ts</DependentUpon>
     </Content>
-    <Content Include="Content\Scripts\PageSections\site.contact.js">
-      <DependentUpon>site.contact.ts</DependentUpon>
+    <Content Include="Content\Scripts\Apollyon\PageSections\site.contact.js">
+      <DependentUpon>contact.ts</DependentUpon>
     </Content>
     <Content Include="Content\Scripts\Plugins\ckeditor\adapters\jquery.js" />
     <Content Include="Content\Scripts\Plugins\ckeditor\build-config.js" />
@@ -827,32 +823,32 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="Content\Styles\Admin\_variables.less" />
-    <Content Include="Content\Scripts\apollyon\_page-section.js.map">
+    <Content Include="Content\Scripts\Apollyon\Bases\_page-section.js.map">
       <DependentUpon>_page-section.ts</DependentUpon>
     </Content>
-    <Content Include="Content\Scripts\apollyon\bg.carousel.js.map">
-      <DependentUpon>bg.carousel.ts</DependentUpon>
+    <Content Include="Content\Scripts\Apollyon\Extensions\bg.carousel.js.map">
+      <DependentUpon>carousel.ts</DependentUpon>
     </Content>
-    <Content Include="Content\Scripts\apollyon\bg.modal.js.map">
-      <DependentUpon>bg.modal.ts</DependentUpon>
+    <Content Include="Content\Scripts\Apollyon\Extensions\bg.modal.js.map">
+      <DependentUpon>modal.ts</DependentUpon>
     </Content>
-    <Content Include="Content\Scripts\apollyon\bgrade.ribbon.js.map">
-      <DependentUpon>apollyon.ribbon.ts</DependentUpon>
+    <Content Include="Content\Scripts\Apollyon\Workers\bgrade.ribbon.js.map">
+      <DependentUpon>ribbon.ts</DependentUpon>
     </Content>
-    <Content Include="Content\Scripts\apollyon\site.js.map">
+    <Content Include="Content\Scripts\Apollyon\site.js.map">
       <DependentUpon>site.ts</DependentUpon>
     </Content>
-    <Content Include="Content\Scripts\apollyon\site.types.js.map">
+    <Content Include="Content\Scripts\Apollyon\site.types.js.map">
       <DependentUpon>site.types.ts</DependentUpon>
     </Content>
     <Content Include="Content\Scripts\Extensions\jquery.js.map">
       <DependentUpon>jquery.ts</DependentUpon>
     </Content>
-    <Content Include="Content\Scripts\PageSections\site.blogs.js.map">
-      <DependentUpon>site.blogs.ts</DependentUpon>
+    <Content Include="Content\Scripts\Apollyon\PageSections\site.blogs.js.map">
+      <DependentUpon>blogs.ts</DependentUpon>
     </Content>
-    <Content Include="Content\Scripts\PageSections\site.contact.js.map">
-      <DependentUpon>site.contact.ts</DependentUpon>
+    <Content Include="Content\Scripts\Apollyon\PageSections\site.contact.js.map">
+      <DependentUpon>contact.ts</DependentUpon>
     </Content>
     <Content Include="Content\Scripts\Plugins\ckeditor\plugins\scayt\LICENSE.md" />
     <Content Include="Content\Scripts\Plugins\ckeditor\plugins\scayt\README.md" />
@@ -970,11 +966,6 @@
     <Content Include="Content\Styles\_notifications.less" />
     <Content Include="Content\Styles\_overlay-text.less" />
     <None Include="Properties\PublishProfiles\Production.pubxml" />
-    <Content Include="Images\Backgrounds\background.png" />
-    <Content Include="Images\Header\Login.png" />
-    <Content Include="Images\Header\Logo.png" />
-    <Content Include="Images\Header\MenuIcon.png" />
-    <Content Include="Images\Plugins\mCSB_buttons.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -984,20 +975,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Content\Site.css" />
-    <Content Include="Images\accent.png" />
-    <Content Include="Images\bullet.png" />
-    <Content Include="Images\heroAccent.png" />
-    <Content Include="Images\orderedList0.png" />
-    <Content Include="Images\orderedList1.png" />
-    <Content Include="Images\orderedList2.png" />
-    <Content Include="Images\orderedList3.png" />
-    <Content Include="Images\orderedList4.png" />
-    <Content Include="Images\orderedList5.png" />
-    <Content Include="Images\orderedList6.png" />
-    <Content Include="Images\orderedList7.png" />
-    <Content Include="Images\orderedList8.png" />
-    <Content Include="Images\orderedList9.png" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
@@ -1067,15 +1044,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Content\Scripts\apollyon\bg.carousel.ts" />
-    <TypeScriptCompile Include="Content\Scripts\apollyon\bg.modal.ts" />
-    <TypeScriptCompile Include="Content\Scripts\apollyon\apollyon.ribbon.ts" />
-    <TypeScriptCompile Include="Content\Scripts\apollyon\site.ts" />
-    <TypeScriptCompile Include="Content\Scripts\apollyon\site.types.ts" />
-    <TypeScriptCompile Include="Content\Scripts\apollyon\_page-section.ts" />
+    <TypeScriptCompile Include="Content\Scripts\Apollyon\Extensions\carousel.ts" />
+    <TypeScriptCompile Include="Content\Scripts\Apollyon\Extensions\modal.ts" />
+    <TypeScriptCompile Include="Content\Scripts\Apollyon\Workers\ribbon.ts" />
+    <TypeScriptCompile Include="Content\Scripts\Apollyon\site.ts" />
+    <TypeScriptCompile Include="Content\Scripts\Apollyon\site.types.ts" />
+    <TypeScriptCompile Include="Content\Scripts\Apollyon\Bases\_page-section.ts" />
     <TypeScriptCompile Include="Content\Scripts\Extensions\jquery.ts" />
-    <TypeScriptCompile Include="Content\Scripts\PageSections\site.blogs.ts" />
-    <TypeScriptCompile Include="Content\Scripts\PageSections\site.contact.ts" />
+    <TypeScriptCompile Include="Content\Scripts\Apollyon\PageSections\blogs.ts" />
+    <TypeScriptCompile Include="Content\Scripts\Apollyon\PageSections\contact.ts" />
     <TypeScriptCompile Include="Content\Scripts\themes\outofmars\PageBackground.ts" />
     <TypeScriptCompile Include="Content\Scripts\typings\jquery\jquery.d.ts" />
   </ItemGroup>
