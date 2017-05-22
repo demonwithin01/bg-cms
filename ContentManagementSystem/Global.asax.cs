@@ -22,7 +22,6 @@ namespace ContentManagementSystem
         protected void Application_Start()
         {
             Database.SetInitializer<ContentManagementDb>( null );
-            Database.SetInitializer<QueryOnlyDatabase>( null );
             WebSecurity.InitializeDatabaseConnection( "ContentManagementSystem", "UserProfile", "UserId", "UserName", false );
 
             CMSCache.Load();

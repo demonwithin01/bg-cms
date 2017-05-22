@@ -30,13 +30,14 @@ namespace ContentManagementSystem
                             .Include(
                                 "~/Content/Scripts/Extensions/jquery.js",
                                 "~/Content/Scripts/Plugins/jssocials.min.js",
-                                "~/Content/Scripts/Apollyon/Extensions/modal.js",
-                                "~/Content/Scripts/Apollyon/Workers/image-browser.js",
-                                "~/Content/Scripts/Apollyon/site.types.js",
-                                "~/Content/Scripts/Apollyon/site.js",
-                                "~/Content/Scripts/Apollyon/Bases/plugin.js",
-                                "~/Content/Scripts/Apollyon/Workers/ribbon.js",
-                                "~/Content/Scripts/Apollyon/Bases/_page-section.js" )
+                                AScript( "Extensions/modal" ),
+                                AScript( "site.types" ),
+                                AScript( "site" ),
+                                AScript( "Bases/_page-section" ),
+                                AScript( "Bases/plugin" ),
+                                "~/Content/Scripts/Apollyon/Workers/image-browser.js",//TODO: Remove
+                                AScript( "Workers/ImageBrowser" ),
+                                AScript( "Workers/Ribbon" ) )
                             .IncludeDirectory( "~/Content/Scripts/Apollyon/PageSections/", "*.js" ) );
             
             bundles.Add( new ScriptBundle( "~/bundles/filedrop" ).Include(
@@ -50,7 +51,8 @@ namespace ContentManagementSystem
                                             "~/Content/Scripts/Frameworks/jquery.unobtrusive*",
                                             "~/Content/Scripts/Frameworks/jquery.validate*",
                                             "~/Content/Scripts/Frameworks/jquery.form.js",
-                                            "~/Content/Scripts/Apollyon/Workers/image-browser.js"
+                                            AScript( "Workers/ImageBrowser" ),
+                                            "~/Content/Scripts/Apollyon/Workers/image-browser.js"//TODO: Remove
                                         ) );
 
             bundles.Add( new StyleBundle( "~/Content/css" ).Include(
@@ -97,7 +99,7 @@ namespace ContentManagementSystem
         /// <summary>
         /// Generates the path to the CSS file based off the current DEBUG mode.
         /// </summary>
-        /// <param name="fileName">The file name and sub path for the css file.</param>
+        /// <param name="fileName">The file name and sub-path for the css file.</param>
         /// <returns>The virtual location of the css file.</returns>
         private static string CssFile( string fileName )
         {
@@ -108,6 +110,16 @@ namespace ContentManagementSystem
 #endif
 
             return "~/Content/Styles/" + fileName + fileExtension;
+        }
+
+        /// <summary>
+        /// Generates the path to the Javascript file within the Apollyon scripts folder.
+        /// </summary>
+        /// <param name="filename">The file name ane sub-path for the javascript file.</param>
+        /// <returns>The virtual location of the javascript file.</returns>
+        private static string AScript( string filename )
+        {
+            return "~/Content/Scripts/Apollyon/" + filename + ".js";
         }
     }
 }

@@ -32,7 +32,7 @@ namespace ContentManagementSystemDatabase
         /// <param name="domainId">The domain to get the home page for</param>
         public static DomainHomePage DomainHomePage( int domainId )
         {
-            return new QueryOnlyDatabase().DomainHomePages.Find( domainId );
+            return new ContentManagementDb().DomainHomePages.Find( domainId );
         }
 
         #endregion

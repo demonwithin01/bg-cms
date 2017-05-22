@@ -222,8 +222,6 @@
     <Compile Include="Areas\Admin\Controllers\NavigationController.cs" />
     <Compile Include="Areas\Admin\Controllers\BlogPostController.cs" />
     <Compile Include="Areas\Admin\Controllers\PageController.cs" />
-    <Compile Include="Areas\Admin\Controllers\ProductCategoryController.cs" />
-    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\SearchController.cs" />
     <Compile Include="Areas\Admin\Controllers\UploadsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
@@ -249,8 +247,6 @@
     <Compile Include="Managers\Admin\HomePageManager.cs" />
     <Compile Include="Managers\Admin\NavigationManager.cs" />
     <Compile Include="Managers\Admin\PageManager.cs" />
-    <Compile Include="Managers\Admin\ProductCategoryManager.cs" />
-    <Compile Include="Managers\Admin\ProductManager.cs" />
     <Compile Include="Managers\Admin\UploadsManager.cs" />
     <Compile Include="Managers\Admin\UserManager.cs" />
     <Compile Include="Managers\PageManager.cs" />
@@ -270,13 +266,6 @@
     <Compile Include="Models\Admin\Page\PageListItemModel.cs" />
     <Compile Include="Models\Admin\Page\PageListModel.cs" />
     <Compile Include="Models\Admin\Page\PageModel.cs" />
-    <Compile Include="Models\Admin\ProductCategory\ProductCategoriesListItemModel.cs" />
-    <Compile Include="Models\Admin\ProductCategory\ProductCategoriesListModel.cs" />
-    <Compile Include="Models\Admin\ProductCategory\ProductCategoryModel.cs" />
-    <Compile Include="Models\Admin\Product\ProductImageModel.cs" />
-    <Compile Include="Models\Admin\Product\ProductModel.cs" />
-    <Compile Include="Models\Admin\Product\ProductsListItemModel.cs" />
-    <Compile Include="Models\Admin\Product\ProductsListModel.cs" />
     <Compile Include="Models\Admin\Uploads\UploadModel.cs" />
     <Compile Include="Models\Admin\Uploads\UploadsListItemModel.cs" />
     <Compile Include="Models\Admin\Uploads\UploadsListModel.cs" />
@@ -312,7 +301,7 @@
       <DependentUpon>modal.ts</DependentUpon>
     </Content>
     <Content Include="Content\Scripts\Apollyon\Workers\bgrade.ribbon.js">
-      <DependentUpon>ribbon.ts</DependentUpon>
+      <DependentUpon>Ribbon.ts</DependentUpon>
     </Content>
     <Content Include="Content\Scripts\Apollyon\Workers\image-browser.js" />
     <Content Include="Content\Scripts\Apollyon\site.js">
@@ -790,10 +779,6 @@
     <Content Include="Content\Fonts\fontawesome-webfont.woff" />
     <Content Include="Content\Fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\Fonts\FontAwesome.otf" />
-    <Content Include="Areas\Admin\Views\Product\List.cshtml" />
-    <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\ProductCategory\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\ProductCategory\List.cshtml" />
     <Content Include="Areas\Admin\Views\Uploads\List.cshtml" />
     <Content Include="Areas\Admin\Views\Uploads\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ImageBrowser\Select.cshtml" />
@@ -833,7 +818,7 @@
       <DependentUpon>modal.ts</DependentUpon>
     </Content>
     <Content Include="Content\Scripts\Apollyon\Workers\bgrade.ribbon.js.map">
-      <DependentUpon>ribbon.ts</DependentUpon>
+      <DependentUpon>Ribbon.ts</DependentUpon>
     </Content>
     <Content Include="Content\Scripts\Apollyon\site.js.map">
       <DependentUpon>site.ts</DependentUpon>
@@ -939,7 +924,6 @@
     <Content Include="Areas\Admin\Views\Page\List.cshtml" />
     <Content Include="Content\Styles\_tables.less" />
     <Content Include="Content\Styles\Admin\_navigation.less" />
-    <Content Include="Content\Styles\_products.less" />
     <Content Include="Content\Styles\_filters.less" />
     <Content Include="Content\Styles\_dropzone.less" />
     <Content Include="Content\Styles\_variables.less" />
@@ -1046,7 +1030,8 @@
   <ItemGroup>
     <TypeScriptCompile Include="Content\Scripts\Apollyon\Extensions\carousel.ts" />
     <TypeScriptCompile Include="Content\Scripts\Apollyon\Extensions\modal.ts" />
-    <TypeScriptCompile Include="Content\Scripts\Apollyon\Workers\ribbon.ts" />
+    <TypeScriptCompile Include="Content\Scripts\Apollyon\Workers\ImageBrowser.ts" />
+    <TypeScriptCompile Include="Content\Scripts\Apollyon\Workers\Ribbon.ts" />
     <TypeScriptCompile Include="Content\Scripts\Apollyon\site.ts" />
     <TypeScriptCompile Include="Content\Scripts\Apollyon\site.types.ts" />
     <TypeScriptCompile Include="Content\Scripts\Apollyon\Bases\_page-section.ts" />

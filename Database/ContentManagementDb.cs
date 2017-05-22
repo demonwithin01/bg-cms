@@ -28,12 +28,7 @@ namespace ContentManagementSystemDatabase
         public DbSet<Page> Pages { get; set; }
 
         public DbSet<Upload> Uploads { get; set; }
-
-
-        /** Products **/
-        public DbSet<Product> Products { get; set; }
-        public DbSet<ProductCategory> ProductCategories { get; set; }
-
+        
 
         protected override void OnModelCreating( DbModelBuilder modelBuilder )
         {

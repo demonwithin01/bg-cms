@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace ContentManagementSystemDatabase.Configuration
 {
+    //TODO: Move to Apollyon Web Library
     public class CMSFormatter : DatabaseLogFormatter
     {
 
