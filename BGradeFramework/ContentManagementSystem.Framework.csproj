@@ -59,8 +59,8 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -71,10 +71,6 @@
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
       <Private>True</Private>
@@ -112,7 +108,6 @@
     <Compile Include="Attributes\Authorization.cs" />
     <Compile Include="Attributes\DisplayLocation.cs" />
     <Compile Include="Attributes\EditorLocation.cs" />
-    <Compile Include="BaseClasses\BaseController.cs" />
     <Compile Include="BaseClasses\PageSectionTemplate.cs" />
     <Compile Include="BaseClasses\PageTemplate.cs" />
     <Compile Include="BaseClasses\PageModel.cs" />
@@ -120,10 +115,8 @@
     <Compile Include="ControllerRegions.cs" />
     <Compile Include="Enums\ButtonType.cs" />
     <Compile Include="Extensions\DbSetExtensions.cs" />
-    <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\HtmlStringExtensions.cs" />
     <Compile Include="Helpers\CreateSelectList.cs" />
-    <Compile Include="Helpers\StringHelpers.cs" />
     <Compile Include="Helpers\MvcUrlForm.cs" />
     <Compile Include="HtmlExtensions\Button.cs" />
     <Compile Include="HtmlExtensions\CheckboxFieldFor.cs" />
@@ -152,7 +145,6 @@
     <Compile Include="Models\Page\TileGallery\TileGalleryItem.cs" />
     <Compile Include="Settings\ContentLocation.cs" />
     <Compile Include="Settings\Settings.cs" />
-    <Compile Include="Attributes\AjaxOnly.cs" />
     <Compile Include="System\AutoMap.cs" />
     <Compile Include="System\CachedEditableModel.cs" />
     <Compile Include="System\CMSCache.cs" />
@@ -177,6 +169,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ApollyonWebLibrary\ApollyonWebLibrary.csproj">
+      <Project>{F83B24E2-B103-446E-925F-09DA4F5AB34B}</Project>
+      <Name>ApollyonWebLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Database\ContentManagementSystem.Database.csproj">
       <Project>{3d1bb579-fa35-4a3d-ba17-f859e1db89dc}</Project>
       <Name>ContentManagementSystem.Database</Name>

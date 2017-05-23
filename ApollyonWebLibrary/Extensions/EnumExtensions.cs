@@ -1,9 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace ContentManagementSystem.Framework
+namespace ApollyonWebLibrary.Extensions
 {
-    //TODO: Utilise from BGrade library.
     /// <summary>
     /// Defines new functionality to enumeration types.
     /// </summary>
@@ -17,12 +16,12 @@ namespace ContentManagementSystem.Framework
         public static string GetDescription( this Enum source )
         {
             Type type = source.GetType();
-            
-            object[] properties = type.GetMember( source.ToString() )[0].GetCustomAttributes( false );
 
-            foreach ( object property in properties )
+            object[] properties = type.GetMember( source.ToString() )[ 0 ].GetCustomAttributes( false );
+
+            foreach( object property in properties )
             {
-                if ( property is DisplayAttribute )
+                if( property is DisplayAttribute )
                 {
                     return ( ( property as DisplayAttribute ).Name );
                 }
@@ -45,6 +44,16 @@ namespace ContentManagementSystem.Framework
             }
 
             return null;
+        }
+
+        /// <summary>
+        /// Gets the enumeration as an integer.
+        /// </summary>
+        /// <param name="source">The enumeration to convert.</param>
+        /// <returns>The enumeration in its integer format.</returns>
+        public static int ToInt( this Enum source )
+        {
+            return Convert.ToInt32( source );
         }
     }
 }

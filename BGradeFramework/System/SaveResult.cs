@@ -1,4 +1,6 @@
-﻿namespace ContentManagementSystem.Framework
+﻿using ApollyonWebLibrary.Extensions;
+
+namespace ContentManagementSystem.Framework
 {
     /// <summary>
     /// Defines the result of a save action.

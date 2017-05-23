@@ -77,8 +77,8 @@
       <HintPath>..\packages\Microsoft.AspNet.WebPages.OAuth.2.0.30506.0\lib\net40\Microsoft.Web.WebPages.OAuth.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -1018,6 +1018,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ApollyonWebLibrary\ApollyonWebLibrary.csproj">
+      <Project>{f83b24e2-b103-446e-925f-09da4f5ab34b}</Project>
+      <Name>ApollyonWebLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BGradeFramework\ContentManagementSystem.Framework.csproj">
       <Project>{33b8126d-b059-4038-a3d7-c5774f53613a}</Project>
       <Name>ContentManagementSystem.Framework</Name>

@@ -32,9 +32,9 @@ namespace ContentManagementSystem
                                 "~/Content/Scripts/Plugins/jssocials.min.js",
                                 AScript( "Extensions/modal" ),
                                 AScript( "site.types" ),
-                                AScript( "site" ),
                                 AScript( "Bases/_page-section" ),
                                 AScript( "Bases/plugin" ),
+                                AScript( "site" ),
                                 "~/Content/Scripts/Apollyon/Workers/image-browser.js",//TODO: Remove
                                 AScript( "Workers/ImageBrowser" ),
                                 AScript( "Workers/Ribbon" ) )

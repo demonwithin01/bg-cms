@@ -35,3 +35,4 @@ var apollyon;
     }());
     apollyon.Ribbon = Ribbon;
 })(apollyon || (apollyon = {}));
+//# sourceMappingURL=Ribbon.js.map

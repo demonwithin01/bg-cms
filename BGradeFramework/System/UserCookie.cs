@@ -141,7 +141,6 @@ namespace ContentManagementSystem.Framework
                 UserId = user.UserId;
 
                 Role = user.Role;
-                IsAdministrator = user.IsAdministrator;
             }
             else
             {
@@ -322,14 +321,7 @@ namespace ContentManagementSystem.Framework
         /// </summary>
         [JsonProperty( "role" )]
         public Role Role { get; set; }
-
-        //TODO: Refactor out.
-        /// <summary>
-        /// Gets whether or not this user is considered to be an administrator.
-        /// </summary>
-        [JsonProperty( "is-admin" )]
-        public bool IsAdministrator { get; private set; }
-
+        
         /// <summary>
         /// Gets the navigation items for the current domain.
         /// </summary>

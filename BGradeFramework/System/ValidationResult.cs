@@ -2,7 +2,7 @@
 
 namespace ContentManagementSystem.Framework
 {
-    //TODO: Remove and replace with the one in BGrade Lib?
+    //TODO: Move to Apollyon Web Library?
     /// <summary>
     /// Used to set whether an item was successfully validate and the corresponding message.
     /// </summary>

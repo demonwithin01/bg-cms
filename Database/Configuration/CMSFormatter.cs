@@ -1,16 +1,11 @@
 using System;
-using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure.Interception;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace ContentManagementSystemDatabase.Configuration
 {
-    //TODO: Move to Apollyon Web Library
     public class CMSFormatter : DatabaseLogFormatter
     {
 

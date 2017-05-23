@@ -1,12 +1,16 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Web.Helpers;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Script.Serialization;
 
-namespace ContentManagementSystem.Framework.BaseClasses
+namespace ApollyonWebLibrary.Web
 {
-    //TODO: Utilise from BGrade library
     /// <summary>
     /// The base controller which provides common functionality to all site actions/controllers.
     /// </summary>
@@ -41,23 +45,12 @@ namespace ContentManagementSystem.Framework.BaseClasses
 
         #region Public Methods
 
-        ///// <summary>
-        ///// Updates the object model with the form details.
-        ///// </summary>
-        ///// <typeparam name="TModel">The model type that is to be updated from the form data.</typeparam>
-        ///// <param name="model">The model instance that is to be updated.</param>
-        ////[Ignore]
-        //public void UpdateObjectModel<TModel>( TModel model ) where TModel : class
-        //{
-        //    UpdateModel( model );
-        //}
-
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Protected Methods
-            
+
         /// <summary>
         /// Converts a route value dictionary into a json result.
         /// </summary>
@@ -108,14 +101,14 @@ namespace ContentManagementSystem.Framework.BaseClasses
         /// <returns>The view as a string</returns>
         protected string RenderPartialViewToString( string viewName, object model )
         {
-            if ( string.IsNullOrEmpty( viewName ) )
+            if( string.IsNullOrEmpty( viewName ) )
             {
                 viewName = base.ControllerContext.RouteData.GetRequiredString( "action" );
             }
 
             ViewData.Model = model;
 
-            using ( StringWriter writer = new StringWriter() )
+            using( StringWriter writer = new StringWriter() )
             {
                 ViewEngineResult viewResult = ViewEngines.Engines.FindPartialView( base.ControllerContext, viewName );
                 ViewContext viewContext = new ViewContext( base.ControllerContext, viewResult.View, base.ViewData, base.TempData, writer );

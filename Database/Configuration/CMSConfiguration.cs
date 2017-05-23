@@ -1,13 +1,7 @@
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ContentManagementSystemDatabase.Configuration
 {
-    //TODO: Move to Apollyon Web Library
     public class CMSConfiguration : DbConfiguration
     {
 
