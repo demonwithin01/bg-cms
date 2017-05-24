@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using ContentManagementSystem.Admin.Managers;
+using ContentManagementSystem.Managers;
 using ContentManagementSystem.BaseClasses;
 using ContentManagementSystem.Framework;
 using ContentManagementSystem.Models.Home;
@@ -86,7 +86,6 @@ namespace ContentManagementSystem.Controllers
             }
 
             PageManager manager = new PageManager();
-            //TODO: Refactor Manager instance.
             PageTemplate pageTemplate = manager.RetrievePage( pageContent );
             pageTemplate.InitialiseForDisplay();
 

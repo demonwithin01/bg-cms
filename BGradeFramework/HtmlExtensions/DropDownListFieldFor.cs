@@ -68,7 +68,6 @@ namespace ContentManagementSystem.Framework.HtmlExtensions
         /// <returns>The generated html for a dropdown field.</returns>
         public static MvcHtmlString DropDownListFieldFor<TModel, TProperty>( this HtmlHelper<TModel> helper, Expression<Func<TModel, TProperty>> expression, IEnumerable<SelectListItem> selectList, string optionLabel, object htmlAttributes )
         {
-            //TODO: Attempt to simplify and move to common method for all FieldFor methods.
             TagBuilder dt = new TagBuilder( "dt" );
             TagBuilder dd = new TagBuilder( "dd" );
 

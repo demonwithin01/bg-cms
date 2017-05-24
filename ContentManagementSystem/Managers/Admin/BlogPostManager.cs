@@ -27,6 +27,9 @@ namespace ContentManagementSystem.Admin.Managers
 
         #region Public Methods
 
+        /// <summary>
+        /// Gets the blog post from the database.
+        /// </summary>
         public BlogPostModel GetBlogPostModel( int? blogPostId )
         {
             if ( blogPostId.HasValue == false ) return new BlogPostModel();
@@ -39,7 +42,10 @@ namespace ContentManagementSystem.Admin.Managers
 
             return new BlogPostModel( blogPost );
         }
-        
+
+        /// <summary>
+        /// Saves the blog post into the database.
+        /// </summary>
         public SaveResult SaveBlogPost( BlogPostModel model )
         {
             ContentManagementDb db = new ContentManagementDb();
@@ -60,6 +66,9 @@ namespace ContentManagementSystem.Admin.Managers
 
         #region Private Methods
 
+        /// <summary>
+        /// Creates a new row in the database.
+        /// </summary>
         private SaveResult CreateBlog( BlogPostModel model, ContentManagementDb db )
         {
             try
@@ -95,6 +104,9 @@ namespace ContentManagementSystem.Admin.Managers
             }
         }
 
+        /// <summary>
+        /// Updates an existing row in the database.
+        /// </summary>
         private SaveResult UpdateBlog( BlogPost blog, BlogPostModel model, ContentManagementDb db )
         {
             if ( UserSession.Current.IsAdministrator == false ) return SaveResult.AccessDenied;
@@ -128,6 +140,9 @@ namespace ContentManagementSystem.Admin.Managers
             }
         }
 
+        /// <summary>
+        /// Sets the publish status for the entity.
+        /// </summary>
         private void SetPublishStatus( BlogPost page, BlogPostContent pageContent, bool publish )
         {
             if ( publish )

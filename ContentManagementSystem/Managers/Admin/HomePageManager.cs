@@ -28,6 +28,9 @@ namespace ContentManagementSystem.Admin.Managers
 
         #region Public Methods
 
+        /// <summary>
+        /// Gets the model for the home page of the current domain.
+        /// </summary>
         public HomePageModel GetHomePageModel()
         {
             ContentManagementDb db = new ContentManagementDb();
@@ -41,6 +44,9 @@ namespace ContentManagementSystem.Admin.Managers
             return model;
         }
 
+        /// <summary>
+        /// Saves the home page model into the database.
+        /// </summary>
         public SaveResult SaveHomePageModel( HomePageModel model )
         {
             try
@@ -74,6 +80,9 @@ namespace ContentManagementSystem.Admin.Managers
 
         #region Private Methods
 
+        /// <summary>
+        /// Creates a new row in the database.
+        /// </summary>
         private SaveResult CreateNavItem( NavigationModel model, ContentManagementDb db )
         {
             try
@@ -97,6 +106,9 @@ namespace ContentManagementSystem.Admin.Managers
             }
         }
 
+        /// <summary>
+        /// Updates an existing row in the database.
+        /// </summary>
         private SaveResult UpdateNavItem( DomainNavigationItem navItem, NavigationModel model, ContentManagementDb db )
         {
             if ( UserSession.Current.IsAdministrator == false ) return SaveResult.AccessDenied;
