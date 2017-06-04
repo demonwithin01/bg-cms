@@ -29,7 +29,7 @@
                 <img src="@UserCookie.Current.LogoUrl" />
             </a>*@
             <ul id="menu" class="off">
-                @if ( UserCookie.Current.IsLoggedIn && UserCookie.Current.IsAdministrator )
+                @if ( UserCookie.Current.IsLoggedIn && UserSession.IsAdministrator )
                 {
                     <li class="off">
                         <div class="nav-link">
