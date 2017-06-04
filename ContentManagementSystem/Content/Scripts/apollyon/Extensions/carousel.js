@@ -103,4 +103,3 @@ var apollyon;
         return this;
     };
 })(apollyon || (apollyon = {}));
-//# sourceMappingURL=carousel.js.map

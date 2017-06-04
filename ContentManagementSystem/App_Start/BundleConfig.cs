@@ -33,7 +33,8 @@ namespace ContentManagementSystem
                                 AScript( "Bases/plugin" ),
                                 AScript( "site" ),
                                 AScript( "Workers/ImageBrowser" ),
-                                AScript( "Workers/Ribbon" ) )
+                                AScript( "Workers/Ribbon" ),
+                                AScript( "Workers/TemplateEditor" ) )
                             .IncludeDirectory( "~/Content/Scripts/Apollyon/PageSections/", "*.js" ) );
             
             bundles.Add( new ScriptBundle( "~/bundles/image-upload-page" ).Include(

@@ -7,4 +7,3 @@ var apollyon;
     })(apollyon.notificationType || (apollyon.notificationType = {}));
     var notificationType = apollyon.notificationType;
 })(apollyon || (apollyon = {}));
-//# sourceMappingURL=site.types.js.map
