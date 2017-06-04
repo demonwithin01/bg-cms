@@ -28,6 +28,9 @@ namespace ContentManagementSystem.Admin.Managers
 
         #region Public Methods
 
+        /// <summary>
+        /// Gets the model to use for the admin page model.
+        /// </summary>
         public PageModel GetPageModel( int? pageId )
         {
             ContentManagementDb db = new ContentManagementDb();
@@ -52,6 +55,9 @@ namespace ContentManagementSystem.Admin.Managers
             return new PageModel( page, this );
         }
         
+        /// <summary>
+        /// Saves the page model into the database.
+        /// </summary>
         public SaveResult SavePage( PageModel model )
         {
             ContentManagementDb db = new ContentManagementDb();
@@ -72,6 +78,9 @@ namespace ContentManagementSystem.Admin.Managers
 
         #region Private Methods
 
+        /// <summary>
+        /// Creates a new row in the database.
+        /// </summary>
         private SaveResult CreatePage( PageModel model, ContentManagementDb db )
         {
             try
@@ -109,6 +118,9 @@ namespace ContentManagementSystem.Admin.Managers
             }
         }
 
+        /// <summary>
+        /// Updates an existing row in the database.
+        /// </summary>
         private SaveResult UpdatePage( Page page, PageModel model, ContentManagementDb db )
         {
             if ( UserSession.Current.IsAdministrator == false ) return SaveResult.AccessDenied;
@@ -145,6 +157,9 @@ namespace ContentManagementSystem.Admin.Managers
             }
         }
     
+        /// <summary>
+        /// Updates the page content with the page model template.
+        /// </summary>
         private void UpdateWithPageModel( PageContent pageContent, PageModel pageModel )
         {
             pageContent.ModelType = pageModel.ModelType;
@@ -154,6 +169,9 @@ namespace ContentManagementSystem.Admin.Managers
             pageContent.Content = JsonConvert.SerializeObject( pageModel.PageTemplateModel );
         }
 
+        /// <summary>
+        /// Sets the publish status for the entity.
+        /// </summary>
         private void SetPublishStatus( Page page, PageContent pageContent, bool publish )
         {
             if ( publish )

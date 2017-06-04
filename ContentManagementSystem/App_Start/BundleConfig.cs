@@ -4,7 +4,6 @@ using System.Web.Optimization;
 
 namespace ContentManagementSystem
 {
-    //TODO: Refactor to join bundles together.
     public class BundleConfig
     {
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
@@ -14,36 +13,30 @@ namespace ContentManagementSystem
                 "~/Content/Scripts/Frameworks/modernizr-*",
                 "~/Content/Scripts/Frameworks/jquery-{version}.js", 
                 "~/Content/Scripts/Frameworks/jquery.unobtrusive*",
-                "~/Content/Scripts/Frameworks/jquery.validate*" ) );
-            
-            bundles.Add( new ScriptBundle( "~/bundles/jqueryui" ).Include(
-                        "~/Content/Scripts/Frameworks/jquery-ui-{version}.js" ) );
+                "~/Content/Scripts/Frameworks/jquery.validate*",
+                "~/Content/Scripts/Plugins/jssocials.min.js" ) );
             
             bundles.Add( new ScriptBundle( "~/bundles/siteadmin" ).Include(
                         "~/Content/Scripts/Plugins/ckeditor/ckeditor.js",
                         //"~/Content/Scripts/Plugins/ckeditor/styles.js",
                         //"~/Content/Scripts/Plugins/ckeditor/config.js"
-                        "~/Content/Scripts/Plugins/spectrum.js"
-                        ) );
+                        "~/Content/Scripts/Plugins/spectrum.js",
+                        "~/Content/Scripts/Plugins/dropzone.js"
+                    ) );
             
             bundles.Add( new ScriptBundle( "~/bundles/site" )
                             .Include(
                                 "~/Content/Scripts/Extensions/jquery.js",
-                                "~/Content/Scripts/Plugins/jssocials.min.js",
                                 AScript( "Extensions/modal" ),
                                 AScript( "site.types" ),
                                 AScript( "Bases/_page-section" ),
                                 AScript( "Bases/plugin" ),
                                 AScript( "site" ),
-                                "~/Content/Scripts/Apollyon/Workers/image-browser.js",//TODO: Remove
                                 AScript( "Workers/ImageBrowser" ),
                                 AScript( "Workers/Ribbon" ),
                                 AScript( "Workers/TemplateEditor" ) )
                             .IncludeDirectory( "~/Content/Scripts/Apollyon/PageSections/", "*.js" ) );
             
-            bundles.Add( new ScriptBundle( "~/bundles/filedrop" ).Include(
-                        "~/Content/Scripts/Plugins/dropzone.js" ) );
-
             bundles.Add( new ScriptBundle( "~/bundles/image-upload-page" ).Include(
                                             "~/Content/Scripts/Frameworks/modernizr-*",
                                             "~/Content/Scripts/Frameworks/jquery-{version}.js",
@@ -52,8 +45,7 @@ namespace ContentManagementSystem
                                             "~/Content/Scripts/Frameworks/jquery.unobtrusive*",
                                             "~/Content/Scripts/Frameworks/jquery.validate*",
                                             "~/Content/Scripts/Frameworks/jquery.form.js",
-                                            AScript( "Workers/ImageBrowser" ),
-                                            "~/Content/Scripts/Apollyon/Workers/image-browser.js"//TODO: Remove
+                                            AScript( "Workers/ImageBrowser" )
                                         ) );
 
             bundles.Add( new StyleBundle( "~/Content/css" ).Include(

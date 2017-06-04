@@ -32,16 +32,48 @@
     <script>
         $(function ()
         {
-            $( '#saveDraft' ).on( 'click', function ()
+            var currentAjax = 0;
+
+            $( "#saveDraft" ).on( "click", function ()
             {
-                $( '#Publish' ).val( 'false' );
-                $( 'form' ).submit();
+                $( "#Publish" ).val( "false" );
+                $( "form" ).submit();
             } );
 
-            $( '#savePublish' ).on( 'click', function ()
+            $( "#savePublish" ).on( "click", function ()
             {
-                $( '#Publish' ).val( 'true' );
-                $( 'form' ).submit();
+                $( "#Publish" ).val( "true" );
+                $( "form" ).submit();
+            } );
+
+            $( "#ModelType" ).on( "change", function ()
+            {
+                var modelType = $( this ).val();
+
+                var ajax = ++currentAjax;
+
+                $.get( "/admin/page/change-page-template/" + modelType, function ( data )
+                {
+                    if ( ajax != currentAjax )
+                    {
+                        return;
+                    }
+
+                    var formData = $( "form" ).serializeArray();
+
+                    $( "#page-template" ).html( data );
+
+                    for ( var i = 0; i < formData.length; i++ )
+                    {
+                        var name = formData[i].name;
+                        var value = formData[i].value;
+
+                        if ( name.indexOf( "PageTemplateModel" ) == 0 )
+                        {
+                            $( "[name=\"" + name + "\"]" ).val( value );
+                        }
+                    }
+                } );
             } );
         });
     </script>

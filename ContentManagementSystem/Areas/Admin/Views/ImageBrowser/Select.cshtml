@@ -86,7 +86,7 @@
                     images.push({ uploadId: $image.attr('data-id'), imageLocation: $image.attr('data-image-location') });
                 });
 
-                window.opener.IMAGEBROWSER.sendImages(images);
+                window.opener._site.imageBrowser.sendImages(images);
             });
         });
 

@@ -32,7 +32,6 @@ namespace ContentManagementSystem.Framework.HtmlExtensions
         /// <returns>The generated html for a password field.</returns>
         public static MvcHtmlString PasswordFieldFor<TModel>( this HtmlHelper<TModel> helper, Expression<Func<TModel, string>> expression, object htmlAttributes )
         {
-            //TODO: Attempt to simplify and move to common method for all FieldFor methods.
             TagBuilder dt = new TagBuilder( "dt" );
             TagBuilder dd = new TagBuilder( "dd" );
 

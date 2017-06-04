@@ -27,6 +27,9 @@ namespace ContentManagementSystem.Admin.Managers
 
         #region Public Methods
 
+        /// <summary>
+        /// Gets the navigation item from the database.
+        /// </summary>
         public NavigationModel GetNavigationModel( int? navItemId )
         {
             ContentManagementDb db = new ContentManagementDb();
@@ -38,6 +41,9 @@ namespace ContentManagementSystem.Admin.Managers
             return new NavigationModel( navItem );
         }
 
+        /// <summary>
+        /// Saves the navigation item into the database.
+        /// </summary>
         public SaveResult SaveNavigationItem( NavigationModel model )
         {
             ContentManagementDb db = new ContentManagementDb();
@@ -58,6 +64,9 @@ namespace ContentManagementSystem.Admin.Managers
 
         #region Private Methods
 
+        /// <summary>
+        /// Creates a new row in the database.
+        /// </summary>
         private SaveResult CreateNavItem( NavigationModel model, ContentManagementDb db )
         {
             try
@@ -84,6 +93,9 @@ namespace ContentManagementSystem.Admin.Managers
             }
         }
 
+        /// <summary>
+        /// Updates an existing row in the database.
+        /// </summary>
         private SaveResult UpdateNavItem( DomainNavigationItem navItem, NavigationModel model, ContentManagementDb db )
         {
             if ( UserSession.Current.IsAdministrator == false ) return SaveResult.AccessDenied;

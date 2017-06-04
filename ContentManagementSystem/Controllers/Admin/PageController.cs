@@ -71,6 +71,23 @@ namespace ContentManagementSystem.Controllers
 
             return View( model );
         }
+        
+        [Route( "page/change-page-template/{modelType}" )]
+        public ActionResult ChangePageTemplate( string modelType )
+        {
+            PageModel model = new PageModel();
+
+            model.ModelType = modelType;
+
+            CachedEditableModel cachedModel = CMSCache.Pages[ model.ModelType ];
+
+            model.PageTemplateModel = Activator.CreateInstance( cachedModel.ModelType ) as PageTemplate;// new Framework.Models.Page.Default();
+
+            model.PageTemplateModel.DisplayLocation = cachedModel.DisplayLocation;
+            model.PageTemplateModel.EditorLocation = cachedModel.EditorLocation;
+
+            return PartialView( "_ChangePageTemplate", model );
+        }
 
         #endregion
 

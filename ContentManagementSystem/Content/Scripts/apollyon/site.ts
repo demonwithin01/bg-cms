@@ -8,11 +8,14 @@ module apollyon
         private _pageSections: Array<PageSection>;
         
         private _isInitialised: boolean = false;
+
+        private _imageBrowser: ImageBrowser;
         
         constructor()
         {
             this._isInitialised = false;
             this._pageSections = new Array<PageSection>();
+            this._imageBrowser = new ImageBrowser();
             
             $( "#social" ).jsSocials( {
                 shares: ["facebook"]//, "twitter", "googleplus", "linkedin", "pinterest", "stumbleupon", "whatsapp"]
@@ -40,6 +43,11 @@ module apollyon
             }
 
             this._isInitialised = true;
+        }
+
+        get imageBrowser(): ImageBrowser
+        {
+            return this._imageBrowser;
         }
 
         public initialise()

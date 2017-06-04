@@ -1010,6 +1010,7 @@
     <Content Include="Views\Admin\PageTemplates\ImageNavigation.cshtml" />
     <Content Include="Views\Home\PageTemplates\ImageNavigation.cshtml" />
     <Content Include="Views\Admin\EditorTemplates\ImageNavigationItem.cshtml" />
+    <Content Include="Views\Admin\_ChangePageTemplate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

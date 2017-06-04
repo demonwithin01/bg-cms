@@ -30,6 +30,9 @@ namespace ContentManagementSystem.Admin.Managers
 
         #region Public Methods
 
+        /// <summary>
+        /// Gets the upload information from the database.
+        /// </summary>
         public UploadModel GetUploadModel( int? uploadId )
         {
             Upload upload = base.Database.Uploads.Find( uploadId );
@@ -42,6 +45,9 @@ namespace ContentManagementSystem.Admin.Managers
             return new UploadModel( upload );
         }
 
+        /// <summary>
+        /// Saves the uploaded image to the database.
+        /// </summary>
         public SaveResult SaveImage( UploadModel model )
         {
             Upload upload = base.Database.Uploads.Find( model.UploadId );
@@ -53,27 +59,16 @@ namespace ContentManagementSystem.Admin.Managers
 
             return UpdateImageUpload( upload, model );
         }
-
-        //public static SaveResult SavePage( PageModel model )
-        //{
-        //    ContentManagementDb db = new ContentManagementDb();
-
-        //    Page page = db.Pages.Find( model.PageId );
-
-        //    if ( page == null )
-        //    {
-        //        return CreatePage( model, db );
-        //    }
-
-        //    return UpdatePage( page, model, db );
-        //}
-
+        
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Private Methods
 
+        /// <summary>
+        /// Creates a new row in the database.
+        /// </summary>
         private SaveResult CreateImageUpload( UploadModel model )
         {
             string fileLocation;
@@ -132,6 +127,9 @@ namespace ContentManagementSystem.Admin.Managers
             return SaveResult.Success;
         }
 
+        /// <summary>
+        /// Updates an existing row in the database.
+        /// </summary>
         private SaveResult UpdateImageUpload( Upload upload, UploadModel model )
         {
             if ( model.Upload != null )

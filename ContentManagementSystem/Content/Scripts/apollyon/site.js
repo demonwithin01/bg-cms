@@ -7,6 +7,7 @@ var apollyon;
             this._isInitialised = false;
             this._isInitialised = false;
             this._pageSections = new Array();
+            this._imageBrowser = new apollyon.ImageBrowser();
             $("#social").jsSocials({
                 shares: ["facebook"] //, "twitter", "googleplus", "linkedin", "pinterest", "stumbleupon", "whatsapp"]
             });
@@ -24,6 +25,13 @@ var apollyon;
             }
             this._isInitialised = true;
         }
+        Object.defineProperty(Site.prototype, "imageBrowser", {
+            get: function () {
+                return this._imageBrowser;
+            },
+            enumerable: true,
+            configurable: true
+        });
         Site.prototype.initialise = function () {
         };
         Site.prototype.addPlugin = function (name, plugin) {

@@ -2,7 +2,6 @@
 
 namespace ContentManagementSystem.Framework
 {
-    //TODO: Move to Apollyon Web Library?
     /// <summary>
     /// Used to set whether an item was successfully validate and the corresponding message.
     /// </summary>

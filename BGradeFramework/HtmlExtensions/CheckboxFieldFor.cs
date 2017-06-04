@@ -32,7 +32,6 @@ namespace ContentManagementSystem.Framework.HtmlExtensions
         /// <returns>The generated html for a checkbox field.</returns>
         public static MvcHtmlString CheckboxFieldFor<TModel>( this HtmlHelper<TModel> helper, Expression<Func<TModel, bool>> expression, object htmlAttributes )
         {
-            //TODO: Attempt to simplify and move to common method for all FieldFor methods.
             TagBuilder dt = new TagBuilder( "dt" );
             TagBuilder dd = new TagBuilder( "dd" );
 
