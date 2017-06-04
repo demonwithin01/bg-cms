@@ -37,7 +37,8 @@ namespace ContentManagementSystem
                                 AScript( "site" ),
                                 "~/Content/Scripts/Apollyon/Workers/image-browser.js",//TODO: Remove
                                 AScript( "Workers/ImageBrowser" ),
-                                AScript( "Workers/Ribbon" ) )
+                                AScript( "Workers/Ribbon" ),
+                                AScript( "Workers/TemplateEditor" ) )
                             .IncludeDirectory( "~/Content/Scripts/Apollyon/PageSections/", "*.js" ) );
             
             bundles.Add( new ScriptBundle( "~/bundles/filedrop" ).Include(

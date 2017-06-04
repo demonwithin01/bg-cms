@@ -1,0 +1,148 @@
+﻿@using ContentManagementSystem.Framework.Models.Page;
+@model ImageNavigation
+
+@{
+    ImageNavigationItem template = new ImageNavigationItem();
+    template.ImageNavigation = Model;
+}
+
+<div class="tiled-sub-navigation-container" style="margin-top: 10%;">
+    @for ( int i = 0 ; i < Model.NavigationItems.Count ; i++ )
+    {
+        @Html.EditorFor( m => m.NavigationItems[ i ] )
+    }
+    <div id="addNavigationTile" class="tiled-sub-navigation">
+        <a href="javascript:void(0);" onclick="addTile();">
+            <span>
+                @Glyph( "plus" )
+            </span>
+        </a>
+    </div>
+</div>
+
+<div id="imageNavigationTemplate" style="display: none;">
+    @Html.EditorFor( m => template )
+</div>
+
+<div id="uploadSelector" style="display: none;">
+    <div class="modal-content">
+        @Html.TextBoxFieldFor( m => m.SearchBox )
+        <div class="upload-options">
+            <div class="scroll-content">
+                <ul id="uploadOptions"></ul>
+            </div>
+        </div>
+        <span class="cancel-modal" onclick="$('#uploadSelector').bgmodal('close');">
+            @Glyph( "remove" )
+        </span>
+    </div>
+</div>
+
+<script>
+
+    var templateEditor = new apollyon.TemplateEditor( {
+        templateSelector: "#imageNavigationTemplate",
+        count: @Model.NavigationItems.Count,
+        fieldString: "NavigationItems"
+    });
+    var currentTile;
+
+    function openModal( element )
+    {
+        currentTile = element.closest( ".tiled-sub-navigation" );
+
+        $( "#SearchBox" ).val( "" );
+        $( "#uploadOptions" ).empty()
+        $( "#uploadSelector" ).bgmodal( "open" );
+    }
+
+    function addTile()
+    {
+        templateEditor.createItem().insertBefore( $( "#addNavigationTile" ) );
+    }
+
+    function removeTile( element )
+    {
+        element.closest( ".tiled-sub-navigation" ).remove();
+
+        renameTiles();
+    }
+
+    function renameTiles()
+    {
+        templateEditor.updateIndicesFor( $( ".tiled-sub-navigation-container" ).find( ".tiled-sub-navigation" ) );
+    }
+
+    function performSearch()
+    {
+        $.post( "/admin/search/uploads", { term: $("#SearchBox").val() }, function ( data )
+        {
+            var options = $( "#uploadOptions" ).empty();
+            for ( var i = 0; i < data.uploads.length; i++ )
+            {
+                var upload = data.uploads[i];
+                options.append( "<li data-upload-id=\"" + upload.uploadId + "\"><a href=\"javascript:void(0);\" onclick=\"selectUpload( $(this) );\"><img src=\"" + upload.fileLocation + "\" /><p>" + upload.title + "</p></a></li>" );
+            }
+        });
+    }
+
+    function selectUpload( element )
+    {
+        currentTile.find( ".background-image > div" ).css( "background-image", "url('" + element.find( "img" ).attr( "src" ) + "')" );
+        currentTile.find( "input.upload-id" ).val( element.closest( "li" ).attr( "data-upload-id" ) );
+
+        $("#uploadSelector").bgmodal("close");
+    }
+
+    function navItemChanged( element )
+    {
+        var previousValue = element.data( "previous-value" );
+        var replaceText = false;
+        var textbox = element.next();
+
+        if ( previousValue )
+        {
+            var previousSelection = element.find( "option[value=\"" + previousValue + "\"]" );
+
+            if ( previousSelection.length > 0 )
+            {
+                if ( previousSelection.text() == textbox.val() )
+                {
+                    replaceText = true;
+                }
+            }
+        }
+        else
+        {
+            if ( textbox.val() == "" )
+            {
+                replaceText = true;
+            }
+        }
+
+        if ( replaceText )
+        {
+            textbox.val( element.find( "option[value=\"" + textbox.val() + "\"]" ) );
+        }
+    }
+
+    $( function ()
+    {
+        var _timeout;
+
+        $("#uploadSelector").bgmodal(
+        {
+            autoOpen: false
+        });
+
+        $("#SearchBox").on("keydown", function ()
+        {
+            clearTimeout(_timeout);
+
+            _timeout = setTimeout( function ()
+            {
+                performSearch();
+            }, 500);
+        });
+    } );
+</script>

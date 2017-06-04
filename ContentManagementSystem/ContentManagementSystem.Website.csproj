@@ -1007,6 +1007,9 @@
     <Content Include="Views\Home\PageTemplates\Shop.cshtml" />
     <Content Include="Views\Home\PageTemplates\TiledSubNavigation.cshtml" />
     <Content Include="Views\Home\PageTemplates\TileGallery.cshtml" />
+    <Content Include="Views\Admin\PageTemplates\ImageNavigation.cshtml" />
+    <Content Include="Views\Home\PageTemplates\ImageNavigation.cshtml" />
+    <Content Include="Views\Admin\EditorTemplates\ImageNavigationItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1039,6 +1042,7 @@
     <TypeScriptCompile Include="Content\Scripts\Apollyon\site.ts" />
     <TypeScriptCompile Include="Content\Scripts\Apollyon\site.types.ts" />
     <TypeScriptCompile Include="Content\Scripts\Apollyon\Bases\_page-section.ts" />
+    <TypeScriptCompile Include="Content\Scripts\Apollyon\Workers\TemplateEditor.ts" />
     <TypeScriptCompile Include="Content\Scripts\Extensions\jquery.ts" />
     <TypeScriptCompile Include="Content\Scripts\Apollyon\PageSections\blogs.ts" />
     <TypeScriptCompile Include="Content\Scripts\Apollyon\PageSections\contact.ts" />

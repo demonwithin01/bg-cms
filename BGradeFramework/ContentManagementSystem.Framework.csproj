@@ -140,6 +140,8 @@
     <Compile Include="Models\Page\Default.cs" />
     <Compile Include="Models\Page\PageSection\ContactSection.cs" />
     <Compile Include="Models\Page\Shop.cs" />
+    <Compile Include="Models\Page\ImageNavigation.cs" />
+    <Compile Include="Models\Page\ImageNavigation\ImageNavigationItem.cs" />
     <Compile Include="Models\Page\TiledSubNavigation.cs" />
     <Compile Include="Models\Page\TileGallery.cs" />
     <Compile Include="Models\Page\TileGallery\TileGalleryItem.cs" />
