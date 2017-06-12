@@ -99,14 +99,14 @@
         var previousValue = element.data( "previous-value" );
         var replaceText = false;
         var textbox = element.next();
-
-        if ( previousValue )
+        
+        if ( previousValue && element.val() )
         {
             var previousSelection = element.find( "option[value=\"" + previousValue + "\"]" );
 
             if ( previousSelection.length > 0 )
             {
-                if ( previousSelection.text() == textbox.val() )
+                if ( previousSelection.first().text() == textbox.val() )
                 {
                     replaceText = true;
                 }
@@ -122,7 +122,7 @@
 
         if ( replaceText )
         {
-            textbox.val( element.find( "option[value=\"" + textbox.val() + "\"]" ) );
+            textbox.val( element.find( "option[value=\"" + element.val() + "\"]" ).first().text() );
         }
     }
 

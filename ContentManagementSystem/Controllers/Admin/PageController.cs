@@ -86,6 +86,8 @@ namespace ContentManagementSystem.Controllers
             model.PageTemplateModel.DisplayLocation = cachedModel.DisplayLocation;
             model.PageTemplateModel.EditorLocation = cachedModel.EditorLocation;
 
+            model.PageTemplateModel.InitialiseForEditor();
+
             return PartialView( "_ChangePageTemplate", model );
         }
 

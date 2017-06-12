@@ -3460,7 +3460,7 @@ table td.options-column {
   bottom: 0;
   left: 0;
   padding: 20px;
-  position: absolute;
+  position: fixed;
   text-align: center;
   width: 100%;
 }
@@ -3722,6 +3722,7 @@ table td.options-column {
   display: inline-block;
   text-align: left;
   position: relative;
+  vertical-align: top;
   width: 250px;
 }
 .tiled-sub-navigation:before {
@@ -3729,15 +3730,27 @@ table td.options-column {
   display: block;
   padding-top: 100%;
 }
+.tiled-sub-navigation.editor > a {
+  bottom: auto;
+  height: 250px;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+.tiled-sub-navigation.editor .button.cancel {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.tiled-sub-navigation:not(.editor) > a:hover > .background-image > div {
+  clip-path: polygon(10% 0%, 100% 10%, 90% 100%, 0% 90%);
+}
 .tiled-sub-navigation > a {
   bottom: 10px;
   left: 10px;
   position: absolute;
   right: 10px;
   top: 10px;
-}
-.tiled-sub-navigation > a:hover > .background-image > div {
-  clip-path: polygon(10% 0%, 100% 10%, 90% 100%, 0% 90%);
 }
 .tiled-sub-navigation > a > .background-image {
   position: absolute;
@@ -3747,13 +3760,23 @@ table td.options-column {
   top: 0;
   overflow: hidden;
 }
+.tiled-sub-navigation > a > .background-image:before {
+  content: 'Click to select an image';
+  background: rgba(0, 0, 0, 0.15);
+  left: 0;
+  padding: 10px;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+}
 .tiled-sub-navigation > a > .background-image > div {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   top: 0;
-  background: url('/Content/themes/rachelsheree/trees.jpg');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -3779,6 +3802,19 @@ table td.options-column {
   display: inline-block;
   font-size: 2em;
   padding: 5px 10px;
+}
+#addNavigationTile a {
+  border: 3px dashed #666;
+  border-radius: 5px;
+}
+#addNavigationTile span {
+  font-size: 3.5em;
+  left: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .gallery-tiles {
   text-align: center;

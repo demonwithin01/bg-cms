@@ -11,26 +11,28 @@ var apollyon;
             var template = $(this._templateSelector).children().clone();
             var idRegex = new RegExp(this._templateString + "_", "g");
             var nameRegex = new RegExp(this._templateString + "\.", "g");
+            var templateEditor = this;
             template.find("input").each(function () {
                 var element = $(this);
                 var id = element.attr("id");
                 var name = element.attr("name");
-                element.attr({ id: id.replace(idRegex, this._fieldString + "_" + this._currentCount + "__"), name: name.replace(nameRegex, this._fieldString + "[" + this._currentCount + "].") });
+                element.attr({ id: id.replace(idRegex, templateEditor._fieldString + "_" + templateEditor._currentCount + "__"), name: name.replace(nameRegex, templateEditor._fieldString + "[" + templateEditor._currentCount + "].") });
             });
             template.attr("data-index", this._currentCount);
             return template;
         };
         TemplateEditor.prototype.updateIndicesFor = function (items) {
-            var idRegex = new RegExp(this._fieldString + "_\d*_", "g");
-            var nameRegex = new RegExp(this._fieldString + "\[\d*\]", "g");
+            var idRegex = new RegExp(this._fieldString + "_\\\d*_", "g");
+            var nameRegex = new RegExp(this._fieldString + "\\\[\\\d*\\\]", "g");
+            var templateEditor = this;
             items.each(function (idx) {
                 var item = $(this);
                 item.find("input").each(function () {
                     var input = $(this);
                     var id = input.attr("id");
                     var name = input.attr("name");
-                    id = id.replace(idRegex, this._fieldString + "_" + idx + "_");
-                    name = name.replace(nameRegex, this._fieldString + "[" + idx + "]");
+                    id = id.replace(idRegex, templateEditor._fieldString + "_" + idx + "_");
+                    name = name.replace(nameRegex, templateEditor._fieldString + "[" + idx + "]");
                     input.attr({ id: id, name: name });
                 });
                 item.attr("data-index", idx);
@@ -40,3 +42,4 @@ var apollyon;
     }());
     apollyon.TemplateEditor = TemplateEditor;
 })(apollyon || (apollyon = {}));
+//# sourceMappingURL=TemplateEditor.js.map
