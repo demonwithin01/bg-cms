@@ -12,7 +12,7 @@ var apollyon;
             var idRegex = new RegExp(this._templateString + "_", "g");
             var nameRegex = new RegExp(this._templateString + "\.", "g");
             var templateEditor = this;
-            template.find("input").each(function () {
+            template.find("input, select, textarea").each(function () {
                 var element = $(this);
                 var id = element.attr("id");
                 var name = element.attr("name");

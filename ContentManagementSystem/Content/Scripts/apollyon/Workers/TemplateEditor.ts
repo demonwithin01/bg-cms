@@ -24,7 +24,7 @@
 
             var templateEditor = this;
 
-            template.find( "input" ).each( function ()
+            template.find( "input, select, textarea" ).each( function ()
             {
                 var element = $( this );
                 var id = element.attr( "id" );

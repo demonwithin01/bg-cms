@@ -45,7 +45,7 @@ namespace ContentManagementSystem.Framework.Models.Page
         {
             base.InitialiseForEditor();
 
-            _selectList = CreateSelectList.NavPages( null );
+            _selectList = CreateSelectList.Pages( null );
 
             foreach ( ImageNavigationItem item in this.NavigationItems )
             {
@@ -58,20 +58,17 @@ namespace ContentManagementSystem.Framework.Models.Page
             base.OnBeforeSave();
 
             List<int> uploadIds = this.NavigationItems.Select( s => s.UploadId ).ToList();
-            List<int> pageIds = this.NavigationItems.Select( s => s.DomainNavigationItemId ).ToList();
 
             ContentManagementDb db = new ContentManagementDb();
 
             List<Upload> uploads = db.Uploads.Join( uploadIds, o => o.UploadId, i => i, ( o, i ) => o ).ToList();
-            List<DomainNavigationItem> navItems = db.DomainNavigationItems.Join( pageIds, o => o.DomainNavigationItemId, i => i, ( o, i ) => o ).ToList();
 
             foreach ( ImageNavigationItem item in this.NavigationItems )
             {
                 Upload upload = uploads.First( s => s.UploadId == item.UploadId );
-                DomainNavigationItem navItem = navItems.First( s => s.DomainNavigationItemId == item.DomainNavigationItemId );
 
                 item.ImageUrl = upload.PhysicalLocation;
-                item.NavigationUrl = "page/" + navItem.PageId;
+                item.NavigationUrl = "page/" + item.PageId;
             }
         }
 

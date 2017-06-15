@@ -1,12 +1,13 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+using System.Linq.Expressions;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace ContentManagementSystem.Admin.Controllers
+namespace ApollyonWebLibrary.Extensions
 {
-    public class HomeController : Controller
+    public static class LinqExtensions
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -23,30 +24,13 @@ namespace ContentManagementSystem.Admin.Controllers
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
-        #region Page Actions
-
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
-
-        #endregion
-
-        /* ---------------------------------------------------------------------------------------------------------- */
-
-        #region Ajax Actions
-
-        #endregion
-
-        /* ---------------------------------------------------------------------------------------------------------- */
-
         #region Public Methods
 
-        #endregion
-
-        /* ---------------------------------------------------------------------------------------------------------- */
-
-        #region Static Methods
+        public static IQueryable<T> DistinctBy<T, TKey>( this IQueryable<T> query, Expression<Func<T, TKey>> expression )
+        {
+            return query.GroupBy( expression )
+                        .Select( s => s.First() );
+        }
 
         #endregion
 

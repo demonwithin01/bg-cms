@@ -151,8 +151,9 @@ namespace ContentManagementSystem.Admin.Managers
 
                 return SaveResult.Success;
             }
-            catch
+            catch( Exception ex )
             {
+                ErrorLog.Error( "Could not update page", ex );
                 return SaveResult.Fail;
             }
         }

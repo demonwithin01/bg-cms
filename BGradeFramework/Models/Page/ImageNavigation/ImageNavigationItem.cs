@@ -44,8 +44,8 @@ namespace ContentManagementSystem.Framework.Models.Page
 
         #region Properties
 
-        [JsonProperty( "domainNavigationItemId" )]
-        public int DomainNavigationItemId { get; set; }
+        [JsonProperty( "pageId" )]
+        public int PageId { get; set; }
 
         [JsonProperty( "uploadId" )]
         public int UploadId { get; set; }

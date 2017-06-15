@@ -8,7 +8,7 @@
         </div>
     </a>
     <div class="tile-text">
-        @Html.DropDownListFor( m => m.DomainNavigationItemId, Model.ImageNavigation.NavPagesList(), "Please select", new { onchange = "navItemChanged( $( this ) );", onmouseup = "if ( event.target != this ) return; $( this ).data( 'previous-value', $( this ).val() );" } )
+        @Html.DropDownListFor( m => m.PageId, Model.ImageNavigation.NavPagesList(), "Please select", new { onchange = "navItemChanged( $( this ) );", onmouseup = "if ( event.target != this ) return; $( this ).data( 'previous-value', $( this ).val() );" } )
         @Html.TextBoxFor( m => m.Title )
     </div>
     <span class="remove-tile button cancel" onclick="removeTile($(this));">

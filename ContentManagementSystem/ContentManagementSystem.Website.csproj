@@ -215,15 +215,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\DomainController.cs" />
-    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ImageBrowserController.cs" />
-    <Compile Include="Areas\Admin\Controllers\HomePageController.cs" />
-    <Compile Include="Areas\Admin\Controllers\NavigationController.cs" />
-    <Compile Include="Areas\Admin\Controllers\BlogPostController.cs" />
-    <Compile Include="Areas\Admin\Controllers\PageController.cs" />
-    <Compile Include="Areas\Admin\Controllers\SearchController.cs" />
-    <Compile Include="Areas\Admin\Controllers\UploadsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="BaseClasses\AdminContentManagementController.cs" />
     <Compile Include="BaseClasses\ContentManagementController.cs" />
