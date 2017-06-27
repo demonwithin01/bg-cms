@@ -76,7 +76,7 @@
                     position += $( this ).width();
                 });
 
-                if ( $next.index() == $items.length - 2 )
+                if ( $next.index() == $items.length - 1 )
                 {
                     position = _itemsTotalWidth - _carouselWidth;
 

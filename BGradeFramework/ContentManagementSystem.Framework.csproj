@@ -132,6 +132,10 @@
     <Compile Include="Models\HomePageModel.cs" />
     <Compile Include="BaseClasses\HomePageTemplate.cs" />
     <Compile Include="Models\HomePage\Ribbon.cs" />
+    <Compile Include="Models\HomePage\Ribbon\ContentType.cs" />
+    <Compile Include="Models\HomePage\Ribbon\ContentTypeBase.cs" />
+    <Compile Include="Models\HomePage\Ribbon\ContentTypes\Banner.cs" />
+    <Compile Include="Models\HomePage\Ribbon\ContentTypes\Columns.cs" />
     <Compile Include="Models\HomePage\Ribbon\RibbonColumns.cs" />
     <Compile Include="Models\HomePage\Ribbon\RibbonItem.cs" />
     <Compile Include="Models\HomePage\Ribbon\RibbonItemContent.cs" />

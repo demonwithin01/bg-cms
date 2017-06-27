@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using ContentManagementSystem.Framework.Models.HomePage.ContentTypes;
 
 namespace ContentManagementSystem.Framework.Models.HomePage
 {
@@ -21,6 +23,8 @@ namespace ContentManagementSystem.Framework.Models.HomePage
 
         public RibbonItem()
         {
+            ContentType = ContentType.Columns;
+
             Columns = new List<RibbonItemContent>();
             Layout = RibbonColumns.OneColumn;
         }
@@ -37,11 +41,26 @@ namespace ContentManagementSystem.Framework.Models.HomePage
 
         #region Private Methods
 
+        private void Deserialize( string value )
+        {
+            switch( ContentType )
+            {
+                case ContentType.Columns:
+                    Content = JsonConvert.DeserializeObject<Columns>( value );
+                    break;
+                case ContentType.Banner:
+                    Content = JsonConvert.DeserializeObject<ContentTypeBase>( value );
+                    break;
+            }
+        }
+
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Properties
+
+        public ContentType ContentType { get; set; }
 
         public string Background { get; set; }
 
@@ -54,6 +73,28 @@ namespace ContentManagementSystem.Framework.Models.HomePage
         public string Height { get; set; }
 
         public List<RibbonItemContent> Columns { get; set; }
+
+        [JsonIgnore]
+        public ContentTypeBase Content { get; set; }
+
+        #endregion
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+
+        #region Derived Properties
+
+        [JsonProperty( "contentJson" )]
+        public string ContentJson
+        {
+            get
+            {
+                return JsonConvert.SerializeObject( Content );
+            }
+            set
+            {
+                Deserialize( value );
+            }
+        }
 
         #endregion
 

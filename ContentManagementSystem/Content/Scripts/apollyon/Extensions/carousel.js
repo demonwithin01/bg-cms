@@ -50,7 +50,7 @@ var apollyon;
                 $next.prevAll().each(function () {
                     position += $(this).width();
                 });
-                if ($next.index() == $items.length - 2) {
+                if ($next.index() == $items.length - 1) {
                     position = _itemsTotalWidth - _carouselWidth;
                     $nextButton.addClass('hidden');
                 }
@@ -103,4 +103,3 @@ var apollyon;
         return this;
     };
 })(apollyon || (apollyon = {}));
-//# sourceMappingURL=carousel.js.map

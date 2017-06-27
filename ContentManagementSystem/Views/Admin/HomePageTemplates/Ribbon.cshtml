@@ -28,6 +28,7 @@ if ( string.IsNullOrEmpty( height ) )
     <div class="ribbon-item-tools">
         <input type="hidden" id="@( idIndex + "Height" )" name="@( nameIndex + "Height" )" value="@height" />
         <div class="ribbon-item-template ui-front">
+            @Html.DropDownList( nameIndex + "ContentType", CreateSimpleSelectList.FromEnum<ContentType>( ribbonItem.ContentType ), new { id = idIndex + "ContentType", @class = "content-type" } )
             @Html.DropDownList( nameIndex + "Layout", CreateSimpleSelectList.FromEnum<RibbonColumns>( ribbonItem.Layout ), new { id = idIndex + "Layout", @class = "column-layout" } )
             @Html.DropDownList( nameIndex + "RemovePadding", CreateSimpleSelectList.ForBoolean( ribbonItem.RemovePadding ), new { id = idIndex + "RemovePadding", @class = "padding-option" } )
             @Html.DropDownList( nameIndex + "RibbonLink", CreateSelectList.NavPages( ribbonItem.RibbonLink ), "None", new { id = idIndex + "RibbonLink", @class = "link-option" } )
@@ -99,6 +100,10 @@ if ( string.IsNullOrEmpty( height ) )
             }
 
             $this.removeAttr('disabled');
+        });
+
+        $ribbon.find( "select.content-type" ).selectmenu({
+
         });
 
         $ribbon.find('select.column-layout').selectmenu({

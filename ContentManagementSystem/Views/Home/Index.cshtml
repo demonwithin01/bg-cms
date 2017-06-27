@@ -5,6 +5,20 @@
     IsHomePage = true;
 }
 
+<div class="carousel" style="width: 500px; height: 250px; left: 50%; transform: translateX(-50%);">
+    <div class="carousel-inner">
+        <div class="carousel-item" style="background: red;"></div>
+        <div class="carousel-item" style="background: green;"></div>
+        <div class="carousel-item" style="background: blue;"></div>
+    </div>
+    <div class="carousel-previous">
+        @Glyph( "chevron-left" )
+    </div>
+    <div class="carousel-next">
+        @Glyph( "chevron-right" )
+    </div>
+</div>
+
 @Html.Partial( Model.HomePageTemplateModel.DisplayLocation ?? "HomePageTemplates/Ribbon", Model.HomePageTemplateModel )
 
 @if ( UserSession.DomainId == 1 )
@@ -12,3 +26,9 @@
     <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
     <script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us15.list-manage.com","uuid":"8798c81a6bfc411061ed3f003","lid":"d973cde1aa"}) })</script>
 }
+<script>
+    $( function ()
+    {
+        $( ".carousel" ).carousel();
+    } )
+</script>

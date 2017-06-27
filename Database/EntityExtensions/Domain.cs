@@ -48,10 +48,17 @@ namespace ContentManagementSystemDatabase
         {
             string url = uri.Authority.ToLower();
 
-            if ( url.StartsWith( "www." ) )
+            int lastIndex = url.Substring( 0, url.LastIndexOf( "." ) ).LastIndexOf( "." );
+
+            if ( lastIndex > -1 )
             {
-                url = url.Substring( "www.".Length );
+                url = url.Substring( lastIndex + 1 );
             }
+
+            //if ( url.StartsWith( "www." ) )
+            //{
+            //    url = url.Substring( "www.".Length );
+            //}
 
             db = db ?? new ContentManagementDb();
 

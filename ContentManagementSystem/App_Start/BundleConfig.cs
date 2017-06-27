@@ -27,6 +27,7 @@ namespace ContentManagementSystem
             bundles.Add( new ScriptBundle( "~/bundles/site" )
                             .Include(
                                 "~/Content/Scripts/Extensions/jquery.js",
+                                AScript( "Extensions/carousel" ),
                                 AScript( "Extensions/modal" ),
                                 AScript( "site.types" ),
                                 AScript( "Bases/_page-section" ),

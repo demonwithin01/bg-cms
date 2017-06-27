@@ -2158,11 +2158,11 @@ img {
   transition: left 0.3s ease;
   height: 100%;
   position: relative;
-  max-width: 100%;
+  width: 100%;
 }
 .carousel .carousel-item {
   height: 100%;
-  max-width: 100%;
+  width: 100%;
   position: absolute;
   top: 0;
 }

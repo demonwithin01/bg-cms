@@ -6,5 +6,8 @@ var apollyon;
         notificationType[notificationType["error"] = 3] = "error";
     })(apollyon.notificationType || (apollyon.notificationType = {}));
     var notificationType = apollyon.notificationType;
+    (function (BannerType) {
+        BannerType[BannerType["Carousel"] = 1] = "Carousel";
+    })(apollyon.BannerType || (apollyon.BannerType = {}));
+    var BannerType = apollyon.BannerType;
 })(apollyon || (apollyon = {}));
-//# sourceMappingURL=site.types.js.map
