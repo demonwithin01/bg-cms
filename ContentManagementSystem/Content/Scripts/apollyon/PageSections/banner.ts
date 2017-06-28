@@ -13,12 +13,16 @@
         private _element: JQuery;
         private _bannerType: BannerType;
         private _banner: BannerBase = null;
+        private _inner: JQuery;
+        private _items: JQuery;
 
         constructor( element: JQuery, options: any )
         {
             super();
 
             this._element = element;
+            this._inner = element.find( ".carousel-inner" );
+            this._items = element.find( ".carousel-item" );
             this._width = options.width;
             this._height = options.height;
 
@@ -53,6 +57,21 @@
         {
             this._width = value;
 
+        }
+
+        get element(): JQuery
+        {
+            return this._element;
+        }
+
+        get inner(): JQuery
+        {
+            return this._inner;
+        }
+
+        get items(): JQuery
+        {
+            return this._items;
         }
 
         get bannerType(): BannerType

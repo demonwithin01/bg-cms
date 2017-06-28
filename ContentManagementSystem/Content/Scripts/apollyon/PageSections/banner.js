@@ -17,6 +17,8 @@ var apollyon;
             _super.call(this);
             this._banner = null;
             this._element = element;
+            this._inner = element.find(".carousel-inner");
+            this._items = element.find(".carousel-item");
             this._width = options.width;
             this._height = options.height;
             this.bannerType = options.bannerType;
@@ -43,6 +45,27 @@ var apollyon;
             },
             set: function (value) {
                 this._width = value;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(Banner.prototype, "element", {
+            get: function () {
+                return this._element;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(Banner.prototype, "inner", {
+            get: function () {
+                return this._inner;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(Banner.prototype, "items", {
+            get: function () {
+                return this._items;
             },
             enumerable: true,
             configurable: true
