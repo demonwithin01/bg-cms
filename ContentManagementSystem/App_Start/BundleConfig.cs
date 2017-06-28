@@ -22,8 +22,9 @@ namespace ContentManagementSystem
                         //"~/Content/Scripts/Plugins/ckeditor/config.js"
                         "~/Content/Scripts/Plugins/spectrum.js",
                         "~/Content/Scripts/Plugins/dropzone.js"
-                    ) );
-            
+                    )
+                    .IncludeDirectory( "~/Content/Scripts/Apollyon/Admin/", "*.js" ) );
+
             bundles.Add( new ScriptBundle( "~/bundles/site" )
                             .Include(
                                 "~/Content/Scripts/Extensions/jquery.js",
@@ -36,8 +37,9 @@ namespace ContentManagementSystem
                                 AScript( "Workers/ImageBrowser" ),
                                 AScript( "Workers/Ribbon" ),
                                 AScript( "Workers/TemplateEditor" ) )
-                            .IncludeDirectory( "~/Content/Scripts/Apollyon/PageSections/", "*.js" ) );
-            
+                            .IncludeDirectory( "~/Content/Scripts/Apollyon/PageSections/", "*.js", false )
+                            .IncludeDirectory( "~/Content/Scripts/Apollyon/PageSections/banners", "*.js" ) );
+
             bundles.Add( new ScriptBundle( "~/bundles/image-upload-page" ).Include(
                                             "~/Content/Scripts/Frameworks/modernizr-*",
                                             "~/Content/Scripts/Frameworks/jquery-{version}.js",

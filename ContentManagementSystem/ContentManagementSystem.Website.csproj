@@ -1028,9 +1028,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Content\Scripts\Apollyon\Admin\Ribbon.ts" />
     <TypeScriptCompile Include="Content\Scripts\Apollyon\Extensions\carousel.ts" />
     <TypeScriptCompile Include="Content\Scripts\Apollyon\Extensions\modal.ts" />
-    <TypeScriptCompile Include="Content\Scripts\Apollyon\PageSections\banner.carousel.ts" />
+    <TypeScriptCompile Include="Content\Scripts\Apollyon\PageSections\banners\banner.carousel.ts" />
     <TypeScriptCompile Include="Content\Scripts\Apollyon\PageSections\banner.ts" />
     <TypeScriptCompile Include="Content\Scripts\Apollyon\Workers\ImageBrowser.ts" />
     <TypeScriptCompile Include="Content\Scripts\Apollyon\Workers\Ribbon.ts" />

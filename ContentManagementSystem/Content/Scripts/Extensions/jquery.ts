@@ -2,9 +2,12 @@
 {
     appendThen( content, callback ): JQuery;
     appendRender( content ): JQuery;
-    jsSocials( args: any ): JQuery;
     bgmodal( options: any ): JQuery;
     carousel( options: any ): JQuery;
+    jsSocials( args: any ): JQuery;
+    resizable( options: any ): JQuery;
+    selectmenu( options?: any ): JQuery;
+    spectrum( options: any ): JQuery;
 }
 
 module apollyon

@@ -18,6 +18,8 @@ var apollyon;
                 this._nextElement.on("click", $.proxy(this.nextClicked, this));
             }
             Carousel.prototype.unload = function () {
+                this._prevElement.remove();
+                this._nextElement.remove();
             };
             Carousel.prototype.dimensionsChanged = function () {
             };

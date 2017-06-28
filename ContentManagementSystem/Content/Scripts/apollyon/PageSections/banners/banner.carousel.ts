@@ -24,7 +24,8 @@
 
             public unload(): void
             {
-
+                this._prevElement.remove();
+                this._nextElement.remove();
             }
 
             public dimensionsChanged(): void
