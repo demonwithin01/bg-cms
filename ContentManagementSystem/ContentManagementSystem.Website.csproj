@@ -286,16 +286,30 @@
     <Content Include="Content\Images\orderedList8.png" />
     <Content Include="Content\Images\orderedList9.png" />
     <Content Include="Content\Images\Plugins\mCSB_buttons.png" />
-    <Content Include="Content\Scripts\Apollyon\Extensions\bg.carousel.js">
+    <Content Include="Content\Scripts\Apollyon\Admin\Ribbon.js">
+      <DependentUpon>Ribbon.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\Scripts\Apollyon\Extensions\carousel.js">
       <DependentUpon>carousel.ts</DependentUpon>
     </Content>
-    <Content Include="Content\Scripts\Apollyon\Extensions\bg.modal.js">
+    <Content Include="Content\Scripts\Apollyon\Extensions\modal.js">
       <DependentUpon>modal.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\Scripts\Apollyon\PageSections\banner.js">
+      <DependentUpon>banner.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\Scripts\Apollyon\PageSections\banners\banner.carousel.js">
+      <DependentUpon>banner.carousel.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\Scripts\Apollyon\PageSections\blogs.js">
+      <DependentUpon>blogs.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\Scripts\Apollyon\PageSections\contact.js">
+      <DependentUpon>contact.ts</DependentUpon>
     </Content>
     <Content Include="Content\Scripts\Apollyon\Workers\bgrade.ribbon.js">
       <DependentUpon>Ribbon.ts</DependentUpon>
     </Content>
-    <Content Include="Content\Scripts\Apollyon\Workers\image-browser.js" />
     <Content Include="Content\Scripts\Apollyon\site.js">
       <DependentUpon>site.ts</DependentUpon>
     </Content>
@@ -306,8 +320,41 @@
     <Content Include="Content\Scripts\Apollyon\Bases\_page-section.js">
       <DependentUpon>_page-section.ts</DependentUpon>
     </Content>
+    <Content Include="Content\Scripts\Apollyon\Workers\imageBrowser.js">
+      <DependentUpon>ImageBrowser.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\Scripts\Apollyon\Workers\TemplateEditor.js">
+      <DependentUpon>TemplateEditor.ts</DependentUpon>
+    </Content>
     <Content Include="Content\Scripts\Extensions\jquery.js">
       <DependentUpon>jquery.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\Scripts\Apollyon\Workers\TemplateEditor.js.map">
+      <DependentUpon>TemplateEditor.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\Scripts\Apollyon\Workers\ImageBrowser.js.map">
+      <DependentUpon>ImageBrowser.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\Scripts\Apollyon\Admin\Ribbon.js.map">
+      <DependentUpon>Ribbon.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\Scripts\Apollyon\Extensions\modal.js.map">
+      <DependentUpon>modal.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\Scripts\Apollyon\Extensions\carousel.js.map">
+      <DependentUpon>carousel.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\Scripts\Apollyon\PageSections\banner.js.map">
+      <DependentUpon>banner.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\Scripts\Apollyon\PageSections\blogs.js.map">
+      <DependentUpon>blogs.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\Scripts\Apollyon\PageSections\contact.js.map">
+      <DependentUpon>contact.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\Scripts\Apollyon\PageSections\banners\banner.carousel.js.map">
+      <DependentUpon>banner.carousel.ts</DependentUpon>
     </Content>
     <None Include="Content\Scripts\Frameworks\jquery-1.8.2.intellisense.js" />
     <Content Include="Content\Scripts\Frameworks\jquery-1.8.2.js" />
@@ -325,12 +372,6 @@
     <Content Include="Content\Scripts\Frameworks\knockout-2.2.0.js" />
     <Content Include="Content\Scripts\Frameworks\modernizr-2.6.2.js" />
     <None Include="Content\Scripts\Frameworks\_references.js" />
-    <Content Include="Content\Scripts\Apollyon\PageSections\site.blogs.js">
-      <DependentUpon>blogs.ts</DependentUpon>
-    </Content>
-    <Content Include="Content\Scripts\Apollyon\PageSections\site.contact.js">
-      <DependentUpon>contact.ts</DependentUpon>
-    </Content>
     <Content Include="Content\Scripts\Plugins\ckeditor\adapters\jquery.js" />
     <Content Include="Content\Scripts\Plugins\ckeditor\build-config.js" />
     <Content Include="Content\Scripts\Plugins\ckeditor\ckeditor.js" />
@@ -712,6 +753,9 @@
     <Content Include="Content\Scripts\themes\outofmars\PageBackground.js">
       <DependentUpon>PageBackground.ts</DependentUpon>
     </Content>
+    <Content Include="Content\Scripts\themes\outofmars\PageBackground.js.map">
+      <DependentUpon>PageBackground.ts</DependentUpon>
+    </Content>
     <Content Include="Content\Scripts\themes\outofmars\_outofmars.js" />
     <Content Include="Content\Scripts\themes\rachelsheree\navigation.js" />
     <Content Include="Content\Scripts\themes\rachelsheree\_rachelsheree.js" />
@@ -803,12 +847,6 @@
     <Content Include="Content\Scripts\Apollyon\Bases\_page-section.js.map">
       <DependentUpon>_page-section.ts</DependentUpon>
     </Content>
-    <Content Include="Content\Scripts\Apollyon\Extensions\bg.carousel.js.map">
-      <DependentUpon>carousel.ts</DependentUpon>
-    </Content>
-    <Content Include="Content\Scripts\Apollyon\Extensions\bg.modal.js.map">
-      <DependentUpon>modal.ts</DependentUpon>
-    </Content>
     <Content Include="Content\Scripts\Apollyon\Workers\bgrade.ribbon.js.map">
       <DependentUpon>Ribbon.ts</DependentUpon>
     </Content>
@@ -820,12 +858,6 @@
     </Content>
     <Content Include="Content\Scripts\Extensions\jquery.js.map">
       <DependentUpon>jquery.ts</DependentUpon>
-    </Content>
-    <Content Include="Content\Scripts\Apollyon\PageSections\site.blogs.js.map">
-      <DependentUpon>blogs.ts</DependentUpon>
-    </Content>
-    <Content Include="Content\Scripts\Apollyon\PageSections\site.contact.js.map">
-      <DependentUpon>contact.ts</DependentUpon>
     </Content>
     <Content Include="Content\Scripts\Plugins\ckeditor\plugins\scayt\LICENSE.md" />
     <Content Include="Content\Scripts\Plugins\ckeditor\plugins\scayt\README.md" />

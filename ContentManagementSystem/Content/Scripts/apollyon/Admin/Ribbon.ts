@@ -10,12 +10,15 @@
 
             var that = this;
 
-            $( '#ribbon-items > .ribbon-item' ).each( function ()
+            $( "#ribbon-items > .ribbon-item" ).each( function ()
             {
                 that.attachEventsTo( $( this ) );
             });
         }
 
+        /**
+         * Creates a clone of the ribbon and appends it to the page.
+         */
         public createRibbon(): void
         {
             var $clone = $( "#ribbon-item-template" ).children().clone();
@@ -55,6 +58,10 @@
             $( "#ribbon-items" ).append( $clone );
         }
 
+        /**
+         * Removes a ribbon from the page and updates the names/ids of all input elements.
+         * @param ribbon The ribbon element to be removed.
+         */
         public removeRibbon( ribbon: JQuery ): void
         {
             var nextRibbons = ribbon.nextAll( ".ribbon-item" );
@@ -98,12 +105,19 @@
             ribbon.remove();
         }
 
+        /**
+         * Attaches the events required to the ribbon row instance.
+         * @param ribbon The ribbon row to attach the events to.
+         */
         private attachEventsTo( ribbon: JQuery ): void
         {
             var that = this;
 
             ribbon.find( "select.content-type" ).selectmenu( {
+                change: function ()
+                {
 
+                }
             });
 
             ribbon.find( "select.column-layout" ).selectmenu( {
@@ -186,6 +200,11 @@
             });
         }
 
+        /**
+         * Redistributes the columns based off the selection for the number of columns.
+         * @param $ribbon The ribbon to redistribute the columns for.
+         * @param value The number of columns to change to.
+         */
         private configureForColumns( $ribbon: JQuery, value: string )
         {
             var html = new Array();
@@ -233,6 +252,10 @@
             }
         }
 
+        /**
+         * Convers the color object to a CSS equivalent.
+         * @param color The color object as provided by spectrum.
+         */
         private convertColor( color: any ): string
         {
             if ( color )

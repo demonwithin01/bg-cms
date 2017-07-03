@@ -4,10 +4,13 @@ var apollyon;
         function RibbonAdmin(options) {
             this._ribbonCount = options.ribbonCount;
             var that = this;
-            $('#ribbon-items > .ribbon-item').each(function () {
+            $("#ribbon-items > .ribbon-item").each(function () {
                 that.attachEventsTo($(this));
             });
         }
+        /**
+         * Creates a clone of the ribbon and appends it to the page.
+         */
         RibbonAdmin.prototype.createRibbon = function () {
             var $clone = $("#ribbon-item-template").children().clone();
             var ribbonCount = this._ribbonCount;
@@ -32,6 +35,10 @@ var apollyon;
             this._ribbonCount += 1;
             $("#ribbon-items").append($clone);
         };
+        /**
+         * Removes a ribbon from the page and updates the names/ids of all input elements.
+         * @param ribbon The ribbon element to be removed.
+         */
         RibbonAdmin.prototype.removeRibbon = function (ribbon) {
             var nextRibbons = ribbon.nextAll(".ribbon-item");
             var currentIndex = ribbon.index();
@@ -58,9 +65,16 @@ var apollyon;
             this._ribbonCount -= 1;
             ribbon.remove();
         };
+        /**
+         * Attaches the events required to the ribbon row instance.
+         * @param ribbon The ribbon row to attach the events to.
+         */
         RibbonAdmin.prototype.attachEventsTo = function (ribbon) {
             var that = this;
-            ribbon.find("select.content-type").selectmenu({});
+            ribbon.find("select.content-type").selectmenu({
+                change: function () {
+                }
+            });
             ribbon.find("select.column-layout").selectmenu({
                 change: function () {
                     that.configureForColumns(ribbon, $(this).val());
@@ -119,6 +133,11 @@ var apollyon;
                 ribbon.find("select").selectmenu("close");
             });
         };
+        /**
+         * Redistributes the columns based off the selection for the number of columns.
+         * @param $ribbon The ribbon to redistribute the columns for.
+         * @param value The number of columns to change to.
+         */
         RibbonAdmin.prototype.configureForColumns = function ($ribbon, value) {
             var html = new Array();
             var columnWidths = new Array();
@@ -153,6 +172,10 @@ var apollyon;
                 $grid.append($input);
             }
         };
+        /**
+         * Convers the color object to a CSS equivalent.
+         * @param color The color object as provided by spectrum.
+         */
         RibbonAdmin.prototype.convertColor = function (color) {
             if (color) {
                 var value = color.toRgb();

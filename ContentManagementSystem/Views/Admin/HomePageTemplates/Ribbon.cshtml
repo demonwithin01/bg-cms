@@ -93,32 +93,32 @@ else if ( height.EndsWith( "px" ) == false )
         var html = ckeditor.getData();
         currentGrid.html(html);
         currentGrid.next().val(html);
-        $('#columnPopup').bgmodal('close');
+        $( "#columnPopup" ).bgmodal( "close" );
     }
 
     function cancelModalChanges()
     {
-        $('#columnPopup').bgmodal('close');
+        $( "#columnPopup" ).bgmodal( "close" );
     }
 
     $( function ()
     {
-        $( '#ribbon-item-template' ).find('input, select').attr('disabled', 'disabled');
+        $( "#ribbon-item-template" ).find( "input, select" ).attr( "disabled", "disabled" );
 
-        $(document).on('click', '.ribbon-item > .b-grid .editable', function ()
+        $(document).on( "click", ".ribbon-item > .b-grid .editable", function ()
         {
             currentGrid = $(this);
             ckeditor.setData(currentGrid.html());
-            $('#columnPopup').bgmodal('open');
+            $( "#columnPopup" ).bgmodal( "open" );
         });
 
-        CKEDITOR.replace('columnContent');
-        ckeditor = CKEDITOR.instances['columnContent'];
+        CKEDITOR.replace( "columnContent" );
+        ckeditor = CKEDITOR.instances[ "columnContent" ];
 
-        $('#cancelColumnContent').on('click', cancelModalChanges);
-        $('#acceptColumnContent').on('click', acceptModalChanges);
+        $( "#cancelColumnContent" ).on( "click", cancelModalChanges );
+        $( "#acceptColumnContent" ).on( "click", acceptModalChanges );
 
-        $('#columnPopup').bgmodal(
+        $( "#columnPopup" ).bgmodal(
         {
             autoOpen: false
         });
@@ -127,13 +127,13 @@ else if ( height.EndsWith( "px" ) == false )
         
         $( "#add-ribbon-item" ).on( "click", function () 
         {
-            ribbonAdmin.createRibbon(); 
+            ribbonAdmin.createRibbon();
         } );
         
-        $(document).on('click', '.remove-ribbon-item', function ()
+        $(document).on( "click", ".remove-ribbon-item", function ()
         {
-            ribbonAdmin.removeRibbon( $(this).closest('.ribbon-item'));
-        });
+            ribbonAdmin.removeRibbon( $( this ).closest( ".ribbon-item" ) );
+        } );
     } );
 
 </script>
