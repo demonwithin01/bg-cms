@@ -1,7 +1,7 @@
 ﻿@using ContentManagementSystem.Framework.Models.HomePage;
 @model Ribbon
 
-@{ 
+@{
     Model.Items = Model.Items ?? new List<RibbonItem>();
 }
 
@@ -12,54 +12,56 @@ string nameIndex = "Items[" + index + "].";
 string backgroundColor = ribbonItem.Background ?? "transparent";
 string height = ribbonItem.Height;
 
-if ( string.IsNullOrEmpty( height ) )
+if( string.IsNullOrEmpty( height ) )
 {
     height = "60px";
 }
-else if ( height.EndsWith( "px" ) == false )
+else if( height.EndsWith( "px" ) == false )
 {
     height += "px";
 }
 
-<div class="ribbon-item editable @( ribbonItem.RemovePadding ? "no-padding" : "" )" data-index="@index" style="background-color: @backgroundColor; height: @height;">
-    <div class="b-grid">
-        @for ( int i = 0 ; i < ribbonItem.Columns.Count ; i++ )
-        {
-        <div class="editable b-width-1-@ribbonItem.Columns.Count">
-            @Html.Raw( ribbonItem.Columns[ i ].Html )
+    <div class="ribbon-item editable @( ribbonItem.RemovePadding ? "no-padding" : "" )" data-index="@index" style="background-color: @backgroundColor; height: @height;">
+        <div class="b-grid">
+            @for( int i = 0 ; i < ribbonItem.Columns.Count ; i++ )
+            {
+                <div class="editable b-width-1-@ribbonItem.Columns.Count">
+                    <div class="ribbon-editable-content">
+                        @Html.Raw( ribbonItem.Columns[ i ].Html )
+                    </div>
+                    <textarea style="display: none;" id="@( idIndex + "Columns_" + i + "__Html" )" name="@( nameIndex + "Columns[" + i + "].Html" )">
+                        @Html.Raw( ribbonItem.Columns[ i ].Html )
+                    </textarea>
+                </div>
+            }
         </div>
-        <textarea style="display: none;" id="@( idIndex + "Columns_" + i + "__Html" )" name="@( nameIndex + "Columns[" + i + "].Html" )">
-            @Html.Raw( ribbonItem.Columns[ i ].Html )
-        </textarea>
-        }
+        <div class="ribbon-item-tools">
+            <input type="hidden" id="@( idIndex + "Height" )" name="@( nameIndex + "Height" )" value="@height" />
+            <div class="ribbon-item-template ui-front">
+                @Html.DropDownList( nameIndex + "ContentType", CreateSimpleSelectList.FromEnum<ContentType>( ribbonItem.ContentType ), new { id = idIndex + "ContentType", @class = "content-type" } )
+                @Html.DropDownList( nameIndex + "Layout", CreateSimpleSelectList.FromEnum<RibbonColumns>( ribbonItem.Layout ), new { id = idIndex + "Layout", @class = "column-layout" } )
+                @Html.DropDownList( nameIndex + "RemovePadding", CreateSimpleSelectList.ForBoolean( ribbonItem.RemovePadding ), new { id = idIndex + "RemovePadding", @class = "padding-option" } )
+                @Html.DropDownList( nameIndex + "RibbonLink", CreateSelectList.NavPages( ribbonItem.RibbonLink ), "None", new { id = idIndex + "RibbonLink", @class = "link-option" } )
+            </div>
+            <div class="remove-ribbon-item">
+                <i class="fa fa-close"></i>
+            </div>
+            <div class="ribbon-item-color-picker">
+                <input id="@( idIndex + "Background" )" name="@( nameIndex + "Background" )" type="hidden" value="@backgroundColor" />
+                <input type="color" />
+            </div>
+            <div class="ribbon-item-height">
+                Height: <span>@height</span>
+            </div>
+            <div class="adjust-height"></div>
+        </div>
     </div>
-    <div class="ribbon-item-tools">
-        <input type="hidden" id="@( idIndex + "Height" )" name="@( nameIndex + "Height" )" value="@height" />
-        <div class="ribbon-item-template ui-front">
-            @Html.DropDownList( nameIndex + "ContentType", CreateSimpleSelectList.FromEnum<ContentType>( ribbonItem.ContentType ), new { id = idIndex + "ContentType", @class = "content-type" } )
-            @Html.DropDownList( nameIndex + "Layout", CreateSimpleSelectList.FromEnum<RibbonColumns>( ribbonItem.Layout ), new { id = idIndex + "Layout", @class = "column-layout" } )
-            @Html.DropDownList( nameIndex + "RemovePadding", CreateSimpleSelectList.ForBoolean( ribbonItem.RemovePadding ), new { id = idIndex + "RemovePadding", @class = "padding-option" } )
-            @Html.DropDownList( nameIndex + "RibbonLink", CreateSelectList.NavPages( ribbonItem.RibbonLink ), "None", new { id = idIndex + "RibbonLink", @class = "link-option" } )
-        </div>
-        <div class="remove-ribbon-item">
-            <i class="fa fa-close"></i>
-        </div>
-        <div class="ribbon-item-color-picker">
-            <input id="@( idIndex + "Background" )" name="@( nameIndex + "Background" )" type="hidden" value="@backgroundColor" />
-            <input type="color" />
-        </div>
-        <div class="ribbon-item-height">
-            Height: <span>@height</span>
-        </div>
-        <div class="adjust-height"></div>
-    </div>
-</div>
 }
 
 <div id="ribbon-items">
-    @for ( int i = 0 ; i < Model.Items.Count ; i++ )
+    @for( int i = 0 ; i < Model.Items.Count ; i++ )
     {
-    @RenderRibbonItem( Model.Items[ i ], i.ToString() )
+        @RenderRibbonItem( Model.Items[ i ], i.ToString() )
     }
 </div>
 
@@ -85,51 +87,39 @@ else if ( height.EndsWith( "px" ) == false )
 
 <script>
 
-    var currentGrid = undefined;
-    var ckeditor = undefined;
-
-    function acceptModalChanges()
-    {
-        var html = ckeditor.getData();
-        currentGrid.html(html);
-        currentGrid.next().val(html);
-        $( "#columnPopup" ).bgmodal( "close" );
-    }
-
-    function cancelModalChanges()
-    {
-        $( "#columnPopup" ).bgmodal( "close" );
-    }
-
     $( function ()
     {
+        var ribbonAdmin = new apollyon.RibbonAdmin( { ribbonCount: @Model.Items.Count } );
+        var editorPopup = new apollyon.EditorPopup( "columnContent" );
+
         $( "#ribbon-item-template" ).find( "input, select" ).attr( "disabled", "disabled" );
 
         $(document).on( "click", ".ribbon-item > .b-grid .editable", function ()
         {
-            currentGrid = $(this);
-            ckeditor.setData(currentGrid.html());
-            $( "#columnPopup" ).bgmodal( "open" );
-        });
+            var currentGrid = $( this );
 
-        CKEDITOR.replace( "columnContent" );
-        ckeditor = CKEDITOR.instances[ "columnContent" ];
+            switch( currentGrid.find( ".content-type" ).val() )
+            {
+                case "1":
+                    $.post( "/admin/home-page/edit/banner-editor", currentGrid.serializeArray(), function ( data )
+                    {
 
-        $( "#cancelColumnContent" ).on( "click", cancelModalChanges );
-        $( "#acceptColumnContent" ).on( "click", acceptModalChanges );
+                    } );
+                    break;
+                default:
+                    editorPopup.openModal( currentGrid.find( ".ribbon-editable-content" ).html(), function ( html )
+                    {
+                        currentGrid,find( ".ribbon-editable-content" ).html(html).next().val(html);
+                    });
+                    break;
+            }
+        } );
 
-        $( "#columnPopup" ).bgmodal(
-        {
-            autoOpen: false
-        });
-
-        var ribbonAdmin = new apollyon.RibbonAdmin( { ribbonCount: @Model.Items.Count } );
-        
-        $( "#add-ribbon-item" ).on( "click", function () 
+        $( "#add-ribbon-item" ).on( "click", function ()
         {
             ribbonAdmin.createRibbon();
         } );
-        
+
         $(document).on( "click", ".remove-ribbon-item", function ()
         {
             ribbonAdmin.removeRibbon( $( this ).closest( ".ribbon-item" ) );

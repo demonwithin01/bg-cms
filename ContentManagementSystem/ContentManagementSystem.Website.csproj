@@ -286,6 +286,9 @@
     <Content Include="Content\Images\orderedList8.png" />
     <Content Include="Content\Images\orderedList9.png" />
     <Content Include="Content\Images\Plugins\mCSB_buttons.png" />
+    <Content Include="Content\Scripts\Apollyon\Admin\EditorPopup.js">
+      <DependentUpon>EditorPopup.ts</DependentUpon>
+    </Content>
     <Content Include="Content\Scripts\Apollyon\Admin\Ribbon.js">
       <DependentUpon>Ribbon.ts</DependentUpon>
     </Content>
@@ -307,9 +310,6 @@
     <Content Include="Content\Scripts\Apollyon\PageSections\contact.js">
       <DependentUpon>contact.ts</DependentUpon>
     </Content>
-    <Content Include="Content\Scripts\Apollyon\Workers\bgrade.ribbon.js">
-      <DependentUpon>Ribbon.ts</DependentUpon>
-    </Content>
     <Content Include="Content\Scripts\Apollyon\site.js">
       <DependentUpon>site.ts</DependentUpon>
     </Content>
@@ -322,6 +322,9 @@
     </Content>
     <Content Include="Content\Scripts\Apollyon\Workers\imageBrowser.js">
       <DependentUpon>ImageBrowser.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\Scripts\Apollyon\Workers\Ribbon.js">
+      <DependentUpon>Ribbon.ts</DependentUpon>
     </Content>
     <Content Include="Content\Scripts\Apollyon\Workers\TemplateEditor.js">
       <DependentUpon>TemplateEditor.ts</DependentUpon>
@@ -355,6 +358,12 @@
     </Content>
     <Content Include="Content\Scripts\Apollyon\PageSections\banners\banner.carousel.js.map">
       <DependentUpon>banner.carousel.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\Scripts\Apollyon\Admin\EditorPopup.js.map">
+      <DependentUpon>EditorPopup.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\Scripts\Apollyon\Workers\Ribbon.js.map">
+      <DependentUpon>Ribbon.ts</DependentUpon>
     </Content>
     <None Include="Content\Scripts\Frameworks\jquery-1.8.2.intellisense.js" />
     <Content Include="Content\Scripts\Frameworks\jquery-1.8.2.js" />
@@ -847,9 +856,6 @@
     <Content Include="Content\Scripts\Apollyon\Bases\_page-section.js.map">
       <DependentUpon>_page-section.ts</DependentUpon>
     </Content>
-    <Content Include="Content\Scripts\Apollyon\Workers\bgrade.ribbon.js.map">
-      <DependentUpon>Ribbon.ts</DependentUpon>
-    </Content>
     <Content Include="Content\Scripts\Apollyon\site.js.map">
       <DependentUpon>site.ts</DependentUpon>
     </Content>
@@ -1035,6 +1041,9 @@
     <Content Include="Views\Home\PageTemplates\ImageNavigation.cshtml" />
     <Content Include="Views\Admin\EditorTemplates\ImageNavigationItem.cshtml" />
     <Content Include="Views\Admin\_ChangePageTemplate.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Banner.cshtml" />
+    <Content Include="Views\Admin\EditorTemplates\Banner.cshtml" />
+    <Content Include="Views\Admin\DisplayTemplates\Banner.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1060,6 +1069,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Content\Scripts\Apollyon\Admin\Banner.ts" />
+    <TypeScriptCompile Include="Content\Scripts\Apollyon\Admin\EditorPopup.ts" />
     <TypeScriptCompile Include="Content\Scripts\Apollyon\Admin\Ribbon.ts" />
     <TypeScriptCompile Include="Content\Scripts\Apollyon\Extensions\carousel.ts" />
     <TypeScriptCompile Include="Content\Scripts\Apollyon\Extensions\modal.ts" />
@@ -1076,6 +1087,7 @@
     <TypeScriptCompile Include="Content\Scripts\Apollyon\PageSections\contact.ts" />
     <TypeScriptCompile Include="Content\Scripts\themes\outofmars\PageBackground.ts" />
     <TypeScriptCompile Include="Content\Scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\ckeditor\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

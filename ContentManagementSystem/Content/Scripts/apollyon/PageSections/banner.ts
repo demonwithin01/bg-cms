@@ -100,9 +100,4 @@
             }
         }
     }
-
-    export class BannerAdmin extends Banner
-    {
-
-    }
 }

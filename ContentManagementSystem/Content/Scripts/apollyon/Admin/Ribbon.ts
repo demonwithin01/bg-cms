@@ -213,7 +213,7 @@
             
             $grid.children( ".editable" ).each( function ()
             {
-                html.push( $( this ).html() );
+                html.push( $( this ).find( ".ribbon-editable-content" ).html() );
             });
 
             $grid.empty();
@@ -239,16 +239,18 @@
             for ( var i = 0; i < columnWidths.length; i++ )
             {
                 var $div = $( "<div class=\"editable b-width-" + columnWidths[i] + "\"></div>" );
+                var $content = $( "<div class\"ribbon-content\"></div>" );
                 var $input = $( "<textarea style=\"display: none;\" id=\"Items_" + index + "__Columns_" + i + "__Html\" name=\"Items[" + index + "].Columns[" + i + "].Html\"></textarea>" );
 
                 if ( i < html.length )
                 {
-                    $div.html( html[i] );
+                    $content.html( html[i] );
                     $input.val( html[i] );
                 }
 
+                $div.append( $content ).append( $input );
+
                 $grid.append( $div );
-                $grid.append( $input );
             }
         }
 

@@ -94,12 +94,4 @@ var apollyon;
         return Banner;
     }(apollyon.PageSection));
     apollyon.Banner = Banner;
-    var BannerAdmin = (function (_super) {
-        __extends(BannerAdmin, _super);
-        function BannerAdmin() {
-            _super.apply(this, arguments);
-        }
-        return BannerAdmin;
-    }(Banner));
-    apollyon.BannerAdmin = BannerAdmin;
 })(apollyon || (apollyon = {}));

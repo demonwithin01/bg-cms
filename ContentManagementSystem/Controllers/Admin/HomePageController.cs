@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using ContentManagementSystem.Admin.Managers;
 using ContentManagementSystem.Admin.Models;
 using ContentManagementSystem.Framework;
+using ContentManagementSystem.Framework.Models.HomePage.ContentTypes;
 
 namespace ContentManagementSystem.Controllers
 {
@@ -55,6 +56,15 @@ namespace ContentManagementSystem.Controllers
             }
 
             return View( model );
+        }
+
+        [HttpPost]
+        [Route( "home-page/edit/banner-editor" )]
+        public ActionResult BannerEditorModal( Banner bannerModel )
+        {
+            bannerModel = bannerModel ?? new Banner();
+
+            return PartialView( "EditorTemplates/Banner", bannerModel );
         }
 
         #endregion
