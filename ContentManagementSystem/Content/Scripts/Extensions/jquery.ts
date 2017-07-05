@@ -2,7 +2,7 @@
 {
     appendThen( content, callback ): JQuery;
     appendRender( content ): JQuery;
-    bgmodal( options: any ): JQuery;
+    bgmodal( options?: any ): JQuery;
     carousel( options: any ): JQuery;
     jsSocials( args: any ): JQuery;
     resizable( options: any ): JQuery;

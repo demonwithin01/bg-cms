@@ -1,26 +1,2 @@
 ﻿@using ContentManagementSystem.Framework.Models.HomePage.ContentTypes;
 @model Banner
-
-<div class="modal-content">
-    
-    <div class="button-list text-right margin-top">
-        @Html.Button( "Cancel", ButtonType.Cancel, "cancelBannerEditor" )
-        @Html.Button( "Accept", ButtonType.Primary, "acceptBannerEditor" )
-    </div>
-    <script>
-        $( function ()
-        {
-            var bannerAdmin = new apollyon.BannerAdmin();
-
-            $( "#cancelBannerEditor" ).on( "click", function ()
-            {
-
-            } );
-
-            $( "#acceptBannerEditor" ).on( "click", function ()
-            {
-
-            } );
-        } );
-    </script>
-</div>

@@ -1044,6 +1044,7 @@
     <Content Include="Views\Shared\DisplayTemplates\Banner.cshtml" />
     <Content Include="Views\Admin\EditorTemplates\Banner.cshtml" />
     <Content Include="Views\Admin\DisplayTemplates\Banner.cshtml" />
+    <Content Include="Views\Admin\Shared\_UploadSelector.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1082,12 +1083,13 @@
     <TypeScriptCompile Include="Content\Scripts\Apollyon\site.types.ts" />
     <TypeScriptCompile Include="Content\Scripts\Apollyon\Bases\_page-section.ts" />
     <TypeScriptCompile Include="Content\Scripts\Apollyon\Workers\TemplateEditor.ts" />
+    <TypeScriptCompile Include="Content\Scripts\Apollyon\Workers\UploadSelector.ts" />
     <TypeScriptCompile Include="Content\Scripts\Extensions\jquery.ts" />
     <TypeScriptCompile Include="Content\Scripts\Apollyon\PageSections\blogs.ts" />
     <TypeScriptCompile Include="Content\Scripts\Apollyon\PageSections\contact.ts" />
     <TypeScriptCompile Include="Content\Scripts\themes\outofmars\PageBackground.ts" />
     <TypeScriptCompile Include="Content\Scripts\typings\jquery\jquery.d.ts" />
-    <TypeScriptCompile Include="Scripts\typings\ckeditor\index.d.ts" />
+    <TypeScriptCompile Include="Content\Scripts\typings\ckeditor\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

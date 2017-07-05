@@ -1,0 +1,16 @@
+﻿@using ContentManagementSystem.Framework.Models.Page;
+@model IUploadSelector
+
+<div id="uploadSelector" style="display: none;">
+    <div class="modal-content">
+        @Html.TextBoxFieldFor( m => m.UploadSelectorSearchBox )
+        <div class="upload-options">
+            <div class="scroll-content">
+                <ul id="uploadOptions"></ul>
+            </div>
+        </div>
+        <span class="cancel-modal" onclick="$('#uploadSelector').bgmodal('close');">
+            @Glyph( "remove" )
+        </span>
+    </div>
+</div>

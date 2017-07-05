@@ -127,6 +127,7 @@
     <Compile Include="HtmlExtensions\DropDownListFieldFor.cs" />
     <Compile Include="HtmlExtensions\PasswordFieldFor.cs" />
     <Compile Include="HtmlExtensions\TextBoxFieldFor.cs" />
+    <Compile Include="Interfaces\UploadSelector.cs" />
     <Compile Include="Logging\ErrorLog.cs" />
     <Compile Include="ManagerRegions.cs" />
     <Compile Include="Models\HomePageModel.cs" />
