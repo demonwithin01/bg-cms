@@ -61,6 +61,12 @@ namespace ContentManagementSystem.Controllers
             return View( model );
         }
 
+        [Route( "uploads/selector" )]
+        public ActionResult UploadSelectorModal()
+        {
+            return PartialView( "Shared/_UploadSelector", new UploadSelectorModel() );
+        }
+
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */

@@ -2,18 +2,41 @@ var apollyon;
 (function (apollyon) {
     var UploadSelector = (function () {
         function UploadSelector() {
-            this._element = $("#uploadSelector").bgmodal();
-            this._searchBox = this._element.find("#UploadSelectorSearchBox");
-            this._uploadOptions = this._element.find("#uploadOptions");
-            this.attachEvents();
+            this._isLoaded = false;
+            if ($("#uploadSelector").length > 0) {
+                this.initialise();
+            }
         }
         /**
          * Opens the upload selector modal.
          */
         UploadSelector.prototype.open = function () {
-            this._searchBox.val("");
-            this._uploadOptions.empty();
-            this._element.bgmodal("open");
+            var that = this;
+            function openModal() {
+                that._searchBox.val("");
+                that._uploadOptions.empty();
+                that._element.bgmodal("open");
+            }
+            if (this._isLoaded) {
+                openModal();
+            }
+            else {
+                $.get("/admin/uploads/selector", function (data) {
+                    $("body").append(data);
+                    that.initialise();
+                    openModal();
+                });
+            }
+        };
+        /**
+         * Initialises the upload selector object.
+         */
+        UploadSelector.prototype.initialise = function () {
+            this._element = $("#uploadSelector").bgmodal();
+            this._searchBox = this._element.find("#UploadSelectorSearchBox");
+            this._uploadOptions = this._element.find("#uploadOptions");
+            this.attachEvents();
+            this._isLoaded = true;
         };
         /**
          * Attaches the events required by the upload selector.

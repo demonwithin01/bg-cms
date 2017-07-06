@@ -243,6 +243,7 @@
     <Compile Include="Managers\Admin\UserManager.cs" />
     <Compile Include="Managers\PageManager.cs" />
     <Compile Include="Managers\HomePageManager.cs" />
+    <Compile Include="Models\Admin\Uploads\UploadSelectorModel.cs" />
     <Compile Include="Models\Home\IndexModel.cs" />
     <Compile Include="Models\Home\LoginModel.cs" />
     <Compile Include="Models\Home\PageModel.cs" />

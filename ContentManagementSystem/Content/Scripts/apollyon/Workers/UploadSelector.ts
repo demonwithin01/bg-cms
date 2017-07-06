@@ -7,14 +7,14 @@
         private _uploadOptions: JQuery;
         private _uploadSelectedCallback: Function;
         private _timeout: number;
+        private _isLoaded: boolean = false;
 
         constructor()
         {
-            this._element = $( "#uploadSelector" ).bgmodal();
-            this._searchBox = this._element.find( "#UploadSelectorSearchBox" );
-            this._uploadOptions = this._element.find( "#uploadOptions" );
-
-            this.attachEvents();
+            if ( $( "#uploadSelector" ).length > 0 )
+            {
+                this.initialise();
+            }
         }
 
         /**
@@ -22,10 +22,45 @@
          */
         public open(): void
         {
-            this._searchBox.val( "" );
-            this._uploadOptions.empty()
+            var that = this;
 
-            this._element.bgmodal( "open" );
+            function openModal()
+            {
+                that._searchBox.val( "" );
+                that._uploadOptions.empty()
+
+                that._element.bgmodal( "open" );
+            }
+
+            if ( this._isLoaded )
+            {
+                openModal();
+            }
+            else
+            {
+                $.get( "/admin/uploads/selector", function ( data )
+                {
+                    $( "body" ).append( data );
+
+                    that.initialise();
+
+                    openModal();
+                });
+            }
+        }
+
+        /**
+         * Initialises the upload selector object.
+         */
+        private initialise(): void
+        {
+            this._element = $( "#uploadSelector" ).bgmodal();
+            this._searchBox = this._element.find( "#UploadSelectorSearchBox" );
+            this._uploadOptions = this._element.find( "#uploadOptions" );
+
+            this.attachEvents();
+
+            this._isLoaded = true;
         }
 
         /**
