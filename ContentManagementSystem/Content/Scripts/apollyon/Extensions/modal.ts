@@ -10,17 +10,17 @@
             }
 
             var defaults =
-                {
-                    theme: "",
-                    removeOnClose: false,
-                    url: "",
-                    urlMethod: "GET",
-                    urlData: {},
-                    beforeShow: empty,
-                    afterShow: empty,
-                    beforeClose: empty,
-                    afterClose: empty,
-                };
+            {
+                theme: "",
+                removeOnClose: false,
+                url: "",
+                urlMethod: "GET",
+                urlData: {},
+                beforeShow: empty,
+                afterShow: empty,
+                beforeClose: empty,
+                afterClose: empty,
+            };
 
             var _this = this;
             var _options = $.extend( {}, defaults, options );

@@ -287,6 +287,9 @@
     <Content Include="Content\Images\orderedList8.png" />
     <Content Include="Content\Images\orderedList9.png" />
     <Content Include="Content\Images\Plugins\mCSB_buttons.png" />
+    <Content Include="Content\Scripts\Apollyon\Admin\Banner.js">
+      <DependentUpon>Banner.ts</DependentUpon>
+    </Content>
     <Content Include="Content\Scripts\Apollyon\Admin\EditorPopup.js">
       <DependentUpon>EditorPopup.ts</DependentUpon>
     </Content>
@@ -330,6 +333,9 @@
     <Content Include="Content\Scripts\Apollyon\Workers\TemplateEditor.js">
       <DependentUpon>TemplateEditor.ts</DependentUpon>
     </Content>
+    <Content Include="Content\Scripts\Apollyon\Workers\UploadSelector.js">
+      <DependentUpon>UploadSelector.ts</DependentUpon>
+    </Content>
     <Content Include="Content\Scripts\Extensions\jquery.js">
       <DependentUpon>jquery.ts</DependentUpon>
     </Content>
@@ -365,6 +371,12 @@
     </Content>
     <Content Include="Content\Scripts\Apollyon\Workers\Ribbon.js.map">
       <DependentUpon>Ribbon.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\Scripts\Apollyon\Workers\UploadSelector.js.map">
+      <DependentUpon>UploadSelector.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\Scripts\Apollyon\Admin\Banner.js.map">
+      <DependentUpon>Banner.ts</DependentUpon>
     </Content>
     <None Include="Content\Scripts\Frameworks\jquery-1.8.2.intellisense.js" />
     <Content Include="Content\Scripts\Frameworks\jquery-1.8.2.js" />
@@ -1046,6 +1058,8 @@
     <Content Include="Views\Admin\EditorTemplates\Banner.cshtml" />
     <Content Include="Views\Admin\DisplayTemplates\Banner.cshtml" />
     <Content Include="Views\Admin\Shared\_UploadSelector.cshtml" />
+    <Content Include="Views\Admin\EditorTemplates\EditableContent.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\EditableContent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

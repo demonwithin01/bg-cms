@@ -3778,6 +3778,17 @@ table td.options-column {
 .admin .page-content {
   background: white;
 }
+.admin .content-type + .ui-selectmenu-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.b-grid > .editable {
+  position: relative;
+}
+.b-grid > .editable .open-editable-content {
+  height: 100%;
+}
 #uploadImages > li {
   margin: 0 10px 10px 0;
   max-width: 150px;

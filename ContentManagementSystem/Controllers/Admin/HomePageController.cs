@@ -7,6 +7,7 @@ using ContentManagementSystem.Admin.Managers;
 using ContentManagementSystem.Admin.Models;
 using ContentManagementSystem.Framework;
 using ContentManagementSystem.Framework.Models.HomePage.ContentTypes;
+using Newtonsoft.Json;
 
 namespace ContentManagementSystem.Controllers
 {
@@ -66,7 +67,7 @@ namespace ContentManagementSystem.Controllers
 
             return PartialView( "EditorTemplates/Banner", bannerModel );
         }
-
+        
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */

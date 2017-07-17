@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 using Newtonsoft.Json;
 
 namespace ContentManagementSystem.Framework.Models.HomePage.ContentTypes
 {
-    public class Columns : ContentTypeBase
+    public class EditableContent : ContentTypeBase
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -19,6 +20,11 @@ namespace ContentManagementSystem.Framework.Models.HomePage.ContentTypes
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Constructors/Initialisation
+
+        public EditableContent()
+        {
+            Html = "";
+        }
 
         #endregion
 
@@ -38,12 +44,10 @@ namespace ContentManagementSystem.Framework.Models.HomePage.ContentTypes
 
         #region Properties
 
-        [JsonProperty( "layout" )]
-        public RibbonColumns Layout { get; set; }
-
-        [JsonProperty( "columns" )]
-        public List<RibbonItemContent> ColumnsContent { get; set; }
-
+        [AllowHtml]
+        [JsonProperty( "html" )]
+        public string Html { get; set; }
+        
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */

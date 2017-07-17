@@ -1,0 +1,5 @@
+﻿@model ContentManagementSystem.Framework.Models.HomePage.ContentTypes.EditableContent
+
+<div class="ribbon-editable-content">
+    @Html.Raw( Uri.UnescapeDataString( Model.Html ) )
+</div>

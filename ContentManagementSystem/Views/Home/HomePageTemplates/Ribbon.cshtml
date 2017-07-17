@@ -23,7 +23,7 @@
         @for ( int i = 0 ; i < ribbonItem.Columns.Count ; i++ )
         {
         <div class="b-width-1-@ribbonItem.Columns.Count">
-            @Html.Raw( ribbonItem.Columns[ i ].Html )
+            @Html.DisplayFor( m => ribbonItem.Columns[ i ].Content )
         </div>
         }
     </div>
