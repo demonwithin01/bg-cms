@@ -94,7 +94,7 @@
 
         if ( typeof ( options ) === "string" )
         {
-            var modal = this.data( "bg-modal" );
+            var modal = this.data( "apn-modal" );
 
             if ( !modal )
             {
@@ -109,7 +109,7 @@
         else
         {
             var modal = new Modal( this );
-            this.data( "bg-modal", modal );
+            this.data( "apn-modal", modal );
         }
 
         return this;

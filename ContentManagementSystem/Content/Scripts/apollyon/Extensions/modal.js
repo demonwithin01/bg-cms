@@ -64,7 +64,7 @@ var apollyon;
             }
         }
         if (typeof (options) === "string") {
-            var modal = this.data("bg-modal");
+            var modal = this.data("apn-modal");
             if (!modal) {
                 return;
             }
@@ -74,9 +74,8 @@ var apollyon;
         }
         else {
             var modal = new Modal(this);
-            this.data("bg-modal", modal);
+            this.data("apn-modal", modal);
         }
         return this;
     };
 })(apollyon || (apollyon = {}));
-//# sourceMappingURL=modal.js.map

@@ -30,7 +30,6 @@
         <img class="page-background" src="@UserCookie.Current.BackgroundUrl" />
         }
         @Html.Partial( "~/Views/Theme/" + UserCookie.Current.Theme + "/Header.cshtml" )
-        @*@Html.Partial( "~/Views/Theme/outofmars/Header.cshtml" )*@
         <div class="page-content">
             @RenderSection( "overlays", false )
             @if ( string.IsNullOrEmpty( PageTitle ) == false && HideTitle == false )

@@ -299,6 +299,12 @@
     <Content Include="Content\Scripts\Apollyon\Extensions\carousel.js">
       <DependentUpon>carousel.ts</DependentUpon>
     </Content>
+    <Content Include="Content\Scripts\Apollyon\Extensions\load.js">
+      <DependentUpon>load.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\Scripts\Apollyon\Extensions\loading.js">
+      <DependentUpon>loading.ts</DependentUpon>
+    </Content>
     <Content Include="Content\Scripts\Apollyon\Extensions\modal.js">
       <DependentUpon>modal.ts</DependentUpon>
     </Content>
@@ -1089,6 +1095,8 @@
     <TypeScriptCompile Include="Content\Scripts\Apollyon\Admin\EditorPopup.ts" />
     <TypeScriptCompile Include="Content\Scripts\Apollyon\Admin\Ribbon.ts" />
     <TypeScriptCompile Include="Content\Scripts\Apollyon\Extensions\carousel.ts" />
+    <TypeScriptCompile Include="Content\Scripts\Apollyon\Extensions\load.ts" />
+    <TypeScriptCompile Include="Content\Scripts\Apollyon\Extensions\loading.ts" />
     <TypeScriptCompile Include="Content\Scripts\Apollyon\Extensions\modal.ts" />
     <TypeScriptCompile Include="Content\Scripts\Apollyon\PageSections\banners\banner.carousel.ts" />
     <TypeScriptCompile Include="Content\Scripts\Apollyon\PageSections\banner.ts" />
