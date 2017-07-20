@@ -42,6 +42,6 @@ var apollyon;
             };
         }
         _this.loading();
-        return $.ajax(ajaxOptions);
+        return $.ajax(ajaxOptions); // Return the ajax request object so that this method can be used like a normal $.ajax call.
     };
 })(apollyon || (apollyon = {}));

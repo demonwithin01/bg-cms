@@ -998,6 +998,7 @@
     <Content Include="Content\Styles\_tile-gallery.less" />
     <Content Include="Content\Styles\_notifications.less" />
     <Content Include="Content\Styles\_overlay-text.less" />
+    <Content Include="Content\Styles\_apn-loading.less" />
     <None Include="Properties\PublishProfiles\Production.pubxml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

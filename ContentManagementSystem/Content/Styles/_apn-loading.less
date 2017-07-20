@@ -1,0 +1,57 @@
+﻿@import (reference) "_shared/_common.less";
+
+@keyframes apn-loader
+{
+    0%
+    {
+        transform: translateY(-50%) translateX(-50%) rotate(0deg);
+        background: @apn-shadow-color;
+        box-shadow: 0px 0px 10px 3px @apn-shadow-color;
+    }
+    50%
+    {
+        background: @apn-shadow-mid-color;
+        box-shadow: 0px 0px 10px 6px @apn-shadow-mid-color;
+    }
+    100%
+    {
+        transform: translateY(-50%) translateX(-50%) rotate(360deg);
+        background: @apn-shadow-color;
+        box-shadow: 0px 0px 10px 3px @apn-shadow-color;
+    }
+}
+        
+
+.apn-loading
+{
+    min-height: 150px;
+    /*position: relative;*/
+    
+    .apn-loading::before
+    {
+        content: '';
+        background: rgba( 255, 255, 255, 0.5 );
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        top: 0;
+        z-index: 998;
+    }
+        
+    .apn-loading::after
+    {
+        content: '';
+        animation: 1s apn-loader cubic-bezier(.25,.7,.85,.35) infinite;
+        height: 20px;
+        width: 20px;
+        border: 2px solid @apn-line-color;
+        border-right-color: transparent;
+        border-left-color: transparent;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 999;
+    }
+}

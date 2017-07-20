@@ -24,7 +24,7 @@
             }
         }
 
-        if ( ajaxOptions.complete )
+        if ( ajaxOptions.complete ) // If complete already defined, extend it to turn off the loading.
         {
             var complete = ajaxOptions.complete;
 
@@ -35,7 +35,7 @@
                 _this.loading( "off" );
             };
         }
-        else
+        else // Otherwise create one so that the loading is turned off.
         {
             ajaxOptions.complete = function ()
             {
@@ -43,7 +43,7 @@
             };
         }
 
-        if ( ajaxOptions.success )
+        if ( ajaxOptions.success ) // If success is already defined, extend it to apply the html.
         {
             var success = ajaxOptions.success;
 
@@ -54,7 +54,7 @@
                 success.call( this, arguments );
             };
         }
-        else
+        else /// Otherwise create one so that the html can automatically be applied.
         {
             ajaxOptions.success = function ( data )
             {
@@ -64,6 +64,6 @@
 
         _this.loading();
 
-        return $.ajax( ajaxOptions );
+        return $.ajax( ajaxOptions ); // Return the ajax request object so that this method can be used like a normal $.ajax call.
     }
 }

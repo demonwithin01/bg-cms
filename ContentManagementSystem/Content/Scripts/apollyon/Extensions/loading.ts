@@ -16,6 +16,17 @@
             var _this = this;
             var _options = $.extend( {}, defaults, options );
 
+            var _currentPosition = element.css( "position" );
+            var _appliedCss = false;
+
+            if ( _currentPosition !== "relative" && _currentPosition !== "absolute" )
+            {
+                if ( _currentPosition === undefined ) _currentPosition = null;
+
+                element.css( "position", "relative" );
+                _appliedCss = true;
+            }
+
             element.addClass( "apn-loading" );
 
             this.methods = {
@@ -23,6 +34,10 @@
                 {
                     this.removeClass( "apn-loading" );
                     this.data( "apn-loading", null );
+                    if ( _appliedCss )
+                    {
+                        this.css( "position", _currentPosition );
+                    }
 
                     _options.afterLoad.call( this );
                 }
