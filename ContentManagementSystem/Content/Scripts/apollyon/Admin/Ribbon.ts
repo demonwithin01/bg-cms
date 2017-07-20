@@ -239,18 +239,28 @@
             for ( var i = 0; i < columnWidths.length; i++ )
             {
                 var $div = $( "<div class=\"editable b-width-" + columnWidths[i] + "\"></div>" );
-                var $content = $( "<div class\"ribbon-content\"></div>" );
-                var $input = $( "<textarea style=\"display: none;\" id=\"Items_" + index + "__Columns_" + i + "__Html\" name=\"Items[" + index + "].Columns[" + i + "].Html\"></textarea>" );
+                var $contentWrapper = $( "<div class\"open-editable-content\"></div>" );
+                var $content = $( "<div class\"ribbon-editable-content\"></div>" );
+                var $input = $( "#ribbon-column-input-template" ).clone();
 
+                $contentWrapper.append( $content );
+                
                 if ( i < html.length )
                 {
+                    // Fix
                     $content.html( html[i] );
-                    $input.val( html[i] );
                 }
 
-                $div.append( $content ).append( $input );
+                $div.append( $contentWrapper ).append( $input.children() );
 
                 $grid.append( $div );
+
+                $div.find( "select.content-type" ).selectmenu( {
+                    change: function ()
+                    {
+
+                    }
+                });
             }
         }
 

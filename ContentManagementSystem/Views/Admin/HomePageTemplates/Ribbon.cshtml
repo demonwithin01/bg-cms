@@ -6,6 +6,12 @@
     Model.Items = Model.Items ?? new List<RibbonItem>();
 }
 
+@helper RenderColumnInput( string idIndex, string nameIndex, string columnIndex, string contentJson, ContentType contentType )
+{
+    @Html.DropDownList( nameIndex + "Columns[" + columnIndex + "].ContentType", CreateSimpleSelectList.FromEnum<ContentType>( contentType ), new { id = idIndex + "Columns_" + columnIndex + "__ContentType", @class = "content-type" } )
+    @Html.Hidden( nameIndex + "Columns[" + columnIndex + "].ContentJson", contentJson, new { @class = "content-json" } )
+}
+
 @helper RenderRibbonItem( RibbonItem ribbonItem, string index )
 {
 string idIndex = "Items_" + index + "__";
@@ -30,8 +36,7 @@ else if( height.EndsWith( "px" ) == false )
                     <div class="open-editable-content">
                         @Html.EditorFor( m => ribbonItem.Columns[ i ].Content )
                     </div>
-                    @Html.DropDownList( nameIndex + "Columns[" + i + "].ContentType", CreateSimpleSelectList.FromEnum<ContentType>( ribbonItem.Columns[ i ].ContentType ), new { id = idIndex + "Columns_" + i + "__ContentType", @class = "content-type" } )
-                    @Html.Hidden( nameIndex + "Columns[" + i + "].ContentJson", ribbonItem.Columns[ i ].ContentJson, new { @class = "content-json" } )
+                    @RenderColumnInput( idIndex, nameIndex, i.ToString(), ribbonItem.Columns[ i ].ContentJson, ribbonItem.Columns[ i ].ContentType )
                 </div>
             }
         </div>
@@ -72,6 +77,10 @@ else if( height.EndsWith( "px" ) == false )
         template.Columns.Add( new RibbonItemContent() );
     }
     @RenderRibbonItem( template, "template" )
+</div>
+
+<div id="ribbon-column-input-template" style="display: none">
+    @RenderColumnInput( "Items_template__", "Items[template].", "COLTEMP", "{}", ContentType.EditableContent )
 </div>
 
 <div id="columnPopup" style="display: none;">
