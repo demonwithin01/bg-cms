@@ -3673,6 +3673,33 @@ table td.options-column {
 .overlay-text.overlay-text-notes:after {
   content: 'Notes';
 }
+.admin .ui-selectmenu-button {
+  border-radius: 3px;
+}
+.admin .ui-selectmenu-button.ui-state-default,
+.admin .ui-selectmenu-button.ui-widget-content .ui-state-default,
+.admin .ui-selectmenu-button.ui-widget-header .ui-state-default {
+  background: #eee;
+  border: 1px solid #333;
+  color: #333;
+  font-weight: normal;
+}
+.admin .ui-selectmenu-button span.ui-icon {
+  right: 0;
+}
+.admin .ui-selectmenu-button span.ui-selectmenu-text {
+  padding: 0.2em 1.1em 0.2em 0.5em;
+}
+.admin .ui-selectmenu-menu .ui-state-hover,
+.admin .ui-selectmenu-menu .ui-widget-content .ui-state-hover,
+.admin .ui-selectmenu-menu .ui-widget-header .ui-state-hover,
+.admin .ui-selectmenu-menu .ui-state-focus,
+.admin .ui-selectmenu-menu .ui-widget-content .ui-state-focus,
+.admin .ui-selectmenu-menu .ui-widget-header .ui-state-focus {
+  background: #004276;
+  color: white;
+  font-weight: normal;
+}
 .admin-home-nav-items > ul:after {
   clear: both;
   content: '';

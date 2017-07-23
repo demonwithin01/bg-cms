@@ -7,3 +7,4 @@ var apollyon;
     }());
     apollyon.BannerAdmin = BannerAdmin;
 })(apollyon || (apollyon = {}));
+//# sourceMappingURL=Banner.js.map

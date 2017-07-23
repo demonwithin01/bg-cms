@@ -70,11 +70,16 @@ namespace ApollyonWebLibrary.Web
         /// </summary>
         /// <typeparam name="TEnum">The type of the enumeration.</typeparam>
         /// <param name="selected">The currently selected enumeration.</param>
-        public static List<SelectListItem> FromEnum<TEnum>( TEnum selected ) where TEnum : struct, IConvertible
+        public static List<SelectListItem> FromEnum<TEnum>( TEnum selected, string prepend = "" ) where TEnum : struct, IConvertible
         {
             Array values = Enum.GetValues( typeof( TEnum ) );
             List<SelectListItem> selectList = new List<SelectListItem>();
             int selectedValue = Convert.ToInt32( selected );
+
+            if ( string.IsNullOrEmpty( prepend ) == false )
+            {
+                prepend = prepend.Trim() + " ";
+            }
 
             foreach( var value in values )
             {
