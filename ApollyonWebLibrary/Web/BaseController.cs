@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 using System.Web.Helpers;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Script.Serialization;
+using Newtonsoft.Json;
 
 namespace ApollyonWebLibrary.Web
 {
@@ -20,6 +16,11 @@ namespace ApollyonWebLibrary.Web
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Class Members
+
+        /// <summary>
+        /// The application/json content type.
+        /// </summary>
+        private const string applicationJson = "application/json";
 
         #endregion
 
@@ -116,6 +117,16 @@ namespace ApollyonWebLibrary.Web
 
                 return writer.GetStringBuilder().ToString();
             }
+        }
+
+        /// <summary>
+        /// Returns JSON content using the newtonsoft json serializer.
+        /// </summary>
+        /// <param name="result"></param>
+        /// <returns></returns>
+        protected ActionResult JsonContent( object result )
+        {
+            return Content( JsonConvert.SerializeObject( result ), applicationJson );
         }
 
         #endregion

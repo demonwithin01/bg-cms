@@ -101,6 +101,9 @@
     <Compile Include="Tools\JSFileGenerator.cs" />
     <Compile Include="Web\BaseController.cs" />
     <Compile Include="Web\Helpers\CreateSimpleSelectList.cs" />
+    <Compile Include="Web\Results\SimpleJsonHtmlResult.cs" />
+    <Compile Include="Web\Results\SimpleJsonResult.cs" />
+    <Compile Include="Web\Results\SimpleJsonMessageResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

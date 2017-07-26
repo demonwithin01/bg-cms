@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using ContentManagementSystem.Admin.Managers;
 using ContentManagementSystem.Admin.Models;
 using ContentManagementSystem.Framework;
+using ContentManagementSystem.Framework.Models.HomePage;
 using ContentManagementSystem.Framework.Models.HomePage.ContentTypes;
-using Newtonsoft.Json;
 
 namespace ContentManagementSystem.Controllers
 {
@@ -66,6 +62,20 @@ namespace ContentManagementSystem.Controllers
             bannerModel = bannerModel ?? new Banner();
 
             return PartialView( "EditorTemplates/Banner", bannerModel );
+        }
+
+        [HttpPost]
+        public ActionResult LoadEditor( ContentType contentType )
+        {
+            ContentTypeBase contentModel = ContentTypeBase.CreateNewModel( contentType );
+
+            if ( TryUpdateModel( contentModel ) == false )
+            {
+
+                return Json( null );
+            }
+
+            return PartialView();
         }
         
         #endregion
