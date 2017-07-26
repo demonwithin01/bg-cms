@@ -33,10 +33,15 @@ namespace ContentManagementSystem.Framework
         /// Creates a select list of the navigation pages.
         /// </summary>
         /// <param name="selected">The currently selected navigation page id.</param>
-        public static List<SelectListItem> NavPages( int? selected )
+        public static List<SelectListItem> NavPages( int? selected, string prepend = "" )
         {
             List<SelectListItem> selectList = new List<SelectListItem>();
-            
+
+            if ( string.IsNullOrEmpty( prepend ) == false )
+            {
+                prepend = prepend.Trim() + " ";
+            }
+
             foreach ( NavItem navItem in UserCookie.Current.NavItems )
             {
                 selectList.Add( new SelectListItem()
@@ -60,7 +65,7 @@ namespace ContentManagementSystem.Framework
                     {
                         selectList.Add( new SelectListItem()
                         {
-                            Text = subItem.Title,
+                            Text = prepend + subItem.Title,
                             Value = subItem.PageId.ToString(),
                             Selected = subItem.PageId == selected,
                             Group = group

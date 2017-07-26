@@ -29,18 +29,18 @@
     {
         DateTime publishedServerTime = Model.BlogPosts[ i ].PublishedUTCDate.Value.ToLocalTime();
         string exerpt = Model.BlogPosts[ i ].Content;
-        int index = exerpt.IndexOf( "</p>" );
-        bool hasMore = false;
-        if ( index > -1 )
-        {
-            index = exerpt.IndexOf( "</p>", index + 4 );
+        //int index = exerpt.IndexOf( "</p>" );
+        //bool hasMore = false;
+        //if ( index > -1 )
+        //{
+        //    index = exerpt.IndexOf( "</p>", index + 4 );
 
-            if ( index > -1 )
-            {
-                exerpt = exerpt.Remove( index + 4 );
-                hasMore = exerpt.Length < Model.BlogPosts[ i ].Content.Length;
-            }
-        }
+        //    if ( index > -1 )
+        //    {
+        //        exerpt = exerpt.Remove( index + 4 );
+        //        hasMore = exerpt.Length < Model.BlogPosts[ i ].Content.Length;
+        //    }
+        //}
 
         <div class="b-width-1-1">
             <div class="blog-post">
@@ -61,12 +61,12 @@
                         <div class="blog-post-exerpt">
                             @Html.Raw( exerpt )
                         </div>
-                        @if ( hasMore )
+                        @*@if ( hasMore )
                         {
                             <div class="read-more">
                                 <a href="@Url.Action( "Index", "BlogPost", new { Area = "Home", blogPostId = Model.BlogPosts[ i ].BlogId } ) " class="button text">Read more</a>
                             </div>
-                        }
+                        }*@
                     </div>
                 </div>
                 <div class="blog-footer clear-fix">
