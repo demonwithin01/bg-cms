@@ -194,4 +194,3 @@ var apollyon;
     }());
     apollyon.RibbonAdmin = RibbonAdmin;
 })(apollyon || (apollyon = {}));
-//# sourceMappingURL=Ribbon.js.map

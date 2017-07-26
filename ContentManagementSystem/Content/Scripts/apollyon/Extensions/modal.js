@@ -49,7 +49,7 @@ var apollyon;
                             type: _options.urlType,
                             data: ajaxData,
                             success: function (data) {
-                                $this.append(data);
+                                $this.empty().append(data);
                                 open.call($this.get(0));
                             }
                         });
@@ -79,4 +79,3 @@ var apollyon;
         return this;
     };
 })(apollyon || (apollyon = {}));
-//# sourceMappingURL=modal.js.map

@@ -95,4 +95,3 @@ var apollyon;
     }(apollyon.PageSection));
     apollyon.Banner = Banner;
 })(apollyon || (apollyon = {}));
-//# sourceMappingURL=banner.js.map

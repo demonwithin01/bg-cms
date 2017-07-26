@@ -27,7 +27,7 @@
     min-height: 150px;
     /*position: relative;*/
     
-    .apn-loading::before
+    &::before
     {
         content: '';
         background: rgba( 255, 255, 255, 0.5 );
@@ -39,7 +39,7 @@
         z-index: 998;
     }
         
-    .apn-loading::after
+    &::after
     {
         content: '';
         animation: 1s apn-loader cubic-bezier(.25,.7,.85,.35) infinite;

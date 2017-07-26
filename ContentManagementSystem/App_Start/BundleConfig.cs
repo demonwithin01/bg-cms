@@ -30,6 +30,8 @@ namespace ContentManagementSystem
                                 "~/Content/Scripts/Extensions/jquery.js",
                                 AScript( "Extensions/carousel" ),
                                 AScript( "Extensions/modal" ),
+                                AScript( "Extensions/loading" ),
+                                AScript( "Extensions/load" ),
                                 AScript( "site.types" ),
                                 AScript( "Bases/_page-section" ),
                                 AScript( "Bases/plugin" ),

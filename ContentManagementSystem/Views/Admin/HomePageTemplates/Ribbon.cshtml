@@ -93,26 +93,45 @@ else if( height.EndsWith( "px" ) == false )
     </div>
 </div>
 
+<div id="editorModal" style="display: none;">
+
+</div>
+
 <script>
 
     $( function ()
     {
+        var currentGrid = undefined;
+
         var ribbonAdmin = new apollyon.RibbonAdmin( { ribbonCount: @Model.Items.Count } );
         var editorPopup = new apollyon.EditorPopup( "columnContent" );
+        var editorModal = $( "#editorModal" ).bgmodal({
+            autoOpen: false,
+            url: "/admin/home-page/edit/editor-modal",
+            urlType: "POST",
+            urlData: function ()
+            {
+                return {
+                    contentType: currentGrid.siblings( ".content-type" ).val()
+                }
+            }
+        });
 
         $( "#ribbon-item-template" ).find( "input, select" ).attr( "disabled", "disabled" );
 
         $(document).on( "click", ".ribbon-item > .b-grid .open-editable-content", function ()
         {
-            var currentGrid = $( this );
+            currentGrid = $( this );
 
             switch( currentGrid.siblings( ".content-type" ).val() )
             {
                 case "1":
-                    $.post( "/admin/home-page/edit/banner-editor", currentGrid.serializeArray(), function ( data )
-                    {
+                    editorModal.bgmodal( "open" );
+                    
+                    //$.post( "/admin/home-page/edit/banner-editor", currentGrid.serializeArray(), function ( data )
+                    //{
 
-                    } );
+                    //} );
                     break;
                 default:
                     var html = JSON.parse( currentGrid.siblings( ".content-json" ).val() ).html;

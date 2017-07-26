@@ -243,6 +243,7 @@
     <Compile Include="Managers\Admin\UserManager.cs" />
     <Compile Include="Managers\PageManager.cs" />
     <Compile Include="Managers\HomePageManager.cs" />
+    <Compile Include="Models\Admin\HomePage\HomePageEditorModel.cs" />
     <Compile Include="Models\Admin\Uploads\UploadSelectorModel.cs" />
     <Compile Include="Models\Home\IndexModel.cs" />
     <Compile Include="Models\Home\LoginModel.cs" />
@@ -1068,6 +1069,7 @@
     <Content Include="Views\Admin\Shared\_UploadSelector.cshtml" />
     <Content Include="Views\Admin\EditorTemplates\EditableContent.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\EditableContent.cshtml" />
+    <Content Include="Views\Admin\_HomePageEditor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

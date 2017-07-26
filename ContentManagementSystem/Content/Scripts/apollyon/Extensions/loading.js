@@ -31,22 +31,22 @@ var apollyon;
         }
         // For each JQuery element
         this.each(function () {
+            var $this = $(this);
             if (typeof (options) === "string") {
-                var loading = this.data("apn-loading");
+                var loading = $this.data("apn-loading");
                 if (!loading) {
                     console.error("Loading object not found");
                     return;
                 }
                 if (typeof (loading.methods[options]) === "function") {
-                    loading.methods[options].call(this);
+                    loading.methods[options].call($this);
                 }
             }
             else {
-                var loading = new Loading(this);
-                this.data("apn-loading", loading);
+                var loading = new Loading($this);
+                $this.data("apn-loading", loading);
             }
         });
         return this;
     };
 })(apollyon || (apollyon = {}));
-//# sourceMappingURL=loading.js.map

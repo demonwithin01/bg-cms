@@ -4,6 +4,8 @@ using ContentManagementSystem.Admin.Models;
 using ContentManagementSystem.Framework;
 using ContentManagementSystem.Framework.Models.HomePage;
 using ContentManagementSystem.Framework.Models.HomePage.ContentTypes;
+using ApollyonWebLibrary.Web;
+using ApollyonWebLibrary.Extensions;
 
 namespace ContentManagementSystem.Controllers
 {
@@ -65,17 +67,17 @@ namespace ContentManagementSystem.Controllers
         }
 
         [HttpPost]
+        [Route( "home-page/edit/editor-modal" )]
         public ActionResult LoadEditor( ContentType contentType )
         {
             ContentTypeBase contentModel = ContentTypeBase.CreateNewModel( contentType );
 
             if ( TryUpdateModel( contentModel ) == false )
             {
-
-                return Json( null );
+                return JsonContent( SimpleJsonMessageResult.Failed( "The editor could not be loaded for " + contentType.GetDescription() ) );
             }
 
-            return PartialView();
+            return PartialView( "_HomePageEditor", new HomePageEditorModel( contentType, contentModel ) );
         }
         
         #endregion

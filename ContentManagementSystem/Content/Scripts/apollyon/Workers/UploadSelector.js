@@ -84,4 +84,3 @@ var apollyon;
     }());
     apollyon.UploadSelector = UploadSelector;
 })(apollyon || (apollyon = {}));
-//# sourceMappingURL=UploadSelector.js.map

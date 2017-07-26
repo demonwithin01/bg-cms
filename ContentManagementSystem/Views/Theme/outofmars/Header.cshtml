@@ -3,7 +3,7 @@
 <header class="always-open">
     <nav>
         <div class="nav-content">
-            @if ( UserCookie.Current.IsLoggedIn )
+            @if ( UserCookie.Current.IsLoggedIn && UserSession.IsLoggedIn )
             {
                 using ( BeginUrlForm( "/logoff" ) )
                 {

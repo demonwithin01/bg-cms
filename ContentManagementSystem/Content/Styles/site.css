@@ -3943,6 +3943,50 @@ table td.options-column {
 .overlay-text.overlay-text-notes:after {
   content: 'Notes';
 }
+@keyframes apn-loader {
+  0% {
+    transform: translateY(-50%) translateX(-50%) rotate(0deg);
+    background: white;
+    box-shadow: 0px 0px 10px 3px white;
+  }
+  50% {
+    background: white;
+    box-shadow: 0px 0px 10px 6px white;
+  }
+  100% {
+    transform: translateY(-50%) translateX(-50%) rotate(360deg);
+    background: white;
+    box-shadow: 0px 0px 10px 3px white;
+  }
+}
+.apn-loading {
+  min-height: 150px;
+  /*position: relative;*/
+}
+.apn-loading::before {
+  content: '';
+  background: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  z-index: 998;
+}
+.apn-loading::after {
+  content: '';
+  animation: 1s apn-loader cubic-bezier(0.25, 0.7, 0.85, 0.35) infinite;
+  height: 20px;
+  width: 20px;
+  border: 2px solid black;
+  border-right-color: transparent;
+  border-left-color: transparent;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 999;
+}
 .fake-link {
   cursor: pointer;
 }
