@@ -893,6 +893,7 @@
     <Content Include="Content\Scripts\Plugins\ckeditor\skins\moono-dark\readme.md" />
     <Content Include="Content\Scripts\Plugins\ckeditor\skins\moonocolor\readme.md" />
     <Content Include="Content\Styles\Admin\_dropdowns.less" />
+    <Content Include="Content\Styles\Admin\_carousel.less" />
     <None Include="Content\Styles\Plugins\jquery.mCustomScrollbar.less" />
     <Content Include="Content\Styles\Plugins\jquery.mCustomScrollbar.css">
       <DependentUpon>jquery.mCustomScrollbar.less</DependentUpon>

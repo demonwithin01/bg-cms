@@ -1,0 +1,63 @@
+﻿.admin-carousel
+{
+    @local-add-width: 50px;
+    @local-carousel-height: 450px;
+
+    height: @local-carousel-height;
+    width: @local-carousel-height / 9 * 16 + 2 * @local-add-width;
+
+    .admin-carousel-add
+    {
+        cursor: pointer;
+        height: 100%;
+        width: @local-add-width;
+
+        &.add-left
+        {
+            float: left;
+        }
+
+        &.add-right
+        {
+            float: right;
+        }
+    }
+
+    .carousel
+    {
+        margin: 0 @local-add-width;
+    }
+}
+
+.admin-carousel-tray
+{
+    @local-tray-height: 90px;
+
+    height: @local-tray-height;
+    overflow-x: scroll;
+
+    ul
+    {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    li
+    {
+        float: left;
+        height: 100%;
+        margin: 0 2px;
+        width: @local-tray-height / 9 * 16;
+
+        &:first-child
+        {
+            margin-left: 0;
+        }
+
+        &:last-child
+        {
+            margin-right: 0;
+        }
+    }
+}

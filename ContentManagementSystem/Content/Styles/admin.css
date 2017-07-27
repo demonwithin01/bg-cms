@@ -3841,6 +3841,45 @@ table td.options-column {
   display: block;
   text-align: center;
 }
+.admin-carousel {
+  height: 450px;
+  width: 900px;
+}
+.admin-carousel .admin-carousel-add {
+  cursor: pointer;
+  height: 100%;
+  width: 50px;
+}
+.admin-carousel .admin-carousel-add.add-left {
+  float: left;
+}
+.admin-carousel .admin-carousel-add.add-right {
+  float: right;
+}
+.admin-carousel .carousel {
+  margin: 0 50px;
+}
+.admin-carousel-tray {
+  height: 90px;
+  overflow-x: scroll;
+}
+.admin-carousel-tray ul {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.admin-carousel-tray li {
+  float: left;
+  height: 100%;
+  margin: 0 2px;
+  width: 160px;
+}
+.admin-carousel-tray li:first-child {
+  margin-left: 0;
+}
+.admin-carousel-tray li:last-child {
+  margin-right: 0;
+}
 .admin .main-content {
   padding: 20px;
 }
