@@ -3,7 +3,7 @@
 
 <div id="uploadSelector" style="display: none;">
     <div class="modal-content">
-        @Html.TextBoxFieldFor( m => m.UploadSelectorSearchBox )
+        @Html.TextBoxFieldFor( m => m.UploadSelectorSearchBox, null, labelText: "Search" )
         <div class="upload-options">
             <div class="scroll-content">
                 <ul id="uploadOptions"></ul>

@@ -9,8 +9,19 @@
         private _timeout: number;
         private _isLoaded: boolean = false;
 
-        constructor()
+        constructor( options )
         {
+            options = options || {};
+
+            if ( typeof options.uploadSelected === "function" )
+            {
+                this._uploadSelectedCallback = options.uploadSelected;
+            }
+            else
+            {
+                this._uploadSelectedCallback = function () { };
+            }
+
             if ( $( "#uploadSelector" ).length > 0 )
             {
                 this.initialise();
@@ -50,6 +61,14 @@
         }
 
         /**
+         * Closes the upload selector modal.
+         */
+        public close()
+        {
+            this._element.bgmodal( "close" );
+        }
+
+        /**
          * Initialises the upload selector object.
          */
         private initialise(): void
@@ -73,7 +92,7 @@
             // Cancel upload selection handler.
             this._element.find( ".cancel-modal" ).on( "click", function ()
             {
-                that._element.bgmodal( "close" );
+                that.close();
             });
 
             // Searchbox key up handler.
@@ -118,7 +137,7 @@
                 for ( var i = 0; i < data.uploads.length; i++ )
                 {
                     var upload = data.uploads[ i ];
-                    options.append( "<li data-upload-id=\"" + upload.uploadId + "\"><a href=\"javascript:void(0);\" onclick=\"selectUpload( $(this) );\"><img src=\"" + upload.fileLocation + "\" /><p>" + upload.title + "</p></a></li>" );
+                    options.append( "<li data-upload-id=\"" + upload.uploadId + "\"><a href=\"javascript:void(0);\"><img src=\"" + upload.fileLocation + "\" /><p>" + upload.title + "</p></a></li>" );
                 }
             });
         }

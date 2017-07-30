@@ -1,31 +1,110 @@
-﻿.admin-carousel
+﻿@import (reference) "../_shared/_common.less";
+
+.admin-carousel
 {
     @local-add-width: 50px;
+    @local-add-margin: 5px;
     @local-carousel-height: 450px;
+    @local-carousel-width: 880px;
 
-    height: @local-carousel-height;
-    width: @local-carousel-height / 9 * 16 + 2 * @local-add-width;
+    overflow: hidden;
+    position: relative;
+    height: ( @local-carousel-width - 2 * @local-add-width ) / 16 * 9;
+    width: @local-carousel-width;
+
+    .carousel:hover
+    {
+        & ~ .admin-carousel-tools.lower
+        {
+            transform: translateY(0);
+        }
+
+        & ~ .admin-carousel-tools.upper
+        {
+            transform: translateY(0);
+        }
+    }
 
     .admin-carousel-add
     {
+        background: #ddd;
+        border: 1px solid #bbb;
+        border-radius: 3px;
+        box-sizing: border-box;
         cursor: pointer;
         height: 100%;
-        width: @local-add-width;
+        width: @local-add-width - @local-add-margin;
+        position: relative;
 
         &.add-left
         {
+            //background: linear-gradient(to right, rgba(124,124,124,0) 0%,rgba(124,124,124,0.65) 50%,rgba(124,124,124,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
             float: left;
+            margin-right: @local-add-margin;
         }
 
         &.add-right
         {
+            //background: linear-gradient(to right, rgba(124,124,124,0.65) 0%,rgba(124,124,124,0.65) 50%,rgba(124,124,124,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
             float: right;
+            margin-left: @local-add-margin;
+        }
+
+        .fa
+        {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+        }
+    }
+
+    .admin-carousel-tools
+    {
+        background: rgba(255,255,255,0.8);
+        position: absolute;
+        right: @local-add-width;
+        transition: transform @animation-time-hover ease;
+
+        &.lower
+        {
+            bottom: 0;
+            transform: translateY(100%);
+            
+            &:hover
+            {
+                transform: translateY(0);
+            }
+        }
+        
+        &.upper
+        {
+            top: 0;
+            transform: translateY(-100%);
+            
+            &:hover
+            {
+                transform: translateY(0);
+            }
+        }
+
+        & > span
+        {
+            cursor: pointer;
+            display: inline-block;
+            padding: 5px;
+
+            &:hover
+            {
+                background: white;
+            }
         }
     }
 
     .carousel
     {
         margin: 0 @local-add-width;
+        width: auto;
     }
 }
 
@@ -34,17 +113,22 @@
     @local-tray-height: 90px;
 
     height: @local-tray-height;
+    margin-top: 10px;
     overflow-x: scroll;
+    padding-bottom: 5px;
 
     ul
     {
         height: 100%;
+        list-style: none;
         margin: 0;
         padding: 0;
+        text-align: center;
     }
 
     li
     {
+        cursor: pointer;
         float: left;
         height: 100%;
         margin: 0 2px;
@@ -58,6 +142,11 @@
         &:last-child
         {
             margin-right: 0;
+        }
+
+        img
+        {
+            max-height: 100%;
         }
     }
 }

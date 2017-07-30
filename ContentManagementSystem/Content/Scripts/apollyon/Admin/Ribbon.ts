@@ -168,7 +168,7 @@
                 {
                     var value = that.convertColor( color );
                     ribbon.css( "background-color", value );
-                    console.log( ribbon.find( "[type=\"color\"]" ).prev( "input" ).val( value ).val() );
+                    ribbon.find( "[type=\"color\"]" ).prev( "input" ).val( value );
                 }
             });
 

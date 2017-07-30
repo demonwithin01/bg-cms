@@ -10,29 +10,21 @@
     </div>
     <div class="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item">
-                <img src="~/Content/Images/Backgrounds/background.png" />
-            </div>
-            <div class="carousel-item">
-                <img src="~/Content/Images/Backgrounds/background.png" />
-            </div>
         </div>
-        @*<div class="carousel-previous">
-            @Glyph( "chevron-left" )
-        </div>
-        <div class="carousel-next">
-            @Glyph( "chevron-right" )
-        </div>*@
+    </div>
+    <div class="admin-carousel-tools lower">
+        <span id="selectPicture">
+            @Glyph( "picture-o" )
+        </span>
+    </div>
+    <div class="admin-carousel-tools upper">
+        <span id="removeSlide">
+            @Glyph( "remove" )
+        </span>
     </div>
 </div>
 <div class="admin-carousel-tray">
     <ul>
-        <li>
-            <img src="~/Content/Images/Backgrounds/background.png" />
-        </li>
-        <li>
-            <img src="~/Content/Images/Backgrounds/background.png" />
-        </li>
     </ul>
 </div>
 <div class="button-list text-right margin-top">
@@ -47,11 +39,6 @@
         $( "#cancelBannerEditor" ).on( "click", function ()
         {
             $( this ).closest( ".modal-content" ).parent().bgmodal( "close" );
-        } );
-
-        $( "#acceptBannerEditor" ).on( "click", function ()
-        {
-
         } );
     } );
 </script>

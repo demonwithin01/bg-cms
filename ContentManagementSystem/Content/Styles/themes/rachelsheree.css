@@ -3468,6 +3468,7 @@ table td.options-column {
 .bg-modal-backdrop {
   display: none;
   background: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
   position: absolute;
   bottom: 0;
   left: 0;

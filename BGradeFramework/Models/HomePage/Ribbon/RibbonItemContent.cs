@@ -48,7 +48,7 @@ namespace ContentManagementSystem.Framework.Models.HomePage
                     Content = JsonConvert.DeserializeObject<EditableContent>( value );
                     break;
                 case ContentType.Banner:
-                    Content = JsonConvert.DeserializeObject<ContentTypeBase>( value );
+                    Content = JsonConvert.DeserializeObject<Banner>( value );
                     break;
             }
         }

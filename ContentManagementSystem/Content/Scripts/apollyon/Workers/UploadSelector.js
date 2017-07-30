@@ -1,8 +1,15 @@
 var apollyon;
 (function (apollyon) {
     var UploadSelector = (function () {
-        function UploadSelector() {
+        function UploadSelector(options) {
             this._isLoaded = false;
+            options = options || {};
+            if (typeof options.uploadSelected === "function") {
+                this._uploadSelectedCallback = options.uploadSelected;
+            }
+            else {
+                this._uploadSelectedCallback = function () { };
+            }
             if ($("#uploadSelector").length > 0) {
                 this.initialise();
             }
@@ -29,6 +36,12 @@ var apollyon;
             }
         };
         /**
+         * Closes the upload selector modal.
+         */
+        UploadSelector.prototype.close = function () {
+            this._element.bgmodal("close");
+        };
+        /**
          * Initialises the upload selector object.
          */
         UploadSelector.prototype.initialise = function () {
@@ -45,7 +58,7 @@ var apollyon;
             var that = this;
             // Cancel upload selection handler.
             this._element.find(".cancel-modal").on("click", function () {
-                that._element.bgmodal("close");
+                that.close();
             });
             // Searchbox key up handler.
             this._searchBox.on("keyup", function () {
@@ -76,7 +89,7 @@ var apollyon;
                 var options = that._uploadOptions.empty();
                 for (var i = 0; i < data.uploads.length; i++) {
                     var upload = data.uploads[i];
-                    options.append("<li data-upload-id=\"" + upload.uploadId + "\"><a href=\"javascript:void(0);\" onclick=\"selectUpload( $(this) );\"><img src=\"" + upload.fileLocation + "\" /><p>" + upload.title + "</p></a></li>");
+                    options.append("<li data-upload-id=\"" + upload.uploadId + "\"><a href=\"javascript:void(0);\"><img src=\"" + upload.fileLocation + "\" /><p>" + upload.title + "</p></a></li>");
                 }
             });
         };
@@ -84,3 +97,4 @@ var apollyon;
     }());
     apollyon.UploadSelector = UploadSelector;
 })(apollyon || (apollyon = {}));
+//# sourceMappingURL=UploadSelector.js.map

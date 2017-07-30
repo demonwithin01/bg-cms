@@ -111,7 +111,7 @@ var apollyon;
                 hide: function (color) {
                     var value = that.convertColor(color);
                     ribbon.css("background-color", value);
-                    console.log(ribbon.find("[type=\"color\"]").prev("input").val(value).val());
+                    ribbon.find("[type=\"color\"]").prev("input").val(value);
                 }
             });
             ribbon.resizable({
@@ -194,3 +194,4 @@ var apollyon;
     }());
     apollyon.RibbonAdmin = RibbonAdmin;
 })(apollyon || (apollyon = {}));
+//# sourceMappingURL=Ribbon.js.map

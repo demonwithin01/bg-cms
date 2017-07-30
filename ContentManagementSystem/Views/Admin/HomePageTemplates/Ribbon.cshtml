@@ -34,7 +34,7 @@ else if( height.EndsWith( "px" ) == false )
             {
                 <div class="editable b-width-1-@ribbonItem.Columns.Count">
                     <div class="open-editable-content">
-                        @Html.EditorFor( m => ribbonItem.Columns[ i ].Content )
+                        @Html.DisplayFor( m => ribbonItem.Columns[ i ].Content )
                     </div>
                     @RenderColumnInput( idIndex, nameIndex, i.ToString(), ribbonItem.Columns[ i ].ContentJson, ribbonItem.Columns[ i ].ContentType )
                 </div>
@@ -102,6 +102,11 @@ else if( height.EndsWith( "px" ) == false )
     $( function ()
     {
         var currentGrid = undefined;
+
+        window.getCurrentGridItem = function ()
+        {
+            return currentGrid;
+        }
 
         var ribbonAdmin = new apollyon.RibbonAdmin( { ribbonCount: @Model.Items.Count } );
         var editorPopup = new apollyon.EditorPopup( "columnContent" );

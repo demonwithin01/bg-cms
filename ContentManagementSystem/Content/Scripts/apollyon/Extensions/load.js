@@ -45,3 +45,4 @@ var apollyon;
         return $.ajax(ajaxOptions); // Return the ajax request object so that this method can be used like a normal $.ajax call.
     };
 })(apollyon || (apollyon = {}));
+//# sourceMappingURL=load.js.map

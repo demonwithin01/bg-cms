@@ -86,7 +86,7 @@
                 }
             }
 
-            if ( options.autoOpen !== false )
+            if ( _options.autoOpen !== false )
             {
                 _this.methods.open();
             }

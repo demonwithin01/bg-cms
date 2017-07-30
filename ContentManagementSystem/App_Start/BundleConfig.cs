@@ -38,7 +38,8 @@ namespace ContentManagementSystem
                                 AScript( "site" ),
                                 AScript( "Workers/ImageBrowser" ),
                                 AScript( "Workers/Ribbon" ),
-                                AScript( "Workers/TemplateEditor" ) )
+                                AScript( "Workers/TemplateEditor" ),
+                                AScript( "Workers/UploadSelector" ) )
                             .IncludeDirectory( "~/Content/Scripts/Apollyon/PageSections/", "*.js", false )
                             .IncludeDirectory( "~/Content/Scripts/Apollyon/PageSections/banners", "*.js" ) );
 
@@ -79,9 +80,7 @@ namespace ContentManagementSystem
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css" ) );
-
-
-
+            
             var themeDirectories = Directory.GetDirectories( HttpContext.Current.Server.MapPath( "~/content/scripts/themes/" ) );
 
             foreach ( var themeDirectory in themeDirectories )

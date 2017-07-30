@@ -3410,6 +3410,7 @@ table td.options-column {
 .bg-modal-backdrop {
   display: none;
   background: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -3673,6 +3674,89 @@ table td.options-column {
 .overlay-text.overlay-text-notes:after {
   content: 'Notes';
 }
+.carousel {
+  background: #666;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.carousel:hover .carousel-next,
+.carousel:hover .carousel-previous {
+  opacity: 0.4;
+}
+.carousel .carousel-inner {
+  -webkit-transition: left 0.3s ease;
+  -moz-transition: left 0.3s ease;
+  -o-transition: left 0.3s ease;
+  transition: left 0.3s ease;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+.carousel .carousel-item {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+.carousel .carousel-next,
+.carousel .carousel-previous {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  background: white;
+  cursor: pointer;
+  height: 28px;
+  opacity: 0.2;
+  padding: 5px;
+  position: absolute;
+  top: 50%;
+  width: 28px;
+}
+.carousel .carousel-next:hover,
+.carousel .carousel-previous:hover {
+  opacity: 0.6;
+}
+.carousel .carousel-next.hidden,
+.carousel .carousel-previous.hidden {
+  pointer-events: none;
+}
+.carousel .carousel-next > i,
+.carousel .carousel-previous > i {
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-size: 28px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 50%;
+}
+.carousel .carousel-next {
+  right: 10px;
+}
+.carousel .carousel-next.hidden {
+  right: -48px;
+}
+.carousel .carousel-previous {
+  left: 10px;
+}
+.carousel .carousel-previous.hidden {
+  left: -48px;
+}
 @keyframes apn-loader {
   0% {
     transform: translateY(-50%) translateX(-50%) rotate(0deg);
@@ -3842,33 +3926,88 @@ table td.options-column {
   text-align: center;
 }
 .admin-carousel {
-  height: 450px;
-  width: 900px;
+  overflow: hidden;
+  position: relative;
+  height: 438.75px;
+  width: 880px;
+}
+.admin-carousel .carousel:hover ~ .admin-carousel-tools.lower {
+  transform: translateY(0);
+}
+.admin-carousel .carousel:hover ~ .admin-carousel-tools.upper {
+  transform: translateY(0);
 }
 .admin-carousel .admin-carousel-add {
+  background: #ddd;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  box-sizing: border-box;
   cursor: pointer;
   height: 100%;
-  width: 50px;
+  width: 45px;
+  position: relative;
 }
 .admin-carousel .admin-carousel-add.add-left {
   float: left;
+  margin-right: 5px;
 }
 .admin-carousel .admin-carousel-add.add-right {
   float: right;
+  margin-left: 5px;
+}
+.admin-carousel .admin-carousel-add .fa {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+.admin-carousel .admin-carousel-tools {
+  background: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  right: 50px;
+  transition: transform 0.2s ease;
+}
+.admin-carousel .admin-carousel-tools.lower {
+  bottom: 0;
+  transform: translateY(100%);
+}
+.admin-carousel .admin-carousel-tools.lower:hover {
+  transform: translateY(0);
+}
+.admin-carousel .admin-carousel-tools.upper {
+  top: 0;
+  transform: translateY(-100%);
+}
+.admin-carousel .admin-carousel-tools.upper:hover {
+  transform: translateY(0);
+}
+.admin-carousel .admin-carousel-tools > span {
+  cursor: pointer;
+  display: inline-block;
+  padding: 5px;
+}
+.admin-carousel .admin-carousel-tools > span:hover {
+  background: white;
 }
 .admin-carousel .carousel {
   margin: 0 50px;
+  width: auto;
 }
 .admin-carousel-tray {
   height: 90px;
+  margin-top: 10px;
   overflow-x: scroll;
+  padding-bottom: 5px;
 }
 .admin-carousel-tray ul {
   height: 100%;
+  list-style: none;
   margin: 0;
   padding: 0;
+  text-align: center;
 }
 .admin-carousel-tray li {
+  cursor: pointer;
   float: left;
   height: 100%;
   margin: 0 2px;
@@ -3879,6 +4018,9 @@ table td.options-column {
 }
 .admin-carousel-tray li:last-child {
   margin-right: 0;
+}
+.admin-carousel-tray li img {
+  max-height: 100%;
 }
 .admin .main-content {
   padding: 20px;

@@ -32,12 +32,12 @@ namespace ContentManagementSystem.Framework.HtmlExtensions
         /// <param name="expression">The expression that defines access to the property to display.</param>
         /// <param name="htmlAttributes">Any additional html attributes that are to be applied to the input field.</param>
         /// <returns>The generated html for the textbox field.</returns>
-        public static MvcHtmlString TextBoxFieldFor<TModel, TProperty>( this HtmlHelper<TModel> helper, Expression<Func<TModel, TProperty>> expression, object htmlAttributes )
+        public static MvcHtmlString TextBoxFieldFor<TModel, TProperty>( this HtmlHelper<TModel> helper, Expression<Func<TModel, TProperty>> expression, object htmlAttributes, string labelText = null )
         {
             TagBuilder dt = new TagBuilder( "dt" );
             TagBuilder dd = new TagBuilder( "dd" );
 
-            dt.InnerHtml = helper.LabelFor( expression ).ToString();
+            dt.InnerHtml = helper.LabelFor( expression, labelText ).ToString();
             dd.InnerHtml = helper.TextBoxFor( expression, htmlAttributes ).ToString();
             dd.InnerHtml += helper.ValidationMessageFor( expression ).ToString();
 
