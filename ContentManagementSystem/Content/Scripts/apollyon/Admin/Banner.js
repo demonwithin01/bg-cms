@@ -99,7 +99,7 @@ var apollyon;
                     slide.insertBefore(this._currentSlide);
                 }
                 else {
-                    if (currentIndex < this._bannerItems.length - 1) {
+                    if (currentIndex < this._bannerItems.length) {
                         this._bannerItems.push(newBannerItem);
                     }
                     else {
@@ -133,4 +133,3 @@ var apollyon;
     }());
     apollyon.BannerAdmin = BannerAdmin;
 })(apollyon || (apollyon = {}));
-//# sourceMappingURL=Banner.js.map

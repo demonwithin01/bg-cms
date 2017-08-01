@@ -26,6 +26,13 @@
             this._width = options.width;
             this._height = options.height;
 
+            this._items.first().addClass( "pole-position" );
+
+            this._items.each( function ( index )
+            {
+                $( this ).css( "left", 100 * index + "%" );
+            });
+
             this.bannerType = options.bannerType;
         }
 

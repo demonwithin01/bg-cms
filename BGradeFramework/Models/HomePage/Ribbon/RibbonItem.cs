@@ -37,6 +37,20 @@ namespace ContentManagementSystem.Framework.Models.HomePage
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
+        #region Internal Methods
+
+        internal void PrepareForDisplay()
+        {
+            foreach ( RibbonItemContent column in Columns )
+            {
+                column.PrepareForDisplay();
+            }
+        }
+
+        #endregion
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+
         #region Private Methods
 
         #endregion

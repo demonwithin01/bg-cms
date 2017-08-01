@@ -7,7 +7,7 @@ using ContentManagementSystem.Framework.Models.HomePage.ContentTypes;
 
 namespace ContentManagementSystem.Framework.Models.HomePage
 {
-    public class ContentTypeBase
+    public abstract class ContentTypeBase
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -43,6 +43,14 @@ namespace ContentManagementSystem.Framework.Models.HomePage
                     return new Banner();
             }
         }
+
+        #endregion
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+
+        #region Internal Methods
+
+        internal abstract void PrepareForDisplay();
 
         #endregion
 

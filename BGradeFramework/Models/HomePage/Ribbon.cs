@@ -31,7 +31,21 @@ namespace ContentManagementSystem.Framework.Models.HomePage
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Public Methods
-            
+
+        public override void PrepareForDisplay()
+        {
+            foreach ( RibbonItem item in Items )
+            {
+                item.PrepareForDisplay();
+            }
+        }
+
+        #endregion
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+
+        #region Internal Methods
+
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */

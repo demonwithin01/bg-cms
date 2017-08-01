@@ -24,4 +24,3 @@ var apollyon;
         return this;
     };
 })(apollyon || (apollyon = {}));
-//# sourceMappingURL=jquery.js.map

@@ -40,7 +40,6 @@ var apollyon;
                     position += $(this).width();
                 });
                 if ($next.index() == this._banner.items.length - 1) {
-                    position = 1;
                     this._nextElement.addClass("hidden");
                 }
                 $pole.removeClass("pole-position");
@@ -72,4 +71,3 @@ var apollyon;
         banners.Carousel = Carousel;
     })(banners = apollyon.banners || (apollyon.banners = {}));
 })(apollyon || (apollyon = {}));
-//# sourceMappingURL=banner.carousel.js.map

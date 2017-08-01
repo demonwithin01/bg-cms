@@ -38,6 +38,17 @@ namespace ContentManagementSystem.Framework.Models.HomePage
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
+        #region Internal Methods
+
+        internal void PrepareForDisplay()
+        {
+            Content.PrepareForDisplay();
+        }
+
+        #endregion
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+
         #region Private Methods
 
         private void Deserialize( string value )

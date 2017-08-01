@@ -10,7 +10,7 @@
 
     &:hover
     {
-        .carousel-next, .carousel-previous
+        .carousel-right, .carousel-left
         {
             opacity: 0.4;
         }
@@ -29,10 +29,11 @@
         height: 100%;
         width: 100%;
         position: absolute;
+        text-align: center;
         top: 0;
     }
 
-    .carousel-next, .carousel-previous
+    .carousel-right, .carousel-left
     {
         .border-radius(50%);
         .transform(translateY(-50%));
@@ -68,7 +69,7 @@
         }
     }
 
-    .carousel-next
+    .carousel-right
     {
         right: 10px;
 
@@ -78,7 +79,7 @@
         }
     }
 
-    .carousel-previous
+    .carousel-left
     {
         left: 10px;
 

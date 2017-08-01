@@ -43,6 +43,8 @@ namespace ContentManagementSystem.Controllers
             model.HomePageTemplateModel = manager.RetrieveHomePage();
             model.Title = UserCookie.Current.SiteName;
 
+            model.HomePageTemplateModel.PrepareForDisplay();
+
             return View( model );
         }
 

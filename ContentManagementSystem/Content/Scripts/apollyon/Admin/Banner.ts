@@ -162,7 +162,7 @@ module apollyon
                 }
                 else
                 {
-                    if ( currentIndex < this._bannerItems.length - 1 )
+                    if ( currentIndex < this._bannerItems.length )
                     {
                         this._bannerItems.push( newBannerItem );
                     }

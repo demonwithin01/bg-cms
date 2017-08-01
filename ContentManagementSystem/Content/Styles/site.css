@@ -2148,8 +2148,8 @@ img {
   position: relative;
   width: 100%;
 }
-.carousel:hover .carousel-next,
-.carousel:hover .carousel-previous {
+.carousel:hover .carousel-right,
+.carousel:hover .carousel-left {
   opacity: 0.4;
 }
 .carousel .carousel-inner {
@@ -2165,10 +2165,11 @@ img {
   height: 100%;
   width: 100%;
   position: absolute;
+  text-align: center;
   top: 0;
 }
-.carousel .carousel-next,
-.carousel .carousel-previous {
+.carousel .carousel-right,
+.carousel .carousel-left {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
@@ -2190,16 +2191,16 @@ img {
   top: 50%;
   width: 28px;
 }
-.carousel .carousel-next:hover,
-.carousel .carousel-previous:hover {
+.carousel .carousel-right:hover,
+.carousel .carousel-left:hover {
   opacity: 0.6;
 }
-.carousel .carousel-next.hidden,
-.carousel .carousel-previous.hidden {
+.carousel .carousel-right.hidden,
+.carousel .carousel-left.hidden {
   pointer-events: none;
 }
-.carousel .carousel-next > i,
-.carousel .carousel-previous > i {
+.carousel .carousel-right > i,
+.carousel .carousel-left > i {
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -2212,16 +2213,16 @@ img {
   text-align: center;
   top: 50%;
 }
-.carousel .carousel-next {
+.carousel .carousel-right {
   right: 10px;
 }
-.carousel .carousel-next.hidden {
+.carousel .carousel-right.hidden {
   right: -48px;
 }
-.carousel .carousel-previous {
+.carousel .carousel-left {
   left: 10px;
 }
-.carousel .carousel-previous.hidden {
+.carousel .carousel-left.hidden {
   left: -48px;
 }
 header {

@@ -62,8 +62,6 @@
 
                 if ( $next.index() == this._banner.items.length - 1 )
                 {
-                    position = 1;
-
                     this._nextElement.addClass( "hidden" );
                 }
 

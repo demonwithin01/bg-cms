@@ -5,7 +5,7 @@ namespace ContentManagementSystem.Framework
     /// <summary>
     /// Defines the locations for viewing/editing a home page template. Acts as a base for all home page templates.
     /// </summary>
-    public class HomePageTemplate
+    public abstract class HomePageTemplate
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */
@@ -23,6 +23,14 @@ namespace ContentManagementSystem.Framework
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Public Methods
+
+        public abstract void PrepareForDisplay();
+
+        #endregion
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+
+        #region Internal Methods
 
         #endregion
 

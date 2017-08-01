@@ -42,4 +42,3 @@ var apollyon;
     }());
     apollyon.TemplateEditor = TemplateEditor;
 })(apollyon || (apollyon = {}));
-//# sourceMappingURL=TemplateEditor.js.map

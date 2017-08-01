@@ -21,6 +21,10 @@ var apollyon;
             this._items = element.find(".carousel-item");
             this._width = options.width;
             this._height = options.height;
+            this._items.first().addClass("pole-position");
+            this._items.each(function (index) {
+                $(this).css("left", 100 * index + "%");
+            });
             this.bannerType = options.bannerType;
         }
         Banner.prototype.init = function () {
@@ -95,4 +99,3 @@ var apollyon;
     }(apollyon.PageSection));
     apollyon.Banner = Banner;
 })(apollyon || (apollyon = {}));
-//# sourceMappingURL=banner.js.map

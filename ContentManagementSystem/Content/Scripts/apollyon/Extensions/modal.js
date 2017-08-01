@@ -79,4 +79,3 @@ var apollyon;
         return this;
     };
 })(apollyon || (apollyon = {}));
-//# sourceMappingURL=modal.js.map
