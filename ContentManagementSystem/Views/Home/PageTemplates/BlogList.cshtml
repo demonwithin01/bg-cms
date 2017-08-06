@@ -49,11 +49,11 @@
                         <a href="@Url.Action( "Index", "BlogPost", new { Area = "Home", blogPostId = Model.BlogPosts[ i ].BlogId } ) " class="">@Model.BlogPosts[ i ].Title</a>
                     </h2>
                     <span class="float-right blog-publish-info">
-                        Published on <span class="blog-published-date">@publishedServerTime.ToString( "dd/MM/yyyy" )</span> at <span class="blog-published-time">@publishedServerTime.ToString( "hh:mmtt" )</span> by <span class="blog-published-by">@Model.BlogPosts[ i ].PublishedByUser.UserName</span>
+                        Published on <span class="blog-published-date">@publishedServerTime.ToString( "dd/MM/yyyy" )</span> at <span class="blog-published-time">@publishedServerTime.ToString( "hh:mmtt" )</span> by <span class="blog-published-by">@Model.BlogPosts[ i ].PublishedByUser.DisplayName</span>
                     </span>
                     @if ( UserSession.IsAdministrator )
                     {
-                        <a href="/admin/blogpost/edit/@Model.BlogPosts[ i ].BlogId" class="button text edit-blog-post">Edit</a>
+                        <a href="/admin/blog-post/edit/@Model.BlogPosts[ i ].BlogId" class="button text edit-blog-post">Edit</a>
                     }
                 </div>
                 <div class="blog-content">

@@ -71,3 +71,4 @@ var apollyon;
         banners.Carousel = Carousel;
     })(banners = apollyon.banners || (apollyon.banners = {}));
 })(apollyon || (apollyon = {}));
+//# sourceMappingURL=banner.carousel.js.map

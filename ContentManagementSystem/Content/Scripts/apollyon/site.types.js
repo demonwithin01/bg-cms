@@ -11,3 +11,4 @@ var apollyon;
     })(apollyon.BannerType || (apollyon.BannerType = {}));
     var BannerType = apollyon.BannerType;
 })(apollyon || (apollyon = {}));
+//# sourceMappingURL=site.types.js.map
