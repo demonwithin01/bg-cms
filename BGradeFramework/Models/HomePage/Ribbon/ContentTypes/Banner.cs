@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,15 +9,6 @@ using Newtonsoft.Json;
 
 namespace ContentManagementSystem.Framework.Models.HomePage.ContentTypes
 {
-    public class BannerItem
-    {
-        [JsonProperty( "uploadId" )]
-        public int UploadId { get; set; }
-
-        [JsonIgnore]
-        public string ImgUrl { get; set; }
-    }
-
     public class Banner : ContentTypeBase
     {
 
@@ -33,6 +25,9 @@ namespace ContentManagementSystem.Framework.Models.HomePage.ContentTypes
         public Banner()
         {
             this.Slides = new List<BannerItem>();
+            this.BannerType = BannerType.Carousel;
+            this.Width = "100%";
+            this.Height = "100%";
         }
 
         #endregion
@@ -41,13 +36,7 @@ namespace ContentManagementSystem.Framework.Models.HomePage.ContentTypes
 
         #region Public Methods
 
-        #endregion
-
-        /* ---------------------------------------------------------------------------------------------------------- */
-
-        #region Internal Methods
-
-        internal override void PrepareForDisplay()
+        public override void PrepareForDisplay()
         {
             List<int> uploadIds = Slides.Select( s => s.UploadId ).ToList();
 
@@ -63,6 +52,12 @@ namespace ContentManagementSystem.Framework.Models.HomePage.ContentTypes
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
+        #region Internal Methods
+
+        #endregion
+
+        /* ---------------------------------------------------------------------------------------------------------- */
+
         #region Private Methods
 
         #endregion
@@ -70,6 +65,16 @@ namespace ContentManagementSystem.Framework.Models.HomePage.ContentTypes
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Properties
+
+        [JsonProperty( "bannerType" )]
+        [Display( Name = "Banner Type" )]
+        public BannerType BannerType { get; set; }
+
+        [JsonProperty( "height" )]
+        public string Height { get; set; }
+
+        [JsonProperty( "width" )]
+        public string Width { get; set; }
 
         [JsonProperty( "slides" )]
         public List<BannerItem> Slides { get; set; }

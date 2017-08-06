@@ -12,7 +12,7 @@ var apollyon;
             function Carousel(banner) {
                 _super.call(this);
                 this._banner = banner;
-                this._prevElement = this.createNavElement("left").appendTo(this._banner.element);
+                this._prevElement = this.createNavElement("left").appendTo(this._banner.element).addClass("hidden");
                 this._nextElement = this.createNavElement("right").appendTo(this._banner.element);
                 this._prevElement.on("click", $.proxy(this.previousClicked, this));
                 this._nextElement.on("click", $.proxy(this.nextClicked, this));
@@ -24,7 +24,7 @@ var apollyon;
             Carousel.prototype.dimensionsChanged = function () {
             };
             Carousel.prototype.createNavElement = function (direction) {
-                return $("<div class=\"carousel-" + direction + "\"><i class=\"icon fa fa-" + direction + "\"></i></div>");
+                return $("<div class=\"carousel-" + direction + "\"><i class=\"icon fa fa-chevron-" + direction + "\"></i></div>");
             };
             Carousel.prototype.nextClicked = function () {
                 var $pole = this._banner.items.filter(".pole-position");
@@ -71,4 +71,3 @@ var apollyon;
         banners.Carousel = Carousel;
     })(banners = apollyon.banners || (apollyon.banners = {}));
 })(apollyon || (apollyon = {}));
-//# sourceMappingURL=banner.carousel.js.map

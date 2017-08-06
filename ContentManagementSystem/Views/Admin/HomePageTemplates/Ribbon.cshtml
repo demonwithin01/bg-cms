@@ -23,7 +23,7 @@ if( string.IsNullOrEmpty( height ) )
 {
     height = "60px";
 }
-else if( height.EndsWith( "px" ) == false )
+else if( height.EndsWith( "px" ) == false && height != "auto" )
 {
     height += "px";
 }
@@ -117,7 +117,8 @@ else if( height.EndsWith( "px" ) == false )
             urlData: function ()
             {
                 return {
-                    contentType: currentGrid.siblings( ".content-type" ).val()
+                    contentType: currentGrid.siblings( ".content-type" ).val(),
+                    json: currentGrid.siblings( ".content-json" ).val()
                 }
             }
         });

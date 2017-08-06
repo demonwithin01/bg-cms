@@ -1,6 +1,34 @@
 ﻿@using ContentManagementSystem.Framework.Models.HomePage.ContentTypes;
 @model Banner
 
+@{ 
+    string slides = "[]";
+
+    if ( Model.Slides.Count > 0 )
+    {
+        slides = "[" + string.Join( ",", Model.Slides.Select( s => "{uploadId:\"" + s.UploadId + "\",imgUrl:\"" + s.ImgUrl + "\"}" ) ) + "]";
+    }
+}
+
+<div class="admin-carousel-options">
+    <div class="b-grid">
+        <div class="b-width-1-3">
+            <dl>
+                @Html.DropDownListFieldFor( s => s.BannerType, CreateSimpleSelectList.FromEnum<BannerType>( Model.BannerType ) )
+            </dl>
+        </div>
+        <div class="b-width-1-3">
+            <dl>
+                @Html.TextBoxFieldFor( m => m.Width )
+            </dl>
+        </div>
+        <div class="b-width-1-3">
+            <dl>
+                @Html.TextBoxFieldFor( m => m.Height )
+            </dl>
+        </div>
+    </div>
+</div>
 <div class="admin-carousel">
     <div class="admin-carousel-add add-left">
         @Glyph( "plus" )
@@ -24,8 +52,7 @@
     </div>
 </div>
 <div class="admin-carousel-tray">
-    <ul>
-    </ul>
+    <ul></ul>
 </div>
 <div class="button-list text-right margin-top">
     @Html.Button( "Cancel", ButtonType.Cancel, "cancelBannerEditor" )
@@ -34,7 +61,7 @@
 <script>
     $( function ()
     {
-        var bannerAdmin = new apollyon.BannerAdmin();
+        var bannerAdmin = new apollyon.BannerAdmin( @Html.Raw( slides ) );
 
         $( "#cancelBannerEditor" ).on( "click", function ()
         {

@@ -136,6 +136,8 @@
     <Compile Include="Models\HomePage\Ribbon\ContentType.cs" />
     <Compile Include="Models\HomePage\Ribbon\ContentTypeBase.cs" />
     <Compile Include="Models\HomePage\Ribbon\ContentTypes\Banner.cs" />
+    <Compile Include="Models\HomePage\Ribbon\ContentTypes\Banner\BannerItem.cs" />
+    <Compile Include="Models\HomePage\Ribbon\ContentTypes\Banner\BannerType.cs" />
     <Compile Include="Models\HomePage\Ribbon\ContentTypes\EditableContent.cs" />
     <Compile Include="Models\HomePage\Ribbon\RibbonColumns.cs" />
     <Compile Include="Models\HomePage\Ribbon\RibbonItem.cs" />

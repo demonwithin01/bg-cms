@@ -19,8 +19,8 @@ var apollyon;
             this._element = element;
             this._inner = element.find(".carousel-inner");
             this._items = element.find(".carousel-item");
-            this._width = options.width;
-            this._height = options.height;
+            this.width = options.width;
+            this.height = options.height;
             this._items.first().addClass("pole-position");
             this._items.each(function (index) {
                 $(this).css("left", 100 * index + "%");
@@ -39,6 +39,7 @@ var apollyon;
             },
             set: function (value) {
                 this._height = value;
+                this._element.height(value);
             },
             enumerable: true,
             configurable: true
@@ -49,6 +50,7 @@ var apollyon;
             },
             set: function (value) {
                 this._width = value;
+                this._element.width(value);
             },
             enumerable: true,
             configurable: true
@@ -99,4 +101,3 @@ var apollyon;
     }(apollyon.PageSection));
     apollyon.Banner = Banner;
 })(apollyon || (apollyon = {}));
-//# sourceMappingURL=banner.js.map

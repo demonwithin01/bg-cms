@@ -15,7 +15,7 @@
 
                 this._banner = banner;
 
-                this._prevElement = this.createNavElement( "left" ).appendTo( this._banner.element );
+                this._prevElement = this.createNavElement( "left" ).appendTo( this._banner.element ).addClass( "hidden" );
                 this._nextElement = this.createNavElement( "right" ).appendTo( this._banner.element );
 
                 this._prevElement.on( "click", $.proxy( this.previousClicked, this ) );
@@ -35,7 +35,7 @@
 
             private createNavElement( direction: string ): JQuery
             {
-                return $( "<div class=\"carousel-" + direction + "\"><i class=\"icon fa fa-" + direction + "\"></i></div>" );
+                return $( "<div class=\"carousel-" + direction + "\"><i class=\"icon fa fa-chevron-" + direction + "\"></i></div>" );
             }
 
             private nextClicked(): void

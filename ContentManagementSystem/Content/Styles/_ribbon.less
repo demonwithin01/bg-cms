@@ -2,10 +2,22 @@
 
 .ribbon-item
 {
+    @local-min-height: 80px;
+
     line-height: 0;
-    min-height: 80px;
+    min-height: @local-min-height;
     padding: 20px;
     text-align: left;
+
+    &.editable
+    {
+        .b-grid,
+        .b-grid > div,
+        .b-grid > .editable .open-editable-content
+        {
+            min-height: @local-min-height;
+        }
+    }
 
     .b-grid
     {

@@ -38,4 +38,3 @@ var apollyon;
     }());
     apollyon.EditorPopup = EditorPopup;
 })(apollyon || (apollyon = {}));
-//# sourceMappingURL=EditorPopup.js.map

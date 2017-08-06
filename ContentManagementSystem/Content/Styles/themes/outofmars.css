@@ -2142,11 +2142,12 @@ img {
   margin-left: 50%;
 }
 .carousel {
-  background: #666;
-  height: 100%;
+  left: 50%;
+  max-height: 100%;
+  max-width: 100%;
   overflow: hidden;
   position: relative;
-  width: 100%;
+  transform: translateX(-50%);
 }
 .carousel:hover .carousel-right,
 .carousel:hover .carousel-left {
@@ -2167,6 +2168,9 @@ img {
   position: absolute;
   text-align: center;
   top: 0;
+}
+.carousel .carousel-item img {
+  max-height: 100%;
 }
 .carousel .carousel-right,
 .carousel .carousel-left {
@@ -2216,11 +2220,21 @@ img {
 .carousel .carousel-right {
   right: 10px;
 }
+.carousel .carousel-right .icon:before {
+  left: 3px;
+  position: relative;
+  top: 1px;
+}
 .carousel .carousel-right.hidden {
   right: -48px;
 }
 .carousel .carousel-left {
   left: 10px;
+}
+.carousel .carousel-left .icon:before {
+  left: -2px;
+  position: relative;
+  top: 1px;
 }
 .carousel .carousel-left.hidden {
   left: -48px;
@@ -3356,6 +3370,11 @@ table td.options-column {
   min-height: 80px;
   padding: 20px;
   text-align: left;
+}
+.ribbon-item.editable .b-grid,
+.ribbon-item.editable .b-grid > div,
+.ribbon-item.editable .b-grid > .editable .open-editable-content {
+  min-height: 80px;
 }
 .ribbon-item .b-grid {
   height: 100%;

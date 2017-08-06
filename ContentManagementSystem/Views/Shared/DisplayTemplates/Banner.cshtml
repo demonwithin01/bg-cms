@@ -1,7 +1,7 @@
 ﻿@model ContentManagementSystem.Framework.Models.HomePage.ContentTypes.Banner
 
 @{
-    string carouselId = Guid.NewGuid().ToString().Substring( 0, 8 );
+    string carouselId = "section_" + Guid.NewGuid().ToString().Substring( 0, 8 );
 }
 <div id="@carouselId" class="carousel">
     <div class="carousel-inner" style="left: 0%;">
@@ -14,4 +14,4 @@
     </div>
 </div>
 
-@Html.SectionInit( "new apollyon.Banner( $( \"#" + carouselId + "\" ), { bannerType: apollyon.BannerType.Carousel, width: \"100%\", height: \"500px\" } )" )
+@Html.SectionInit( "new apollyon.Banner( $( \"#" + carouselId + "\" ), { bannerType: apollyon.BannerType." + Model.BannerType.ToString() + ", width: \"" + Model.Width + "\", height: \"" + Model.Height + "\" } )" )

@@ -32,16 +32,16 @@ namespace ContentManagementSystem.Framework.Models.HomePage.ContentTypes
 
         #region Public Methods
 
+        public override void PrepareForDisplay()
+        {
+
+        }
+
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Internal Methods
-
-        internal override void PrepareForDisplay()
-        {
-
-        }
 
         #endregion
 

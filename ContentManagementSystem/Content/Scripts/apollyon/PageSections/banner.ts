@@ -23,8 +23,8 @@
             this._element = element;
             this._inner = element.find( ".carousel-inner" );
             this._items = element.find( ".carousel-item" );
-            this._width = options.width;
-            this._height = options.height;
+            this.width = options.width;
+            this.height = options.height;
 
             this._items.first().addClass( "pole-position" );
 
@@ -54,6 +54,7 @@
         {
             this._height = value;
 
+            this._element.height( value );
         }
 
         get width(): number
@@ -64,6 +65,7 @@
         {
             this._width = value;
 
+            this._element.width( value );
         }
 
         get element(): JQuery

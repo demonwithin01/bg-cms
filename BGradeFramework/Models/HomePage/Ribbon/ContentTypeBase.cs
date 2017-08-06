@@ -44,13 +44,13 @@ namespace ContentManagementSystem.Framework.Models.HomePage
             }
         }
 
+        public abstract void PrepareForDisplay();
+
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
         #region Internal Methods
-
-        internal abstract void PrepareForDisplay();
 
         #endregion
 

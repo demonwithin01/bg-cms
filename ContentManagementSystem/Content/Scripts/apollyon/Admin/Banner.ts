@@ -22,17 +22,41 @@ module apollyon
         private _uploadSelector: UploadSelector;
         private _bannerItems: Array<BannerItem>;
 
-        constructor()
+        constructor( initialItems: Array<any> )
         {
             var that = this;
 
             this._bannerItems = [];
+            this._currentSlide = null;
+
+            for ( var i = 0; i < initialItems.length; i++ )
+            {
+                var newBannerItem = new BannerItem();
+                newBannerItem.uploadId = initialItems[i].uploadId;
+                newBannerItem.imgUrl = initialItems[i].imgUrl;
+
+                this._bannerItems.push( newBannerItem );
+
+                var slide = $( "<div class=\"carousel-item\" style=\"display: none;\"></div>" );
+                slide.append( "<img src=\"" + newBannerItem.imgUrl + "\" />" );
+
+                var thumbnail = $( "<li></li>" );
+                thumbnail.append( "<img src= \"" + newBannerItem.imgUrl + "\">" );
+
+                $( ".admin-carousel-tray > ul" ).append( thumbnail );
+                $( ".admin-carousel .carousel-inner" ).append( slide );
+
+                if ( i == 0 )
+                {
+                    this._currentSlide = slide;
+
+                    this._currentSlide.show();
+                }
+            }
 
             this._uploadSelector = new UploadSelector( {
                 uploadSelected: $.proxy( this.uploadSelected, this )
             });
-
-            this._currentSlide = null;//$( ".admin-carousel .carousel-item" ).hide().first().show();
 
             $( "#selectPicture" ).on( "click", function ()
             {
@@ -77,7 +101,14 @@ module apollyon
         {
             var currentGridItem = window.getCurrentGridItem();
 
-            currentGridItem.siblings( ".content-json" ).val( JSON.stringify( { slides: this._bannerItems }) );
+            currentGridItem.siblings( ".content-json" ).val( JSON.stringify(
+                {
+                    slides: this._bannerItems,
+                    bannerType: $( "#ContentModel_BannerType" ).val(),
+                    width: $( "#ContentModel_Width" ).val(),
+                    height: $( "#ContentModel_Height" ).val()
+                })
+            );
 
             $( ".admin-carousel" ).closest( ".modal-content" ).parent().bgmodal( "close" );
         }
