@@ -1,14 +1,30 @@
-﻿namespace ApollyonWebLibrary.Extensions
+﻿using System.Collections.Generic;
+using System.Linq;
+using ApollyonWebLibrary.Extensions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace ApollyonWebLibraryTests.Extensions
 {
-    /// <summary>
-    /// Defines a series of extensions for the decimal type.
-    /// </summary>
-    public static class DecimalExtensions
+    [TestClass]
+    public class LinqExtensionsTests
     {
 
         /* ----------------------------------------------------------------------------------------------------------------------------------------- */
 
         #region Class Members
+
+        class TestObject
+        {
+            public TestObject( int key, string value )
+            {
+                this.Key = key;
+                this.Value = value;
+            }
+
+            public int Key { get; set; }
+
+            public string Value { get; set; }
+        }
 
         #endregion
 
@@ -22,25 +38,22 @@
 
         #region Public Methods
 
-        /// <summary>
-        /// Converts the provided decimal value to a currency.
-        /// </summary>
-        /// <param name="value">The decimal value to become a currency string.</param>
-        /// <param name="precision">The number of decimal places for the currency.</param>
-        public static string ToCurrency( this decimal value, int precision = 0 )
+        [TestMethod]
+        public void LinqExtensions_All()
         {
-            return string.Format( "{0:C" + precision + "}", value );
-        }
+            List<TestObject> testObjs = new List<TestObject>();
+            testObjs.Add( new TestObject( 1, "1" ) );
+            testObjs.Add( new TestObject( 2, "1" ) );
+            testObjs.Add( new TestObject( 2, "2" ) );
+            testObjs.Add( new TestObject( 1, "2" ) );
 
-        /// <summary>
-        /// Converts the provided decimal value to a currency. If no value is provided, 
-        /// then an empty string is returned.
-        /// </summary>
-        /// <param name="value">The decimal value to become a currency string.</param>
-        /// <param name="precision">The number of decimal places for the currency.</param>
-        public static string ToCurrency( this decimal? value, int precision = 0 )
-        {
-            return value.HasValue ? ToCurrency( value.Value, precision ) : "";
+            IQueryable<TestObject> asQueryable = testObjs.AsQueryable();
+
+            Assert.AreEqual( 4, asQueryable.Count() );
+
+            asQueryable = LinqExtensions.DistinctBy( asQueryable, s => s.Key );
+
+            Assert.AreEqual( 2, asQueryable.Count() );
         }
 
         #endregion

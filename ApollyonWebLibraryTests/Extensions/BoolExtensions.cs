@@ -1,9 +1,10 @@
-﻿namespace ApollyonWebLibrary.Extensions
+﻿using ApollyonWebLibrary.Extensions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace ApollyonWebLibraryTests.Extensions
 {
-    /// <summary>
-    /// Defines a series of extensions for the decimal type.
-    /// </summary>
-    public static class DecimalExtensions
+    [TestClass]
+    public class BoolExtensionsTests
     {
 
         /* ----------------------------------------------------------------------------------------------------------------------------------------- */
@@ -22,25 +23,20 @@
 
         #region Public Methods
 
-        /// <summary>
-        /// Converts the provided decimal value to a currency.
-        /// </summary>
-        /// <param name="value">The decimal value to become a currency string.</param>
-        /// <param name="precision">The number of decimal places for the currency.</param>
-        public static string ToCurrency( this decimal value, int precision = 0 )
+        [TestMethod]
+        public void BoolExtensions_All()
         {
-            return string.Format( "{0:C" + precision + "}", value );
-        }
+            Assert.AreEqual( "correct", true.ToString( "correct", "incorrect" ) );
+            Assert.AreEqual( "incorrect", false.ToString( "correct", "incorrect" ) );
 
-        /// <summary>
-        /// Converts the provided decimal value to a currency. If no value is provided, 
-        /// then an empty string is returned.
-        /// </summary>
-        /// <param name="value">The decimal value to become a currency string.</param>
-        /// <param name="precision">The number of decimal places for the currency.</param>
-        public static string ToCurrency( this decimal? value, int precision = 0 )
-        {
-            return value.HasValue ? ToCurrency( value.Value, precision ) : "";
+            Assert.AreEqual( "Yes", true.ToYesNo() );
+            Assert.AreEqual( "No", false.ToYesNo() );
+
+            Assert.AreEqual( "true", true.ToJS() );
+            Assert.AreEqual( "false", false.ToJS() );
+
+            Assert.AreEqual( "True", true.ToString() );
+            Assert.AreEqual( "False", false.ToString() );
         }
 
         #endregion

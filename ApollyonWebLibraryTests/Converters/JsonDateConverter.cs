@@ -1,14 +1,24 @@
-﻿namespace ApollyonWebLibrary.Extensions
+﻿using System;
+using Newtonsoft.Json;
+using ApollyonWebLibrary.Converters;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace ApollyonWebLibraryTests.Converters
 {
-    /// <summary>
-    /// Defines a series of extensions for the decimal type.
-    /// </summary>
-    public static class DecimalExtensions
+    [TestClass]
+    public class JsonDateConverterTests
     {
 
         /* ----------------------------------------------------------------------------------------------------------------------------------------- */
 
         #region Class Members
+
+        class TestObject
+        {
+            public DateTime NonNullable { get; set; }
+
+            public DateTime? Nullable { get; set; }
+        }
 
         #endregion
 
@@ -22,25 +32,26 @@
 
         #region Public Methods
 
-        /// <summary>
-        /// Converts the provided decimal value to a currency.
-        /// </summary>
-        /// <param name="value">The decimal value to become a currency string.</param>
-        /// <param name="precision">The number of decimal places for the currency.</param>
-        public static string ToCurrency( this decimal value, int precision = 0 )
+        [TestMethod]
+        public void JsonDateConverter_All()
         {
-            return string.Format( "{0:C" + precision + "}", value );
-        }
+            JsonDateConverter converter = new JsonDateConverter();
+            TestObject testObj = new TestObject();
 
-        /// <summary>
-        /// Converts the provided decimal value to a currency. If no value is provided, 
-        /// then an empty string is returned.
-        /// </summary>
-        /// <param name="value">The decimal value to become a currency string.</param>
-        /// <param name="precision">The number of decimal places for the currency.</param>
-        public static string ToCurrency( this decimal? value, int precision = 0 )
-        {
-            return value.HasValue ? ToCurrency( value.Value, precision ) : "";
+            Type typeOfDateTime = typeof( DateTime );
+            Type typeOfNullableDateTime = typeof( DateTime? );
+
+            Assert.IsTrue( converter.CanConvert( typeOfDateTime ), "Can convert DateTime" );
+            Assert.IsTrue( converter.CanConvert( typeOfNullableDateTime ), "Can convert DateTime?" );
+            Assert.IsFalse( converter.CanConvert( typeof( object ) ), "Cannot convert object" );
+
+            Assert.IsNull( converter.ReadJson( null, typeOfNullableDateTime, null, null ) );
+            Assert.IsNull( converter.ReadJson( null, typeOfNullableDateTime, "lkajsdf as", null ) );
+            Assert.IsNotNull( converter.ReadJson( null, typeOfDateTime, null, null ) );
+            Assert.IsNotNull( converter.ReadJson( null, typeOfDateTime, "lkajsdf as", null ) );
+
+            Assert.AreEqual( new DateTime( 2017, 5, 4 ), converter.ReadJson( null, typeOfNullableDateTime, "04/05/2017", null ) );
+            Assert.AreEqual( new DateTime( 2017, 5, 4 ), converter.ReadJson( null, typeOfDateTime, "04/05/2017", null ) );
         }
 
         #endregion

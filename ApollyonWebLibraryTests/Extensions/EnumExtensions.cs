@@ -1,14 +1,26 @@
-﻿namespace ApollyonWebLibrary.Extensions
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using ApollyonWebLibrary.Extensions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace ApollyonWebLibraryTests.Extensions
 {
-    /// <summary>
-    /// Defines a series of extensions for the decimal type.
-    /// </summary>
-    public static class DecimalExtensions
+    [TestClass]
+    public class EnumExtensionsTests
     {
 
         /* ----------------------------------------------------------------------------------------------------------------------------------------- */
 
         #region Class Members
+
+        enum TestEnum
+        {
+            [Display( Name = "Test Value 1" )]
+            TestValue1 = 1,
+            
+            [Display( Name = "Test Value 2" )]
+            TestValue2 = 2
+        }
 
         #endregion
 
@@ -22,27 +34,16 @@
 
         #region Public Methods
 
-        /// <summary>
-        /// Converts the provided decimal value to a currency.
-        /// </summary>
-        /// <param name="value">The decimal value to become a currency string.</param>
-        /// <param name="precision">The number of decimal places for the currency.</param>
-        public static string ToCurrency( this decimal value, int precision = 0 )
+        [TestMethod]
+        public void EnumExtensions_All()
         {
-            return string.Format( "{0:C" + precision + "}", value );
-        }
+            Assert.AreEqual( "Test Value 1", TestEnum.TestValue1.GetDisplayText() );
+            Assert.AreEqual( "Test Value 2", EnumExtensions.GetDisplayText( TestEnum.TestValue2 as Enum ) );
 
-        /// <summary>
-        /// Converts the provided decimal value to a currency. If no value is provided, 
-        /// then an empty string is returned.
-        /// </summary>
-        /// <param name="value">The decimal value to become a currency string.</param>
-        /// <param name="precision">The number of decimal places for the currency.</param>
-        public static string ToCurrency( this decimal? value, int precision = 0 )
-        {
-            return value.HasValue ? ToCurrency( value.Value, precision ) : "";
+            Assert.AreEqual( 1, TestEnum.TestValue1.ToInt() );
+            Assert.AreEqual( 2, TestEnum.TestValue2.ToInt() );
         }
-
+        
         #endregion
 
         /* ----------------------------------------------------------------------------------------------------------------------------------------- */

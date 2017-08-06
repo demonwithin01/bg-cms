@@ -74,7 +74,7 @@ namespace ContentManagementSystem.Controllers
 
             if ( TryUpdateModel( contentModel ) == false )
             {
-                return JsonContent( SimpleJsonMessageResult.Failed( "The editor could not be loaded for " + contentType.GetDescription() ) );
+                return JsonContent( SimpleJsonMessageResult.Failed( "The editor could not be loaded for " + contentType.GetDisplayText() ) );
             }
 
             return PartialView( "_HomePageEditor", new HomePageEditorModel( contentType, contentModel ) );

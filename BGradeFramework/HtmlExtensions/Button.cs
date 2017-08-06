@@ -108,7 +108,7 @@ namespace ContentManagementSystem.Framework.HtmlExtensions
                 button += " id=\"" + id + "\"";
             }
 
-            classes = ( "button " + buttonType.GetDescription() + " " + ( classes ?? "" ) ).Trim();
+            classes = ( "button " + buttonType.GetDisplayText() + " " + ( classes ?? "" ) ).Trim();
 
             button += " class=\"" + classes + "\"";
 

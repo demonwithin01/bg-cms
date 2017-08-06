@@ -65,7 +65,7 @@ namespace ContentManagementSystem.BaseClasses
                 dictionary.Add( "success", true );
                 if( result.DisplayNotification )
                 {
-                    dictionary.Add( "result", NotificationType.Confirmation.GetDescription() );
+                    dictionary.Add( "result", NotificationType.Confirmation.GetDisplayText() );
                 }
             }
             else
@@ -73,7 +73,7 @@ namespace ContentManagementSystem.BaseClasses
                 dictionary.Add( "success", false );
                 if( result.DisplayNotification )
                 {
-                    dictionary.Add( "result", NotificationType.Error.GetDescription() );
+                    dictionary.Add( "result", NotificationType.Error.GetDisplayText() );
                 }
             }
 

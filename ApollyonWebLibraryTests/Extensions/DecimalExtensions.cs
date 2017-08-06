@@ -1,9 +1,10 @@
-﻿namespace ApollyonWebLibrary.Extensions
+﻿using ApollyonWebLibrary.Extensions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace ApollyonWebLibraryTests.Extensions
 {
-    /// <summary>
-    /// Defines a series of extensions for the decimal type.
-    /// </summary>
-    public static class DecimalExtensions
+    [TestClass]
+    public class DecimalExtensionsTests
     {
 
         /* ----------------------------------------------------------------------------------------------------------------------------------------- */
@@ -22,25 +23,20 @@
 
         #region Public Methods
 
-        /// <summary>
-        /// Converts the provided decimal value to a currency.
-        /// </summary>
-        /// <param name="value">The decimal value to become a currency string.</param>
-        /// <param name="precision">The number of decimal places for the currency.</param>
-        public static string ToCurrency( this decimal value, int precision = 0 )
+        [TestMethod]
+        public void DecimalExtensions_All()
         {
-            return string.Format( "{0:C" + precision + "}", value );
-        }
+            Assert.AreEqual( "$10", 10m.ToCurrency() );
+            Assert.AreEqual( "$10,000", 10000m.ToCurrency() );
 
-        /// <summary>
-        /// Converts the provided decimal value to a currency. If no value is provided, 
-        /// then an empty string is returned.
-        /// </summary>
-        /// <param name="value">The decimal value to become a currency string.</param>
-        /// <param name="precision">The number of decimal places for the currency.</param>
-        public static string ToCurrency( this decimal? value, int precision = 0 )
-        {
-            return value.HasValue ? ToCurrency( value.Value, precision ) : "";
+            Assert.AreEqual( "$10", 10.45m.ToCurrency() );
+            Assert.AreEqual( "$10,000", 10000.45m.ToCurrency() );
+
+            Assert.AreEqual( "$10.00", 10m.ToCurrency( 2 ) );
+            Assert.AreEqual( "$10,000.00", 10000m.ToCurrency( 2 ) );
+            
+            Assert.AreEqual( "$10.45", 10.45m.ToCurrency( 2 ) );
+            Assert.AreEqual( "$10,000.45", 10000.45m.ToCurrency( 2 ) );
         }
 
         #endregion

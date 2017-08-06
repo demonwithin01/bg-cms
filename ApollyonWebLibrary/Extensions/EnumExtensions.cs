@@ -13,7 +13,7 @@ namespace ApollyonWebLibrary.Extensions
         /// </summary>
         /// <param name="source">The enum to get the description from.</param>
         /// <returns>The name on the display attribute if provided, otherwise the enumeration name.</returns>
-        public static string GetDescription( this Enum source )
+        public static string GetDisplayText( this Enum source )
         {
             Type type = source.GetType();
 
@@ -36,11 +36,11 @@ namespace ApollyonWebLibrary.Extensions
         /// <typeparam name="TEnum">The enumeration type.</typeparam>
         /// <param name="source">The enum to get the description from.</param>
         /// <returns>The name on the display attribute if provided, otherwise the enumeration name.</returns>
-        public static string GetDescription<TEnum>( this TEnum source ) where TEnum : struct, IConvertible
+        public static string GetDisplayText<TEnum>( this TEnum source ) where TEnum : struct, IConvertible
         {
             if( source is Enum )
             {
-                return GetDescription( source as Enum );
+                return GetDisplayText( source as Enum );
             }
 
             return null;

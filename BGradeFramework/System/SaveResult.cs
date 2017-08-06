@@ -38,7 +38,7 @@ namespace ContentManagementSystem.Framework
         /// </summary>
         public override string ToString()
         {
-            return State.GetDescription();
+            return State.GetDisplayText();
         }
 
         #endregion

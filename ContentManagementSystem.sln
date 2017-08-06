@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContentManagementSystem.Fra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApollyonWebLibrary", "ApollyonWebLibrary\ApollyonWebLibrary.csproj", "{F83B24E2-B103-446E-925F-09DA4F5AB34B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E003A5F4-841F-40B7-83B7-92213447C3F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApollyonWebLibraryTests", "ApollyonWebLibraryTests\ApollyonWebLibraryTests.csproj", "{1E6FCD16-8521-412C-BB4D-04D7754BD0F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,8 +43,15 @@ Global
 		{F83B24E2-B103-446E-925F-09DA4F5AB34B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F83B24E2-B103-446E-925F-09DA4F5AB34B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F83B24E2-B103-446E-925F-09DA4F5AB34B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E6FCD16-8521-412C-BB4D-04D7754BD0F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E6FCD16-8521-412C-BB4D-04D7754BD0F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E6FCD16-8521-412C-BB4D-04D7754BD0F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E6FCD16-8521-412C-BB4D-04D7754BD0F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1E6FCD16-8521-412C-BB4D-04D7754BD0F9} = {E003A5F4-841F-40B7-83B7-92213447C3F3}
 	EndGlobalSection
 EndGlobal

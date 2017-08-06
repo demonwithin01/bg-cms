@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace ApollyonWebLibrary.Converters
@@ -33,7 +29,7 @@ namespace ApollyonWebLibrary.Converters
         /// <returns>True if the type is the same as DateTime, otherwise false.</returns>
         public override bool CanConvert( Type objectType )
         {
-            return ( typeof( DateTime ) == objectType );
+            return ( typeof( DateTime ) == objectType || typeof( DateTime? ) == objectType );
         }
 
         /// <summary>

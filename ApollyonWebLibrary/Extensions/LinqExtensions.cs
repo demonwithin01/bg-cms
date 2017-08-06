@@ -26,6 +26,7 @@ namespace ApollyonWebLibrary.Extensions
 
         #region Public Methods
 
+        //TODO: Remove?
         public static IQueryable<T> DistinctBy<T, TKey>( this IQueryable<T> query, Expression<Func<T, TKey>> expression )
         {
             return query.GroupBy( expression )

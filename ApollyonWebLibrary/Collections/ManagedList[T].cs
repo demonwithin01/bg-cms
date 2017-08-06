@@ -88,6 +88,8 @@ namespace ApollyonWebLibrary.Collections
         /// </summary>
         public new void Clear()
         {
+            base.Clear();
+
             CollectionChanged?.Invoke( this );
         }
 
