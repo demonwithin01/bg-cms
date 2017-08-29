@@ -1,8 +1,13 @@
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var apollyon;
 (function (apollyon) {
     var banners;
@@ -10,12 +15,13 @@ var apollyon;
         var Carousel = (function (_super) {
             __extends(Carousel, _super);
             function Carousel(banner) {
-                _super.call(this);
-                this._banner = banner;
-                this._prevElement = this.createNavElement("left").appendTo(this._banner.element).addClass("hidden");
-                this._nextElement = this.createNavElement("right").appendTo(this._banner.element);
-                this._prevElement.on("click", $.proxy(this.previousClicked, this));
-                this._nextElement.on("click", $.proxy(this.nextClicked, this));
+                var _this = _super.call(this) || this;
+                _this._banner = banner;
+                _this._prevElement = _this.createNavElement("left").appendTo(_this._banner.element).addClass("hidden");
+                _this._nextElement = _this.createNavElement("right").appendTo(_this._banner.element);
+                _this._prevElement.on("click", $.proxy(_this.previousClicked, _this));
+                _this._nextElement.on("click", $.proxy(_this.nextClicked, _this));
+                return _this;
             }
             Carousel.prototype.unload = function () {
                 this._prevElement.remove();

@@ -2,33 +2,40 @@
 @model LoginModel
 
 @{
-    PageTitle = "Log in";
+    bool canRegister = true;
+
+    PageTitle = canRegister ? "Log in / Register" : "Log in";
     HideSocialButtons = true;
 }
 
-<section id="loginForm">
-    @using ( Html.BeginForm( new { ReturnUrl = ViewBag.ReturnUrl } ) )
+<div class="text-center">
+    <section id="loginForm">
+        @using ( Html.BeginForm( new { ReturnUrl = ViewBag.ReturnUrl } ) )
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary( true )
+
+            <h1>Log in</h1>
+            <fieldset>
+                <dl>
+                    @Html.TextBoxFieldFor( m => m.UserName )
+                    @Html.PasswordFieldFor( m => m.Password )
+                    @Html.CheckboxFieldFor( m => m.RememberMe )
+
+                    @*@Html.CheckBoxFor( m => m.RememberMe )
+                        @Html.LabelFor( m => m.RememberMe, new { @class = "inline-block" } )*@
+                </dl>
+                @Html.SubmitButton( "Log in" )
+            </fieldset>
+        }
+    </section>
+    @if ( canRegister )
     {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary( true )
-
-        <fieldset>
-            <dl>
-                @Html.TextBoxFieldFor( m => m.UserName )
-                @Html.PasswordFieldFor( m => m.Password )
-                @Html.CheckboxFieldFor( m => m.RememberMe )
-
-                @*@Html.CheckBoxFor( m => m.RememberMe )
-                @Html.LabelFor( m => m.RememberMe, new { @class = "inline-block" } )*@
-            </dl>
-            @Html.SubmitButton( "Log in" )
-        </fieldset>
+        <section id="registerForm">
+            @Html.Partial( "Register", new RegisterModel() )
+        </section>
     }
-</section>
-<section id="registerForm">
-    @Html.Partial( "Register", new RegisterModel() )
-</section>
-
+</div>
 @section Scripts 
 {
     @Scripts.Render("~/bundles/jqueryval")

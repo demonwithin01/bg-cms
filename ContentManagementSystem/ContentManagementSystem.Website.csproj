@@ -29,7 +29,8 @@
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
     <UseGlobalApplicationHostFile />
-    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>2.3</TypeScriptToolsVersion>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -1003,6 +1004,7 @@
     <Content Include="Content\Styles\_notifications.less" />
     <Content Include="Content\Styles\_overlay-text.less" />
     <Content Include="Content\Styles\_apn-loading.less" />
+    <Content Include="Content\Styles\_login.less" />
     <None Include="Properties\PublishProfiles\Production.pubxml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

@@ -3155,6 +3155,13 @@ ul {
 form {
   margin: 10px 0;
 }
+form h1 {
+  border-bottom: 1px solid #741919;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 15px;
+  padding-bottom: 3px;
+}
 form dl {
   display: inline-block;
   margin: 0 0 20px;
@@ -3676,6 +3683,97 @@ table td.options-column {
     display: block;
   }
 }
+/* login page */
+#loginForm,
+#registerForm {
+  background: #eee;
+  box-sizing: border-box;
+  display: inline-block;
+  margin-top: 30px;
+  padding: 30px;
+  vertical-align: top;
+  width: 25%;
+}
+#loginForm .validation-error,
+#registerForm .validation-error {
+  display: block;
+  margin-left: 15px;
+}
+#loginForm .validation-summary-errors ul,
+#registerForm .validation-summary-errors ul {
+  margin: 0;
+  padding: 0;
+}
+#loginForm .validation-summary-errors li,
+#registerForm .validation-summary-errors li {
+  display: inline;
+  list-style: none;
+  margin: 0;
+}
+#loginForm form,
+#registerForm form {
+  margin: 0;
+}
+#loginForm fieldset,
+#registerForm fieldset {
+  text-align: left;
+}
+#loginForm input,
+#registerForm input {
+  width: 250px;
+}
+#loginForm input[type="checkbox"],
+#registerForm input[type="checkbox"],
+#loginForm input[type="submit"],
+#registerForm input[type="submit"],
+#loginForm input[type="button"],
+#registerForm input[type="button"],
+#loginForm button,
+#registerForm button {
+  width: auto;
+}
+#registerForm {
+  margin-left: 2%;
+}
+#socialLoginForm {
+  margin-left: 40px;
+  float: left;
+  width: 40%;
+}
+#socialLoginForm h2 {
+  margin-bottom: 5px;
+}
+#socialLoginForm button {
+  margin-bottom: 12px;
+}
+/* login
+----------------------------------------------------------*/
+#login {
+  display: block;
+  font-size: .85em;
+  margin: 0 0 10px;
+  text-align: right;
+}
+#login a {
+  background-color: #d3dce0;
+  margin-left: 10px;
+  margin-right: 3px;
+  padding: 2px 3px;
+  text-decoration: none;
+}
+#login a.username {
+  background: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: underline;
+}
+#login ul {
+  margin: 0;
+}
+#login li {
+  display: inline;
+  list-style: none;
+}
 #notifications {
   left: 0;
   margin: auto;
@@ -4121,34 +4219,6 @@ div.clear {
   outline: none;
   text-decoration: none;
 }
-/* login
-----------------------------------------------------------*/
-#login {
-  display: block;
-  font-size: .85em;
-  margin: 0 0 10px;
-  text-align: right;
-}
-#login a {
-  background-color: #d3dce0;
-  margin-left: 10px;
-  margin-right: 3px;
-  padding: 2px 3px;
-  text-decoration: none;
-}
-#login a.username {
-  background: none;
-  margin: 0;
-  padding: 0;
-  text-decoration: underline;
-}
-#login ul {
-  margin: 0;
-}
-#login li {
-  display: inline;
-  list-style: none;
-}
 /* page titles */
 hgroup.title {
   margin-bottom: 10px;
@@ -4186,44 +4256,6 @@ aside ul li {
 }
 .label {
   font-weight: 700;
-}
-/* login page */
-#loginForm {
-  float: left;
-  width: 55%;
-}
-#loginForm .validation-error {
-  display: block;
-  margin-left: 15px;
-}
-#loginForm .validation-summary-errors ul {
-  margin: 0;
-  padding: 0;
-}
-#loginForm .validation-summary-errors li {
-  display: inline;
-  list-style: none;
-  margin: 0;
-}
-#loginForm input {
-  width: 250px;
-}
-#loginForm input[type="checkbox"],
-#loginForm input[type="submit"],
-#loginForm input[type="button"],
-#loginForm button {
-  width: auto;
-}
-#socialLoginForm {
-  margin-left: 40px;
-  float: left;
-  width: 40%;
-}
-#socialLoginForm h2 {
-  margin-bottom: 5px;
-}
-#socialLoginForm button {
-  margin-bottom: 12px;
 }
 #logoutForm {
   display: inline;

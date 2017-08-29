@@ -1,8 +1,13 @@
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var apollyon;
 (function (apollyon) {
     var BannerBase = (function () {
@@ -14,18 +19,19 @@ var apollyon;
     var Banner = (function (_super) {
         __extends(Banner, _super);
         function Banner(element, options) {
-            _super.call(this);
-            this._banner = null;
-            this._element = element;
-            this._inner = element.find(".carousel-inner");
-            this._items = element.find(".carousel-item");
-            this.width = options.width;
-            this.height = options.height;
-            this._items.first().addClass("pole-position");
-            this._items.each(function (index) {
+            var _this = _super.call(this) || this;
+            _this._banner = null;
+            _this._element = element;
+            _this._inner = element.find(".carousel-inner");
+            _this._items = element.find(".carousel-item");
+            _this.width = options.width;
+            _this.height = options.height;
+            _this._items.first().addClass("pole-position");
+            _this._items.each(function (index) {
                 $(this).css("left", 100 * index + "%");
             });
-            this.bannerType = options.bannerType;
+            _this.bannerType = options.bannerType;
+            return _this;
         }
         Banner.prototype.init = function () {
             console.log("initialised Banner");

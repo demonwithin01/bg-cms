@@ -43,9 +43,21 @@ var outofmars;
                 if (this._timeTillNextFlicker < -(this._flickerRate * 2)) {
                     this._timeTillNextFlicker = this._timeBetweenFlickers;
                 }
+                //this._blurRadius += ( this._flickerRate * this._direction );
+                //if ( this._blurRadius < this._minimumBlurRadius )
+                //{
+                //    this._direction = 1;
+                //    this._timeTillNextFlicker = this._timeBetweenFlickers;
+                //    this._blurRadius = this._minimumBlurRadius;
+                //}
+                //else if ( this._blurRadius > this._maximumBlurRadius )
+                //{
+                //    this._direction = -1;
+                //}
             }
             else {
                 context.fillStyle = "rgb(155, 155, 155)";
+                //this._timeTillNextFlicker -= this._drawInterval;
             }
             context.fillRect(this._x, this._y, 2, 2);
             //gradient.addColorStop( 0, "rgba( 255, 255, 255, 1 )" );
@@ -58,8 +70,7 @@ var outofmars;
     }());
     var PageBackground //extends site.plugin
      = (function () {
-        function PageBackground //extends site.plugin
-            () {
+        function PageBackground() {
             //super();
             this._timeBetweenRenders = 100;
             var $canvas = $("<canvas id=\"pageBackground\" style=\"position: fixed; top: 0; left: 0;\">");
@@ -68,19 +79,16 @@ var outofmars;
             this._context = this._canvas.getContext("2d");
             this._lights = new Array();
         }
-        PageBackground //extends site.plugin
-        .prototype.onWindowResize = function () {
+        PageBackground.prototype.onWindowResize = function () {
             this._canvas.width = window.innerWidth;
             this._canvas.height = window.innerHeight;
             this._redraw();
             console.log("resize Background");
         };
-        PageBackground //extends site.plugin
-        .prototype.onMainContentScroll = function () {
+        PageBackground.prototype.onMainContentScroll = function () {
             console.log("scroll Background");
         };
-        PageBackground //extends site.plugin
-        .prototype.initialise = function () {
+        PageBackground.prototype.initialise = function () {
             this._canvas.width = $("body").width();
             this._canvas.height = window.innerHeight;
             var horizontalSegments = 25;
@@ -106,8 +114,7 @@ var outofmars;
             var that = this;
             this._drawInterval = setInterval(function () { that._redraw(); }, this._timeBetweenRenders);
         };
-        PageBackground //extends site.plugin
-        .prototype._redraw = function () {
+        PageBackground.prototype._redraw = function () {
             var x = 0;
             var y = 0;
             var w = this._canvas.width;
@@ -119,11 +126,8 @@ var outofmars;
                 this._lights[i].draw(this._context);
             }
         };
-        return PageBackground //extends site.plugin
-        ;
+        return PageBackground;
     }());
-    outofmars.PageBackground //extends site.plugin
-     = PageBackground //extends site.plugin
-    ;
+    outofmars.PageBackground = PageBackground;
 })(outofmars || (outofmars = {}));
 //# sourceMappingURL=PageBackground.js.map
