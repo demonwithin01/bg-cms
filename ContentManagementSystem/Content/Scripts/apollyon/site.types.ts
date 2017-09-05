@@ -9,6 +9,8 @@
 
     export enum BannerType
     {
-        Carousel = 1
+        Carousel = 1,
+
+        FadeOver = 2
     }
 }

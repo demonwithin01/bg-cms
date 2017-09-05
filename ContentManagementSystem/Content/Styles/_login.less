@@ -4,9 +4,10 @@
 #loginForm,
 #registerForm
 {
-    background: #eee;
+    background: @site-background-color;
     box-sizing: border-box;
     display: inline-block;
+    font-size: @site-font-size;
     margin-top: 30px;
     padding: 30px;
     vertical-align: top;
@@ -34,6 +35,11 @@
         }
     }
 
+    button
+    {
+        width: 100%;
+    }
+
     form
     {
         margin: 0;
@@ -44,15 +50,9 @@
         text-align: left;
     }
 
-    input
-    {
-        width: 250px;
-    }
-
     input[type="checkbox"],
     input[type="submit"],
-    input[type="button"],
-    button
+    input[type="button"]
     {
         width: auto;
     }

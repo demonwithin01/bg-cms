@@ -2,6 +2,8 @@
 
 .carousel
 {
+    @local-fade-time: 1s;
+
     left: 50%;
     max-height: 100%;
     max-width: 100%;
@@ -27,6 +29,7 @@
 
     .carousel-item
     {
+        background: rgb(55,55,55);
         height: 100%;
         width: 100%;
         position: absolute;
@@ -36,6 +39,11 @@
         img
         {
             max-height: 100%;
+        }
+
+        &.transit
+        {
+            transition: opacity @local-fade-time ease;
         }
     }
 
@@ -95,7 +103,7 @@
     .carousel-left
     {
         left: 10px;
-        
+
         .icon:before
         {
             left: -2px;
@@ -106,6 +114,58 @@
         &.hidden
         {
             left: -48px;
+        }
+    }
+
+    .banner-option-container
+    {
+        bottom: 0;
+        padding: 15px;
+        position: absolute;
+        right: 0;
+        z-index: 4;
+
+        &:after
+        {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        &:hover
+        {
+            .banner-option
+            {
+                opacity: 0.5;
+
+                &:hover
+                {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .banner-option
+    {
+        background: @site-feature-font-color-faded;
+        border: 2px solid @site-feature-font-color-faded;
+        border-radius: 35% 0;
+        box-sizing: border-box;
+        cursor: pointer;
+        display: inline-block;
+        float: left;
+        height: 20px;
+        margin-left: 4px;
+        opacity: 0.3;
+        position: relative;
+        transition: background @local-fade-time ease, border @local-fade-time ease, opacity 0.2s ease;
+        width: 20px;
+
+        &.current
+        {
+            background: white;
+            border-color: white;
         }
     }
 }

@@ -10,6 +10,9 @@ namespace ContentManagementSystem.Framework.Models.HomePage.ContentTypes
     public enum BannerType
     {
         [Display( Name = "Carousel" )]
-        Carousel = 1
+        Carousel = 1,
+
+        [Display( Name = "Fade over" )]
+        FadeOver = 2
     }
 }

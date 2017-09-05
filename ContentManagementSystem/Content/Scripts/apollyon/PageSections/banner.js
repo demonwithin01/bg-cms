@@ -27,9 +27,6 @@ var apollyon;
             _this.width = options.width;
             _this.height = options.height;
             _this._items.first().addClass("pole-position");
-            _this._items.each(function (index) {
-                $(this).css("left", 100 * index + "%");
-            });
             _this.bannerType = options.bannerType;
             return _this;
         }
@@ -97,6 +94,9 @@ var apollyon;
                 switch (this._bannerType) {
                     case apollyon.BannerType.Carousel:
                         this._banner = new apollyon.banners.Carousel(this);
+                        break;
+                    case apollyon.BannerType.FadeOver:
+                        this._banner = new apollyon.banners.FadeOut(this);
                         break;
                 }
             },

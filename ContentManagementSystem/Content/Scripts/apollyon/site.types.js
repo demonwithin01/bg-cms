@@ -9,6 +9,7 @@ var apollyon;
     var BannerType;
     (function (BannerType) {
         BannerType[BannerType["Carousel"] = 1] = "Carousel";
+        BannerType[BannerType["FadeOver"] = 2] = "FadeOver";
     })(BannerType = apollyon.BannerType || (apollyon.BannerType = {}));
 })(apollyon || (apollyon = {}));
 //# sourceMappingURL=site.types.js.map

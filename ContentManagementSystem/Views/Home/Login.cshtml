@@ -2,7 +2,7 @@
 @model LoginModel
 
 @{
-    bool canRegister = true;
+    bool canRegister = UserSession.CurrentDomain().AllowUserRegistration;
 
     PageTitle = canRegister ? "Log in / Register" : "Log in";
     HideSocialButtons = true;
@@ -20,10 +20,7 @@
                 <dl>
                     @Html.TextBoxFieldFor( m => m.UserName )
                     @Html.PasswordFieldFor( m => m.Password )
-                    @Html.CheckboxFieldFor( m => m.RememberMe )
-
-                    @*@Html.CheckBoxFor( m => m.RememberMe )
-                        @Html.LabelFor( m => m.RememberMe, new { @class = "inline-block" } )*@
+                    @Html.CheckboxFieldFor( m => m.RememberMe, null, null, true )
                 </dl>
                 @Html.SubmitButton( "Log in" )
             </fieldset>

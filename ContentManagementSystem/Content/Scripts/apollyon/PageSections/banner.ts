@@ -28,11 +28,6 @@
 
             this._items.first().addClass( "pole-position" );
 
-            this._items.each( function ( index )
-            {
-                $( this ).css( "left", 100 * index + "%" );
-            });
-
             this.bannerType = options.bannerType;
         }
 
@@ -105,6 +100,9 @@
             {
                 case BannerType.Carousel:
                     this._banner = new banners.Carousel( this );
+                    break;
+                case BannerType.FadeOver:
+                    this._banner = new banners.FadeOut( this );
                     break;
             }
         }

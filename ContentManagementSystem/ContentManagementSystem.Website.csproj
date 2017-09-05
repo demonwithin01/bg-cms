@@ -1111,6 +1111,7 @@
     <TypeScriptCompile Include="Content\Scripts\Apollyon\Extensions\modal.ts" />
     <TypeScriptCompile Include="Content\Scripts\Apollyon\PageSections\banners\banner.carousel.ts" />
     <TypeScriptCompile Include="Content\Scripts\Apollyon\PageSections\banner.ts" />
+    <TypeScriptCompile Include="Content\Scripts\Apollyon\PageSections\banners\banner.fadeover.ts" />
     <TypeScriptCompile Include="Content\Scripts\Apollyon\Workers\ImageBrowser.ts" />
     <TypeScriptCompile Include="Content\Scripts\Apollyon\Workers\Ribbon.ts" />
     <TypeScriptCompile Include="Content\Scripts\Apollyon\site.ts" />

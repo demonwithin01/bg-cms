@@ -2163,6 +2163,7 @@ img {
   width: 100%;
 }
 .carousel .carousel-item {
+  background: #373737;
   height: 100%;
   width: 100%;
   position: absolute;
@@ -2171,6 +2172,9 @@ img {
 }
 .carousel .carousel-item img {
   max-height: 100%;
+}
+.carousel .carousel-item.transit {
+  transition: opacity 1s ease;
 }
 .carousel .carousel-right,
 .carousel .carousel-left {
@@ -2238,6 +2242,43 @@ img {
 }
 .carousel .carousel-left.hidden {
   left: -48px;
+}
+.carousel .banner-option-container {
+  bottom: 0;
+  padding: 15px;
+  position: absolute;
+  right: 0;
+  z-index: 4;
+}
+.carousel .banner-option-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.carousel .banner-option-container:hover .banner-option {
+  opacity: 0.5;
+}
+.carousel .banner-option-container:hover .banner-option:hover {
+  opacity: 1;
+}
+.carousel .banner-option {
+  background: #85a9e1;
+  border: 2px solid #85a9e1;
+  border-radius: 35% 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  height: 20px;
+  margin-left: 4px;
+  opacity: 0.3;
+  position: relative;
+  transition: background 1s ease, border 1s ease, opacity 0.2s ease;
+  width: 20px;
+}
+.carousel .banner-option.current {
+  background: white;
+  border-color: white;
 }
 header {
   z-index: 3;
@@ -3326,6 +3367,7 @@ form dl + dl {
 }
 table {
   margin-bottom: 20px;
+  text-align: left;
   width: 100%;
 }
 table thead {
@@ -3689,6 +3731,7 @@ table td.options-column {
   background: #eee;
   box-sizing: border-box;
   display: inline-block;
+  font-size: 12px;
   margin-top: 30px;
   padding: 30px;
   vertical-align: top;
@@ -3710,6 +3753,10 @@ table td.options-column {
   list-style: none;
   margin: 0;
 }
+#loginForm button,
+#registerForm button {
+  width: 100%;
+}
 #loginForm form,
 #registerForm form {
   margin: 0;
@@ -3718,18 +3765,12 @@ table td.options-column {
 #registerForm fieldset {
   text-align: left;
 }
-#loginForm input,
-#registerForm input {
-  width: 250px;
-}
 #loginForm input[type="checkbox"],
 #registerForm input[type="checkbox"],
 #loginForm input[type="submit"],
 #registerForm input[type="submit"],
 #loginForm input[type="button"],
-#registerForm input[type="button"],
-#loginForm button,
-#registerForm button {
+#registerForm input[type="button"] {
   width: auto;
 }
 #registerForm {

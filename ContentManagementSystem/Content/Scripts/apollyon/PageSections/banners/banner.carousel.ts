@@ -15,6 +15,11 @@
 
                 this._banner = banner;
 
+                this._banner.items.each( function ( index )
+                {
+                    $( this ).css( "left", 100 * index + "%" );
+                } );
+
                 this._prevElement = this.createNavElement( "left" ).appendTo( this._banner.element ).addClass( "hidden" );
                 this._nextElement = this.createNavElement( "right" ).appendTo( this._banner.element );
 
@@ -24,6 +29,11 @@
 
             public unload(): void
             {
+                this._banner.items.each( function ( index )
+                {
+                    $( this ).css( "left", "" );
+                } );
+
                 this._prevElement.remove();
                 this._nextElement.remove();
             }

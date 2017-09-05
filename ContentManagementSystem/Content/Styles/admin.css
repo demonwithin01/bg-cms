@@ -3228,6 +3228,7 @@ form dl + dl {
 }
 table {
   margin-bottom: 20px;
+  text-align: left;
   width: 100%;
 }
 table thead {
@@ -3708,6 +3709,7 @@ table td.options-column {
   width: 100%;
 }
 .carousel .carousel-item {
+  background: #373737;
   height: 100%;
   width: 100%;
   position: absolute;
@@ -3716,6 +3718,9 @@ table td.options-column {
 }
 .carousel .carousel-item img {
   max-height: 100%;
+}
+.carousel .carousel-item.transit {
+  transition: opacity 1s ease;
 }
 .carousel .carousel-right,
 .carousel .carousel-left {
@@ -3783,6 +3788,43 @@ table td.options-column {
 }
 .carousel .carousel-left.hidden {
   left: -48px;
+}
+.carousel .banner-option-container {
+  bottom: 0;
+  padding: 15px;
+  position: absolute;
+  right: 0;
+  z-index: 4;
+}
+.carousel .banner-option-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.carousel .banner-option-container:hover .banner-option {
+  opacity: 0.5;
+}
+.carousel .banner-option-container:hover .banner-option:hover {
+  opacity: 1;
+}
+.carousel .banner-option {
+  background: #85a9e1;
+  border: 2px solid #85a9e1;
+  border-radius: 35% 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  height: 20px;
+  margin-left: 4px;
+  opacity: 0.3;
+  position: relative;
+  transition: background 1s ease, border 1s ease, opacity 0.2s ease;
+  width: 20px;
+}
+.carousel .banner-option.current {
+  background: white;
+  border-color: white;
 }
 @keyframes apn-loader {
   0% {
@@ -4011,7 +4053,8 @@ table td.options-column {
 .admin-carousel .admin-carousel-tools > span {
   cursor: pointer;
   display: inline-block;
-  padding: 5px;
+  font-size: 1.5em;
+  padding: 5px 7px;
 }
 .admin-carousel .admin-carousel-tools > span:hover {
   background: white;
@@ -4037,6 +4080,7 @@ table td.options-column {
   text-align: center;
 }
 .admin-carousel-tray li {
+  background: #373737;
   cursor: pointer;
   float: left;
   height: 100%;

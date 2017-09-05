@@ -17,6 +17,9 @@ var apollyon;
             function Carousel(banner) {
                 var _this = _super.call(this) || this;
                 _this._banner = banner;
+                _this._banner.items.each(function (index) {
+                    $(this).css("left", 100 * index + "%");
+                });
                 _this._prevElement = _this.createNavElement("left").appendTo(_this._banner.element).addClass("hidden");
                 _this._nextElement = _this.createNavElement("right").appendTo(_this._banner.element);
                 _this._prevElement.on("click", $.proxy(_this.previousClicked, _this));
@@ -24,6 +27,9 @@ var apollyon;
                 return _this;
             }
             Carousel.prototype.unload = function () {
+                this._banner.items.each(function (index) {
+                    $(this).css("left", "");
+                });
                 this._prevElement.remove();
                 this._nextElement.remove();
             };
