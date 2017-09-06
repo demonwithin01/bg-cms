@@ -3431,7 +3431,7 @@ table td.options-column {
   top: 0;
 }
 .bg-modal {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
@@ -4058,6 +4058,23 @@ table td.options-column {
 }
 .admin-carousel .admin-carousel-tools > span:hover {
   background: white;
+}
+.admin-carousel .admin-carousel-tools #selectUrl {
+  position: relative;
+}
+.admin-carousel .admin-carousel-tools #selectUrl #urlSelector {
+  background: white;
+  bottom: 100%;
+  display: none;
+  padding: 10px;
+  position: absolute;
+  right: 0;
+}
+.admin-carousel .admin-carousel-tools #selectUrl #urlSelector select {
+  display: block;
+}
+.admin-carousel .admin-carousel-tools #selectUrl:hover #urlSelector {
+  display: block;
 }
 .admin-carousel .carousel {
   height: 100%;

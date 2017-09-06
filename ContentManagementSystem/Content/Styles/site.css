@@ -3545,7 +3545,7 @@ table td.options-column {
   top: 0;
 }
 .bg-modal {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;

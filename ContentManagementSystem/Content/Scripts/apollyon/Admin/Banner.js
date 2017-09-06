@@ -10,10 +10,17 @@ var apollyon;
             var that = this;
             this._bannerItems = [];
             this._currentSlide = null;
+            $("#ContentModel_urlSectorField").on("change", function () {
+                if (that._currentSlide == null) {
+                    return;
+                }
+                that._bannerItems[that._currentSlide.index()].pageId = $(this).val();
+            });
             for (var i = 0; i < initialItems.length; i++) {
                 var newBannerItem = new BannerItem();
                 newBannerItem.uploadId = initialItems[i].uploadId;
                 newBannerItem.imgUrl = initialItems[i].imgUrl;
+                newBannerItem.pageId = initialItems[i].pageId;
                 this._bannerItems.push(newBannerItem);
                 var slide = $("<div class=\"carousel-item\" style=\"display: none;\"></div>");
                 slide.append("<img src=\"" + newBannerItem.imgUrl + "\" />");
@@ -23,6 +30,7 @@ var apollyon;
                 $(".admin-carousel .carousel-inner").append(slide);
                 if (i == 0) {
                     this._currentSlide = slide;
+                    $("#ContentModel_urlSectorField").val(newBannerItem.pageId);
                     this._currentSlide.show();
                 }
             }
@@ -149,6 +157,7 @@ var apollyon;
             }
             this._currentSlide = slide;
             this._currentSlide.show();
+            $("#ContentModel_urlSectorField").val(this._bannerItems[this._currentSlide.index()].pageId);
         };
         return BannerAdmin;
     }());

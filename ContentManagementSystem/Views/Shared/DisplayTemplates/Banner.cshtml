@@ -8,7 +8,9 @@
         @foreach ( var bannerItem in Model.Slides )
         {
             <div class="carousel-item">
+                @If( bannerItem.PageId.HasValue, "<a href=\"" + bannerItem.PageUrl + "\">" )
                 <img src="@bannerItem.ImgUrl" />
+                @If( bannerItem.PageId.HasValue, "</a>" )
             </div>
         }
     </div>

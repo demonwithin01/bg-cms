@@ -3,10 +3,10 @@
 
 @{ 
     string slides = "[]";
-
+    
     if ( Model.Slides.Count > 0 )
     {
-        slides = "[" + string.Join( ",", Model.Slides.Select( s => "{uploadId:\"" + s.UploadId + "\",imgUrl:\"" + s.ImgUrl + "\"}" ) ) + "]";
+        slides = "[" + string.Join( ",", Model.Slides.Select( s => "{uploadId:\"" + s.UploadId + "\",imgUrl:\"" + s.ImgUrl + "\",pageId:\"" + s.PageId + "\"}" ) ) + "]";
     }
 }
 
@@ -41,6 +41,12 @@
         </div>
     </div>
     <div class="admin-carousel-tools lower">
+        <span id="selectUrl">
+            @Glyph( "link" )
+            <span id="urlSelector">
+                @Html.DropDownList( "urlSectorField", CreateSelectList.NavPages( null ), "No Link" )
+            </span>
+        </span>
         <span id="selectPicture">
             @Glyph( "picture-o" )
         </span>

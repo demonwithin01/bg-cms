@@ -39,12 +39,21 @@ namespace ContentManagementSystem.Framework.Models.HomePage.ContentTypes
         public override void PrepareForDisplay()
         {
             List<int> uploadIds = Slides.Select( s => s.UploadId ).ToList();
+            List<int> pageIds = Slides.Where( s => s.PageId.HasValue ).Select( s => s.PageId.Value ).ToList();
 
-            List<Upload> uploads = new ContentManagementDb().Uploads.Where( s => uploadIds.Contains( s.UploadId ) ).ToList();
+            ContentManagementDb db = new ContentManagementDb();
+
+            List<Upload> uploads = db.Uploads.Where( s => uploadIds.Contains( s.UploadId ) ).ToList();
+            List<ContentManagementSystemDatabase.Page> pages = db.Pages.Where( s => pageIds.Contains( s.PageId ) ).ToList();
 
             foreach ( Upload upload in uploads )
             {
                 Slides.Where( s => s.UploadId == upload.UploadId ).ToList().ForEach( s => s.ImgUrl = upload.PhysicalLocation );
+            }
+
+            foreach ( ContentManagementSystemDatabase.Page page in pages )
+            {
+                Slides.Where( s => s.PageId == page.PageId ).ToList().ForEach( s => s.PageUrl = page.PageUrl() );
             }
         }
 

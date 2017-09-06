@@ -68,18 +68,18 @@
         {
             bottom: 0;
             transform: translateY(100%);
-            
+
             &:hover
             {
                 transform: translateY(0);
             }
         }
-        
+
         &.upper
         {
             top: 0;
             transform: translateY(-100%);
-            
+
             &:hover
             {
                 transform: translateY(0);
@@ -96,6 +96,34 @@
             &:hover
             {
                 background: white;
+            }
+        }
+
+        #selectUrl
+        {
+            position: relative;
+
+            #urlSelector
+            {
+                background: white;
+                bottom: 100%;
+                display: none;
+                padding: 10px;
+                position: absolute;
+                right: 0;
+
+                select
+                {
+                    display: block;
+                }
+            }
+
+            &:hover
+            {
+                #urlSelector
+                {
+                    display: block;
+                }
             }
         }
     }
