@@ -93,10 +93,10 @@ namespace ContentManagementSystem.Admin.Models
 
         public int? DomainNavigationItemId { get; set; }
 
-        [Display( Name = "Page:" )]
+        [Display( Name = "Page" )]
         public int PageId { get; set; }
 
-        [Display( Name = "Title:" )]
+        [Display( Name = "Title" )]
         public string Title { get; set; }
 
         [Display( Name = "Parent" )]

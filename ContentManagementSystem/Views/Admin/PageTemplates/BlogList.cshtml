@@ -1,7 +1,9 @@
 ﻿@using ContentManagementSystem.Framework.Models.Page;
 @model BlogList
 
-@Html.DropDownListFieldFor( s => s.MaxNumberOfPosts, CreateSimpleSelectList.NumberList( 1, 10, Model.MaxNumberOfPosts ) )
+<dl class="horizontal-controls margin-top-1em">
+    @Html.DropDownListFieldFor( s => s.MaxNumberOfPosts, CreateSimpleSelectList.NumberList( 1, 10, Model.MaxNumberOfPosts ) )
+</dl>
 
 
 <script>

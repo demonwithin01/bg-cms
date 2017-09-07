@@ -1,5 +1,18 @@
 ﻿@import (reference) "_shared/_common.less";
 
+.block-buttons .button
+{
+    display: block;
+    margin: 0 0 15px 0;
+    padding: 15px;
+    width: 100%;
+
+    & +.button
+    {
+        margin-left: 0;
+    }
+}
+
 .button
 {
     border: none;

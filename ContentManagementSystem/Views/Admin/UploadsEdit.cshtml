@@ -1,14 +1,15 @@
 ﻿@model ContentManagementSystem.Admin.Models.UploadModel
 @{
     PageTitle = ( Model.UploadId.HasValue ? "Edit" : "Add" ) + " Upload";
+    string formName = "uploadForm";
 }
 
 <h2>@PageTitle</h2>
 
-@using ( Html.BeginForm() )
+@using ( Html.NamedForm( formName ) )
 {
     @Html.HiddenFor( m => m.UploadId )
-    <dl>
+    <dl class="horizontal-controls">
         @if ( Model.UploadId.HasValue )
         {
             @Html.TextBoxFieldFor( m => m.UploadLocation, new { @readonly = "readonly" } )
@@ -42,6 +43,14 @@
         <div class="dz-error-message"><span data-dz-errormessage></span></div>
     </div>
 </div>
+
+@section tools
+{
+    <h2>Options</h2>
+    <div class="button-list block-buttons">
+        
+    </div>
+}
 
 @section scripts
 {

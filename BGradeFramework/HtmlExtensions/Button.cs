@@ -91,6 +91,58 @@ namespace ContentManagementSystem.Framework.HtmlExtensions
         }
 
         /// <summary>
+        /// Creates the html for a submit button.
+        /// </summary>
+        /// <typeparam name="TModel">The model that the helper is based off.</typeparam>
+        /// <param name="helper">The current html helper.</param>
+        /// <param name="text">The text to display on the button.</param>
+        /// <returns>The generated html for the button.</returns>
+        public static MvcHtmlString SubmitButtonFor<TModel>( this HtmlHelper<TModel> helper, string formId, string text )
+        {
+            return SubmitButtonFor( helper, formId, text, null, ButtonType.Primary, null );
+        }
+
+        /// <summary>
+        /// Creates the html for a submit button.
+        /// </summary>
+        /// <typeparam name="TModel">The model that the helper is based off.</typeparam>
+        /// <param name="helper">The current html helper.</param>
+        /// <param name="text">The text to display on the button.</param>
+        /// <param name="id">The id to use for the button.</param>
+        /// <returns>The generated html for the button.</returns>
+        public static MvcHtmlString SubmitButtonFor<TModel>( this HtmlHelper<TModel> helper, string formId, string text, string id )
+        {
+            return SubmitButtonFor( helper, formId, text, id, ButtonType.Primary, null );
+        }
+
+        /// <summary>
+        /// Creates the html for a submit button.
+        /// </summary>
+        /// <typeparam name="TModel">The model that the helper is based off.</typeparam>
+        /// <param name="helper">The current html helper.</param>
+        /// <param name="text">The text to display on the button.</param>
+        /// <param name="id">The id to use for the button.</param>
+        /// <returns>The generated html for the button.</returns>
+        public static MvcHtmlString SubmitButtonFor<TModel>( this HtmlHelper<TModel> helper, string formId, string text, string id, ButtonType buttonType )
+        {
+            return SubmitButtonFor( helper, formId, text, id, buttonType, null );
+        }
+
+        /// <summary>
+        /// Creates the html for a submit button.
+        /// </summary>
+        /// <typeparam name="TModel">The model that the helper is based off.</typeparam>
+        /// <param name="helper">The current html helper.</param>
+        /// <param name="text">The text to display on the button.</param>
+        /// <param name="id">The id to use for the button.</param>
+        /// <param name="classes">Additional classes to add to the button.</param>
+        /// <returns>The generated html for the button.</returns>
+        public static MvcHtmlString SubmitButtonFor<TModel>( this HtmlHelper<TModel> helper, string formId, string text, string id, ButtonType buttonType, string classes )
+        {
+            return RenderButton( text, buttonType, "button", id, classes, formId );
+        }
+
+        /// <summary>
         /// Creates the html required for a button.
         /// </summary>
         /// <param name="text">The text to display in the button.</param>
@@ -99,7 +151,7 @@ namespace ContentManagementSystem.Framework.HtmlExtensions
         /// <param name="id">The id to use on the button.</param>
         /// <param name="classes">The classes to use on the button.</param>
         /// <returns>The html of the generated button.</returns>
-        private static MvcHtmlString RenderButton( string text, ButtonType buttonType, string type, string id, string classes)
+        private static MvcHtmlString RenderButton( string text, ButtonType buttonType, string type, string id, string classes, string formId = null )
         {
             string button = "<button";
 
@@ -111,6 +163,11 @@ namespace ContentManagementSystem.Framework.HtmlExtensions
             classes = ( "button " + buttonType.GetDisplayText() + " " + ( classes ?? "" ) ).Trim();
 
             button += " class=\"" + classes + "\"";
+
+            if ( formId != null )
+            {
+                button += " onclick=\"$('#" + formId + "').submit()\"";
+            }
 
             button += " type=\"" + type + "\">" + text + " </button>";
             

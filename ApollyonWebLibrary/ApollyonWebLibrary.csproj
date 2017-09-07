@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Web\Helpers\HtmlHelperExtensions.cs" />
     <Compile Include="Extensions\LinqExtensions.cs" />
     <Compile Include="Helpers\StringHelpers.cs" />
     <Compile Include="Web\Attributes\AjaxOnly.cs" />

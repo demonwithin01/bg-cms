@@ -3,27 +3,34 @@
 @{
     PageTitle = ( Model.PageId.HasValue ? "Edit" : "Add" ) + " Page";
     SelectListGenerator generator = new SelectListGenerator();
+
+    string formName = "pageForm";
 }
 
 <h2>@PageTitle</h2>
 
-@using ( Html.BeginForm() )
+@using ( Html.NamedForm( formName ) )
 {
     @Html.HiddenFor( m => m.PageId )
     @Html.HiddenFor( m => m.Publish )
 
     <div>
-        <div class="button-list text-right">
-            @Html.Button( "Save as Draft", ButtonType.Secondary, "saveDraft" )
-            @Html.Button( "Save & Publish", ButtonType.Primary, "savePublish" )
-        </div>
-        @Html.DropDownListFieldFor( m => m.ModelType, generator.PageTemplates( Model.ModelType ) )
-        <dl>
+        <dl class="horizontal-controls">
+            @Html.DropDownListFieldFor( m => m.ModelType, generator.PageTemplates( Model.ModelType ) )
             @Html.TextBoxFieldFor( m => m.Title )
         </dl>
     </div>
     <div id="page-template">
         @Html.Partial( Model.PageTemplateModel.EditorLocation, Model.PageTemplateModel )
+    </div>
+}
+
+@section tools
+{
+    <h2>Options</h2>
+    <div class="button-list block-buttons">
+        @Html.SubmitButtonFor( formName, "Save as Draft", "saveDraft", ButtonType.Secondary )
+        @Html.SubmitButtonFor( formName, "Save & Publish", "savePublish", ButtonType.Primary )
     </div>
 }
 
