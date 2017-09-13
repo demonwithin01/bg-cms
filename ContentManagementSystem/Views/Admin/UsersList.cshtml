@@ -6,10 +6,10 @@
 <table>
     <thead>
         <tr>
-            <th class="text-left">Page Title</th>
-            <th class="text-left">Location</th>
-            <th class="text-left date-with-name-column">Last Updated</th>
-            <th class="text-right options-column">Options</th>
+            <th class="text-left">Username</th>
+            <th class="text-left">Email</th>
+            <th class="text-left date-with-name-column">Last Login</th>
+            @*<th class="text-right options-column">Options</th>*@
         </tr>
     </thead>
     <tbody>
@@ -23,11 +23,11 @@
                     @user.EmailAddress
                 </td>
                 <td class="text-left date-with-name-column">
-                    @user.LastLogin.ToString( "dddd dd/MM/yyyy hh:mm tt" )
+                    @( user.LastLogin.HasValue ? user.LastLogin.Value.ToString( "dddd dd/MM/yyyy hh:mm tt" ) : "Never" )
                 </td>
-                <td class="text-right options-column">
+                @*<td class="text-right options-column">
                     <a href="@Url.Action( "ViewUser", "User", new { Area = "Admin", id = user.UserId } )" class="table-button">Edit</a>
-                </td>
+                </td>*@
             </tr>
         }
     </tbody>
@@ -37,5 +37,3 @@
         </tr>
     </tfoot>
 </table>
-
-<a href="@Url.Action( "Create", "Uploads", new { Area = "Admin" } )" class="button primary">Upload New File</a>

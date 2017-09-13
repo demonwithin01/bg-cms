@@ -3251,6 +3251,7 @@ form dl.horizontal-controls dd {
 form dl.horizontal-controls dd input,
 form dl.horizontal-controls dd select,
 form dl.horizontal-controls dd textarea {
+  font-family: inherit;
   height: 3em;
   max-width: 280px;
   padding: 2px 10px;
@@ -3260,6 +3261,11 @@ form dl.horizontal-controls dd select:focus,
 form dl.horizontal-controls dd textarea:focus {
   padding-left: 8px;
 }
+form dl.horizontal-controls dd input[readonly],
+form dl.horizontal-controls dd select[readonly],
+form dl.horizontal-controls dd textarea[readonly] {
+  background: #f8f8f8;
+}
 form dl.horizontal-controls dd select {
   padding-left: 7px;
 }
@@ -3268,6 +3274,10 @@ form dl.horizontal-controls dd select:focus {
 }
 form dl.horizontal-controls dd textarea {
   min-width: 280px;
+  padding: 12px 10px 10px;
+}
+form dl.horizontal-controls dd.auto-height {
+  height: auto;
 }
 form dl.horizontal-controls dt,
 form dl.horizontal-controls dd {

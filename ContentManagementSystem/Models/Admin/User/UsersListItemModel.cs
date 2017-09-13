@@ -29,6 +29,7 @@ namespace ContentManagementSystem.Admin.Models
             this.UserId = user.UserId;
             this.Username = user.UserName;
             this.EmailAddress = user.EmailAddress;
+            this.LastLogin = user.LastLogin;
         }
 
         #endregion
@@ -61,7 +62,7 @@ namespace ContentManagementSystem.Admin.Models
 
         public string EmailAddress { get; set; }
 
-        public DateTime LastLogin { get; set; }
+        public DateTime? LastLogin { get; set; }
 
         #endregion
 

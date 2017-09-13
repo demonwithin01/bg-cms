@@ -78,6 +78,7 @@ form
                 select,
                 textarea
                 {
+                    font-family: inherit;
                     height: 3em;
                     max-width: 280px;
                     padding: 2px 10px;
@@ -85,6 +86,11 @@ form
                     &:focus
                     {
                         padding-left: 8px;
+                    }
+
+                    &[readonly]
+                    {
+                        background: #f8f8f8;
                     }
                 }
 
@@ -101,6 +107,12 @@ form
                 textarea
                 {
                     min-width: 280px;
+                    padding: 12px 10px 10px;
+                }
+
+                &.auto-height
+                {
+                    height: auto;
                 }
             }
 

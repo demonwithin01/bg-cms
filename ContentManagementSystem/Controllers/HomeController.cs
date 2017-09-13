@@ -117,6 +117,8 @@ namespace ContentManagementSystem.Controllers
                 ContentManagementDb db = new ContentManagementDb();
 
                 UserProfile user = db.Users.FirstOrDefault( u => u.UserId == userId );
+                user.LastLogin = DateTime.Now;
+                db.SaveChangesAsync();
                 UserCookie.CreateInstance( user, HttpContext );
 
                 return RedirectToLocal( returnUrl );

@@ -3112,6 +3112,7 @@ form dl.horizontal-controls dd {
 form dl.horizontal-controls dd input,
 form dl.horizontal-controls dd select,
 form dl.horizontal-controls dd textarea {
+  font-family: inherit;
   height: 3em;
   max-width: 280px;
   padding: 2px 10px;
@@ -3121,6 +3122,11 @@ form dl.horizontal-controls dd select:focus,
 form dl.horizontal-controls dd textarea:focus {
   padding-left: 8px;
 }
+form dl.horizontal-controls dd input[readonly],
+form dl.horizontal-controls dd select[readonly],
+form dl.horizontal-controls dd textarea[readonly] {
+  background: #f8f8f8;
+}
 form dl.horizontal-controls dd select {
   padding-left: 7px;
 }
@@ -3129,6 +3135,10 @@ form dl.horizontal-controls dd select:focus {
 }
 form dl.horizontal-controls dd textarea {
   min-width: 280px;
+  padding: 12px 10px 10px;
+}
+form dl.horizontal-controls dd.auto-height {
+  height: auto;
 }
 form dl.horizontal-controls dt,
 form dl.horizontal-controls dd {
@@ -3326,24 +3336,24 @@ table {
   width: 100%;
 }
 table thead {
-  background: #0A5995;
+  background: #434343;
   color: white;
 }
 table tbody tr:nth-child(odd) {
-  background: rgba(10, 89, 149, 0.05);
+  background: #f8f8f8;
 }
 table tbody tr:nth-child(even) {
-  background: rgba(10, 89, 149, 0.2);
+  background: #efefef;
 }
 table tfoot {
-  background: #0A5995;
+  background: #434343;
   color: white;
 }
 table th {
-  padding: 10px;
+  padding: 20px 15px;
 }
 table td {
-  padding: 10px;
+  padding: 15px;
 }
 table th.date-column,
 table td.date-column {
@@ -3991,36 +4001,80 @@ table td.options-column {
   color: white;
   font-weight: normal;
 }
-.admin-home-nav-items > ul:after {
+.admin-home-nav-items {
+  margin-top: -10px;
+}
+.admin-home-nav-items:after {
   clear: both;
   content: '';
   display: block;
 }
-.admin-home-nav-items > ul > li {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  background: #e6e6e6;
-  border: 2px solid black;
-  display: inline-block;
+.admin-home-nav-items .admin-home-nav-section-container {
+  box-sizing: border-box;
   float: left;
-  height: 146px;
-  margin: 15px;
-  text-align: center;
-  width: 202px;
+  padding: 20px;
+  width: 50%;
 }
-.admin-home-nav-items > ul > li:after {
+.admin-home-nav-items .admin-home-nav-section {
+  background: #e2e2e2;
+  margin-bottom: 20px;
+}
+.admin-home-nav-items h3 {
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 20px 20px 10px;
+}
+.admin-home-nav-items ul {
+  margin: 0;
+  padding: 10px;
+}
+.admin-home-nav-items ul:after {
   clear: both;
   content: '';
   display: block;
 }
-.admin-home-nav-items > ul > li div.admin-link-title {
+.admin-home-nav-items ul > li {
+  background: #f2f2f2;
+  display: flex;
+  list-style: none;
+  margin-bottom: 10px;
+  /*.border-radius(3px);
+            background: #e6e6e6;
+            border: 2px solid @local-border-color;
+            display: inline-block;
+            float: left;
+            height: 146px;
+            margin: 15px;
+            text-align: center;
+            width: 202px;
+            .clear();*/
+}
+.admin-home-nav-items ul > li:last-child {
+  margin-bottom: 0;
+}
+.admin-home-nav-items ul > li a {
+  padding: 15px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+.admin-home-nav-items ul > li a:hover {
+  background: white;
+}
+.admin-home-nav-items ul > li a.create-link {
+  text-align: center;
+  vertical-align: middle;
+  width: 20px;
+}
+.admin-home-nav-items ul > li a.manage-link {
+  flex: 1;
+}
+.admin-home-nav-items ul > li div.admin-link-title {
   border-bottom: 2px solid black;
   height: 44px;
   line-height: 22px;
   width: 100%;
 }
-.admin-home-nav-items > ul > li div.admin-link-title h3 {
+.admin-home-nav-items ul > li div.admin-link-title h3 {
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -4030,7 +4084,7 @@ table td.options-column {
   position: relative;
   top: 50%;
 }
-.admin-home-nav-items > ul > li div.admin-link {
+.admin-home-nav-items ul > li div.admin-link {
   -webkit-transition: background 0.2s ease;
   -moz-transition: background 0.2s ease;
   -o-transition: background 0.2s ease;
@@ -4041,17 +4095,17 @@ table td.options-column {
   position: relative;
   width: 100px;
 }
-.admin-home-nav-items > ul > li div.admin-link:last-child {
+.admin-home-nav-items ul > li div.admin-link:last-child {
   border-left: 2px solid black;
 }
-.admin-home-nav-items > ul > li div.admin-link:hover {
+.admin-home-nav-items ul > li div.admin-link:hover {
   background: rgba(255, 255, 255, 0.3);
 }
-.admin-home-nav-items > ul > li div.admin-link.single {
+.admin-home-nav-items ul > li div.admin-link.single {
   border-left: 0;
   width: 202px;
 }
-.admin-home-nav-items > ul > li div.admin-link a {
+.admin-home-nav-items ul > li div.admin-link a {
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -4067,7 +4121,7 @@ table td.options-column {
   top: 50%;
   width: 100%;
 }
-.admin-home-nav-items > ul > li div.admin-link a div {
+.admin-home-nav-items ul > li div.admin-link a div {
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -4076,15 +4130,15 @@ table td.options-column {
   position: relative;
   top: 50%;
 }
-.admin-home-nav-items > ul > li div.admin-link a span {
+.admin-home-nav-items ul > li div.admin-link a span {
   color: inherit;
   text-decoration: none;
 }
-.admin-home-nav-items > ul > li div.admin-link a span.admin-link-icon {
+.admin-home-nav-items ul > li div.admin-link a span.admin-link-icon {
   display: block;
   font-size: 28px;
 }
-.admin-home-nav-items > ul > li div.admin-link a span.admin-link-text {
+.admin-home-nav-items ul > li div.admin-link a span.admin-link-text {
   display: block;
   text-align: center;
 }
@@ -4217,6 +4271,13 @@ table td.options-column {
 .admin .main-content > .counter-padding {
   margin: -20px;
 }
+.admin .main-content.full-screen {
+  padding: 0;
+}
+.admin .main-content.full-screen > .page-content-wrapper {
+  padding: 0;
+  width: 100%;
+}
 .admin .page-content {
   background: white;
 }
@@ -4239,6 +4300,11 @@ table td.options-column {
   top: 64px;
   width: 300px;
 }
+.admin .tools-background {
+  background: #f5f5f5;
+  margin-top: 15px;
+  padding: 15px;
+}
 .admin .page-content-wrapper,
 .admin .page-content-tools {
   box-sizing: border-box;
@@ -4246,13 +4312,6 @@ table td.options-column {
   max-width: 100%;
   padding: 15px;
   text-align: left;
-}
-.admin .page-content-wrapper > h2,
-.admin .page-content-tools > h2 {
-  border-bottom: 3px solid #bfbfbf;
-  font-size: 1.8em;
-  margin-bottom: 20px;
-  padding: 15px;
 }
 .b-grid > .editable {
   position: relative;
@@ -4266,5 +4325,19 @@ table td.options-column {
   position: relative;
 }
 #uploadImages > li img {
+  width: 100%;
+}
+.admin h2 {
+  border-bottom: 3px solid #bfbfbf;
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  padding: 15px;
+}
+.admin h2 .button {
+  vertical-align: text-bottom;
+}
+#add-ribbon-item {
+  display: block;
+  line-height: 4em;
   width: 100%;
 }

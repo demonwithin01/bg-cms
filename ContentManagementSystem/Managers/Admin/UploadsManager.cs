@@ -136,12 +136,14 @@ namespace ContentManagementSystem.Admin.Managers
             {
                 try
                 {
-                    if ( File.Exists( upload.PhysicalLocation ) )
+                    string physicalLocation = StringHelpers.MapToServer( upload.PhysicalLocation );
+
+                    if ( File.Exists( physicalLocation ) )
                     {
-                        File.Delete( upload.PhysicalLocation );
+                        File.Delete( physicalLocation );
                     }
                     
-                    model.Upload.SaveAs( upload.PhysicalLocation );
+                    model.Upload.SaveAs( physicalLocation );
                 }
                 catch// ( IOException ioException )
                 {

@@ -96,15 +96,15 @@
         </header>
         <div class="page-content">
             <div id="body" class="content-wrapper">
-                <section class="main-content clear-fix @If( IsSectionDefined( "tools" ), "has-tools" )">
+                <section class="main-content clear-fix @If( UseFullWidth, "full-screen", "has-tools" )">
                     <div class="page-content-wrapper">
                         @RenderBody()
                     </div>
-                    @if ( IsSectionDefined( "tools" ) )
+                    @if ( UseFullWidth == false )
                     {
-                        <div class="page-content-tools">
-                            @RenderSection( "tools" )
-                        </div>
+                    <div class="page-content-tools">
+                        @RenderSection( "tools", false )
+                    </div>
                     }
                 </section>
             </div>

@@ -29,5 +29,7 @@ namespace ContentManagementSystemDatabase
         public string LastName { get; set; }
 
         public string DisplayName { get; set; }
+
+        public DateTime? LastLogin { get; set; }
     }
 }
