@@ -1,0 +1,49 @@
+﻿@using ContentManagementSystem.Models.Home;
+@model LoginModel
+
+@{
+    bool canRegister = UserSession.CurrentDomain().AllowUserRegistration;
+
+    PageTitle = canRegister ? "Log in / Register" : "Log in";
+    HideSocialButtons = true;
+}
+
+<div class="text-center">
+    <section id="loginForm">
+        @using ( Html.BeginForm( new { ReturnUrl = ViewBag.ReturnUrl } ) )
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary( true )
+
+            <h1>Log in</h1>
+            <fieldset>
+                <dl>
+                    @Html.TextBoxFieldFor( m => m.UserName )
+                    @Html.PasswordFieldFor( m => m.Password )
+                    @*@Html.CheckboxFieldFor( m => m.RememberMe, null, null, true )*@
+                </dl>
+                @Html.SubmitButton( "Log in" )
+            </fieldset>
+        }
+    </section>
+    @if ( canRegister )
+    {
+        <section id="registerForm">
+            @Html.Partial( "Register", new RegisterModel() )
+        </section>
+    }
+</div>
+@section Scripts 
+{
+    @Scripts.Render("~/bundles/jqueryval")
+
+    @if ( Request.Url.LocalPath == "/home/account/login" )
+    {
+    <script>
+        $( function ()
+        {
+            _site.showNotification( apollyon.notificationType.success, "New: You can now directly navigate to '/login' instead to login!", 10000 );
+        });
+    </script>
+    }
+}

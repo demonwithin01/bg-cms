@@ -1,0 +1,165 @@
+﻿@using ContentManagementSystem.Framework.Models.HomePage;
+@using ContentManagementSystem.Framework.Models.HomePage.ContentTypes;
+@model Ribbon
+
+@{
+    Model.Items = Model.Items ?? new List<RibbonItem>();
+}
+
+@helper RenderColumnInput( string idIndex, string nameIndex, string columnIndex, string contentJson, ContentType contentType )
+{
+    @Html.DropDownList( nameIndex + "Columns[" + columnIndex + "].ContentType", CreateSimpleSelectList.FromEnum<ContentType>( contentType ), new { id = idIndex + "Columns_" + columnIndex + "__ContentType", @class = "content-type" } )
+    @Html.Hidden( nameIndex + "Columns[" + columnIndex + "].ContentJson", contentJson, new { @class = "content-json" } )
+}
+
+@helper RenderRibbonItem( RibbonItem ribbonItem, string index )
+{
+string idIndex = "Items_" + index + "__";
+string nameIndex = "Items[" + index + "].";
+string backgroundColor = ribbonItem.Background ?? "transparent";
+string height = ribbonItem.Height;
+
+if( string.IsNullOrEmpty( height ) )
+{
+    height = "60px";
+}
+else if( height.EndsWith( "px" ) == false && height != "auto" )
+{
+    height += "px";
+}
+
+    <div class="ribbon-item editable @( ribbonItem.RemovePadding ? "no-padding" : "" )" data-index="@index" style="background-color: @backgroundColor; height: @height;">
+        <div class="b-grid">
+            @for( int i = 0 ; i < ribbonItem.Columns.Count ; i++ )
+            {
+                <div class="editable b-width-1-@ribbonItem.Columns.Count">
+                    <div class="open-editable-content">
+                        @Html.DisplayFor( m => ribbonItem.Columns[ i ].Content )
+                    </div>
+                    @RenderColumnInput( idIndex, nameIndex, i.ToString(), ribbonItem.Columns[ i ].ContentJson, ribbonItem.Columns[ i ].ContentType )
+                </div>
+            }
+        </div>
+        <div class="ribbon-item-tools">
+            <input type="hidden" id="@( idIndex + "Height" )" name="@( nameIndex + "Height" )" value="@height" />
+            <div class="ribbon-item-template ui-front">
+                @Html.DropDownList( nameIndex + "Layout", CreateSimpleSelectList.FromEnum<RibbonColumns>( ribbonItem.Layout ), new { id = idIndex + "Layout", @class = "column-layout" } )
+                @Html.DropDownList( nameIndex + "RemovePadding", CreateSimpleSelectList.ForBoolean( ribbonItem.RemovePadding, "No Padding", "Padded" ), new { id = idIndex + "RemovePadding", @class = "padding-option" } )
+                @Html.DropDownList( nameIndex + "RibbonLink", CreateSelectList.NavPages( ribbonItem.RibbonLink ), "None", new { id = idIndex + "RibbonLink", @class = "link-option" } )
+            </div>
+            <div class="remove-ribbon-item">
+                <i class="fa fa-close"></i>
+            </div>
+            <div class="ribbon-item-color-picker">
+                <input id="@( idIndex + "Background" )" name="@( nameIndex + "Background" )" type="hidden" value="@backgroundColor" />
+                <input type="color" />
+            </div>
+            <div class="ribbon-item-height">
+                Height: <span>@height</span>
+            </div>
+            <div class="adjust-height"></div>
+        </div>
+    </div>
+}
+
+<div id="ribbon-items">
+    @for( int i = 0 ; i < Model.Items.Count ; i++ )
+    {
+        @RenderRibbonItem( Model.Items[ i ], i.ToString() )
+    }
+</div>
+
+@Html.Button( "Add Item", ButtonType.Secondary, "add-ribbon-item" )
+
+<div id="ribbon-item-template" style="display: none;">
+    @{
+        RibbonItem template = new RibbonItem();
+        template.Columns.Add( new RibbonItemContent() );
+    }
+    @RenderRibbonItem( template, "template" )
+</div>
+
+<div id="ribbon-column-input-template" style="display: none">
+    @RenderColumnInput( "Items_template__", "Items[template].", "COLTEMP", "{}", ContentType.EditableContent )
+</div>
+
+<div id="columnPopup" style="display: none;">
+    <div class="modal-content">
+        <textarea id="columnContent"></textarea>
+        <div class="button-list text-right margin-top">
+            @Html.Button( "Cancel", ButtonType.Cancel, "cancelColumnContent" )
+            @Html.Button( "Accept", ButtonType.Primary, "acceptColumnContent" )
+        </div>
+    </div>
+</div>
+
+<div id="editorModal" style="display: none;">
+
+</div>
+
+<script>
+
+    $( function ()
+    {
+        var currentGrid = undefined;
+
+        window.getCurrentGridItem = function ()
+        {
+            return currentGrid;
+        }
+
+        var ribbonAdmin = new apollyon.RibbonAdmin( { ribbonCount: @Model.Items.Count } );
+        var editorPopup = new apollyon.EditorPopup( "columnContent" );
+        var editorModal = $( "#editorModal" ).bgmodal({
+            autoOpen: false,
+            url: "/admin/home-page/edit/editor-modal",
+            urlType: "POST",
+            urlData: function ()
+            {
+                return {
+                    contentType: currentGrid.siblings( ".content-type" ).val(),
+                    json: currentGrid.siblings( ".content-json" ).val()
+                }
+            }
+        });
+
+        $( "#ribbon-item-template" ).find( "input, select" ).attr( "disabled", "disabled" );
+
+        $(document).on( "click", ".ribbon-item > .b-grid .open-editable-content", function ()
+        {
+            currentGrid = $( this );
+
+            switch( currentGrid.siblings( ".content-type" ).val() )
+            {
+                case "1":
+                    editorModal.bgmodal( "open" );
+                    
+                    //$.post( "/admin/home-page/edit/banner-editor", currentGrid.serializeArray(), function ( data )
+                    //{
+
+                    //} );
+                    break;
+                default:
+                    var html = JSON.parse( currentGrid.siblings( ".content-json" ).val() ).html;
+                    html = decodeURIComponent( html );
+                    editorPopup.openModal( html, function ( html )
+                    {
+                        currentGrid.siblings( ".content-json" ).val( JSON.stringify( { html: encodeURIComponent( html ) } ) );
+                        currentGrid.find( ".ribbon-editable-content" ).html(html);
+                    });
+                    break;
+            }
+        } );
+
+        $( "#add-ribbon-item" ).on( "click", function ()
+        {
+            ribbonAdmin.createRibbon();
+        } );
+
+        $(document).on( "click", ".remove-ribbon-item", function ()
+        {
+            ribbonAdmin.removeRibbon( $( this ).closest( ".ribbon-item" ) );
+        } );
+    } );
+
+</script>

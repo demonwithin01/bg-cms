@@ -10,6 +10,7 @@ using System.Web.Routing;
 using System.Web.Security;
 using ContentManagementSystemDatabase;
 using WebMatrix.WebData;
+using ContentManagementSystem.Framework;
 
 namespace ContentManagementSystem
 {
@@ -23,6 +24,8 @@ namespace ContentManagementSystem
             Database.SetInitializer<ContentManagementDb>( null );
             WebSecurity.InitializeDatabaseConnection( "ContentManagementSystem", "UserProfile", "UserId", "UserName", false );
 
+            CMSCache.Load();
+
             AreaRegistration.RegisterAllAreas();
 
             GlobalConfiguration.Configure(WebApiConfig.Register);
@@ -30,6 +33,15 @@ namespace ContentManagementSystem
             RouteConfig.RegisterRoutes( RouteTable.Routes );
             BundleConfig.RegisterBundles( BundleTable.Bundles );
             AuthConfig.RegisterAuth();
+
+            RegisterLog4Net();
+        }
+
+        private void RegisterLog4Net()
+        {
+            log4net.Config.XmlConfigurator.Configure();
+            log4net.GlobalContext.Properties[ "loggedInUserId" ] = null;
+            log4net.GlobalContext.Properties[ "domain" ] = null;
         }
     }
 }

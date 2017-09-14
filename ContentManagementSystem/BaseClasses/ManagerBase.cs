@@ -6,10 +6,19 @@ using System.Web;
 
 namespace ContentManagementSystem.BaseClasses
 {
+    /// <summary>
+    /// Provides the bases for a data manager.
+    /// </summary>
     public class ManagerBase
     {
+        /// <summary>
+        /// Holds a reference to a database instance.
+        /// </summary>
         private ContentManagementDb _db;
 
+        /// <summary>
+        /// Gets an instance of the database.
+        /// </summary>
         public ContentManagementDb Database
         {
             get

@@ -1,0 +1,80 @@
+﻿@import (reference) "_variables.less";
+@import (reference) "_mixins.functions.less";
+
+/** START: Padding **/
+.padding-page
+{
+    padding: @padding-page;
+}
+
+.padding-page-top
+{
+    padding-top: @padding-page;
+}
+
+.padding-page-right
+{
+    padding-right: @padding-page;
+}
+
+.padding-page-bottom
+{
+    padding-bottom: @padding-page;
+}
+
+.padding-page-left
+{
+    padding-left: @padding-page;
+}
+
+.padding-page-hor
+{
+    padding-left: @padding-page;
+    padding-right: @padding-page;
+}
+    
+.padding-page-vert
+{
+    padding-bottom: @padding-page;
+    padding-top: @padding-page;
+}
+
+.generate-padding(5);
+.generate-padding(10);
+.generate-padding(15);
+.generate-padding(20);
+/** END: Padding **/
+
+.text-left
+{
+    text-align: left;
+}
+
+.text-center
+{
+    text-align: center;
+}
+
+.text-right
+{
+    text-align: right;
+}
+
+.floated-left
+{
+    float: left;
+    margin-right: @site-grid-spacing;
+}
+
+.floated-right
+{
+    float: right;
+    margin-left: @site-grid-spacing;
+}
+
+.center-vertically
+{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}

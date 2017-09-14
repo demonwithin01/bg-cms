@@ -6,18 +6,20 @@
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <meta name="viewport" content="width=device-width" />
         @Styles.Render( "~/Content/admincss" )
-        @Scripts.Render( "~/bundles/modernizr" )
-        @Scripts.Render( "~/bundles/jquery" )
-        @Scripts.Render( "~/bundles/jqueryval" )
+        <script type="text/javascript">
+            var CKEDITOR_BASEPATH = '/content/scripts/plugins/ckeditor/';
+        </script>
+        @Scripts.Render( "~/bundles/external" )
         @Scripts.Render( "~/bundles/siteadmin" )
         @Scripts.Render( "~/bundles/site" )
+        <script type="text/javascript" src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/blitzer/jquery-ui.css" />
     </head>
-    <body>
-        <img class="page-background" src="/Images/Backgrounds/background.png" />
+    <body class="admin">
         <header class="always-open">
             <nav>
                 <div class="nav-content">
-                    @using ( Html.BeginForm( "LogOff", "Account", new { Area = "Home" } ) )
+                    @using ( BeginUrlForm( "/logoff" ) )
                     {
                         @Html.AntiForgeryToken()
                         <span onclick="$(this).parent().submit();" class="logged-in-button">
@@ -35,7 +37,7 @@
                         </li>
                         <li class="off">
                             <div class="nav-link">
-                                <a href="@Url.Action( "Index", "Home", new { Area = "Admin" } )">Admin Home</a>
+                                <a href="/admin">Admin Home</a>
                             </div>
                         </li>
                         <li class="off">
@@ -46,18 +48,18 @@
                                         <ul>
                                             <li>
                                                 <div class="nav-link">
-                                                    <a href="@Url.Action( "List", "Navigation", new { Area = "Admin" } )">Edit nav items</a>
+                                                    <a href="/admin/navigation/list">Edit nav items</a>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="nav-link">
-                                                    <a href="@Url.Action( "Edit", "Navigation", new { Area = "Admin" } )">Add new nav item</a>
+                                                    <a href="/admin/navigation/create">Add new nav item</a>
                                                 </div>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
-                                <a href="@Url.Action( "List", "Navigation", new { Area = "Admin" } )">Nav Items</a>
+                                <a href="/admin/navigation/list">Nav Items</a>
                             </div>
                         </li>
                         <li class="off">
@@ -68,40 +70,18 @@
                                         <ul>
                                             <li>
                                                 <div class="nav-link">
-                                                    <a href="@Url.Action( "List", "Page", new { Area = "Admin" } )">View pages</a>
+                                                    <a href="/admin/page/list">View pages</a>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="nav-link">
-                                                    <a href="@Url.Action( "Create", "Page", new { Area = "Admin" } )">Add new page</a>
+                                                    <a href="/admin/page/create">Add new page</a>
                                                 </div>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
-                                <a href="@Url.Action( "List", "Page", new { Area = "Admin" } )">Pages</a>
-                            </div>
-                        </li>
-                        <li class="off">
-                            <div class="nav-link">
-                                <div class="sub-nav-selector">
-                                    <i class="fa fa-angle-right"></i>
-                                    <div class="sub-nav">
-                                        <ul>
-                                            <li>
-                                                <div class="nav-link">
-                                                    <a href="@Url.Action( "List", "Product", new { Area = "Admin" } )">View products</a>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="nav-link">
-                                                    <a href="@Url.Action( "Create", "Product", new { Area = "Admin" } )">Add new product</a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <a href="@Url.Action( "List", "Product", new { Area = "Admin" } )">Products</a>
+                                <a href="/admin/page/list">Pages</a>
                             </div>
                         </li>
                     </ul>
@@ -116,8 +96,16 @@
         </header>
         <div class="page-content">
             <div id="body" class="content-wrapper">
-                <section class="main-content clear-fix">
-                    @RenderBody()
+                <section class="main-content clear-fix @If( UseFullWidth, "full-screen", "has-tools" )">
+                    <div class="page-content-wrapper">
+                        @RenderBody()
+                    </div>
+                    @if ( UseFullWidth == false )
+                    {
+                    <div class="page-content-tools">
+                        @RenderSection( "tools", false )
+                    </div>
+                    }
                 </section>
             </div>
         </div>
@@ -127,7 +115,7 @@
 
             $(function ()
             {
-                _site = new Site();
+                _site = new apollyon.Site();
             });
         </script>
     </body>

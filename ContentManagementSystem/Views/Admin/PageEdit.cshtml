@@ -1,0 +1,87 @@
+﻿@using ContentManagementSystem.Helpers;
+@model ContentManagementSystem.Admin.Models.PageModel
+@{
+    PageTitle = ( Model.PageId.HasValue ? "Edit" : "Add" ) + " Page";
+    SelectListGenerator generator = new SelectListGenerator();
+
+    string formName = "pageForm";
+}
+
+<h2>@PageTitle</h2>
+
+@using ( Html.NamedForm( formName ) )
+{
+    @Html.HiddenFor( m => m.PageId )
+    @Html.HiddenFor( m => m.Publish )
+
+    <div>
+        <dl class="horizontal-controls">
+            @Html.DropDownListFieldFor( m => m.ModelType, generator.PageTemplates( Model.ModelType ) )
+            @Html.TextBoxFieldFor( m => m.Title )
+        </dl>
+    </div>
+    <div id="page-template">
+        @Html.Partial( Model.PageTemplateModel.EditorLocation, Model.PageTemplateModel )
+    </div>
+}
+
+@section tools
+{
+    <h2>Options</h2>
+    <div class="button-list block-buttons">
+        @Html.SubmitButtonFor( formName, "Save as Draft", "saveDraft", ButtonType.Secondary )
+        @Html.SubmitButtonFor( formName, "Save & Publish", "savePublish", ButtonType.Primary )
+    </div>
+}
+
+@section scripts
+{
+    <script>
+        $(function ()
+        {
+            var currentAjax = 0;
+
+            $( "#saveDraft" ).on( "click", function ()
+            {
+                $( "#Publish" ).val( "false" );
+                $( "form" ).submit();
+            } );
+
+            $( "#savePublish" ).on( "click", function ()
+            {
+                $( "#Publish" ).val( "true" );
+                $( "form" ).submit();
+            } );
+
+            $( "#ModelType" ).on( "change", function ()
+            {
+                var modelType = $( this ).val();
+
+                var ajax = ++currentAjax;
+
+                $.get( "/admin/page/change-page-template/" + modelType, function ( data )
+                {
+                    if ( ajax != currentAjax )
+                    {
+                        return;
+                    }
+
+                    var formData = $( "form" ).serializeArray();
+
+                    $( "#page-template" ).html( data );
+
+                    for ( var i = 0; i < formData.length; i++ )
+                    {
+                        var name = formData[i].name;
+                        var value = formData[i].value;
+
+                        if ( name.indexOf( "PageTemplateModel" ) == 0 )
+                        {
+                            $( "[name=\"" + name + "\"]" ).val( value );
+                        }
+                    }
+                } );
+            } );
+        });
+    </script>
+}

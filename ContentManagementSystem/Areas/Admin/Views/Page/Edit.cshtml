@@ -1,6 +1,8 @@
-﻿@model ContentManagementSystem.Admin.Models.PageModel
+﻿@using ContentManagementSystem.Helpers;
+@model ContentManagementSystem.Admin.Models.PageModel
 @{
     PageTitle = ( Model.PageId.HasValue ? "Edit" : "Add" ) + " Page";
+    SelectListGenerator generator = new SelectListGenerator();
 }
 
 <h2>@PageTitle</h2>
@@ -9,12 +11,20 @@
 {
     @Html.HiddenFor( m => m.PageId )
     @Html.HiddenFor( m => m.Publish )
-    <dl>
-        @Html.TextBoxFieldFor( m => m.Title )
-        @Html.TextAreaFieldFor( m => m.Content )
-    </dl>
-    @Html.Button( "Save as Draft", "saveDraft" )
-    @Html.Button( "Save & Publish", "savePublish" )
+
+    <div>
+        <div class="button-list text-right">
+            @Html.Button( "Save as Draft", ButtonType.Secondary, "saveDraft" )
+            @Html.Button( "Save & Publish", ButtonType.Primary, "savePublish" )
+        </div>
+        @Html.DropDownListFieldFor( m => m.ModelType, generator.PageTemplates( Model.ModelType ) )
+        <dl>
+            @Html.TextBoxFieldFor( m => m.Title )
+        </dl>
+    </div>
+    <div id="page-template">
+        @Html.Partial( Model.PageTemplateModel.EditorLocation, Model.PageTemplateModel )
+    </div>
 }
 
 @section scripts
@@ -22,8 +32,6 @@
     <script>
         $(function ()
         {
-            CKEDITOR.replace('Content');
-
             $( '#saveDraft' ).on( 'click', function ()
             {
                 $( '#Publish' ).val( 'false' );

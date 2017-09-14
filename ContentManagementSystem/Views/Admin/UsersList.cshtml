@@ -1,0 +1,39 @@
+﻿@model ContentManagementSystem.Admin.Models.UsersListModel
+@{
+    PageTitle = "Users";
+}
+
+<table>
+    <thead>
+        <tr>
+            <th class="text-left">Username</th>
+            <th class="text-left">Email</th>
+            <th class="text-left date-with-name-column">Last Login</th>
+            @*<th class="text-right options-column">Options</th>*@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ( var user in Model.Users )
+        { 
+            <tr>
+                <td class="text-left">
+                    @user.Username
+                </td>
+                <td class="text-left">
+                    @user.EmailAddress
+                </td>
+                <td class="text-left date-with-name-column">
+                    @( user.LastLogin.HasValue ? user.LastLogin.Value.ToString( "dddd dd/MM/yyyy hh:mm tt" ) : "Never" )
+                </td>
+                @*<td class="text-right options-column">
+                    <a href="@Url.Action( "ViewUser", "User", new { Area = "Admin", id = user.UserId } )" class="table-button">Edit</a>
+                </td>*@
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4"></td>
+        </tr>
+    </tfoot>
+</table>

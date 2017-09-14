@@ -1,0 +1,24 @@
+﻿@model ContentManagementSystem.Admin.Models.NavigationModel
+@{
+    PageTitle = ( Model.DomainNavigationItemId.HasValue ? "Edit" : "Add" ) + " Navigation Item";
+}
+
+<h2>@PageTitle</h2>
+
+@using ( Html.NamedForm( "navItemForm" ) )
+{
+    @Html.HiddenFor( m => m.DomainNavigationItemId )
+    <dl class="horizontal-controls">
+        @Html.TextBoxFieldFor( m => m.Title )
+        @Html.DropDownListFieldFor( m => m.PageId, Model.GetAvailablePages(), "Please select" )
+        @Html.DropDownListFieldFor( m => m.ParentDomainNavigationItemId, Model.GetRootNavItems(), "(Optional) Please select" )
+    </dl>
+}
+
+@section tools
+{
+    <h2>Options</h2>
+    <div class="button-list block-buttons">
+        @Html.SubmitButtonFor( "navItemForm", "Save" )
+    </div>
+}

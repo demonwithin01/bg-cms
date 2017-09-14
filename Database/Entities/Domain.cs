@@ -50,11 +50,27 @@ namespace ContentManagementSystemDatabase
         [Key, DatabaseGenerated( DatabaseGeneratedOption.Identity )]
         public int DomainId { get; set; }
 
+        [ForeignKey( "BackgroundUpload" )]
+        public int? BackgroundUploadId { get; set; }
+        public virtual Upload BackgroundUpload { get; set; }
+
+        [ForeignKey( "LogoUpload" )]
+        public int? LogoUploadId { get; set; }
+        public virtual Upload LogoUpload { get; set; }
+
         public string DomainUrl { get; set; }
 
         [DatabaseGenerated( DatabaseGeneratedOption.Identity )]
         public Guid UploadFolder { get; set; }
 
+        public string Name { get; set; }
+
+        public string EmailAddress { get; set; }
+
+        public bool AllowUserRegistration { get; set; }
+
+        public string Theme { get; set; }
+        
         #endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */

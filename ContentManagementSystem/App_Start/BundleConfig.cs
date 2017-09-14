@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using System.IO;
+using System.Web;
 using System.Web.Optimization;
 
 namespace ContentManagementSystem
@@ -8,71 +9,61 @@ namespace ContentManagementSystem
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles( BundleCollection bundles )
         {
-            bundles.Add( new ScriptBundle( "~/bundles/jquery" ).Include(
-                        "~/Scripts/Frameworks/jquery-{version}.js" ) );
-
-            bundles.Add( new ScriptBundle( "~/bundles/jqueryui" ).Include(
-                        "~/Scripts/Frameworks/jquery-ui-{version}.js" ) );
-
-            bundles.Add( new ScriptBundle( "~/bundles/jqueryval" ).Include(
-                        "~/Scripts/Frameworks/jquery.unobtrusive*",
-                        "~/Scripts/Frameworks/jquery.validate*" ) );
-
+            bundles.Add( new ScriptBundle( "~/bundles/external" ).Include(
+                "~/Content/Scripts/Frameworks/modernizr-*",
+                "~/Content/Scripts/Frameworks/jquery-{version}.js", 
+                "~/Content/Scripts/Frameworks/jquery.unobtrusive*",
+                "~/Content/Scripts/Frameworks/jquery.validate*",
+                "~/Content/Scripts/Plugins/jssocials.min.js" ) );
+            
             bundles.Add( new ScriptBundle( "~/bundles/siteadmin" ).Include(
-                        "~/Scripts/Plugins/ckeditor/ckeditor.js"
-                        //"~/Scripts/Plugins/ckeditor/styles.js",
-                        //"~/Scripts/Plugins/ckeditor/config.js"
-                        ) );
+                        "~/Content/Scripts/Plugins/ckeditor/ckeditor.js",
+                        //"~/Content/Scripts/Plugins/ckeditor/styles.js",
+                        //"~/Content/Scripts/Plugins/ckeditor/config.js"
+                        "~/Content/Scripts/Plugins/spectrum.js",
+                        "~/Content/Scripts/Plugins/dropzone.js"
+                    )
+                    .IncludeDirectory( "~/Content/Scripts/Apollyon/Admin/", "*.js" ) );
 
-            // Use the development version of Modernizr to develop with and learn from. Then, when you're
-            // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-            bundles.Add( new ScriptBundle( "~/bundles/modernizr" ).Include(
-                        "~/Scripts/Frameworks/modernizr-*" ) );
-
-            bundles.Add( new ScriptBundle( "~/bundles/site" ).Include(
-                        "~/Scripts/site.contact.js",        
-                        "~/Scripts/site.notification.js",
-                        "~/Scripts/site.animations.js",
-                        "~/Scripts/site.image-browser.js",
-                        "~/Scripts/site.js" ) );
-
-            //bundles.Add( new ScriptBundle( "~/bundles/siteadmin" ).Include(
-            //            "~/Scripts/Plugins/dropzone.js" ) );
-
-            bundles.Add( new ScriptBundle( "~/bundles/filedrop" ).Include(
-                        "~/Scripts/Plugins/dropzone.js" ) );
+            bundles.Add( new ScriptBundle( "~/bundles/site" )
+                            .Include(
+                                "~/Content/Scripts/Extensions/jquery.js",
+                                AScript( "Extensions/carousel" ),
+                                AScript( "Extensions/modal" ),
+                                AScript( "Extensions/loading" ),
+                                AScript( "Extensions/load" ),
+                                AScript( "site.types" ),
+                                AScript( "Bases/_page-section" ),
+                                AScript( "Bases/plugin" ),
+                                AScript( "site" ),
+                                AScript( "Workers/ImageBrowser" ),
+                                AScript( "Workers/Ribbon" ),
+                                AScript( "Workers/TemplateEditor" ),
+                                AScript( "Workers/UploadSelector" ) )
+                            .IncludeDirectory( "~/Content/Scripts/Apollyon/PageSections/", "*.js", false )
+                            .IncludeDirectory( "~/Content/Scripts/Apollyon/PageSections/banners", "*.js" ) );
 
             bundles.Add( new ScriptBundle( "~/bundles/image-upload-page" ).Include(
-                                            "~/Scripts/Frameworks/modernizr-*",
-                                            "~/Scripts/Frameworks/jquery-{version}.js",
-                                            "~/Scripts/Frameworks/jquery-migrate-1.2.1.min.js",
-                                            "~/Scripts/Frameworks/jquery-ui-{version}.js",
-                                            "~/Scripts/Frameworks/jquery.unobtrusive*",
-                                            "~/Scripts/Frameworks/jquery.validate*",
-                                            "~/Scripts/Frameworks/jquery.form.js",
-                                            "~/Scripts/site.image-browser.js"
+                                            "~/Content/Scripts/Frameworks/modernizr-*",
+                                            "~/Content/Scripts/Frameworks/jquery-{version}.js",
+                                            "~/Content/Scripts/Frameworks/jquery-migrate-1.2.1.min.js",
+                                            "~/Content/Scripts/Frameworks/jquery-ui-{version}.js",
+                                            "~/Content/Scripts/Frameworks/jquery.unobtrusive*",
+                                            "~/Content/Scripts/Frameworks/jquery.validate*",
+                                            "~/Content/Scripts/Frameworks/jquery.form.js",
+                                            AScript( "Workers/ImageBrowser" )
                                         ) );
 
-#if !DEBUG
-            bundles.Add( new StyleBundle( "~/Content/css" ).Include( 
-                "~/Content/Styles/_reset.min.css",
-                "~/Content/Styles/site.min.css" ) );
-#else
-            bundles.Add( new StyleBundle( "~/Content/css" ).Include( 
-                "~/Content/Styles/_reset.min.css",
-                "~/Content/Styles/site.css" ) );
-#endif
-
-#if !DEBUG
-            bundles.Add( new StyleBundle( "~/Content/admincss" ).Include( 
-                "~/Content/Styles/_reset.min.css",
-                "~/Content/Styles/admin.min.css" ) );
-#else
+            bundles.Add( new StyleBundle( "~/Content/css" ).Include(
+                CssFile( "_reset" ),
+                CssFile( "Plugins/jssocials" ),
+                CssFile( "Plugins/jssocials-theme-flat" ) ) );
+            
             bundles.Add( new StyleBundle( "~/Content/admincss" ).Include(
-                "~/Content/Styles/_reset.min.css",
-                "~/Content/Styles/admin.css" ) );
-#endif
-
+                CssFile( "_reset" ),
+                "~/Content/Styles/Plugins/spectrum.css",
+                CssFile( "admin" ) ) );
+            
             bundles.Add( new StyleBundle( "~/Content/image-browser-css" ).Include(
                 "~/Content/Styles/image-browser.css" ) );
 
@@ -89,6 +80,43 @@ namespace ContentManagementSystem
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css" ) );
+            
+            var themeDirectories = Directory.GetDirectories( HttpContext.Current.Server.MapPath( "~/content/scripts/themes/" ) );
+
+            foreach ( var themeDirectory in themeDirectories )
+            {
+                var directoryName = themeDirectory.Substring( Path.GetDirectoryName( themeDirectory ).Length + 1 );
+
+                bundles.Add( new ScriptBundle( "~/scripts/theme/" + directoryName )
+                    .Include( "~/Content/Scripts/themes/" + directoryName + "/_" + directoryName + ".js" )
+                    .IncludeDirectory( "~/Content/Scripts/themes/" + directoryName, "*.js" ) );
+            }
+        }
+
+        /// <summary>
+        /// Generates the path to the CSS file based off the current DEBUG mode.
+        /// </summary>
+        /// <param name="fileName">The file name and sub-path for the css file.</param>
+        /// <returns>The virtual location of the css file.</returns>
+        private static string CssFile( string fileName )
+        {
+#if DEBUG
+            string fileExtension = ".css";
+#else
+            string fileExtension = ".min.css";
+#endif
+
+            return "~/Content/Styles/" + fileName + fileExtension;
+        }
+
+        /// <summary>
+        /// Generates the path to the Javascript file within the Apollyon scripts folder.
+        /// </summary>
+        /// <param name="filename">The file name ane sub-path for the javascript file.</param>
+        /// <returns>The virtual location of the javascript file.</returns>
+        private static string AScript( string filename )
+        {
+            return "~/Content/Scripts/Apollyon/" + filename + ".js";
         }
     }
 }

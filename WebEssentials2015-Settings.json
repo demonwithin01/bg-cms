@@ -39,7 +39,8 @@
     "MinifyAngularBindingExpressions": false,
     "MinifyKnockoutBindingExpressions": false,
     "ProcessableScriptTypeList": null,
-    "EnableMicrodataValidation": true
+    "EnableMicrodataValidation": true,
+    "PreserveCase": false
   },
   "JavaScript": {
     "BlockCommentCompletion": true,

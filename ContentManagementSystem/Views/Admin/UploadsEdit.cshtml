@@ -1,0 +1,155 @@
+﻿@model ContentManagementSystem.Admin.Models.UploadModel
+@{
+    PageTitle = ( Model.UploadId.HasValue ? "Edit" : "Add" ) + " Upload";
+    string formName = "uploadForm";
+}
+
+<h2>@PageTitle</h2>
+
+@using ( Html.NamedForm( formName ) )
+{
+    @Html.HiddenFor( m => m.UploadId )
+    <dl class="horizontal-controls">
+        @if ( Model.UploadId.HasValue )
+        {
+            @Html.TextBoxFieldFor( m => m.UploadLocation, new { @readonly = "readonly" } )
+        }
+        @Html.TextBoxFieldFor( m => m.Title )
+        @Html.TextAreaFieldFor( m => m.Description, null, null, new { @class = "auto-height" } )
+    </dl>
+    <div id="preview-template" @If( Model.UploadId.HasValue == false, "style=\"display: none;\"" )>
+        <div class="dz-preview dz-file-preview">
+            <div class="dz-details">
+                <dl class="horizontal-controls">
+                    <dt class="new-upload-only" style="display: none;">
+                        <label>Filename</label>
+                    </dt>
+                    <dd class="new-upload-only" style="display: none;">
+                        <input id="previewFilename" type="text" readonly />
+                    </dd>
+                    <dt class="new-upload-only" style="display: none;">
+                        <label>File Size</label>
+                    </dt>
+                    <dd class="new-upload-only" style="display: none;">
+                        <input id="previewFilesize" type="text" readonly />
+                    </dd>
+                    <dt class="new-upload-only" style="display: none;">
+                        <label>Dimensions</label>
+                    </dt>
+                    <dd class="new-upload-only" style="display: none;">
+                        <input id="previewDimensions" type="text" readonly />
+                    </dd>
+                    <dt>
+                        <label>Preview</label>
+                    </dt>
+                    <dd class="auto-height">
+                        <img id="previewImage" style="max-width: 240px; max-height: 240px;" @If( Model.UploadId.HasValue, "src=\"" + Model.UploadLocation + "\"" ) />
+                    </dd>
+                </dl>
+            </div>
+            <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
+            <div class="dz-error-message"><span data-dz-errormessage></span></div>
+        </div>
+    </div>
+    <div id="filedrop" class="drop-zone">
+        <div class="no-file-upload-message">
+            Drag a file here
+            <br />
+            -- Or --
+            <br />
+            Click here to select a file to upload
+        </div>
+    </div>
+}
+
+@section tools
+{
+    <h2>Options</h2>
+    <div id="saveOptions" class="button-list block-buttons">
+        @Html.SubmitButtonFor( formName, "Save Changes" )
+    </div>
+    <div id="uploadOptions" class="button-list block-buttons" style="display: none;">
+        @Html.Button( "Accept & Save", ButtonType.Primary, "acceptUpload" )
+        @Html.Button( "Cancel", ButtonType.Cancel, "cancelUpload" )
+    </div>
+}
+
+@section scripts
+{
+    <script>
+        $( function ()
+        {
+            Dropzone.autoDiscover = false;
+
+            var dropzone = new Dropzone( "#filedrop", {
+                url: "/admin/uploads/edit",
+                paramName: "Upload",
+                acceptedFiles: "image/*",
+                autoProcessQueue: false,
+                maxFilesize: 2,
+                maxFiles: 1,
+                thumbnailWidth: 240,
+                thumbnailHeight: 240,
+                accept: function ( file, done )
+                {
+                    done();
+                },
+                success: function ( uploadResult, data )
+                {
+                    window.location = "/admin/uploads/list";
+                },
+                addedfile: function ( file )
+                {
+                    var fixed = "";
+                    var kb = file.size / 1024;
+
+                    if ( kb > 999 )
+                    {
+                        var mb = kb / 1024;
+
+                        fixed = mb.toFixed( 2 ) + " MB";
+                    }
+                    else
+                    {
+                        fixed = kb.toFixed( 0 ) + " KB";
+                    }
+
+                    $( "#previewFilename" ).val( file.name );
+                    $( "#previewFilesize" ).val( fixed );
+
+                    $( ".new-upload-only" ).show();
+                    $( "#saveOptions" ).hide();
+                    $( "#preview-template" ).show();
+                    $( "#uploadOptions" ).show();
+                },
+                thumbnail: function ( file, dataUrl )
+                {
+                    $( "#previewDimensions" ).val( file.width + "x" + file.height );
+                    $( "#previewImage" ).attr( "src", dataUrl );
+                }
+            } );
+
+            dropzone.on( "sending", function ( file, xhr, formData )
+            {
+                $( "form" ).find( "input, select, textarea" ).each( function ()
+                {
+                    var $this = $( this );
+                    if ( $this.attr( "name" ) )
+                    {
+                        formData.append( $this.attr( "name" ), $this.val() );
+                    }
+                } );
+            } );
+
+            $( document ).on( "click", "#acceptUpload", function ()
+            {
+                dropzone.processQueue();
+            } );
+
+            $( document ).on( "click", "#cancelUpload", function ()
+            {
+                dropzone.removeAllFiles();
+            } );
+        } );
+    </script>
+}

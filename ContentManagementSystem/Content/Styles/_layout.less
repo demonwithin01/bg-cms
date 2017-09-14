@@ -1,7 +1,8 @@
-﻿@import "_mixins.less";
+﻿@import (reference) "_shared/_common.less";
 
 html, body
 {
+    line-height: @site-line-height;
     min-width: 480px;
 }
 
@@ -15,18 +16,35 @@ html
 
 body
 {
+    .flex-direction(column);
+
     color: #333;
+    display: flex;
     font-size: .85em;
     font-family: Verdana, Helvetica, Sans-Serif;
     margin: 0;
     height: 100%;
     line-height: normal;
+    overflow-y: scroll;
     padding: 0;
+}
+
+a,
+a:link,
+a:visited,
+a:active
+{
+    color: inherit;
 }
 
 p
 {
     margin: @paragraph-margin;
+}
+
+.bg-color
+{
+    background: @site-background-color;
 }
 
 blockquote
@@ -78,10 +96,41 @@ ul
     .box-sizing();
     .transition(padding 0.3s ease);
     .transition-delay(0.3s);
-    background: rgba(255, 255, 255, 0.96);
+    color: @site-font-color;
     clear: both;
+    display: flexbox;
     margin: 0 auto;
-    min-height: 100%;
+    position: relative;
+    width: 100%;
+
+    &.on
+    {
+        .main-content
+        {
+            opacity: 1;
+        }
+    }
+
+    //&.home-page-content,
+    /*&.no-background-image
+    {
+        background: @site-background-color;
+    }
+
+    .page-content
+    {
+        background: @site-background-color;
+    }*/
+
+    .main-content
+    {
+        .transition(opacity 0.3s ease);
+        opacity: 0;
+    }
+}
+
+.page-header-wrapper
+{
     position: relative;
     width: 100%;
 }
@@ -89,16 +138,11 @@ ul
 .page-header
 {
     .transition(all 0.3s ease);
-    background: #f2f2f2;
-    border-bottom: 1px solid #434343;
+    //border-bottom: 1px solid @nav-background;
     font-size: 2em;
     font-weight: bold;
-    left: 0;
     line-height: 1em;
-    padding: @title-padding;
-    position: absolute;
-    right: 0;
-    top: 0;
+    //padding: @title-padding;
     z-index: 1;
 
     & ~ #body
@@ -110,15 +154,12 @@ ul
     {
         .box-sizing();
 
+        //background: @site-background-color;
         font-size: inherit;
+        height: 100%;
         margin: 0 auto;
-        padding: 0 10px;
+        padding: @title-padding 10px;
     }
-}
-
-.content-wrapper
-{
-    padding: 20px;
 }
 
 .page-background
@@ -133,10 +174,30 @@ ul
     z-index: -1;
 }
 
-.page-content-wrapper .page-content, .page-header > h1
+.page-content-wrapper .page-content
 {
     width: 545px;
 }
+
+.page-header > h1
+{
+    background: @site-background-color;
+    color: @site-font-color;
+    text-align: center;
+}
+
+/*.page-content-wrapper > .page-content,
+.page-header > h1
+{
+    border-left: 1px solid @site-background-frame-color;
+    border-right: 1px solid @site-background-frame-color;
+    box-sizing: border-box;
+}
+
+.page-header > h1
+{
+    border-top: 1px solid @site-background-frame-color;
+}*/
 
 .page-content-wrapper
 {
@@ -144,11 +205,32 @@ ul
 
     .page-content
     {
-        display: inline-block;
+        display: block;
+        margin: 0 auto;
         text-align: left;
+
+        .page-content
+        {
+            width: 100%;
+        }
 
         .page-inner-content
         {
+            background: @site-background-color;
+            border: 1px solid @site-font-color-light;
+            border-radius: 3px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            margin-top: 20px;
+
+            &.no-background
+            {
+                background: transparent;
+                border: 0;
+                border-radius: 0;
+                box-shadow: none;
+                margin-top: 20px;
+            }
+
             img
             {
                 width: 100%;
@@ -157,10 +239,70 @@ ul
     }
 }
 
+.block
+{
+    display: block;
+}
+
+.inline
+{
+    display: inline;
+}
+
+.inline-block
+{
+    display: inline-block;
+}
+
+.margin-top
+{
+    margin-top: @site-grid-spacing;
+}
+
+.margin-right
+{
+    margin-right: @site-grid-spacing;
+}
+
+.margin-bottom
+{
+    margin-bottom: @site-grid-spacing;
+}
+
+.margin-left
+{
+    margin-left: @site-grid-spacing;
+}
+
+.margin-top-1em
+{
+    margin-top: 1em;
+}
+
+.padding-top
+{
+    padding-top: @site-grid-spacing;
+}
+
+.padding-right
+{
+    padding-right: @site-grid-spacing;
+}
+
+.padding-bottom
+{
+    padding-bottom: @site-grid-spacing;
+}
+
+.padding-left
+{
+    padding-left: @site-grid-spacing;
+}
+
 
 @media only screen and (min-width: 1120px)
 {
-    .page-content-wrapper .page-content, .page-header > h1
+    .page-content-wrapper .page-content
     {
         width: 820px;
     }
@@ -168,7 +310,7 @@ ul
 
 @media only screen and (min-width: 1450px)
 {
-    .page-content-wrapper .page-content, .page-header > h1
+    .page-content-wrapper .page-content
     {
         width: 1095px;
     }
@@ -176,7 +318,7 @@ ul
 
 @media only screen and (min-width: 1680px)
 {
-    .page-content-wrapper .page-content, .page-header > h1
+    .page-content-wrapper .page-content
     {
         width: 1370px;
     }

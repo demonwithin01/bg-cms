@@ -1,5 +1,17 @@
-﻿@import "_variables.less";
-@import "_mixins.less";
+﻿@import (reference) "_shared/_common.less";
+
+.block-buttons .button
+{
+    display: block;
+    margin: 0 0 15px 0;
+    padding: 15px;
+    width: 100%;
+
+    & +.button
+    {
+        margin-left: 0;
+    }
+}
 
 .button
 {
@@ -67,6 +79,30 @@
         &:hover
         {
             background: lighten(@button-cancel-background-color, 10%);
+        }
+    }
+
+    &.text
+    {
+        border-bottom: 1px solid transparent;
+        color: @site-feature-color;
+        padding: 0;
+
+        .transition(all 0.1s ease);
+
+        &:hover
+        {
+            border-bottom-color: @site-feature-color;
+        }
+
+        &.on-background
+        {
+            color: @site-feature-font-color;
+
+            &:hover
+            {
+                border-bottom-color: @site-feature-font-color;
+            }
         }
     }
 }

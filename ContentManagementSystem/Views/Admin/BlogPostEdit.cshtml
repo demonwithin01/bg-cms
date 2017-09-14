@@ -1,0 +1,52 @@
+﻿@model ContentManagementSystem.Admin.Models.BlogPostModel
+@{
+    PageTitle = ( Model.BlogId.HasValue ? "Edit" : "Add" ) + " Blog Post";
+
+    string formName = "blogForm";
+}
+
+<h2>@PageTitle</h2>
+
+@using ( Html.NamedForm( formName ) )
+{
+    @Html.HiddenFor( m => m.BlogId )
+    @Html.HiddenFor( m => m.Publish )
+    <dl class="horizontal-controls">
+        @Html.TextBoxFieldFor( m => m.Title )
+    </dl>
+    <dl class="horizontal-controls text-area-control">
+        @Html.TextAreaFieldFor( m => m.Content )
+    </dl>
+    
+}
+
+@section tools
+{
+    <h2>Options</h2>
+    <div class="button-list block-buttons">
+        @Html.SubmitButtonFor( formName, "Save as Draft", "saveDraft", ButtonType.Secondary )
+        @Html.SubmitButtonFor( formName, "Save & Publish", "savePublish", ButtonType.Primary )
+    </div>
+}
+
+@section scripts
+{
+    <script>
+        $(function ()
+        {
+            CKEDITOR.replace('Content');
+
+            $( '#saveDraft' ).on( 'click', function ()
+            {
+                $( '#Publish' ).val( 'false' );
+                $( 'form' ).submit();
+            } );
+
+            $( '#savePublish' ).on( 'click', function ()
+            {
+                $( '#Publish' ).val( 'true' );
+                $( 'form' ).submit();
+            } );
+        });
+    </script>
+}

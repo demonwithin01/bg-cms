@@ -1,0 +1,21 @@
+﻿@model ContentManagementSystem.Models.Home.IndexModel
+
+@{
+    PageTitle = Model.Title;
+    IsHomePage = true;
+}
+
+@Html.Partial( Model.HomePageTemplateModel.DisplayLocation ?? "HomePageTemplates/Ribbon", Model.HomePageTemplateModel )
+
+@if ( UserSession.DomainId == 1 )
+{
+    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
+    <script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us15.list-manage.com","uuid":"8798c81a6bfc411061ed3f003","lid":"d973cde1aa"}) })</script>
+}
+
+<script>
+    $( function ()
+    {
+        @Html.RenderSectionInitialisers()
+    } );
+</script>

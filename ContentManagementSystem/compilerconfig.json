@@ -16,5 +16,13 @@
   {
     "outputFile": "Content/Styles/image-browser.css",
     "inputFile": "Content/Styles/image-browser.less"
+  },
+  {
+    "outputFile": "Content/Styles/themes/outofmars.css",
+    "inputFile": "Content/Styles/themes/outofmars.less"
+  },
+  {
+    "outputFile": "Content/Styles/themes/rachelsheree.css",
+    "inputFile": "Content/Styles/themes/rachelsheree.less"
   }
 ]

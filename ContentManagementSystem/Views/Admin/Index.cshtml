@@ -1,0 +1,57 @@
+﻿@{
+    PageTitle = "Admin";
+}
+
+@helper RenderStandardAdminTiles( string title, string controller )
+{
+    <li>
+        <a class="manage-link" href="/admin/@controller/list">
+            Manage @title
+        </a>
+        <a class="create-link" href="/admin/@controller/create">
+            <span class="admin-link-icon"><i class="fa fa-plus"></i></span>
+        </a>
+    </li>
+}
+
+@helper RenderManageAdminTile( string title, string controller )
+{
+    <li>
+        <a class="manage-link" href="/admin/@controller/list">
+            Manage @title
+        </a>
+    </li>
+}
+
+@helper RenderEditAdminTile( string title, string controller )
+{
+    <li>
+        <a class="manage-link" href="/admin/@controller/edit">
+            Edit @title
+        </a>
+    </li>
+}
+<h2>Admin</h2>
+<div class="admin-home-nav-items">
+    <div class="admin-home-nav-section-container">
+        <div class="admin-home-nav-section">
+            <h3>Content</h3>
+            <ul>
+                @RenderEditAdminTile( "Home Page", "home-page" )
+                @RenderStandardAdminTiles( "Nav Menu", "navigation" )
+                @RenderStandardAdminTiles( "Pages", "page" )
+                @RenderStandardAdminTiles( "Blog Posts", "blog-post" )
+                @RenderStandardAdminTiles( "Uploads", "uploads" )
+            </ul>
+        </div>
+    </div>
+    <div class="admin-home-nav-section-container">
+        <div class="admin-home-nav-section">
+            <h3>Site Management</h3>
+            <ul>
+                @RenderEditAdminTile( "Domain Settings", "domain" )
+                @RenderManageAdminTile( "Users", "users" )
+            </ul>
+        </div>
+    </div>
+</div>

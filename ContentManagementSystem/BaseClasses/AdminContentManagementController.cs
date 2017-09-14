@@ -8,10 +8,20 @@ using ContentManagementSystemDatabase;
 
 namespace ContentManagementSystem.BaseClasses
 {
-    public class AdminContentManagementController<T> : ContentManagementController where T : new()
+    /// <summary>
+    /// The admin content controller admin, providing a manager
+    /// </summary>
+    /// <typeparam name="T">The manager class type.</typeparam>
+    public class AdminContentManagementController<T> : ContentManagementController where T : class, new()
     {
+        /// <summary>
+        /// Maintains an instance to the manager associated with the controlled.
+        /// </summary>
         private T _manager;
 
+        /// <summary>
+        /// Gets the instance of the manager.
+        /// </summary>
         protected T Manager
         {
             get

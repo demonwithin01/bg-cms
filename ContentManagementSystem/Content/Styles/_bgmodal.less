@@ -1,0 +1,42 @@
+﻿@import (reference) "_shared/_common.less";
+
+.bg-modal-backdrop
+{
+    display: none;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    
+    .absolute();
+}
+
+.bg-modal
+{
+    .fixed();
+    .border-radius(3px);
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    margin: auto;
+    z-index: 9999;
+}
+
+.modal-content
+{
+    max-width: 880px;
+    padding: @site-grid-spacing;
+
+    .cancel-modal
+    {
+        cursor: pointer;
+        opacity: 0.5;
+        padding: 5px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: opacity 0.3s ease;
+
+        &:hover
+        {
+            opacity: 1;
+        }
+    }
+}

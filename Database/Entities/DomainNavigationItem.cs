@@ -17,12 +17,19 @@ namespace ContentManagementSystemDatabase
 
         public int DomainId { get; set; }
 
+        [ForeignKey( "Page" )]
         public int PageId { get; set; }
+        public virtual Page Page { get; set; }
+
+        [ForeignKey( "ParentDomainNavigationItem" )]
+        public int? ParentDomainNavigationItemId { get; set; }
+        public virtual DomainNavigationItem ParentDomainNavigationItem { get; set; }
 
         public string Title { get; set; }
 
         public int Ordinal { get; set; }
 
-        public bool LoginRequired { get; set; }
+
+        public virtual ICollection<DomainNavigationItem> SubNavigationItems { get; set; }
     }
 }

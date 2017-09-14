@@ -5,7 +5,7 @@
 
 <h2>@PageTitle</h2>
 
-@using ( Html.BeginForm() )
+@using ( Html.BeginForm( "Edit", "Uploads" ) )
 {
     @Html.HiddenFor( m => m.UploadId )
     <dl>
@@ -45,7 +45,6 @@
 
 @section scripts
 {
-    @Scripts.Render( "~/bundles/filedrop" )
     <script>
         $(function ()
         {
@@ -65,7 +64,7 @@
                 },
                 success: function (uploadResult, data)
                 {
-                    console.log(data);
+                    window.location = "/admin/uploads/list";
                 }
             });
 

@@ -1,0 +1,27 @@
+﻿@model ContentManagementSystem.Admin.Models.DomainModel
+@{
+    PageTitle = "Edit Domain Settings";
+
+    string formName = "domainSettingsForm";
+}
+
+<h2>@PageTitle</h2>
+
+@using ( Html.NamedForm( formName ) )
+{
+    <dl class="horizontal-controls">
+        @Html.TextBoxFieldFor( m => m.Name )
+        @Html.DropDownListFieldFor( m => m.BackgroundUploadId, Model.GetImageOptions( Model.BackgroundUploadId ) )
+        @Html.DropDownListFieldFor( m => m.LogoUploadId, Model.GetImageOptions( Model.LogoUploadId ) )
+        @Html.DropDownListFieldFor( m => m.Theme, Model.GetThemeOptions() )
+        @Html.TextBoxFieldFor( m => m.EmailAddress )
+    </dl>
+}
+
+@section tools
+{
+    <h2>Options</h2>
+    <div class="button-list block-buttons">
+        @Html.SubmitButtonFor( formName, "Save" )
+    </div>
+}

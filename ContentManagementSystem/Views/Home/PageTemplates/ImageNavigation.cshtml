@@ -1,0 +1,19 @@
+﻿@model ContentManagementSystem.Framework.Models.Page.ImageNavigation
+
+<div class="tiled-sub-navigation-container" style="margin-top: 10%;">
+    @foreach ( var navItem in Model.NavigationItems )
+    {
+        <div class="tiled-sub-navigation">
+            <a href="@navItem.NavigationUrl">
+                <div class="background-image">
+                    <div style="background-image: url('@navItem.ImageUrl');"></div>
+                </div>
+                <div class="tile-text">
+                    <span>
+                        @navItem.Title
+                    </span>
+                </div>
+            </a>
+        </div>
+    }
+</div>

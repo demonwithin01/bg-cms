@@ -13,13 +13,13 @@ namespace ContentManagementSystemDatabase.BaseClasses
         public virtual void Initialise()
         {
             this.IsDeleted = false;
-            this.DateCreated = DateTime.UtcNow;
-            this.DateUpdated = DateTime.UtcNow;
+            this.UTCDateCreated = DateTime.UtcNow;
+            this.UTCDateUpdated = DateTime.UtcNow;
         }
 
         public virtual void UpdateTimeStamp()
         {
-            this.DateUpdated = DateTime.UtcNow;
+            this.UTCDateUpdated = DateTime.UtcNow;
         }
 
         #endregion
@@ -30,9 +30,9 @@ namespace ContentManagementSystemDatabase.BaseClasses
 
         public bool IsDeleted { get; set; }
 
-        public DateTime DateCreated { get; set; }
+        public DateTime UTCDateCreated { get; set; }
 
-        public DateTime DateUpdated { get; set; }
+        public DateTime UTCDateUpdated { get; set; }
 
         #endregion
 

@@ -17,11 +17,19 @@ namespace ContentManagementSystemDatabase
         [ForeignKey( "Domain" )]
         public int DomainId { get; set; }
         public virtual Domain Domain { get; set; }
-
-        [ForeignKey( "Role" )]
-        public int RoleId { get; set; }
-        public virtual Role Role { get; set; }
+        
+        public Role Role { get; set; }
 
         public string UserName { get; set; }
+
+        public string EmailAddress { get; set; }
+
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        public string DisplayName { get; set; }
+
+        public DateTime? LastLogin { get; set; }
     }
 }

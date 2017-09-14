@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ContentManagementSystemDatabase;
 
 namespace ContentManagementSystem.Framework
 {
+    /// <summary>
+    /// Forces the controller action to require the current user to have one of the specified roles.
+    /// </summary>
     public class AuthorizationAttribute : AuthorizeAttribute
     {
 
@@ -16,7 +15,7 @@ namespace ContentManagementSystem.Framework
 
         #region Class Members
 
-        private Role.Data[] _authorizedRoles;
+        private Role[] _authorizedRoles;
 
         #endregion
 
@@ -24,12 +23,19 @@ namespace ContentManagementSystem.Framework
 
         #region Constructors/Initialisation
 
+        /// <summary>
+        /// Creates an authorization attribute where all roles are authorized, however a login is still required.
+        /// </summary>
         public AuthorizationAttribute()
         {
             this._authorizedRoles = null;
         }
 
-        public AuthorizationAttribute( Role.Data[] authorizedRoles )
+        /// <summary>
+        /// Creates an authorization attribute where only specified roles have access to the action. Login is still required.
+        /// </summary>
+        /// <param name="authorizedRoles">The roles that allow access to this action.</param>
+        public AuthorizationAttribute( Role[] authorizedRoles )
         {
             this._authorizedRoles = authorizedRoles;
         }
@@ -46,15 +52,25 @@ namespace ContentManagementSystem.Framework
 
         #region Protected Methods
 
+        /// <summary>
+        /// Checks if there is a logged in user and if the user role is valid.
+        /// </summary>
+        /// <param name="httpContext">The current http context.</param>
+        /// <returns>True if the user is logged in and has the role required, otherwise false.</returns>
         protected override bool AuthorizeCore( HttpContextBase httpContext )
         {
-            if ( UserSession.Current.IsLoggedIn == false ) return false;
+            if ( UserCookie.Current.IsLoggedIn == false ) return false;
 
             if ( this._authorizedRoles == null ) return true;
 
-            Role.Data userRole = (Role.Data)UserSession.Current.CurrentUser().RoleId;
+            bool authorized = this._authorizedRoles.Contains( UserCookie.Current.Role );
 
-            return ( this._authorizedRoles.Contains( userRole ) );
+            if ( UserCookie.Current.Role == Role.Administrator && UserSession.Current.Role != Role.Administrator )
+            {
+                return false;
+            }
+
+            return authorized;
         }
 
         #endregion

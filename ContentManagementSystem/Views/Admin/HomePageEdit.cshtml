@@ -1,0 +1,30 @@
+﻿@using ContentManagementSystem.Helpers;
+@model ContentManagementSystem.Admin.Models.HomePageModel
+@{
+    PageTitle = "Edit Home Page";
+    UseFullWidth = true;
+    SelectListGenerator generator = new SelectListGenerator();
+    string formName = "homePageForm";;
+}
+
+<h2>
+    <span class="floated-right">
+        @Html.SubmitButtonFor( formName, "Save" )
+    </span>
+    @PageTitle
+</h2>
+
+<div class="counter-padding">
+    @using ( Html.NamedForm( formName ) )
+    {
+        <div class="padding-page">
+            <dl class="horizontal-controls">
+                @Html.DropDownListFieldFor( m => m.HomePageTemplate, generator.HomePageTemplates( Model.HomePageTemplate ) )
+            </dl>
+        </div>
+
+        <div id="page-template">
+            @Html.Partial( Model.HomePageTemplateModel.EditorLocation, Model.HomePageTemplateModel )
+        </div>
+    }
+</div>

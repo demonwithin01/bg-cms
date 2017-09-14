@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
+using System.Diagnostics;
 
 namespace ContentManagementSystemDatabase
 {
@@ -11,7 +7,12 @@ namespace ContentManagementSystemDatabase
     {
 
         public ContentManagementContextBase()
-            : base ( "ContentManagementSystem" ) { }
-        
+            : base ( "ContentManagementSystem" )
+        {
+#if DEBUG
+            this.Database.Log = ( text ) => Debug.WriteLine( text );
+#endif
+        }
+
     }
 }

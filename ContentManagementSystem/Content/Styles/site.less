@@ -1,7 +1,6 @@
 ﻿@import "FontAwesome/font-awesome.less";
+@import "_shared/_common.less";
 @import "_variables.less";
-@import "_mixins.less";
-@import "_helpers.less";
 @import "_responsive.less";
 @import "_carousel.less";
 @import "_navigation.less";
@@ -9,8 +8,18 @@
 @import "_forms.less";
 @import "_buttons.less";
 @import "_tables.less";
-@import "_products.less";
 @import "_filters.less";
+@import "_ribbon.less";
+@import "_footer.less";
+@import "_bgmodal.less";
+@import "_blog.less";
+@import "_social.less";
+@import "_login.less";
+@import "_notifications.less";
+@import "_tiled-sub-navigation.less";
+@import "_tile-gallery.less";
+@import "_overlay-text.less";
+@import "_apn-loading.less";
 
 .fake-link
 {
@@ -50,7 +59,7 @@ mark
 
 h1, h2, h3, h4, h5, h6
 {
-    color: #000;
+    color: @site-font-color;
     margin-bottom: 0;
     padding-bottom: 0;
 
@@ -64,26 +73,31 @@ h1, h2, h3, h4, h5, h6
 h1
 {
     font-size: 2em;
+    line-height: 1.2em;
 }
 
 h2
 {
     font-size: 1.75em;
+    line-height: 1.2em;
 }
 
 h3
 {
     font-size: 1.2em;
+    line-height: 1.2em;
 }
 
 h4
 {
     font-size: 1.1em;
+    line-height: 1.2em;
 }
 
 h5, h6
 {
     font-size: 1em;
+    line-height: 1.2em;
 }
 
 
@@ -127,78 +141,6 @@ div.clear
     }
 }
 
-
-/* login
-----------------------------------------------------------*/
-#login
-{
-    display: block;
-    font-size: .85em;
-    margin: 0 0 10px;
-    text-align: right;
-
-    a
-    {
-        background-color: #d3dce0;
-        margin-left: 10px;
-        margin-right: 3px;
-        padding: 2px 3px;
-        text-decoration: none;
-
-        &.username
-        {
-            background: none;
-            margin: 0;
-            padding: 0;
-            text-decoration: underline;
-        }
-    }
-
-    ul
-    {
-        margin: 0;
-    }
-
-    li
-    {
-        display: inline;
-        list-style: none;
-    }
-}
-
-/* menu
-----------------------------------------------------------*/
-
-
-/* page elements
-----------------------------------------------------------*/
-/* featured */
-.featured
-{
-    background-color: #fff;
-
-    .content-wrapper
-    {
-        background-color: #7ac0da;
-        background-image: -ms-linear-gradient(left, #7ac0da 0%, #a4d4e6 100%);
-        background-image: -o-linear-gradient(left, #7ac0da 0%, #a4d4e6 100%);
-        background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #7ac0da), color-stop(1, #a4d4e6));
-        background-image: -webkit-linear-gradient(left, #7ac0da 0%, #a4d4e6 100%);
-        background-image: linear-gradient(left, #7ac0da 0%, #a4d4e6 100%);
-        color: #3e5667;
-        padding: 20px 40px 30px 40px;
-    }
-
-    hgroup.title h1, hgroup.title h2
-    {
-        color: #fff;
-    }
-
-    p
-    {
-        font-size: 1.1em;
-    }
-}
 
 /* page titles */
 hgroup.title
@@ -255,65 +197,7 @@ aside
     font-weight: 700;
 }
 
-/* login page */
-#loginForm
-{
-    border-right: solid 2px #c8c8c8;
-    float: left;
-    width: 55%;
 
-    .validation-error
-    {
-        display: block;
-        margin-left: 15px;
-    }
-
-    .validation-summary-errors
-    {
-        ul
-        {
-            margin: 0;
-            padding: 0;
-        }
-
-        li
-        {
-            display: inline;
-            list-style: none;
-            margin: 0;
-        }
-    }
-
-    input
-    {
-        width: 250px;
-    }
-
-        input[type="checkbox"],
-        input[type="submit"],
-        input[type="button"],
-        button
-        {
-            width: auto;
-        }
-}
-
-#socialLoginForm
-{
-    margin-left: 40px;
-    float: left;
-    width: 40%;
-
-    h2
-    {
-        margin-bottom: 5px;
-    }
-
-    button
-    {
-        margin-bottom: 12px;
-    }
-}
 
 #logoutForm
 {
@@ -490,10 +374,9 @@ input[type="checkbox"].input-validation-error
     display: none;
 }
 
-
 /* tables
 ----------------------------------------------------------*/
-table
+/*table
 {
     border-collapse: collapse;
     border-spacing: 0;
@@ -561,7 +444,7 @@ td
 tr.pager td
 {
     padding: 0 0.25em 0 0;
-}
+}*/
 
 
 /********************
@@ -630,7 +513,7 @@ tr.pager td
     #body
     {
         .transition-delay(0s);
-        padding: 90px 10px 10px;
+        padding: 90px 0 0;
     }
 
     /* main layout

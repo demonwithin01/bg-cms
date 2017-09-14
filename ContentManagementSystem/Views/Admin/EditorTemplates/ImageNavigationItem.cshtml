@@ -1,0 +1,17 @@
+﻿@model ContentManagementSystem.Framework.Models.Page.ImageNavigationItem
+
+<div class="tiled-sub-navigation editor">
+    @Html.HiddenFor( m => m.UploadId, new { @class = "upload-id" } )
+    <a href="javascript:void(0);" onclick="openModal( $( this ) );">
+        <div class="background-image">
+            <div style="background-image: url('@Model.ImageUrl');"></div>
+        </div>
+    </a>
+    <div class="tile-text">
+        @Html.DropDownListFor( m => m.PageId, Model.ImageNavigation.NavPagesList(), "Please select", new { onchange = "navItemChanged( $( this ) );", onmouseup = "if ( event.target != this ) return; $( this ).data( 'previous-value', $( this ).val() );" } )
+        @Html.TextBoxFor( m => m.Title )
+    </div>
+    <span class="remove-tile button cancel" onclick="removeTile($(this));">
+        @Glyph( "remove" )
+    </span>
+</div>

@@ -8,7 +8,12 @@
 @using ( Html.BeginForm() )
 {
     @Html.HiddenFor( m => m.DomainNavigationItemId )
+    <div class="button-list text-right">
+        @Html.SubmitButton( "Save" )
+    </div>
     <dl>
         @Html.TextBoxFieldFor( m => m.Title )
-    </dl> 
+        @Html.DropDownListFieldFor( m => m.PageId, Model.GetAvailablePages(), "Please select" )
+        @Html.DropDownListFieldFor( m => m.ParentDomainNavigationItemId, Model.GetRootNavItems(), "(Optional) Please select" )
+    </dl>
 }

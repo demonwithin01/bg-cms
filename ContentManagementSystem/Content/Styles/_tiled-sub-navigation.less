@@ -1,0 +1,140 @@
+﻿@import "_shared/_common.less";
+
+.tiled-sub-navigation-container
+{
+    text-align: center;
+}
+
+.tiled-sub-navigation
+{
+    display: inline-block;
+    text-align: left;
+    position: relative;
+    vertical-align: top;
+    width: 250px;
+
+    &:before
+    {
+        content: '';
+        display: block;
+        padding-top: 100%;
+    }
+
+    &.editor
+    {
+        & > a
+        {
+            bottom: auto;
+            height: 250px;
+            left: 0;
+            right: 0;
+            top: 0;
+        }
+
+        .button.cancel
+        {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+
+    &:not(.editor)
+    {
+        & > a
+        {
+            &:hover
+            {
+                & > .background-image > div
+                {
+                    clip-path: polygon(10% 0%,100% 10%,90% 100%,0% 90%);
+                }
+            }
+        }
+    }
+
+    & > a
+    {
+        //background: @nav-background;
+        bottom: 10px;
+        left: 10px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+
+        & > .background-image
+        {
+            .absolute();
+            overflow: hidden;
+
+            &:before
+            {
+                content: 'Click to select an image';
+                background: rgba(0, 0, 0, 0.15);
+                left: 0;
+                padding: 10px;
+                position: absolute;
+                right: 0;
+                text-align: center;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            & > div
+            {
+                .absolute();
+
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+                transition: all 0.2s ease;
+            }
+        }
+
+        & > .tile-text
+        {
+            .box-sizing();
+
+            left: 0;
+            padding: 0 10px;
+            position: absolute;
+            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+
+            & > span
+            {
+                background: fade(@nav-background-flat, 75%);
+                border-radius: 5px;
+                color: @site-font-color;
+                display: inline-block;
+                font-size: 2em;
+                padding: 5px 10px;
+            }
+        }
+    }
+}
+
+#addNavigationTile
+{
+    a
+    {
+        border: 3px dashed #666;
+        border-radius: 5px;
+    }
+
+    span
+    {
+        font-size: 3.5em;
+        left: 0;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}

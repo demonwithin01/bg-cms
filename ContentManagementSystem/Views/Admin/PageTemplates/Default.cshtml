@@ -1,0 +1,14 @@
+﻿@using ContentManagementSystem.Framework.Models.Page;
+@model Default
+
+<dl class="horizontal-controls text-area-control">
+    @Html.TextAreaFieldFor( s => s.PageContent )
+</dl>
+
+<script>
+
+    $( function ()
+    {
+        CKEDITOR.replace( 'PageContent' );
+    } );
+</script>

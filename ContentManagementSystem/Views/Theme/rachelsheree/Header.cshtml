@@ -1,0 +1,93 @@
+﻿
+<header class="always-open">
+
+
+    <nav>
+        <div class="blurb-container">
+            <a href="/" class="home-link">
+                <img src="/Content/themes/rachelsheree/Logo.png" />
+            </a>
+            <div class="site-blurb">
+                <h1>RachelSheree</h1>
+                <p class="tag-line"></p>
+            </div>
+        </div>
+        <div class="nav-content">
+            @if ( UserCookie.Current.IsLoggedIn )
+            {
+                using ( BeginUrlForm( "/logoff" ) )
+                {
+                    @Html.AntiForgeryToken()
+                    <span onclick="$(this).parent().submit();" class="logged-in-button">
+                        <span class="icon">
+                            <i class="icon fa fa-sign-out"></i>
+                        </span>
+                        <span class="text">Logout</span>
+                    </span>
+                }
+            }
+            else
+            {
+                @*<a href="@Url.Action( "Login", "Account", new { Area = "Home" } )" class="login-button">
+                    <span class="icon">
+                        <i class="fa fa-sign-in"></i>
+                    </span>
+                    <span class="text">Login</span>
+                </a>*@
+            }
+            <ul id="menu" class="off">
+                @if ( UserCookie.Current.IsLoggedIn && UserSession.IsAdministrator )
+                {
+                    <li class="off">
+                        <div class="nav-link">
+                            <a href="/admin">Admin</a>
+                        </div>
+                    </li>
+                }
+                <li class="off">
+                    <div class="nav-link">
+                        <a href="/">Home</a>
+                    </div>
+                </li>
+                @foreach ( var navItem in UserCookie.Current.NavItems )
+                {
+                    @RenderNavItem( navItem )
+                    @*<li class="off">
+                        <div class="nav-link">
+                            <a href="@Url.Action( "Index", "Page", new { Area = "Home", pageId = navItem.PageId } )">@navItem.Title</a>
+                        </div>
+                    </li>*@
+                }
+            </ul>
+        </div>
+        <div class="copy-right content-wrapper text-center">
+            <p>&copy; @DateTime.Now.Year - Stephen Barnes</p>
+        </div>
+    </nav>
+    <div class="menu-link">
+        <span></span>
+    </div>
+</header>
+
+@helper RenderNavItem( NavItem navItem )
+{
+    <li class="off">
+        <div class="nav-link">
+            @if ( navItem.SubItems.Count > 0 )
+            {
+            <div class="sub-nav-selector">
+                <i class="fa fa-angle-right"></i>
+                <div class="sub-nav">
+                    <ul>
+                        @foreach ( var subItem in navItem.SubItems )
+                        {
+                            @RenderNavItem( subItem )
+                        }
+                    </ul>
+                </div>
+            </div>
+            }
+            <a href="/page/@navItem.PageId">@navItem.Title</a>
+        </div>
+    </li>
+}

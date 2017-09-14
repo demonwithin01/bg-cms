@@ -1,0 +1,120 @@
+﻿@import (reference) "_shared/_common.less";
+
+/* login page */
+#loginForm,
+#registerForm
+{
+    background: @site-background-color;
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: @site-font-size;
+    margin-top: 30px;
+    padding: 30px;
+    vertical-align: top;
+    width: 25%;
+
+    .validation-error
+    {
+        display: block;
+        margin-left: 15px;
+    }
+
+    .validation-summary-errors
+    {
+        ul
+        {
+            margin: 0;
+            padding: 0;
+        }
+
+        li
+        {
+            display: inline;
+            list-style: none;
+            margin: 0;
+        }
+    }
+
+    button
+    {
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    form
+    {
+        margin: 0;
+    }
+
+    fieldset
+    {
+        text-align: left;
+    }
+
+    input[type="checkbox"],
+    input[type="submit"],
+    input[type="button"]
+    {
+        width: auto;
+    }
+}
+
+#registerForm
+{
+    margin-left: 2%;
+}
+
+#socialLoginForm
+{
+    margin-left: 40px;
+    float: left;
+    width: 40%;
+
+    h2
+    {
+        margin-bottom: 5px;
+    }
+
+    button
+    {
+        margin-bottom: 12px;
+    }
+}
+
+/* login
+----------------------------------------------------------*/
+#login
+{
+    display: block;
+    font-size: .85em;
+    margin: 0 0 10px;
+    text-align: right;
+
+    a
+    {
+        background-color: #d3dce0;
+        margin-left: 10px;
+        margin-right: 3px;
+        padding: 2px 3px;
+        text-decoration: none;
+
+        &.username
+        {
+            background: none;
+            margin: 0;
+            padding: 0;
+            text-decoration: underline;
+        }
+    }
+
+    ul
+    {
+        margin: 0;
+    }
+
+    li
+    {
+        display: inline;
+        list-style: none;
+    }
+}

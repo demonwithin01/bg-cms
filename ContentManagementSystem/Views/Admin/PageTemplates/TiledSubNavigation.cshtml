@@ -1,0 +1,5 @@
+﻿@model ContentManagementSystem.Framework.Models.Page.TiledSubNavigation
+
+<dl class="horizontal-controls margin-top-1em">
+    @Html.DropDownListFieldFor( m => m.NavigationItemId, Model.GetRootNavItems(), "Please select an option" )
+</dl>

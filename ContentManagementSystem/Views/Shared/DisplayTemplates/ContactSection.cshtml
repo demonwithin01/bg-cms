@@ -1,0 +1,15 @@
+﻿@model ContactSection
+
+<div class="b-grid">
+    @using ( Ajax.BeginForm( "", null, new AjaxOptions() { Url = "/home/home/contact", OnSuccess = "_site.pageSection( \"ContactMe\" ).formResult( data );" }, new { id = "contactForm" } ) )
+    {
+        <dl>
+            @Html.TextBoxFieldFor( m => m.Name )
+            @Html.TextBoxFieldFor( m => m.EmailAddress )
+            @Html.TextAreaFieldFor( m => m.Enquiry)
+        </dl>
+        @Html.SubmitButton( "Submit" )
+    }
+</div>
+
+@Html.SectionInit( "new apollyon.Contact()" )

@@ -1,0 +1,148 @@
+﻿@import (reference) "_shared/_common.less";
+
+.blog-post
+{
+    //padding: 30px;
+}
+
+.blog-list
+{
+    padding: 0 @padding-page / 2;
+
+    .blog-post
+    {
+        color: @site-font-color;
+        padding: 0;
+
+        .blog-header
+        {
+            background: @site-feature-background-color;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            color: @site-feature-font-color;
+            filter: drop-shadow(0px 2px 6px rgba(0,0,0,.5));
+            padding: @padding-page 30px;
+            position: relative;
+            z-index: 2;
+
+            h2
+            {
+                color: inherit;
+                text-shadow: 2px 2px rgba(0,0,0,0.25);
+            }
+
+            &:before,
+            &:after
+            {
+                content: '';
+                border-bottom: 10px solid transparent;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-top: 10px solid darken(@site-feature-color, 10%);
+                bottom: -20px;
+                display: block;
+                height: 0;
+                position: absolute;
+                width: 0;
+            }
+
+            &:before
+            {
+                border-right: 0;
+                left: 0;
+            }
+
+            &:after
+            {
+                border-left: 0;
+                right: 0;
+            }
+
+            .button.text.edit-blog-post
+            {
+                color: @site-feature-font-color-faded;
+                line-height: 1em;
+                position: absolute;
+                right: 10px;
+                top: 10px;
+
+                &:hover
+                {
+                    border-bottom-color: @site-feature-font-color-faded;
+                }
+            }
+        }
+
+        .blog-content
+        {
+            padding: 0 10px 10px;
+            z-index: 1;
+
+            .blog-inner-content
+            {
+                background: @site-background-color;
+                border: 1px solid @site-feature-color;
+                border-bottom-left-radius: 3px;
+                border-bottom-right-radius: 3px;
+                box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.2);
+                overflow: hidden;
+                padding: @padding-page;
+                position: relative;
+
+                &:before,
+                &:after
+                {
+                    content: '';
+                    border-radius: 50%;
+                    bottom: 0;
+                    display: block;
+                    pointer-events: none;
+                    position: absolute;
+                    right: 0;
+                }
+
+                &:before
+                {
+                    .size(30%, 30%);
+                }
+
+                &:after
+                {
+                    .size(150px, 150px);
+
+                    background-image: url('/Content/themes/amysticalway/Logo.png');
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    bottom: -50px;
+                    opacity: 0.11;
+                    right: -20px;
+                }
+            }
+
+            .jssocials-shares
+            {
+                margin: 2em 0 0;
+            }
+
+            .jssocials-share
+            {
+                margin: 0;
+            }
+
+            .read-more
+            {
+                margin-top: 15px;
+            }
+        }
+
+        .blog-publish-info
+        {
+            color: @site-feature-font-color-faded;
+            font-size: 0.8em;
+            font-style: italic;
+            position: relative;
+            right: -10px;
+        }
+    }
+}

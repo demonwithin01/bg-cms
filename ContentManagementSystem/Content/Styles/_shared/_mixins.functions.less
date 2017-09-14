@@ -1,0 +1,136 @@
+﻿
+.clear()
+{
+    &:after
+    {
+        clear: both;
+        content: '';
+        display: block;
+    }
+}
+
+.absolute(@top: 0, @right: 0, @bottom: 0, @left: 0)
+{
+    position: absolute;
+    bottom: @bottom;
+    left: @left;
+    right: @right;
+    top: @top;
+}
+
+.fixed(@top: 0, @right: 0, @bottom: 0, @left: 0)
+{
+    position: fixed;
+    bottom: @bottom;
+    left: @left;
+    right: @right;
+    top: @top;
+}
+
+.border-radius(@borderRadius: 0)
+{
+    -webkit-border-radius: @borderRadius;
+    -moz-border-radius: @borderRadius;
+    border-radius: @borderRadius;
+}
+
+.box-sizing(@boxSizing: border-box)
+{
+    -webkit-box-sizing: @boxSizing;
+    -moz-box-sizing: @boxSizing;
+    box-sizing: @boxSizing;
+}
+
+.flex-direction(@arg)
+{
+    -webkit-flex-direction: @arg;
+    -ms-flex-direction: @arg;
+    flex-direction: @arg;
+}
+
+.size(@width, @height)
+{
+    height: @height;
+    width: @width;
+}
+
+.text-overflow(@arg: ellipsis)
+{
+    -ms-text-overflow: @arg;
+    -o-text-overflow: @arg;
+    text-overflow: @arg;
+}
+
+.transition(@arg)
+{
+    -webkit-transition: @arg;
+    -moz-transition: @arg;
+    -o-transition: @arg;
+    transition: @arg;
+}
+
+.transition-delay(@arg)
+{
+    -webkit-transition-delay: @arg;
+    -moz-transition-delay: @arg;
+    -o-transition-delay: @arg;
+    transition-delay: @arg;
+}
+
+.transform(@arg)
+{
+    -webkit-transform: @arg;
+    -moz-transform: @arg;
+    -ms-transform: @arg;
+    -o-transform: @arg;
+    transform: @arg;
+}
+
+.transform-origin(@arg)
+{
+    -webkit-transform-origin: @arg;
+    -moz-transform-origin: @arg;
+    -ms-transform-origin: @arg;
+    -o-transform-origin: @arg;
+    transform-origin: @arg;
+}
+
+.generate-padding( @padding )
+{
+    .padding-@{padding}
+    {
+        padding: ~"@{padding}px";
+    }
+
+    .padding-@{padding}-top
+    {
+        padding-top: ~"@{padding}px";
+    }
+
+    .padding-@{padding}-right
+    {
+        padding-right: ~"@{padding}px";
+    }
+
+    .padding-@{padding}-bottom
+    {
+        padding-bottom: ~"@{padding}px";
+    }
+
+    .padding-@{padding}-left
+    {
+        padding-left: ~"@{padding}px";
+    }
+    
+    .padding-@{padding}-hor
+    {
+        padding-left: ~"@{padding}px";
+        padding-right: ~"@{padding}px";
+    }
+    
+    .padding-@{padding}-vert
+    {
+        padding-bottom: ~"@{padding}px";
+        padding-top: ~"@{padding}px";
+    }
+}
