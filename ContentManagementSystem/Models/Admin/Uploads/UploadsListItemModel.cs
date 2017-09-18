@@ -27,7 +27,7 @@ namespace ContentManagementSystem.Admin.Models
         public UploadsListItemModel( Upload upload )
         {
             this.UploadId = upload.UploadId;
-            this.Name = upload.Filename;
+            this.Name = upload.Title;
             this.Location = upload.PhysicalLocation;
             this.DateUpdated = upload.DateUpdated;
         }
