@@ -73,7 +73,7 @@ namespace ContentManagementSystem.Admin.Managers
         {
             try
             {
-                BlogPost blog = db.Blogs.CreateAdd();
+                BlogPost blog = db.Blogs.AddNew();
                 blog.Initialise();
 
                 blog.BlogPostContent = new List<BlogPostContent>();

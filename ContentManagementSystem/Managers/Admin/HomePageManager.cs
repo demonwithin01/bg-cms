@@ -57,7 +57,7 @@ namespace ContentManagementSystem.Admin.Managers
 
                 if ( homePage == null )
                 {
-                    homePage = db.DomainHomePages.CreateAdd();
+                    homePage = db.DomainHomePages.AddNew();
                     homePage.DomainId = UserSession.Current.DomainId;
                 }
 

@@ -13,7 +13,7 @@ namespace ContentManagementSystemDatabase
         /// <typeparam name="TEntity">The database entity type</typeparam>
         /// <param name="dbset">The database set</param>
         /// <returns>A new database entity</returns>
-        public static TEntity CreateAdd<TEntity>( this DbSet<TEntity> dbset ) where TEntity : class
+        public static TEntity AddNew<TEntity>( this DbSet<TEntity> dbset ) where TEntity : class
         {
             TEntity entity = dbset.Create();
 

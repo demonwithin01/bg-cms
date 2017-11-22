@@ -85,7 +85,7 @@ namespace ContentManagementSystem.Admin.Managers
         {
             try
             {
-                Page page = db.Pages.CreateAdd();
+                Page page = db.Pages.AddNew();
                 page.Initialise();
                 page.PageContent = new List<PageContent>();
 
