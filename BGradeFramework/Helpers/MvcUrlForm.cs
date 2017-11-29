@@ -10,7 +10,7 @@ namespace ContentManagementSystem.Framework.Helpers
     /// <summary>
     /// Helper class for generating the html of a form with a provided url.
     /// </summary>
-    public class MvcUrlForm : IDisposable
+    public sealed class MvcUrlForm : IDisposable
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */

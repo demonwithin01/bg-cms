@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Web\Helpers\HtmlHelperExtensions.cs" />
     <Compile Include="Extensions\LinqExtensions.cs" />
     <Compile Include="Helpers\StringHelpers.cs" />
