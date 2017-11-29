@@ -11,51 +11,21 @@
 
     .blog-post
     {
+        background: @site-background-color;
+        /*border-radius: 3px;
+        box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.2);*/
         color: @site-font-color;
         padding: 0;
 
         .blog-header
         {
-            background: @site-feature-background-color;
-            border-top-left-radius: 3px;
-            border-top-right-radius: 3px;
-            color: @site-feature-font-color;
-            filter: drop-shadow(0px 2px 6px rgba(0,0,0,.5));
-            padding: @padding-page 30px;
+            padding: @padding-page @padding-page 0;
             position: relative;
             z-index: 2;
 
             h2
             {
-                color: inherit;
-                text-shadow: 2px 2px rgba(0,0,0,0.25);
-            }
-
-            &:before,
-            &:after
-            {
-                content: '';
-                border-bottom: 10px solid transparent;
-                border-left: 10px solid transparent;
-                border-right: 10px solid transparent;
-                border-top: 10px solid darken(@site-feature-color, 10%);
-                bottom: -20px;
-                display: block;
-                height: 0;
-                position: absolute;
-                width: 0;
-            }
-
-            &:before
-            {
-                border-right: 0;
-                left: 0;
-            }
-
-            &:after
-            {
-                border-left: 0;
-                right: 0;
+                border-bottom: 2px solid @site-feature-color;
             }
 
             .button.text.edit-blog-post
@@ -63,8 +33,8 @@
                 color: @site-feature-font-color-faded;
                 line-height: 1em;
                 position: absolute;
-                right: 10px;
-                top: 10px;
+                left: 20px;
+                top: 5px;
 
                 &:hover
                 {
@@ -75,16 +45,25 @@
 
         .blog-content
         {
-            padding: 0 10px 10px;
             z-index: 1;
+
+            p
+            {
+                margin: 0 0 15px;
+
+                &.blog-subtitle,
+                &:first-child
+                {
+                    color: @site-feature-color;
+                    display: inline-block;
+                    font-size: 1.2em;
+                    font-style: italic;
+                    padding: 0;
+                }
+            }
 
             .blog-inner-content
             {
-                background: @site-background-color;
-                border: 1px solid @site-feature-color;
-                border-bottom-left-radius: 3px;
-                border-bottom-right-radius: 3px;
-                box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.2);
                 overflow: hidden;
                 padding: @padding-page;
                 position: relative;
@@ -109,7 +88,6 @@
                 &:after
                 {
                     .size(150px, 150px);
-
                     background-image: url('/Content/themes/amysticalway/Logo.png');
                     background-position: center;
                     background-repeat: no-repeat;
@@ -143,6 +121,7 @@
             font-style: italic;
             position: relative;
             right: -10px;
+            top: -10px;
         }
     }
 }

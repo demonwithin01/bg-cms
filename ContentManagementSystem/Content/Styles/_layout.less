@@ -143,6 +143,7 @@ ul
     font-weight: bold;
     line-height: 1em;
     //padding: @title-padding;
+    margin: 0 auto;
     z-index: 1;
 
     & ~ #body
@@ -217,10 +218,10 @@ ul
         .page-inner-content
         {
             background: @site-background-color;
-            border: 1px solid @site-font-color-light;
+            /*border: 1px solid @site-font-color-light;
             border-radius: 3px;
             box-shadow: 0 0 15px rgba(0,0,0,0.5);
-            margin-top: 20px;
+            margin-top: 20px;*/
 
             &.no-background
             {
@@ -302,7 +303,8 @@ ul
 
 @media only screen and (min-width: 1120px)
 {
-    .page-content-wrapper .page-content
+    .page-content-wrapper .page-content,
+    header.always-open + .page-content > .page-header-wrapper > .page-header
     {
         width: 820px;
     }
@@ -310,7 +312,8 @@ ul
 
 @media only screen and (min-width: 1450px)
 {
-    .page-content-wrapper .page-content
+    .page-content-wrapper .page-content,
+    header.always-open + .page-content > .page-header-wrapper > .page-header
     {
         width: 1095px;
     }
@@ -318,7 +321,8 @@ ul
 
 @media only screen and (min-width: 1680px)
 {
-    .page-content-wrapper .page-content
+    .page-content-wrapper .page-content,
+    header.always-open + .page-content > .page-header-wrapper > .page-header
     {
         width: 1370px;
     }
