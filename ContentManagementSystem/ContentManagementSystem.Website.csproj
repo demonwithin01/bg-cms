@@ -215,15 +215,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\ImageBrowserController.cs" />
-    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="BaseClasses\AdminContentManagementController.cs" />
     <Compile Include="BaseClasses\ContentManagementController.cs" />
     <Compile Include="BaseClasses\ManagerBase.cs" />
     <Compile Include="Controllers\Admin\BlogPostController.cs" />
     <Compile Include="Controllers\Admin\DomainController.cs" />
     <Compile Include="Controllers\Admin\HomePageController.cs" />
+    <Compile Include="Controllers\Admin\ImageBrowserController.cs" />
     <Compile Include="Controllers\Admin\NavigationController.cs" />
     <Compile Include="Controllers\Admin\PageController.cs" />
     <Compile Include="Controllers\Admin\SearchController.cs" />
@@ -822,11 +820,6 @@
     </Content>
     <Content Include="Content\Styles\_forms.less" />
     <Content Include="Content\Styles\_buttons.less" />
-    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Page\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Navigation\List.cshtml" />
-    <Content Include="Areas\Admin\Views\Navigation\Edit.cshtml" />
     <Content Include="Content\Styles\admin.less" />
     <Content Include="Content\Styles\FontAwesome\animated.less" />
     <Content Include="Content\Styles\FontAwesome\bordered-pulled.less" />
@@ -846,23 +839,6 @@
     <Content Include="Content\Fonts\fontawesome-webfont.woff" />
     <Content Include="Content\Fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\Fonts\FontAwesome.otf" />
-    <Content Include="Areas\Admin\Views\Uploads\List.cshtml" />
-    <Content Include="Areas\Admin\Views\Uploads\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\ImageBrowser\Select.cshtml" />
-    <Content Include="Areas\Admin\Views\BlogPost\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\BlogPost\List.cshtml" />
-    <Content Include="Areas\Admin\Views\HomePage\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\HomePage\Templates\Ribbon.cshtml" />
-    <Content Include="Areas\Admin\Views\Page\Templates\Default.cshtml" />
-    <Content Include="Areas\Admin\Views\User\List.cshtml" />
-    <Content Include="Areas\Admin\Views\User\ViewUser.cshtml" />
-    <Content Include="Areas\Admin\Views\PageComponents\ImageSlideshow.cshtml" />
-    <Content Include="Areas\Admin\Views\Page\Templates\Shop.cshtml" />
-    <Content Include="Areas\Admin\Views\Page\Templates\BlogList.cshtml" />
-    <Content Include="Areas\Admin\Views\Domain\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Page\Templates\Contact.cshtml" />
-    <Content Include="Areas\Admin\Views\Page\Templates\TiledSubNavigation.cshtml" />
-    <Content Include="Areas\Admin\Views\Page\Templates\TileGallery.cshtml" />
     <None Include="compilerconfig.json" />
     <Content Include="Content\Styles\admin.css.map">
       <DependentUpon>admin.css</DependentUpon>
@@ -971,13 +947,9 @@
     <Content Include="Content\themes\rachelsheree\Logo.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Areas\Admin\Views\Web.config">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Content\Styles\site.less" />
     <Content Include="Content\Styles\_navigation.less" />
     <Content Include="Content\Styles\_layout.less" />
-    <Content Include="Areas\Admin\Views\Page\List.cshtml" />
     <Content Include="Content\Styles\_tables.less" />
     <Content Include="Content\Styles\Admin\_navigation.less" />
     <Content Include="Content\Styles\_filters.less" />
@@ -1079,10 +1051,10 @@
     <Content Include="Views\Admin\DisplayTemplates\EditableContent.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Error\ServerError.cshtml" />
+    <Content Include="Views\Admin\ImageBrowserSelect.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Attributes\" />
     <Folder Include="Content\UploadsFolder\" />
   </ItemGroup>
