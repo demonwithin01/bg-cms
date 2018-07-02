@@ -1,4 +1,4 @@
-﻿################################################################################
+################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
@@ -6,3 +6,5 @@
 */obj/
 /packages
 /ContentManagementSystem/Uploads/b9ec49c9-521c-42ee-8666-52e81f61f703/2016-10-09
+.vs/
+/ContentManagementSystem/Uploads/b9ec49c9-521c-42ee-8666-52e81f61f703

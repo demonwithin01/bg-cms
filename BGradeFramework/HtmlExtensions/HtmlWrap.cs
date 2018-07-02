@@ -10,7 +10,7 @@ namespace ContentManagementSystem.Framework.HtmlExtensions
 {
     
 
-    public class HtmlWrap : IDisposable
+    public sealed class HtmlWrap : IDisposable
     {
 
         /* ---------------------------------------------------------------------------------------------------------- */

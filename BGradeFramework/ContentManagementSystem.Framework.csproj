@@ -110,8 +110,6 @@
     <Compile Include="BaseClasses\PageSectionTemplate.cs" />
     <Compile Include="BaseClasses\PageTemplate.cs" />
     <Compile Include="BaseClasses\PageModel.cs" />
-    <Compile Include="ClassRegions.cs" />
-    <Compile Include="ControllerRegions.cs" />
     <Compile Include="Enums\ButtonType.cs" />
     <Compile Include="Extensions\DbSetExtensions.cs" />
     <Compile Include="Extensions\HtmlStringExtensions.cs" />
@@ -128,7 +126,6 @@
     <Compile Include="HtmlExtensions\TextBoxFieldFor.cs" />
     <Compile Include="Interfaces\UploadSelector.cs" />
     <Compile Include="Logging\ErrorLog.cs" />
-    <Compile Include="ManagerRegions.cs" />
     <Compile Include="Models\HomePageModel.cs" />
     <Compile Include="BaseClasses\HomePageTemplate.cs" />
     <Compile Include="Models\HomePage\Ribbon.cs" />
@@ -169,12 +166,6 @@
     <None Include="app.config" />
     <None Include="package.json" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="..\packages\AutoMapper.3.1.1\lib\net40\AutoMapper.Net4.dll">
-      <Link>AutoMapper.Net4.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ApollyonWebLibrary\ApollyonWebLibrary.csproj">
