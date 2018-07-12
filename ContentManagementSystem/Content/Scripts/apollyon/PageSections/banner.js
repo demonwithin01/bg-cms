@@ -10,28 +10,43 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var apollyon;
 (function (apollyon) {
-    var BannerBase = (function () {
+    var BannerBase = /** @class */ (function () {
         function BannerBase() {
         }
         return BannerBase;
     }());
     apollyon.BannerBase = BannerBase;
-    var Banner = (function (_super) {
+    var Banner = /** @class */ (function (_super) {
         __extends(Banner, _super);
         function Banner(element, options) {
             var _this = _super.call(this) || this;
             _this._banner = null;
+            console.log(options);
             _this._element = element;
             _this._inner = element.find(".carousel-inner");
             _this._items = element.find(".carousel-item");
             _this.width = options.width;
             _this.height = options.height;
+            _this._timer = options.timer || 0;
             _this._items.first().addClass("pole-position");
             _this.bannerType = options.bannerType;
+            _this._element.data("ap-banner", _this);
             return _this;
         }
         Banner.prototype.init = function () {
-            console.log("initialised Banner");
+        };
+        Banner.prototype.unload = function () {
+            clearInterval(this._interval);
+            this._banner.unload();
+        };
+        /**
+         * Clears the current interval and restarts it if there is more than 1 item in the carousel.
+         */
+        Banner.prototype.resetInterval = function () {
+            clearInterval(this._interval);
+            if (this.items.length > 1 && this._timer > 0) {
+                this._interval = setInterval($.proxy(this._banner.intervalExpired, this._banner), this._timer * 1000);
+            }
         };
         Banner.prototype.name = function () {
             return "Banner";
@@ -99,6 +114,7 @@ var apollyon;
                         this._banner = new apollyon.banners.FadeOut(this);
                         break;
                 }
+                this.resetInterval();
             },
             enumerable: true,
             configurable: true

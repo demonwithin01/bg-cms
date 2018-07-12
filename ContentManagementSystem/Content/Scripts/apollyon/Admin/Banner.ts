@@ -60,10 +60,7 @@ module apollyon
 
                 if ( i == 0 )
                 {
-                    this._currentSlide = slide;
-                    $( "#ContentModel_urlSectorField" ).val( newBannerItem.pageId );
-
-                    this._currentSlide.show();
+                    this.selectSlide( slide );
                 }
             }
 
@@ -114,14 +111,44 @@ module apollyon
         {
             var currentGridItem = window.getCurrentGridItem();
 
-            currentGridItem.siblings( ".content-json" ).val( JSON.stringify(
-                {
-                    slides: this._bannerItems,
-                    bannerType: $( "#ContentModel_BannerType" ).val(),
-                    width: $( "#ContentModel_Width" ).val(),
-                    height: $( "#ContentModel_Height" ).val()
-                })
-            );
+            let bannerOptions = {
+                slides: this._bannerItems,
+                bannerType: $("#ContentModel_BannerType").val(),
+                cycleTimer: $("#ContentModel_CycleTimer").val(),
+                width: $("#ContentModel_Width").val(),
+                height: $("#ContentModel_Height").val()
+            };
+
+            currentGridItem.siblings( ".content-json" ).val( JSON.stringify( bannerOptions ) );
+
+            let existingCarousel = currentGridItem.find( ".carousel" );
+            let existingBanner = existingCarousel.data( "ap-banner" );
+
+            if ( existingBanner )
+            {
+                existingBanner.unload();
+            }
+            else
+            {
+                existingCarousel = $( "<div id=\"@carouselId\" class=\"carousel\"><div class=\"carousel-inner\" style=\"left: 0%;\"></div></div>" );
+                currentGridItem.append( existingCarousel );
+            }
+
+            let newBannerOptions = {
+                bannerType: parseInt( bannerOptions.bannerType ),
+                width: bannerOptions.width,
+                height: bannerOptions.height,
+                timer: parseFloat(bannerOptions.cycleTimer)
+            }
+
+            let $inner = existingCarousel.find(".carousel-inner").empty();
+
+            for (let i = 0; i < bannerOptions.slides.length; i++)
+            {
+                $inner.append("<div class=\"carousel-item\"><img src=\"" + bannerOptions.slides[ i ].imgUrl + "\" /></div>");
+            }
+
+            new apollyon.Banner( existingCarousel, newBannerOptions );
 
             $( ".admin-carousel" ).closest( ".modal-content" ).parent().bgmodal( "close" );
         }
@@ -247,6 +274,7 @@ module apollyon
 
             this._currentSlide.show();
 
+            $( ".admin-carousel-tray li" ).removeClass( "current" ).eq( this._currentSlide.index() ).addClass( "current" );
             $( "#ContentModel_urlSectorField" ).val( this._bannerItems[ this._currentSlide.index() ].pageId );
         }
     }

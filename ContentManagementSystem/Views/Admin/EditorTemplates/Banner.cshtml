@@ -12,19 +12,24 @@
 
 <div class="admin-carousel-options">
     <div class="b-grid">
-        <div class="b-width-1-3">
+        <div class="b-width-1-4">
             <dl>
-                @Html.DropDownListFieldFor( s => s.BannerType, CreateSimpleSelectList.FromEnum<BannerType>( Model.BannerType ) )
+                @Html.DropDownListFieldFor( s => s.BannerType, CreateSimpleSelectList.FromEnum<BannerType>( Model.BannerType ), new { style = "width: 100%" } )
             </dl>
         </div>
-        <div class="b-width-1-3">
+        <div class="b-width-1-4">
             <dl>
-                @Html.TextBoxFieldFor( m => m.Width )
+                @Html.TextBoxFieldFor( m => m.CycleTimer, new { style = "width: 100%" } )
             </dl>
         </div>
-        <div class="b-width-1-3">
+        <div class="b-width-1-4">
             <dl>
-                @Html.TextBoxFieldFor( m => m.Height )
+                @Html.TextBoxFieldFor( m => m.Width, new { style = "width: 100%" } )
+            </dl>
+        </div>
+        <div class="b-width-1-4">
+            <dl>
+                @Html.TextBoxFieldFor( m => m.Height, new { style = "width: 100%" } )
             </dl>
         </div>
     </div>

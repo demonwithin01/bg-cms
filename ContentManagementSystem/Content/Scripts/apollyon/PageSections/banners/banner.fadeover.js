@@ -12,7 +12,7 @@ var apollyon;
 (function (apollyon) {
     var banners;
     (function (banners) {
-        var FadeOut = (function (_super) {
+        var FadeOut = /** @class */ (function (_super) {
             __extends(FadeOut, _super);
             function FadeOut(banner) {
                 var _this = _super.call(this) || this;
@@ -33,6 +33,8 @@ var apollyon;
             FadeOut.prototype.unload = function () {
             };
             FadeOut.prototype.dimensionsChanged = function () {
+            };
+            FadeOut.prototype.intervalExpired = function () {
             };
             FadeOut.prototype.itemSelected = function (element) {
                 var index = element.index();

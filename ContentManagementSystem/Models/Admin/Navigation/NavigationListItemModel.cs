@@ -28,6 +28,23 @@ namespace ContentManagementSystem.Admin.Models
         public NavigationListItemModel( DomainNavigationItem navItem )
         {
             AutoMap.Map( navItem, this );
+
+            IEnumerable<PageContent> pages = navItem.Page.PageContent;
+
+            this.PageTitle = ( ( pages.FirstOrDefault( s => s.PublishStatus == PublishStatus.Published ) ??
+                                 pages.FirstOrDefault( s => s.PublishStatus == PublishStatus.Draft ) )?.Title ) ?? "[Not set]";
+
+            if ( navItem.SubNavigationItems != null && navItem.SubNavigationItems.Count > 0 )
+            {
+                this.Children = new List<NavigationListItemModel>();
+
+                foreach ( DomainNavigationItem subItem in navItem.SubNavigationItems )
+                {
+                    this.Children.Add( new NavigationListItemModel( subItem ) );
+                }
+
+                this.Children = this.Children.OrderBy( s => s.Ordinal ).ToList();
+            }
         }
 
         #endregion
@@ -59,6 +76,10 @@ namespace ContentManagementSystem.Admin.Models
         public int Ordinal { get; set; }
 
         public string Title { get; set; }
+
+        public string PageTitle { get; set; }
+
+        public List<NavigationListItemModel> Children { get; set; }
         
         #endregion
 

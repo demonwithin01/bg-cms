@@ -41,6 +41,11 @@
 
             }
 
+            public intervalExpired(): void
+            {
+
+            }
+
             private itemSelected( element: JQuery ): void
             {
                 var index = element.index();

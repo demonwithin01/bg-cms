@@ -48,6 +48,7 @@ namespace ContentManagementSystemDatabase
         {
             string url = uri.Authority.ToLower();
 
+#if !DEBUG
             int lastIndex = url.Substring( 0, url.LastIndexOf( "." ) ).LastIndexOf( "." );
 
             if ( lastIndex > -1 )
@@ -59,25 +60,26 @@ namespace ContentManagementSystemDatabase
             //{
             //    url = url.Substring( "www.".Length );
             //}
+#endif
 
             db = db ?? new ContentManagementDb();
 
             return db.Domains.Include( s => s.BackgroundUpload ).Include( s => s.LogoUpload ).FirstOrDefault( d => d.DomainUrl.ToLower() == url );
         }
 
-        #endregion
+#endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
-        #region Private Methods
+#region Private Methods
 
-        #endregion
+#endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */
 
-        #region Properties
+#region Properties
 
-        #endregion
+#endregion
 
         /* ---------------------------------------------------------------------------------------------------------- */
     }

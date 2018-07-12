@@ -1,6 +1,6 @@
 var apollyon;
 (function (apollyon) {
-    var Ribbon = (function () {
+    var Ribbon = /** @class */ (function () {
         function Ribbon() {
         }
         Ribbon.prototype.onWindowResize = function () {

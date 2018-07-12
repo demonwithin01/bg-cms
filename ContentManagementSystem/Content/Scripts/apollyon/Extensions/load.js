@@ -17,26 +17,30 @@ var apollyon;
                 console.error("The data could not be loaded/displayed.");
             }
         }
-        if (ajaxOptions.complete) {
+        if (ajaxOptions.complete) // If complete already defined, extend it to turn off the loading.
+         {
             var complete = ajaxOptions.complete;
             ajaxOptions.complete = function () {
                 complete.call(this, arguments);
                 _this.loading("off");
             };
         }
-        else {
+        else // Otherwise create one so that the loading is turned off.
+         {
             ajaxOptions.complete = function () {
                 _this.loading("off");
             };
         }
-        if (ajaxOptions.success) {
+        if (ajaxOptions.success) // If success is already defined, extend it to apply the html.
+         {
             var success = ajaxOptions.success;
             ajaxOptions.success = function (data) {
                 setHtml(data);
                 success.call(this, arguments);
             };
         }
-        else {
+        else /// Otherwise create one so that the html can automatically be applied.
+         {
             ajaxOptions.success = function (data) {
                 setHtml(data);
             };

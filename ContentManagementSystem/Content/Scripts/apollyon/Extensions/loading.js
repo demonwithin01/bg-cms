@@ -32,17 +32,21 @@ var apollyon;
         // For each JQuery element
         this.each(function () {
             var $this = $(this);
-            if (typeof (options) === "string") {
+            if (typeof (options) === "string") // Assumes the object has already been created and attempts to call the appropriate method.
+             {
                 var loading = $this.data("apn-loading");
-                if (!loading) {
+                if (!loading) // If data does not exist, do not.
+                 {
                     console.error("Loading object not found");
                     return;
                 }
-                if (typeof (loading.methods[options]) === "function") {
+                if (typeof (loading.methods[options]) === "function") // If the method exists, call it.
+                 {
                     loading.methods[options].call($this);
                 }
             }
-            else {
+            else // Create the loading object and add it to the element data.
+             {
                 var loading = new Loading($this);
                 $this.data("apn-loading", loading);
             }

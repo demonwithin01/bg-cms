@@ -1,11 +1,11 @@
 var apollyon;
 (function (apollyon) {
-    var BannerItem = (function () {
+    var BannerItem = /** @class */ (function () {
         function BannerItem() {
         }
         return BannerItem;
     }());
-    var BannerAdmin = (function () {
+    var BannerAdmin = /** @class */ (function () {
         function BannerAdmin(initialItems) {
             var that = this;
             this._bannerItems = [];
@@ -29,9 +29,7 @@ var apollyon;
                 $(".admin-carousel-tray > ul").append(thumbnail);
                 $(".admin-carousel .carousel-inner").append(slide);
                 if (i == 0) {
-                    this._currentSlide = slide;
-                    $("#ContentModel_urlSectorField").val(newBannerItem.pageId);
-                    this._currentSlide.show();
+                    this.selectSlide(slide);
                 }
             }
             this._uploadSelector = new apollyon.UploadSelector({
@@ -64,12 +62,34 @@ var apollyon;
          */
         BannerAdmin.prototype.apply = function () {
             var currentGridItem = window.getCurrentGridItem();
-            currentGridItem.siblings(".content-json").val(JSON.stringify({
+            var bannerOptions = {
                 slides: this._bannerItems,
                 bannerType: $("#ContentModel_BannerType").val(),
+                cycleTimer: $("#ContentModel_CycleTimer").val(),
                 width: $("#ContentModel_Width").val(),
                 height: $("#ContentModel_Height").val()
-            }));
+            };
+            currentGridItem.siblings(".content-json").val(JSON.stringify(bannerOptions));
+            var existingCarousel = currentGridItem.find(".carousel");
+            var existingBanner = existingCarousel.data("ap-banner");
+            if (existingBanner) {
+                existingBanner.unload();
+            }
+            else {
+                existingCarousel = $("<div id=\"@carouselId\" class=\"carousel\"><div class=\"carousel-inner\" style=\"left: 0%;\"></div></div>");
+                currentGridItem.append(existingCarousel);
+            }
+            var newBannerOptions = {
+                bannerType: parseInt(bannerOptions.bannerType),
+                width: bannerOptions.width,
+                height: bannerOptions.height,
+                timer: parseFloat(bannerOptions.cycleTimer)
+            };
+            var $inner = existingCarousel.find(".carousel-inner").empty();
+            for (var i = 0; i < bannerOptions.slides.length; i++) {
+                $inner.append("<div class=\"carousel-item\"><img src=\"" + bannerOptions.slides[i].imgUrl + "\" /></div>");
+            }
+            new apollyon.Banner(existingCarousel, newBannerOptions);
             $(".admin-carousel").closest(".modal-content").parent().bgmodal("close");
         };
         /**
@@ -157,6 +177,7 @@ var apollyon;
             }
             this._currentSlide = slide;
             this._currentSlide.show();
+            $(".admin-carousel-tray li").removeClass("current").eq(this._currentSlide.index()).addClass("current");
             $("#ContentModel_urlSectorField").val(this._bannerItems[this._currentSlide.index()].pageId);
         };
         return BannerAdmin;

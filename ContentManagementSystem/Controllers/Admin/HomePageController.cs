@@ -33,7 +33,12 @@ namespace ContentManagementSystem.Controllers
         public ViewResult HomePageEdit()
         {
             HomePageManager manager = new HomePageManager();
-            return View( manager.GetHomePageModel() );
+
+            HomePageModel model = manager.GetHomePageModel();
+
+            model.HomePageTemplateModel.PrepareForDisplay();
+
+            return View( model );
         }
 
         [HttpPost]

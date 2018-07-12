@@ -4,36 +4,63 @@
     {
         public abstract unload(): void;
         public abstract dimensionsChanged(): void;
+        public abstract intervalExpired(): void;
     }
 
     export class Banner extends PageSection
     {
         private _height: number;
         private _width: number;
+        private _timer: number;
         private _element: JQuery;
         private _bannerType: BannerType;
         private _banner: BannerBase = null;
         private _inner: JQuery;
         private _items: JQuery;
+        private _interval: number;
 
         constructor( element: JQuery, options: any )
         {
             super();
+
+            console.log( options );
 
             this._element = element;
             this._inner = element.find( ".carousel-inner" );
             this._items = element.find( ".carousel-item" );
             this.width = options.width;
             this.height = options.height;
+            this._timer = options.timer || 0;
 
             this._items.first().addClass( "pole-position" );
 
             this.bannerType = options.bannerType;
+
+            this._element.data( "ap-banner", this );
         }
 
         public init(): void
         {
-            console.log( "initialised Banner" );
+            
+        }
+
+        public unload(): void
+        {
+            clearInterval( this._interval );
+            this._banner.unload();
+        }
+
+        /**
+         * Clears the current interval and restarts it if there is more than 1 item in the carousel.
+         */
+        public resetInterval()
+        {
+            clearInterval( this._interval );
+
+            if ( this.items.length > 1 && this._timer > 0 )
+            {
+                this._interval = setInterval( $.proxy( this._banner.intervalExpired, this._banner ), this._timer * 1000 );
+            }
         }
 
         public name(): string
@@ -105,6 +132,8 @@
                     this._banner = new banners.FadeOut( this );
                     break;
             }
+
+            this.resetInterval();
         }
     }
 }

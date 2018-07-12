@@ -35,6 +35,8 @@
 
             template.attr( "data-index", this._currentCount );
 
+            this._currentCount++;
+
             return template;
         }
 

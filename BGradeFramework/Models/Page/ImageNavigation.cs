@@ -68,7 +68,7 @@ namespace ContentManagementSystem.Framework.Models.Page
                 Upload upload = uploads.First( s => s.UploadId == item.UploadId );
 
                 item.ImageUrl = upload.PhysicalLocation;
-                item.NavigationUrl = "page/" + item.PageId;
+                item.NavigationUrl = "/page/" + item.PageId;
             }
         }
 

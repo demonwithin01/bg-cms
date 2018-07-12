@@ -9,6 +9,7 @@
 
 @site-background-color: lighten(@nav-background, 5.5%);
 @site-font-color: @nav-font-color;
+@site-font-color-faded: fade(@site-font-color, 80%);
 
 @footer-background-color: @nav-background;
 
@@ -24,6 +25,14 @@ header + .page-content
 {
     height: auto;
     overflow: visible;
+
+    & > .page-header-wrapper > .page-header h1::after
+    {
+        content: '';
+        display: block;
+        background: @site-font-color;
+        height: 2px;
+    }
 }
 
 .page-header
@@ -33,7 +42,7 @@ header + .page-content
     & > h1
     {
         color: @site-font-color;
-        font-size: 1.5em;
+        font-size: 1.3em;
         line-height: 1.7em;
     }
 }
@@ -52,6 +61,11 @@ header
         &.mini
         {
             height: 64px;
+
+            & + .page-content
+            {
+                margin-top: 64px;
+            }
 
             .home-link
             {
@@ -93,14 +107,15 @@ header
         & + .page-content
         {
             background: @site-background-color;
+            margin-top: 244px;
             min-height: 100%;
 
             .transition(none);
 
-            .page-header
+            /*.page-header
             {
                 height: 244px !important;
-            }
+            }*/
         }
 
         nav
@@ -280,4 +295,18 @@ header
             display: block;
         }
     }
+}
+
+@media only screen and (min-width: 641px)
+{
+    header + .page-content > .page-header-wrapper > .page-header h1
+    {
+        padding-top: 0;
+    }
+}
+
+.page-content-wrapper .page-content .page-inner-content
+{
+    box-shadow: none;
+    margin-top: 0;
 }

@@ -288,6 +288,10 @@
     <Content Include="Content\Images\orderedList8.png" />
     <Content Include="Content\Images\orderedList9.png" />
     <Content Include="Content\Images\Plugins\mCSB_buttons.png" />
+    <Content Include="Content\Images\Social\Facebook.png" />
+    <Content Include="Content\Images\Social\Instagram.png" />
+    <Content Include="Content\Images\Social\Mail.png" />
+    <Content Include="Content\Images\Social\Twitter.png" />
     <Content Include="Content\Scripts\Apollyon\Admin\Banner.js">
       <DependentUpon>Banner.ts</DependentUpon>
     </Content>
@@ -979,6 +983,9 @@
     <Content Include="Content\Styles\_overlay-text.less" />
     <Content Include="Content\Styles\_apn-loading.less" />
     <Content Include="Content\Styles\_login.less" />
+    <Content Include="Content\Styles\_responsive-2.less" />
+    <Content Include="Content\Styles\_timeline.less" />
+    <Content Include="Content\Styles\_contact.less" />
     <None Include="Properties\PublishProfiles\Production.pubxml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1122,7 +1129,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>6157</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://dev.bgradesoftware.com:62659/</IISUrl>
+          <IISUrl>http://localhost:62659/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

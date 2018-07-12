@@ -16,4 +16,4 @@
     </div>
 </div>
 
-@Html.SectionInit( "new apollyon.Banner( $( \"#" + carouselId + "\" ), { bannerType: apollyon.BannerType." + Model.BannerType.ToString() + ", width: \"" + Model.Width + "\", height: \"" + Model.Height + "\" } )" )
+@Html.SectionInit( "new apollyon.Banner( $( \"#" + carouselId + "\" ), { bannerType: apollyon.BannerType." + Model.BannerType.ToString() + ", width: \"" + Model.Width + "\", height: \"" + Model.Height + "\", timer: " + ( Model.CycleTimer ?? 0 ) + " } )" )

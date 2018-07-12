@@ -79,6 +79,10 @@ namespace ContentManagementSystem.Framework.Models.HomePage.ContentTypes
         [Display( Name = "Banner Type" )]
         public BannerType BannerType { get; set; }
 
+        [JsonProperty( "cycleTimer" )]
+        [Display( Name = "Timer (seconds)" )]
+        public decimal? CycleTimer { get; set; }
+
         [JsonProperty( "height" )]
         public string Height { get; set; }
 

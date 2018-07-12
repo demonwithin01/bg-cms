@@ -26,7 +26,11 @@ namespace ContentManagementSystem.Admin.Models
 
         public NavigationListModel( int domainId, ContentManagementDb db )
         {
-            this.NavItems = db.DomainNavigationItems.Where( d => d.DomainId == domainId ).ToList().Select( d => new NavigationListItemModel( d ) ).ToList();
+            this.NavItems = db.DomainNavigationItems.Where( d => d.DomainId == domainId && d.ParentDomainNavigationItemId == null )
+                                                    .OrderBy( s => s.Ordinal )
+                                                    .ToList()
+                                                    .Select( d => new NavigationListItemModel( d ) )
+                                                    .ToList();
         }
 
         #endregion

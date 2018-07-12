@@ -1,0 +1,77 @@
+﻿@import (reference) "_shared/_common.less";
+
+.generate-column( @count, @size ) when ( @count > 0 )
+{
+    .col-@{size}-@{count}
+    {
+        flex: 0 0 ((100%/12)*@count);
+    }
+
+    .generate-column( @count - 1, @size );
+}
+
+.generate-def-column( @count ) when ( @count > 0 )
+{
+    .col-@{count}
+    {
+        flex: 0 0 ((100%/12)*@count);
+    }
+
+    .generate-def-column( @count - 1 );
+}
+
+.generate-columns( @size )
+{
+    .generate-column( @max-num-of-columns, @size );
+}
+
+.row
+{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 0 0 -@site-col-spacing;
+    padding: 0 @site-col-spacing 0 0;
+
+    &:last-child
+    {
+        padding-bottom: @site-col-spacing;
+    }
+
+    & > div
+    {
+        box-sizing: border-box;
+        padding: @site-col-spacing/2 0 0 @site-col-spacing;
+    }
+}
+
+.col
+{
+    flex: 1;
+}
+
+.generate-def-column( @max-num-of-columns );
+
+@media (min-width: @breakpoint-phone-landscape)
+{
+    .generate-columns( @phone-landscape );
+}
+
+@media (min-width: @breakpoint-tablet-portrait)
+{
+    .generate-columns( @tablet-portrait );
+}
+
+@media (min-width: @breakpoint-tablet-landscape)
+{
+    .generate-columns( @tablet-landscape );
+}
+
+@media (min-width: @breakpoint-desktop)
+{
+    .generate-columns( @desktop );
+}
+
+@media (min-width: @breakpoint-wide-desktop)
+{
+    .generate-columns( @wide-desktop );
+}

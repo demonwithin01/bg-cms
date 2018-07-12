@@ -1,6 +1,6 @@
 var apollyon;
 (function (apollyon) {
-    var TemplateEditor = (function () {
+    var TemplateEditor = /** @class */ (function () {
         function TemplateEditor(options) {
             this._templateSelector = options.templateSelector;
             this._currentCount = options.count;
@@ -19,6 +19,7 @@ var apollyon;
                 element.attr({ id: id.replace(idRegex, templateEditor._fieldString + "_" + templateEditor._currentCount + "__"), name: name.replace(nameRegex, templateEditor._fieldString + "[" + templateEditor._currentCount + "].") });
             });
             template.attr("data-index", this._currentCount);
+            this._currentCount++;
             return template;
         };
         TemplateEditor.prototype.updateIndicesFor = function (items) {

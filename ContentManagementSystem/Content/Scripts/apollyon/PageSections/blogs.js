@@ -10,7 +10,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var apollyon;
 (function (apollyon) {
-    var BlogPost = (function () {
+    var BlogPost = /** @class */ (function () {
         function BlogPost(element, blogs) {
             this._element = element;
             this._blogs = blogs;
@@ -35,7 +35,7 @@ var apollyon;
         };
         return BlogPost;
     }());
-    var Blogs = (function (_super) {
+    var Blogs = /** @class */ (function (_super) {
         __extends(Blogs, _super);
         function Blogs() {
             return _super !== null && _super.apply(this, arguments) || this;

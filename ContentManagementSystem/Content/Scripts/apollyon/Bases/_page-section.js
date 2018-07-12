@@ -1,6 +1,6 @@
 var apollyon;
 (function (apollyon) {
-    var PageSection = (function () {
+    var PageSection = /** @class */ (function () {
         function PageSection() {
         }
         PageSection.prototype.onResize = function (dim) {

@@ -1,26 +1,45 @@
-﻿@model ContentManagementSystem.Admin.Models.NavigationListModel
+﻿@using ApollyonWebLibrary;
+@using ContentManagementSystem.Admin.Models;
+@model NavigationListModel
 @{
     PageTitle = "Navigation Items";
+}
+
+@helper RenderSubItem( NavigationListItemModel subItem, int spaces )
+{
+    string padding = StringHelpers.Repeat( "&nbsp;", spaces );
+    <tr>
+        <td @If( spaces == 0, "style=\"font-weight: bold;\"" )>
+            @Html.Raw( padding + subItem.Title )
+        </td>
+        <td>
+            @subItem.PageTitle
+        </td>
+        <td class="text-right options-column">
+            <a href="/admin/navigation/edit/@subItem.DomainNavigationItemId">Edit</a>
+        </td>
+    </tr>
+    if ( subItem.Children != null )
+    {
+        foreach ( NavigationListItemModel child in subItem.Children )
+        {
+            @RenderSubItem( child, spaces + 4 )
+        }
+    }
 }
 
 <table>
     <thead>
         <tr>
             <th>Navigation Title</th>
+            <th>Page</th>
             <th class="text-right options-column">Options</th>
         </tr>
     </thead>
     <tbody>
         @foreach ( var navItem in Model.NavItems )
         {
-            <tr>
-                <td>
-                    @navItem.Title
-                </td>
-                <td class="text-right options-column">
-                    <a href="/admin/navigation/edit/@navItem.DomainNavigationItemId">Edit</a>
-                </td>
-            </tr>
+            @RenderSubItem( navItem, 0 )
         }
     </tbody>
     <tfoot>

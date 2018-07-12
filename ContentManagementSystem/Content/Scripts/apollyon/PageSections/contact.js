@@ -11,7 +11,7 @@ var __extends = (this && this.__extends) || (function () {
 var _site = _site || {};
 var apollyon;
 (function (apollyon) {
-    var Contact = (function (_super) {
+    var Contact = /** @class */ (function (_super) {
         __extends(Contact, _super);
         function Contact() {
             return _super !== null && _super.apply(this, arguments) || this;

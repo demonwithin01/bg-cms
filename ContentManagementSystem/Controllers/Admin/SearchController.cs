@@ -42,7 +42,7 @@ namespace ContentManagementSystem.Controllers
 
             term = ( term ?? "" ).ToLower();
 
-            var uploads = db.Uploads.Where( s => s.DomainId == UserSession.Current.DomainId && s.Title.ToLower().Contains( term ) ).Take( 10 );
+            var uploads = db.Uploads.Where( s => s.DomainId == UserSession.Current.DomainId && s.Title.ToLower().Contains( term ) ).Take( 12 );
 
             return Json( new { uploads = uploads.Select( s => new { uploadId = s.UploadId, fileLocation = s.PhysicalLocation, title = s.Title } ) } );
         }

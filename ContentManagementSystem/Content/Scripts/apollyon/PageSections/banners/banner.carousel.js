@@ -12,7 +12,7 @@ var apollyon;
 (function (apollyon) {
     var banners;
     (function (banners) {
-        var Carousel = (function (_super) {
+        var Carousel = /** @class */ (function (_super) {
             __extends(Carousel, _super);
             function Carousel(banner) {
                 var _this = _super.call(this) || this;
@@ -26,19 +26,45 @@ var apollyon;
                 _this._nextElement.on("click", $.proxy(_this.nextClicked, _this));
                 return _this;
             }
+            /**
+             * Removes the generated elements and resets the css positions.
+             */
             Carousel.prototype.unload = function () {
                 this._banner.items.each(function (index) {
-                    $(this).css("left", "");
+                    $(this).css("left", "0%");
                 });
                 this._prevElement.remove();
                 this._nextElement.remove();
             };
+            /**
+             * Handles when the screen dimensions change. At the moment this does nothing.
+             */
             Carousel.prototype.dimensionsChanged = function () {
             };
+            /**
+             * Creates the element that the user can use to go forwards or backwards with the carousel.
+             */
             Carousel.prototype.createNavElement = function (direction) {
                 return $("<div class=\"carousel-" + direction + "\"><i class=\"icon fa fa-chevron-" + direction + "\"></i></div>");
             };
+            /**
+             * Tells the carousel to scroll to the next slide and reset the interval.
+             */
             Carousel.prototype.nextClicked = function () {
+                this.goToNext();
+                this._banner.resetInterval();
+            };
+            /**
+             * Tells the carousel to scroll back to the previous slide and reset the interval.
+             */
+            Carousel.prototype.previousClicked = function () {
+                this.goToPrev();
+                this._banner.resetInterval();
+            };
+            /**
+             * Tells the carousel to scroll to the next slide.
+             */
+            Carousel.prototype.goToNext = function () {
                 var $pole = this._banner.items.filter(".pole-position");
                 var $next = $pole.next();
                 if ($next.length == 0) {
@@ -58,7 +84,10 @@ var apollyon;
                 $next.addClass("pole-position");
                 this._banner.inner.css("left", -position);
             };
-            Carousel.prototype.previousClicked = function () {
+            /**
+             * Tells the carousel to scroll back to the previous slide.
+             */
+            Carousel.prototype.goToPrev = function () {
                 var $pole = this._banner.items.filter(".pole-position");
                 var $prev = $pole.prev();
                 if ($pole.index() < this._banner.items.length) {
@@ -77,6 +106,29 @@ var apollyon;
                 $pole.removeClass("pole-position");
                 $prev.addClass("pole-position");
                 this._banner.inner.css("left", -position);
+            };
+            /**
+             * Tells the carousel to scroll back to the start.
+             */
+            Carousel.prototype.goToStart = function () {
+                var $pole = this._banner.items.filter(".pole-position");
+                var $next = this._banner.items.first();
+                if (this._banner.items.length > 1) {
+                    this._nextElement.removeClass("hidden");
+                }
+                this._prevElement.addClass("hidden");
+                $pole.removeClass("pole-position");
+                $next.addClass("pole-position");
+                this._banner.inner.css("left", 0);
+            };
+            Carousel.prototype.intervalExpired = function () {
+                var $pole = this._banner.items.filter(".pole-position");
+                var $next = $pole.next();
+                if ($next.length == 0) {
+                    this.goToStart();
+                    return;
+                }
+                this.goToNext();
             };
             return Carousel;
         }(apollyon.BannerBase));
