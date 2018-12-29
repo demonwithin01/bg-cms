@@ -61,9 +61,9 @@
   left: -1.85714286em;
 }
 .fa-border {
-  padding: .2em .25em .15em;
+  padding: 0.2em 0.25em 0.15em;
   border: solid 0.08em #eee;
-  border-radius: .1em;
+  border-radius: 0.1em;
 }
 .pull-right {
   float: right;
@@ -72,10 +72,10 @@
   float: left;
 }
 .fa.pull-left {
-  margin-right: .3em;
+  margin-right: 0.3em;
 }
 .fa.pull-right {
-  margin-left: .3em;
+  margin-left: 0.3em;
 }
 .fa-spin {
   -webkit-animation: fa-spin 2s infinite linear;
@@ -3218,7 +3218,7 @@ body {
   flex-direction: column;
   color: #333;
   display: flex;
-  font-size: .85em;
+  font-size: 0.85em;
   font-family: Verdana, Helvetica, Sans-Serif;
   margin: 0;
   height: 100%;
@@ -4225,7 +4225,7 @@ ul.timeline table .fa {
 ----------------------------------------------------------*/
 #login {
   display: block;
-  font-size: .85em;
+  font-size: 0.85em;
   margin: 0 0 10px;
   text-align: right;
 }
@@ -4964,7 +4964,7 @@ tr.pager td
   }
   /* login */
   #login {
-    font-size: .85em;
+    font-size: 0.85em;
     margin: 0 0 12px;
     text-align: center;
   }
