@@ -3687,13 +3687,13 @@ table td.options-column {
 }
 .blog-list .blog-post {
   background: #fffddb;
-  /*border-radius: 3px;
-        box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.2);*/
+  border-radius: 3px;
+  box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.2);
   color: #741919;
-  padding: 0;
+  padding: 20px;
 }
 .blog-list .blog-post .blog-header {
-  padding: 20px 20px 0;
+  padding: 0;
   position: relative;
   z-index: 2;
 }
@@ -3726,7 +3726,7 @@ table td.options-column {
 }
 .blog-list .blog-post .blog-content .blog-inner-content {
   overflow: hidden;
-  padding: 20px;
+  padding: 10px 0 0;
   position: relative;
 }
 .blog-list .blog-post .blog-content .blog-inner-content:before,
@@ -3767,9 +3767,6 @@ table td.options-column {
   color: #85a9e1;
   font-size: 0.8em;
   font-style: italic;
-  position: relative;
-  right: -10px;
-  top: -10px;
 }
 .jssocials-shares {
   color: white;

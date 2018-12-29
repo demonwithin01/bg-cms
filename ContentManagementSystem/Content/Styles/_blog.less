@@ -12,14 +12,14 @@
     .blog-post
     {
         background: @site-background-color;
-        /*border-radius: 3px;
-        box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.2);*/
+        border-radius: 3px;
+        box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.2);
         color: @site-font-color;
-        padding: 0;
+        padding: @padding-page;
 
         .blog-header
         {
-            padding: @padding-page @padding-page 0;
+            padding: 0;
             position: relative;
             z-index: 2;
 
@@ -65,7 +65,7 @@
             .blog-inner-content
             {
                 overflow: hidden;
-                padding: @padding-page;
+                padding: 10px 0 0;
                 position: relative;
 
                 &:before,
@@ -119,9 +119,6 @@
             color: @site-feature-font-color-faded;
             font-size: 0.8em;
             font-style: italic;
-            position: relative;
-            right: -10px;
-            top: -10px;
         }
     }
 }
