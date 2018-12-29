@@ -15,18 +15,18 @@
 
             this._innerContent = this._element.find( ".blog-inner-content" );
 
-            this._canvas = document.createElement( "canvas" );
-            this._innerContent.prepend( this._canvas );
+            //this._canvas = document.createElement( "canvas" );
+            //this._innerContent.prepend( this._canvas );
 
-            this._canvas.style.position = "absolute";
-            this._canvas.style.left = "0px";
-            this._canvas.style.top = "0px";
-            this._canvas.style.zIndex = "0";
-            this._canvas.style.pointerEvents = "none";
+            //this._canvas.style.position = "absolute";
+            //this._canvas.style.left = "0px";
+            //this._canvas.style.top = "0px";
+            //this._canvas.style.zIndex = "0";
+            //this._canvas.style.pointerEvents = "none";
 
-            this._context = this._canvas.getContext( "2d" );
+            //this._context = this._canvas.getContext( "2d" );
 
-            this.draw();
+            //this.draw();
         }
 
         public draw(): void

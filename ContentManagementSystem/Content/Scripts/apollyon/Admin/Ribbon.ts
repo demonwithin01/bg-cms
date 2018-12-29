@@ -242,7 +242,7 @@
                 var $contentWrapper = $( "<div class\"open-editable-content\"></div>" );
                 var $content = $( "<div class\"ribbon-editable-content\"></div>" );
                 var $input = $( "#ribbon-column-input-template" ).clone();
-
+                
                 $contentWrapper.append( $content );
                 
                 if ( i < html.length )
@@ -252,6 +252,31 @@
                 }
 
                 $div.append( $contentWrapper ).append( $input.children() );
+
+                $div.find( "input, textarea, select" ).each( function ()
+                {
+                    var $this = $( this );
+                    var name = $this.attr( "name" );
+                    var id = $this.attr( "id" );
+
+                    if ( name )
+                    {
+                        $this.attr( "name", name.replace( /\[+[a-z]+\]/g, "[" + index + "]" ).replace( /\[COLTEMP\]/g, "[" + i + "]" ) );
+                    }
+
+                    if ( id )
+                    {
+                        $this.attr( "id", id.replace( /_+[a-z]+_/g, "_" + index + "_" ).replace( /_COLTEMP_/g, "_" + i + "_" ) );
+                    }
+
+                    $this.removeAttr( "disabled" );
+                } );
+
+                $div.find( "label" ).each( function ()
+                {
+                    var $this = $( this );
+                    $this.attr( "for", $this.attr( "for" ).replace( /_+[a-z]+_/g, "_" + index + "_" ).replace( /_COLTEMP_/g, "_" + i + "_" ) );
+                } );
 
                 $grid.append( $div );
 

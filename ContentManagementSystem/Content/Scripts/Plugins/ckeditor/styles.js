@@ -31,6 +31,11 @@ CKEDITOR.stylesSet.add( 'default', [
     { name: 'Address',			element: 'address' },
     */
 
+    { name: 'Main Title', element: 'h1', attributes: { 'class': 'main-title' } },
+    { name: 'Emphasis', element: 'p', attributes: { 'class': 'am-emp' } },
+    { name: 'Fancy Image', element: 'img', attributes: { 'class': 'fancy-img' } },
+    { name: 'Fancy Image Left', element: 'div', attributes: { 'class': 'fancy-img-left' } },
+    { name: 'Fancy Image Right', element: 'div', attributes: { 'class': 'fancy-img-right' } },
     { name: 'Italic Title',		element: 'h2', styles: { 'font-style': 'italic' } },
     { name: 'Subtitle',			element: 'h3', styles: { 'color': '#aaa', 'font-style': 'italic' } },
     {

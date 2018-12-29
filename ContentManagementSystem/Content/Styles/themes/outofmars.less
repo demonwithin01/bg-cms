@@ -2,11 +2,83 @@
 
 @nav-background: @site-feature-background-color;
 @nav-background-flat: @site-feature-color;
-@nav-font-color: @site-background-color;
+@nav-font-color: #eee;
 @nav-text-shadow: 1px 1px black;
+@site-background-color: rgb(206, 232, 251);
 
 .ribbon-item .floating
 {
     border-radius: 3px;
     box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.2), inset 0px 0px 10px 6px rgba(255, 255, 255, 0.25);
 }
+
+.am-emp,
+.main-title
+{
+    text-shadow: 2px 2px 4px #333;
+}
+
+.main-title
+{
+    font-size: 5.5em;
+    margin-bottom: 3%;
+}
+
+.am-emp
+{
+    display: inline-block;
+    font-size: 1.4em;
+}
+
+.fancy-img
+{
+    border: 5px solid white;
+    border-radius: 50%;
+    max-width: 100%;
+}
+
+.fancy-img-left,
+.fancy-img-right
+{
+    position: relative;
+
+    .fancy-img
+    {
+        max-width: 140%;
+        position: absolute;
+        top: 0;
+    }
+}
+
+.fancy-img-left
+{
+    .fancy-img
+    {
+        right: 25px;
+    }
+}
+
+.fancy-img-right
+{
+    .fancy-img
+    {
+        left: 25px;
+    }
+}
+
+body
+{
+    background: @site-background-color;
+}
+
+.divider
+{
+    background: @site-feature-color;
+    height: 2px;
+}
+
+.ribbon-item
+{
+    min-height: 0;
+}
+

@@ -15,15 +15,15 @@ var apollyon;
             this._element = element;
             this._blogs = blogs;
             this._innerContent = this._element.find(".blog-inner-content");
-            this._canvas = document.createElement("canvas");
-            this._innerContent.prepend(this._canvas);
-            this._canvas.style.position = "absolute";
-            this._canvas.style.left = "0px";
-            this._canvas.style.top = "0px";
-            this._canvas.style.zIndex = "0";
-            this._canvas.style.pointerEvents = "none";
-            this._context = this._canvas.getContext("2d");
-            this.draw();
+            //this._canvas = document.createElement( "canvas" );
+            //this._innerContent.prepend( this._canvas );
+            //this._canvas.style.position = "absolute";
+            //this._canvas.style.left = "0px";
+            //this._canvas.style.top = "0px";
+            //this._canvas.style.zIndex = "0";
+            //this._canvas.style.pointerEvents = "none";
+            //this._context = this._canvas.getContext( "2d" );
+            //this.draw();
         }
         BlogPost.prototype.draw = function () {
             var x = 0, y = 0, w = this._innerContent.outerWidth(), h = this._innerContent.outerHeight();
