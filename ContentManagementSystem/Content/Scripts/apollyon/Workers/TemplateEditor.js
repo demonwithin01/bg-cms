@@ -1,6 +1,6 @@
 var apollyon;
 (function (apollyon) {
-    var TemplateEditor = /** @class */ (function () {
+    var TemplateEditor = (function () {
         function TemplateEditor(options) {
             this._templateSelector = options.templateSelector;
             this._currentCount = options.count;

@@ -10,13 +10,13 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var apollyon;
 (function (apollyon) {
-    var BannerBase = /** @class */ (function () {
+    var BannerBase = (function () {
         function BannerBase() {
         }
         return BannerBase;
     }());
     apollyon.BannerBase = BannerBase;
-    var Banner = /** @class */ (function (_super) {
+    var Banner = (function (_super) {
         __extends(Banner, _super);
         function Banner(element, options) {
             var _this = _super.call(this) || this;

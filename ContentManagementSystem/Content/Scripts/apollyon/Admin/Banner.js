@@ -1,11 +1,11 @@
 var apollyon;
 (function (apollyon) {
-    var BannerItem = /** @class */ (function () {
+    var BannerItem = (function () {
         function BannerItem() {
         }
         return BannerItem;
     }());
-    var BannerAdmin = /** @class */ (function () {
+    var BannerAdmin = (function () {
         function BannerAdmin(initialItems) {
             var that = this;
             this._bannerItems = [];

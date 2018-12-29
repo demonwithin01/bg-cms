@@ -1,6 +1,6 @@
 var apollyon;
 (function (apollyon) {
-    var UploadSelector = /** @class */ (function () {
+    var UploadSelector = (function () {
         function UploadSelector(options) {
             this._isLoaded = false;
             options = options || {};

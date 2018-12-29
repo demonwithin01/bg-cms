@@ -1,6 +1,6 @@
 var apollyon;
 (function (apollyon) {
-    var RibbonAdmin = /** @class */ (function () {
+    var RibbonAdmin = (function () {
         function RibbonAdmin(options) {
             this._ribbonCount = options.ribbonCount;
             var that = this;

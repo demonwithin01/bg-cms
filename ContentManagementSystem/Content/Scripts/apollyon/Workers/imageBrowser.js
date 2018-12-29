@@ -1,6 +1,6 @@
 var apollyon;
 (function (apollyon) {
-    var ImageBrowser = /** @class */ (function () {
+    var ImageBrowser = (function () {
         function ImageBrowser() {
         }
         /**

@@ -12,7 +12,7 @@ var apollyon;
 (function (apollyon) {
     var banners;
     (function (banners) {
-        var Carousel = /** @class */ (function (_super) {
+        var Carousel = (function (_super) {
             __extends(Carousel, _super);
             function Carousel(banner) {
                 var _this = _super.call(this) || this;

@@ -1,6 +1,6 @@
 var outofmars;
 (function (outofmars) {
-    var Light = /** @class */ (function () {
+    var Light = (function () {
         function Light(background, x, y, size, life, drawInterval) {
             this._background = background;
             this._x = x;
@@ -69,7 +69,7 @@ var outofmars;
         return Light;
     }());
     var PageBackground //extends site.plugin
-     = /** @class */ (function () {
+     = (function () {
         function PageBackground() {
             //super();
             this._timeBetweenRenders = 100;

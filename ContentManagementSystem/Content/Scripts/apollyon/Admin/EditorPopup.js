@@ -1,6 +1,6 @@
 var apollyon;
 (function (apollyon) {
-    var EditorPopup = /** @class */ (function () {
+    var EditorPopup = (function () {
         function EditorPopup(elementId) {
             CKEDITOR.replace(elementId);
             this._ckEditor = CKEDITOR.instances[elementId];

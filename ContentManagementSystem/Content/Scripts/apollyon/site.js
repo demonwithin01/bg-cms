@@ -1,7 +1,7 @@
 // // <reference path="./jquery.extensions.js" />
 var apollyon;
 (function (apollyon) {
-    var Site = /** @class */ (function () {
+    var Site = (function () {
         function Site() {
             this._plugins = {};
             this._isInitialised = false;
@@ -80,7 +80,7 @@ var apollyon;
                 case apollyon.notificationType.error:
                     type = "error";
                     break;
-                default: // warning
+                default:
                     type = "warning";
                     break;
             }

@@ -12,7 +12,7 @@ var apollyon;
 (function (apollyon) {
     var banners;
     (function (banners) {
-        var FadeOut = /** @class */ (function (_super) {
+        var FadeOut = (function (_super) {
             __extends(FadeOut, _super);
             function FadeOut(banner) {
                 var _this = _super.call(this) || this;
