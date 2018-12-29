@@ -2616,6 +2616,9 @@ header.always-open + .page-content > .page-header-wrapper > .page-header {
   border-bottom-color: transparent;
   left: 0;
 }
+header.always-open + .page-content > .page-header-wrapper > .page-header h1 {
+  padding-left: 10px;
+}
 header.always-open .login-button,
 header.always-open .logged-in-button {
   color: inherit;
@@ -3339,9 +3342,6 @@ ul {
   top: 0;
   width: 100%;
   z-index: -1;
-}
-.page-content-wrapper .page-content {
-  width: 545px;
 }
 .page-header > h1 {
   background: #eee;

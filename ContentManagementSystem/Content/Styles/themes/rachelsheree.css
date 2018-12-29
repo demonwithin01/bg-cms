@@ -2616,6 +2616,9 @@ header.always-open + .page-content > .page-header-wrapper > .page-header {
   border-bottom-color: transparent;
   left: 0;
 }
+header.always-open + .page-content > .page-header-wrapper > .page-header h1 {
+  padding-left: 10px;
+}
 header.always-open .login-button,
 header.always-open .logged-in-button {
   color: inherit;
@@ -3339,9 +3342,6 @@ ul {
   top: 0;
   width: 100%;
   z-index: -1;
-}
-.page-content-wrapper .page-content {
-  width: 545px;
 }
 .page-header > h1 {
   background: #fffddb;
@@ -5227,6 +5227,9 @@ header .nav-content {
 #social {
   text-align: center;
 }
+#body {
+  padding: 0 0 90px;
+}
 @media only screen and (max-width: 960px) {
   header.always-open.mini {
     height: 40px;
@@ -5264,6 +5267,11 @@ header .nav-content {
 @media only screen and (min-width: 641px) {
   header + .page-content > .page-header-wrapper > .page-header h1 {
     padding-top: 0;
+  }
+}
+@media only screen and (max-width: 960px) {
+  #body {
+    padding: 0 0 90px;
   }
 }
 .page-content-wrapper .page-content .page-inner-content {
